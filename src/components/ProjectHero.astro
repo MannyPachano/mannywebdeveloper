@@ -1,0 +1,91 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+	buttontext?: string;
+    link?: string;
+    nodisplay?: boolean;
+}
+
+const { title, description, buttontext, link, nodisplay = false} = Astro.props;
+---
+
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>{title}</h1>
+        <h4>{description}</h4>
+        <a href=`${link}` target="_blank" class={`${nodisplay && 'nodisplay'}`}>
+            <button>{buttontext}</button>
+        </a>
+    </div>
+    
+    <div class="mouse-section">
+        <div class="mouse"></div>
+    </div>
+</div>
+
+<style>
+
+    .hero-section {
+        height: calc(100vh - 5rem);
+        min-height: 36.5rem;
+        background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+        position: relative;
+    }
+
+    .hero-content {
+        text-align: center;
+        width: 92%;
+        max-width: 45rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);  
+        z-index: 1;
+    }
+
+    .mouse-section {
+        position: absolute;
+        bottom: 3%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .mouse {
+        width: 25px;
+        height: 40px;
+        border: 2px solid #333;
+        border-radius: 60px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mouse::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        top: 7px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        border-radius: 50%;
+        opacity: 1;
+        animation: scroll 1.3s infinite;
+    }
+
+    @keyframes scroll {
+        100% {
+            opacity: 0%;
+            top: 27px;
+        }
+    }
+
+    .hero-section, .about-section, .projects-section, .contact-section, footer, .project-summary-section {
+        min-width: 320px;
+    }
+
+    .nodisplay {
+        display: none;
+    }
+</style>

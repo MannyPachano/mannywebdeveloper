@@ -1,0 +1,168 @@
+<div class="projects-section" id="project-section">
+    <div class="projects-container"> 
+        <div class="title-div">
+            <h2 class="title-after">PROJECTS</h2>
+            <p>Welcome to my projects portfolio, where you can see what I've been up to lately. Check out the sites below and if you feel like we're a good fit for your next project, scroll down to the contact section and send me an email. I reply quickly, promise!</p>
+        </div>
+
+        <div class="projects-list">
+
+            <div class="project-item">
+                <div class="home-placeholder-img project-media-item" style="background-image: url(/images/explainer-visuals-thumbnail.svg);">
+                    <video playsinline autoplay muted loop src="videos/explainer-visuals-thumbnail.mp4"></video>
+                </div>
+                <div class="project-item-content">
+                    <h3>Explainer Visuals</h3>
+                    <p>This video production company needed a website that could house their portfolio of videos. They wanted something  <strong>fresh and engaging, </strong>but most importantly,<strong> it needed to be ultra fast</strong> so that their on-page videos would load quickly and all at once.</p>
+                    <a href="/web-developer-project-explainer-visuals"><button class="button-small">CASE STUDY</button></a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="home-placeholder-img project-media-item" style="background-image: url(/images/loopmanager-thumbnail.svg);">
+                    <video playsinline autoplay muted loop src="videos/loopmanager-thumbnail.mp4"></video>
+                </div>
+                <div class="project-item-content">
+                    <h3>LoopManager</h3>
+                    <p>This tech company needed to redesign the website for their software application, 'LoopManager'. They wanted something <strong>modern, fresh, and on-brand</strong> with their animated explainer videos.</p>
+                    <a href="/web-developer-project-loopmanager"><button class="button-small">CASE STUDY</button></a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="home-placeholder-img project-media-item" style="background-image: url(/images/panda-thumbnail.svg);">
+                    <video playsinline autoplay muted loop src="videos/panda-playhouse-thumbnail.mp4"></video>
+                </div>
+                
+                <div class="project-item-content">
+                    <h3>Panda's Playhouse</h3>
+                    <p>Online casino company, Panda's Playhouse, was ready to upgrade from a Facebook-based platform to their own website where customers could go to play their online games. The site needed to be <strong>fast, mobile-friendly, and intuitive</strong> enough for non-tech-savvy internet users to navigate.</p>
+                    <a href="/web-developer-project-panda"><button class="button-small">CASE STUDY</button></a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="home-placeholder-img project-media-item" style="background-image: url(/images/mma-thumbnail.svg);">
+                    <video playsinline autoplay muted loop src="videos/mma-thumbnail.mp4"></video>
+                </div>
+                
+                <div class="project-item-content">
+                    <h3>Bonus: MMA Class Tracking Web App</h3>
+                    <p>This was a fun one. My friends and I needed a way to motivate ourselves to show up to martial arts classes - <strong>Why not gamify our experience</strong> through a fun app?</p>
+                    <a href="/web-developer-project-3"><button class="button-small">CASE STUDY</button></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    /* PROJECTS SECTION */
+    .projects-section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .projects-container {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 1rem 1rem;
+        grid-row-gap: 4rem;
+        max-width: 78rem;
+    }
+
+    .projects-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-item {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 2rem;
+        padding-bottom: 5rem;
+    }
+
+    .project-item video {
+        width: calc(100vw - 3rem);
+        justify-self: center;
+    }
+    .project-item img {
+        width: calc(100vw - 3rem);
+        justify-self: center;
+    }
+
+    .project-item-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .home-placeholder-img {
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation: pulse 2.3s infinite;
+        background-position: center;
+    }
+    
+    @keyframes pulse {
+        0% {
+        opacity: 0.2;
+        }
+        50% {
+        opacity: 1;
+        }
+        100% {
+        opacity: 0.2;
+        }
+    }
+
+
+    .home-placeholder-img img {
+        opacity: 0;
+        transition: opacity 250ms ease-in-out;
+    }
+
+    .home-placeholder-img video {
+        opacity: 0;
+        transition: opacity 250ms ease-in-out;
+    }
+
+    .home-placeholder-img.loaded {
+        animation: none;
+        background-image: none !important;
+    }
+    
+    .home-placeholder-img.loaded img {
+        opacity: 1;
+    }
+
+    .home-placeholder-img.loaded video {
+        opacity: 1;
+    }
+
+    @media only screen and (min-width: 901px) {
+
+        .project-item {
+            grid-template-columns: 1.5fr 1fr;
+            grid-column-gap: 3rem;
+        }
+
+        .project-item video {
+            width: 100%;
+            align-self: center;
+        }
+        .project-item img {
+            width: 100%;
+            align-self: center;
+        }
+
+        .project-item-content {
+            align-items: start;
+            text-align: left;
+            align-self: center;
+        }
+    }
+</style>

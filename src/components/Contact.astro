@@ -1,0 +1,209 @@
+<div class="contact-section" id="contact-section">
+    <div class="title-div">
+        <h2 class="title-after">GET IN TOUCH</h2>
+        <p>Need help on your next project? <strong>I'm available</strong>. Leave me a message using the form below and I'll get back to you right away.</p>
+    </div>
+
+    <div>
+        <form method="post" id="contact-form" class="form-container">
+            <div class="form-item">
+                <label for="name">First name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-item form-email">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-item">
+                <span>Which Services Do You Need? <span style="font-weight: 400; font-size: .8rem; color: #999999;">(select all that apply)</span></span>
+                
+                    <label class="checkbox-container" for="revamp">Revamp my current website
+                        <input type="checkbox" id="revamp" name="revamp" value="Revamp my current website">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="design">Create a new website
+                        <input type="checkbox" id="design" name="design" value="New website design">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="seo">Search engine optimization
+                        <input type="checkbox" id="seo" name="seo" value="Search engine optimization">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="other">Other
+                        <input type="checkbox" id="other" name="other" value="Other">
+                        <span class="checkmark"></span>
+                    </label>
+                
+            </div>
+            <div class="form-item form-message">
+                <label for="message">Tell Me More</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="button-small">SEND
+            </button>
+            
+        </form>
+        
+    </div>
+
+</div>
+
+
+<style>
+    /* CONTACT SECTION */
+
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 1rem 4rem;
+        grid-row-gap: 4rem;
+        background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(../images/common-bg.svg);
+    }
+
+    .form-container {
+        display: grid; 
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        background-color: var(--white);
+        padding: 1.5rem 1.5rem 2rem;
+        border-radius: 8px;
+        max-width: 46rem;
+        margin: 0 auto;
+        box-shadow: 0 0 16px 2px #99999933;
+    }
+
+    .form-item {
+        display: flex; 
+        flex-direction: column;
+        gap: 1rem;
+        color: var(--text-paragraph);
+        letter-spacing: .8px;
+        line-height: 1.8;
+        font-weight: 700;
+        font-size: .9375rem;
+    }
+
+    .form-item input {
+        height: 56px;
+        border-radius: 8px;
+        border: none;
+        padding: .75rem 1.4rem;
+        font-size: 1rem;
+        letter-spacing: .8px;
+        line-height: 1.8;
+        color: var(--text-subheader);
+        background-color: var(--contact-input-background);
+    }
+
+    .form-item input:focus {
+        border: solid var(--yellow) 2px;
+        outline: none;
+    }
+
+    .form-item textarea {
+        height: 10rem;
+        border-radius: 4px;
+        border: none;
+        font-size: 1rem;
+        font-family: "Source Sans 3", sans-serif;    
+        letter-spacing: .8px;
+        line-height: 1.8;
+        padding: 1rem 1.4rem;
+        color: var(--text-subheader);
+        background-color: var(--contact-input-background);
+    }
+
+    .form-item textarea:focus {
+        border: solid var(--yellow) 2px;
+        outline: none;
+    }
+
+    .form-message {
+        margin-top: 1rem;
+    }
+
+    .checkbox-container {
+        display: block;
+        position: relative;
+        padding-left: 36px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 4px;
+    }
+
+    .checkbox-container:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    .checkbox-container input:checked ~ .checkmark {
+        background-color: var(--yellow);
+    }
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    .checkbox-container input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    .checkbox-container .checkmark:after {
+        left: 10px;
+        top: 7px;
+        width: 5px;
+        height: 10px;
+        border: solid var(--black);
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+</style>
+<script>
+    // CONTACT FORM
+
+    const constraints = {
+        name: {
+            presence: { allowEmpty: false }
+        },
+        email: {
+            presence: { allowEmpty: false },
+            email: true
+        },
+    };
+
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+
+    if(form){
+        form.addEventListener('submit', function (event) {
+            const formValues = {
+                name: (form.elements.namedItem('name') as HTMLInputElement)?.value,
+                email: (form.elements.namedItem('email') as HTMLInputElement)?.value,
+            };
+            
+    }, false);
+    }
+</script>

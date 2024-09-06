@@ -1,0 +1,103 @@
+<footer>
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-social">
+                <h3 class="h3-footer">SOCIAL</h3>
+                <ul class="social-icons social-grid">
+                    <li><a href="https://www.linkedin.com/in/manny-pachano" target=”_blank”><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/MannyPachano" target=”_blank”><i class="fa fa-github"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-about">
+                <h3 class="h3-footer">MANNY PACHANO</h3>
+                <p style="color: white;">A Developer by Trade, a Designer at Heart, I bring the best of both worlds to get you noticed by your ideal audience.</p>
+            </div>
+        </div>
+        <hr>
+        <p class="p-footer">© Copyright 2024. Made by <strong>Manny Pachano</strong></p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        padding: 1rem 1rem 2rem;
+        background-color: var(--black);
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 78rem;
+    }
+
+
+    .h3-footer {
+        margin: 2rem 0 .75rem;
+        color: var(--white);
+    }
+
+    .social-icons li {
+    display: inline-block;
+    margin: 0.15em;
+    position: relative;
+    font-size: 1.4em;
+    }
+
+    .social-icons i {
+    color: var(--text-header);
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    transition: all 265ms ease-out;
+
+    }
+
+    .social-icons a {
+    display: inline-block;
+    }
+
+    .social-icons a:before {
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    content: " ";
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    display: block;
+    background: var(--yellow);
+    transition: all 265ms ease-out;
+    }
+
+    .social-icons a:hover:before {
+    transform: scale(0);
+    transition: all 265ms ease-in;
+    }
+
+    .social-icons a:hover i {
+    transform: scale(2.2);
+    -ms-transform: scale(2.2);
+    -webkit-transform: scale(2.2);
+    color: var(--black);
+    background: var(--yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 265ms ease-in;
+    }
+
+    hr {
+        margin: 3rem 0 2rem;
+        border-color: #ffffff33;
+    }
+
+    .p-footer {
+        font-size: .8rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        color: var(--white);
+    }
+</style>

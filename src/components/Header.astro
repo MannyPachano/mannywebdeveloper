@@ -1,0 +1,312 @@
+---
+const Manface = '/images/man-face.png'
+---
+<div class="navigation-container">
+    <navigation id="navigation">
+        <div class="navigation-content">
+            <a href="/" class="logo">
+                <img src={Manface}>
+                <span class="logo-text">MANNY PACHANO</span>
+            </a>
+            <ul class="show-601">
+                <a href="/"><li>Home</li></a>
+                <a href="/#about-section"><li>About</li></a>
+                <a href="/#project-section"><li>Projects</li></a>
+                <a href="/#contact-section"><li>Contact</li></a>
+            </ul>	
+            
+            
+            <!-- MOBILE BURGER BARS -->
+            <div class="burger-menu hide-601" id="burger-container">
+                <div class="burger-container">
+                    <div id="burger">
+                        <div class="bar topBar"></div>
+                        <div class="bar btmBar"></div>
+                    </div>	
+                </div>
+            
+                <!-- MOBILE DROPDOWN MENU -->
+                <div class="mobile-menu" id="mobile-menu">
+                    <ul style="display: flex !important; flex-direction:column;">
+                        <a href="/"><li class="mobile-menu-item">Home</li></a>
+                        <a href="/#about-section"><li class="mobile-menu-item">About</li></a>
+                        <a href="/#project-section"><li class="mobile-menu-item">Projects</li></a>
+                        <a href="/#contact-section"><li class="mobile-menu-item">Contact</li></a>
+                    </ul>	
+                </div>
+            </div>	
+            
+        </div>
+    </navigation>
+</div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+
+<style>
+    /* NAVIGATION BAR */
+
+    .navigation-container {
+        margin: 5rem 1rem;
+    }
+
+    navigation {
+        padding: 1rem 1rem 1rem;
+        position: fixed;
+        top: 0rem;
+        right: 0;
+        left: 0;
+        z-index: 2;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        transition: all .35s ease-in-out;
+    }
+
+    .navigation-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 1rem;
+    }
+
+    navigation img {
+        width: 150px;
+    }
+
+    .navigation-content ul {
+        display: none;
+        gap: 4vw;
+        list-style: none;
+        margin-top: 8px;
+    }
+
+    navigation a {
+        color: var(--text-paragraph);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: .9rem;
+        letter-spacing: .8px;
+        line-height: 1.8;
+    }
+
+    .logo {
+        transition: all ease-in-out .1s;
+    }
+
+    .logo:hover {
+        transform: translateY(-4px);
+    }
+
+    navigation li {
+        transition: all ease-in-out .1s;
+    }
+
+    navigation li:hover {
+        border-bottom: solid 2px var(--yellow);
+        transform: translateY(-4px);
+    }
+
+    .logo-text {
+        font-weight: 700;
+        color: var(--text-paragraph);
+        letter-spacing: 1.5px;
+        font-size: 18px;
+    }
+
+
+    /* MOBILE BURGER BARS */
+    .burger-menu {
+        background-color: var(--black);
+        border-radius: 40px;
+        width: 2.75rem;
+        height: 2.75rem;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all .35s ease-in-out;
+    }
+
+    .burger-container {
+        position: relative;
+        float: right;
+        display: inline-block;
+        height: 44px;
+        width: 44px;
+        cursor: pointer;
+        transform: rotate(0deg);
+        transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .burger-container #burger {
+        width: 18px;
+        height: 8px;
+        position: relative;
+        display: block;
+        margin: -4px auto 0;
+        top: 50%;
+    }
+
+    .burger-container #burger .bar {
+        width: 100%;
+        height: 2px;
+        display: block;
+        position: relative;
+        background: #FFF;
+        transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+        transition-delay: 0s;
+    }
+
+    .burger-container #burger .bar.topBar {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    .burger-container #burger .bar.btmBar {
+        transform: translateY(6px) rotate(0deg);
+    }
+
+    .menu-open .burger-container {
+        transform: rotate(90deg);
+    }
+
+    .menu-open .burger-container #burger .bar {
+        transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+        transition-delay: 0.2s;
+    }
+
+    .menu-open .burger-container #burger .bar.topBar {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .menu-open .burger-container #burger .bar.btmBar {
+        transform: translateY(3px) rotate(-45deg);
+    }
+
+    /* MOBILE DROPDOWN MENU */
+    .menu-open .burger-menu {
+        width: 86vw;
+        height: 500px;
+        background-color: #000000;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border-radius: 8px;
+        overflow: scroll;
+        z-index: 2;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        grid-column-gap: .75rem;
+        min-width: fit-content;
+        align-self: start;
+        padding-top: 8px;
+        transition: all .2s ease-in-out;
+    }
+
+    .menu-open .logo {
+        margin-left: -13.6rem;
+        margin-right: 2rem;
+    }
+
+    .logo img {
+        width: 24px;
+    }
+
+    .mobile-menu {
+        text-align: center;
+        padding: 0 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .mobile-menu ul {
+        list-style: none;
+    }
+
+    .mobile-menu-item {
+        border-bottom: 1px solid #FEF9F64D;
+        padding: 1.5rem;
+        font-size: 20px;
+        color: var(--white);
+    }
+
+    @media only screen and (min-width: 601px) and (min-height: 400px) {
+        .mobile-menu-item {
+            font-size: 24px;
+        }
+
+    }
+
+    @media only screen and (min-width: 401px) {
+        .mobile-menu {
+            padding: 0 3rem;
+        }
+    }
+</style>
+
+<script>
+    // MOBILE DROPDOWN MENU 
+
+    const navigation = document.getElementById('navigation');
+    const burgerContainer = document.getElementById('burger-container');
+
+    burgerContainer.addEventListener('click', function(){
+        navigation.classList.toggle('menu-open');
+    })
+
+    window.addEventListener("resize", function(){
+        if (window.matchMedia("(min-width: 900px)")) {
+            navigation.classList.remove('menu-open');
+    }
+    })
+
+
+    // MOUSE EFFECT
+    const coords = { x:0, y:0};
+    const circles = document.querySelectorAll(".circle") as NodeListOf<HTMLElement>;
+
+    circles.forEach(function(circle) {
+        (circle as any).x = 0;
+        (circle as any).y = 0;
+    })
+
+    window.addEventListener("mousemove", function(e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+    })
+
+    function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function(circle, index) {
+            circle.style.left = `${x - 12}px`;
+        circle.style.top = `${y - 12}px`;
+
+        const scaleValue = (circles.length - index) / circles.length;
+        circle.style.transform = `scale(${scaleValue})`;
+
+        (circle as any).x = x;
+        (circle as any).y = y;
+
+        const nextCircle = circles[index + 1] || circles[0];
+        x += ((nextCircle as any).x - x) * 0.3;
+        y += ((nextCircle as any).y - y) * 0.3;
+        })
+        requestAnimationFrame(animateCircles);
+    }
+
+    animateCircles();
+</script>

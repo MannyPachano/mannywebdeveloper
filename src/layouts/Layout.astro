@@ -1,0 +1,255 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+// import Logo from '../images/logo.png';
+const Favicon = '/man-face.png';
+
+export interface Props {
+	title?: string;
+	description?: string;
+	canonical?: string;
+}
+
+const { title = 'Manny Pachano | Frontend Web Developer', description = 'Front-end web developer experienced in creating fast, responsive, and beautiful Astro.js websites from scratch', canonical = ''} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <title>{title}</title>
+	<meta name="description" content={description}>
+	<meta name="author" content="Manny Pachano">
+    <link rel="canonical" href=`https://www.mannywebdev.netlify.app/${canonical}`>
+    <!-- todo: insert this -->
+	<link rel="icon" href={Favicon} type="image/x-icon">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content=`https://www.mannywebdev.netlify.app/${canonical}`>
+    <meta property="og:type" content="website">
+	<!-- todo: find img for this -->
+    <meta property="og:image" content="https://www.mannywebdev.netlify.app/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+	<!-- todo: find img for this -->
+    <meta name="twitter:image" content="https://www.mannywebdev.netlify.app/images/twitter-image.jpg">
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+ </body>
+</html>
+
+
+<script src="//code.tidio.co/htto1uiocpy92atva55rhy1v5hr6f6vg.js" async></script>
+<script>
+  // MEDIA LAZY LOAD FUNCTION
+  const placeholderImageDiv = document.querySelectorAll(".placeholder-img");
+  const placeholderImageDivHome = document.querySelectorAll(".home-placeholder-img");
+  const imgTags = document.getElementsByTagName("IMG");
+  const imgArray = Array.from(imgTags) as HTMLImageElement[];
+  const videoTags = document.getElementsByTagName('VIDEO');
+  const videoArray = Array.from(videoTags) as HTMLVideoElement[];
+
+  placeholderImageDiv.forEach(function(div){
+
+      imgArray.forEach(function(img){
+          if(div.contains(img)){
+              
+              if (img.complete) {
+                  div.classList.add("loaded");
+                } else {
+                  img.addEventListener("load", function(){
+                      div.classList.add("loaded")
+                  });
+                }
+
+          }
+      })
+
+      videoArray.forEach(function(video){
+          if(div.contains(video)){
+              if (video.readyState === 4){
+                  div.classList.add("loaded");
+              } else {
+                  video.addEventListener("loadeddata", function(){
+                      div.classList.add("loaded")
+                  });
+              }
+          }
+      })
+  })
+
+  placeholderImageDivHome.forEach(function(div){
+
+      videoArray.forEach(function(video){
+          if(div.contains(video)){
+              if (video.readyState === 4){
+                  div.classList.add("loaded");
+              } else {
+                  video.addEventListener("loadeddata", function(){
+                      div.classList.add("loaded")
+                  });
+              }
+          }
+      })
+  })
+
+
+  // AUTOPLAY VIDEOS
+  function loadVideos(){
+      if(videoArray){
+          videoArray.forEach(function (video){
+              video.play();
+          })
+      }
+  }
+  loadVideos();
+
+
+  // SCALE ANIMATION INTERSECTION OBSERVER  
+
+  function callback(entries: IntersectionObserverEntry[]) {
+      entries.forEach(entry => {
+
+          const skillsTags = entry.target.querySelectorAll('li');
+          const skillsArray = Array.from(skillsTags) as HTMLElement[];
+          console.log(skillsArray);
+
+          skillsArray.forEach(function(skillItem) {
+              console.log(skillItem)
+              if (entry.isIntersecting) {
+                  skillItem.classList.add('scale-animation');
+                  return; 
+              }
+
+              skillItem.classList.remove('scale-animation');
+          })
+      });
+  }
+
+  var options = {
+      threshold: [1],
+      rootMargin: "-80px"
+  }
+
+  const observer = new IntersectionObserver(callback, options);
+    
+    observer.observe(document.querySelector('.skills-list') as Element);
+
+
+
+
+
+    // PROJECT VIDEO NAVIGATION BUTTONS
+
+  const prevBtn = document.getElementById('video-nav-prev');
+  const nextBtn = document.getElementById('video-nav-next');
+  const projectMedia = document.querySelectorAll('.project-media-item') as NodeListOf<HTMLElement>;
+  const videoTitles = document.querySelectorAll('p.video-title') as NodeListOf<HTMLElement>;
+
+  function translateTitleDown(){
+      videoTitles.forEach( function(title){
+          if(title.style.transform === "translateY(-150%)"){
+                  
+              title.style.transform = "translateY(0%)";
+              
+          } else if(title.style.transform !== "translateY(0%)"){
+
+              title.style.transform = "translateY(-150%)";
+
+          } 
+      })
+  }
+
+  function translateTitleUp(){
+      videoTitles.forEach( function(title){
+          if(title.style.transform === "translateY(-150%)"){
+                  
+              title.style.transform = "translateY(-300%)";
+              
+          } else if(title.style.transform !== "translateY(-300%)"){
+
+              title.style.transform = "translateY(-150%)";
+
+          } 
+      })
+  }
+
+  if(prevBtn){
+      if(!prevBtn.classList.contains('nav-disabled')){
+          prevBtn.classList.add('nav-disabled');
+      }
+
+      prevBtn.addEventListener('click', function(){
+          
+          translateTitleDown();
+
+          projectMedia.forEach( function(item){
+              if(item.style.transform === "translateX(-100%)"){
+                  
+                  item.style.transform = "translateX(0%)";
+                  prevBtn.classList.add('nav-disabled');
+                  
+                  videoArray.forEach(function(video){
+                      if(item.contains(video)){
+                          video.currentTime = 0;
+                      }
+                  })
+                  
+              } else if(item.style.transform !== "translateX(0%)"){
+
+                  item.style.transform = "translateX(-100%)";
+                  nextBtn.classList.remove('nav-disabled');
+
+                  videoArray.forEach(function(video){
+                      if(item.contains(video)){
+                          video.currentTime = 0;
+                      }
+                  })
+
+              } 
+          })
+      })
+  }
+
+  if(nextBtn){
+      nextBtn.addEventListener('click', function(){
+
+          translateTitleUp();
+
+          projectMedia.forEach( function(item){
+              if(item.style.transform === "translateX(-100%)"){
+                  
+                  item.style.transform = "translateX(-200%)";
+                  nextBtn.classList.add('nav-disabled');
+
+                  videoArray.forEach(function(video){
+                      if(item.contains(video)){
+                          video.currentTime = 0;
+                      }
+                  })
+                  
+              } else if(item.style.transform !== "translateX(-200%)"){
+
+                  item.style.transform = "translateX(-100%)";
+                  prevBtn.classList.remove('nav-disabled');
+
+                  videoArray.forEach(function(video){
+                      if(item.contains(video)){
+                          video.currentTime = 0;
+                      }
+                  })
+
+              } 
+          })
+      })
+  }
+</script>
