@@ -9,9 +9,10 @@ export interface Props {
 	title?: string;
 	description?: string;
 	canonical?: string;
+    isHome?: boolean;
 }
 
-const { title = 'Manny Pachano | Frontend Web Developer', description = 'Front-end web developer experienced in creating fast, responsive, and beautiful Astro.js websites from scratch', canonical = ''} = Astro.props;
+const { title = 'Manny Pachano | Frontend Web Developer', description = 'Front-end web developer experienced in creating fast, responsive, and beautiful Astro.js websites from scratch', canonical = '', isHome = false } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -20,22 +21,25 @@ const { title = 'Manny Pachano | Frontend Web Developer', description = 'Front-e
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-	<meta name="description" content={description}>
-	<meta name="author" content="Manny Pachano">
-    <link rel="canonical" href=`https://www.mannywebdev.netlify.app/${canonical}`>
+	<meta name="description" content={description} />
+	<meta name="author" content="Manny Pachano" />
+    <link rel="canonical" href=`https://www.mannywebdev.netlify.app/${canonical}` />
     <!-- todo: insert this -->
-	<link rel="icon" href={Favicon} type="image/x-icon">
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}>
-    <meta property="og:url" content=`https://www.mannywebdev.netlify.app/${canonical}`>
-    <meta property="og:type" content="website">
+	<link rel="icon" href={Favicon} type="image/x-icon" />
+
+    {isHome ? <link rel="preload" href="/images/manny-img.webp" as="image" /> : null}
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content=`https://www.mannywebdev.netlify.app/${canonical}` />
+    <meta property="og:type" content="website" />
 	<!-- todo: find img for this -->
-    <meta property="og:image" content="https://www.mannywebdev.netlify.app/images/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content={title}>
-    <meta name="twitter:description" content={description}>
+    <meta property="og:image" content="https://www.mannywebdev.netlify.app/images/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
 	<!-- todo: find img for this -->
-    <meta name="twitter:image" content="https://www.mannywebdev.netlify.app/images/twitter-image.jpg">
+    <meta name="twitter:image" content="https://www.mannywebdev.netlify.app/images/twitter-image.jpg" />
   </head>
   <body>
     <Header />
