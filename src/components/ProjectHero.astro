@@ -4,17 +4,18 @@ export interface Props {
 	description: string;
 	buttontext?: string;
     link?: string;
+    arialabel?: string;
     nodisplay?: boolean;
 }
 
-const { title, description, buttontext, link, nodisplay = false} = Astro.props;
+const { title, description, buttontext, link, arialabel, nodisplay = false} = Astro.props;
 ---
 
 <div class="hero-section">
     <div class="hero-content">
         <h1>{title}</h1>
         <h4>{description}</h4>
-        <a href=`${link}` target="_blank" class={`${nodisplay && 'nodisplay'}`}>
+        <a href=`${link}` target="_blank" class={`${nodisplay && 'nodisplay'}`} aria-label=`${arialabel}``>
             <button>{buttontext}</button>
         </a>
     </div>
