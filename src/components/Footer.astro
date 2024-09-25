@@ -17,7 +17,7 @@
             </div>
         </div>
         <hr>
-        <p class="p-footer">© Copyright 2024. Made by <strong>Manny Pachano</strong></p>
+        <p class="p-footer">Copyright &copy; <span id="copyright"></span> All Rights Reserved. Made by <strong>Manny Pachano</strong>.</p>
     </div>
 </footer>
 
@@ -112,3 +112,7 @@
         color: var(--white);
     }
 </style>
+
+<script>
+    document.querySelector("#copyright").textContent = new Date().getFullYear().toString();
+</script>
