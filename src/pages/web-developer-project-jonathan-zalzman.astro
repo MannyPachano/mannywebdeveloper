@@ -1,0 +1,41 @@
+---
+import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
+---
+
+<CaseStudyLayout
+  title="Jonathan Zalzman Guitar"
+  description="A local-business website for a guitar teacher and working musician, designed to turn 'maybe I'll learn guitar' into a booked free trial lesson."
+  client="Jonathan Zalzman (Suwanee, Georgia, US)"
+  role="Design & development"
+  year="2026"
+  liveUrl="https://jonathanzalzmanguitar.netlify.app"
+  slides={[
+    {
+      title: 'Hero and teaching styles',
+      src: '/videos/web-development-project-jonathan-zalzman-intro.mp4',
+      poster: '/images/jonathan-zalzman-intro.webp',
+    },
+    {
+      title: 'Pricing and reviews',
+      src: '/videos/web-development-project-jonathan-zalzman-pricing.mp4',
+      poster: '/images/jonathan-zalzman-pricing.webp',
+    },
+    {
+      title: 'Booking form',
+      src: '/videos/web-development-project-jonathan-zalzman-booking.mp4',
+      poster: '/images/jonathan-zalzman-booking.webp',
+    },
+  ]}
+  highlights={[
+    { value: '1 CTA', label: '"Book a free trial lesson", repeated where decisions happen' },
+    { value: '9 styles', label: 'From blues to metal, each with its own pitch' },
+    { value: '$0 to start', label: 'Free first lesson, no contracts, priced in the open' },
+  ]}
+  overview={[
+    'Jonathan teaches guitar, bass and ukulele in Suwanee, Georgia and online, and he still gigs. That second part is the whole positioning: <strong>"Learn guitar from a working musician."</strong> The site had to make that credibility obvious in one glance and then remove every excuse not to book.',
+    'The design leans into performance photography on a dark background, so it looks like a musician\'s site rather than a tutoring directory. Nine teaching styles (rock and blues, funk, jazz and fusion, prog and shred, metal, theory and ear training, bass and ukulele, songwriting, improvisation) each get a short, specific pitch instead of a generic "all levels welcome". Three five-star reviews from students of different ages sit right where a parent or an adult beginner would start to hesitate.',
+    'Pricing is completely in the open: the first lesson is free, then 30 or 60 minute lessons at a flat rate, with no registration fee, contract or subscription. Putting the numbers on the page filters out tire-kickers and makes the booking form feel low-risk. The form itself collects just enough (instrument, experience, in-person or online) and every call to action on the page leads back to it, alongside tap-to-call and email links.',
+    'The site is hand-coded HTML, CSS and JavaScript on Netlify: no page builder, no plugins to update, and nothing between the visitor and a fast first paint on a phone.',
+  ]}
+  tools={['HTML & CSS', 'JavaScript', 'Netlify', 'Netlify Forms', 'Figma', 'Photoshop', 'Claude']}
+/>

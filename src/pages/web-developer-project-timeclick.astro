@@ -1,0 +1,52 @@
+---
+import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
+---
+
+<CaseStudyLayout
+  title="TimeClick"
+  description="A full redesign of timeclick.com, the marketing site for a time clock software company, plus the CRM, checkout and email systems that turn visitors into free trials."
+  client="TimeClick (Utah, US)"
+  role="Front-end developer & marketing specialist"
+  year="2024 to present"
+  liveUrl="https://timeclick.com"
+  slides={[
+    {
+      title: 'Homepage and social proof',
+      src: '/videos/web-development-project-timeclick-intro.mp4',
+      poster: '/images/timeclick-intro.webp',
+    },
+    {
+      title: 'Features and integrations',
+      src: '/videos/web-development-project-timeclick-features.mp4',
+      poster: '/images/timeclick-features.webp',
+    },
+    {
+      title: 'Reviews and free trial',
+      src: '/videos/web-development-project-timeclick-reviews.mp4',
+      poster: '/images/timeclick-reviews.webp',
+    },
+  ]}
+  highlights={[
+    { value: 'Full redesign', label: 'Homepage, feature pages and trial flow' },
+    { value: '11 emails', label: 'Trial nurture sequence, written and shipped' },
+    { value: 'CRM + checkout', label: 'Zoho, WooCommerce and Stripe integrations' },
+  ]}
+  overview={[
+    'TimeClick sells desktop time clock software to small businesses with a pitch that is rare in this market: <strong>one price, no subscription</strong>. The website has to land that pitch in seconds, back it up with proof, and move the right visitors into a 14-day free trial without a credit card. I redesigned the site around that single job.',
+    'The new homepage opens with the offer and the trial button, then stacks the proof: a 4.7 out of 5 rating across 1,000+ reviews, logos people recognize, and a plain-language feature grid covering time tracking, PTO, job codes, reports, mobile apps, geofencing and payroll integrations with QuickBooks, ADP and Gusto. Reviews and a second trial call to action close the page. Everything is responsive and built to load fast on the small-business laptops and phones that actually visit the site.',
+    'A marketing site is only half the machine, so I also built the systems around it. I integrated a Zoho CRM newsletter signup into the blog, replacing a broken embed with a vanilla JavaScript <code>fetch()</code> call after WordPress content filters kept mangling the form. I fixed a WooCommerce and Stripe ACH microdeposit issue on the purchase site with a targeted script. And I wrote the full 11-email trial and post-trial nurture sequence plus the first newsletter to existing customers, in the honest, plain voice the company is known for.',
+    'On the content side, I planned and wrote SEO articles targeting the "easy to use time clock software" family of searches, structured so each post answers the question directly and hands off to the trial. Beyond the website, I led a screen-by-screen redesign of the TimeClick 25 admin interface, delivering interactive HTML, CSS and JavaScript mockups that the development team could build from directly.',
+  ]}
+  tools={[
+    'WordPress',
+    'HTML & CSS',
+    'JavaScript',
+    'Zoho CRM',
+    'WooCommerce',
+    'Stripe',
+    'Figma',
+    'SEO',
+    'Email marketing',
+    'Claude & ChatGPT',
+  ]}
+/>

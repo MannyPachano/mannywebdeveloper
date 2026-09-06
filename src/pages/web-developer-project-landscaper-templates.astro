@@ -1,0 +1,42 @@
+---
+import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
+---
+
+<CaseStudyLayout
+  title="Landscaper Templates"
+  description="Three landscaping website templates built as a sales tool: a business owner picks the layout they like, and I customize it for them."
+  client="My own project, for landscaping businesses"
+  role="Design, development & template system"
+  year="2026"
+  liveUrl="https://landscapertemplates.netlify.app"
+  liveLabel="See the templates"
+  slides={[
+    {
+      title: 'Template 1',
+      src: '/videos/web-development-project-landscaper-templates-1.mp4',
+      poster: '/images/landscaper-templates-1.webp',
+    },
+    {
+      title: 'Template 2',
+      src: '/videos/web-development-project-landscaper-templates-2.mp4',
+      poster: '/images/landscaper-templates-2.webp',
+    },
+    {
+      title: 'Template 3',
+      src: '/videos/web-development-project-landscaper-templates-3.mp4',
+      poster: '/images/landscaper-templates-3.webp',
+    },
+  ]}
+  highlights={[
+    { value: '3 layouts', label: 'Same sections, three different personalities' },
+    { value: '1 switch', label: 'Visitors flip between templates without leaving the page' },
+    { value: 'Free to customize', label: 'The offer that turns a demo into a client' },
+  ]}
+  overview={[
+    'Local service businesses buy websites by looking, not by reading proposals. A landscaper wants to know what <strong>their</strong> site would look like, on their phone, before they commit to anything. So instead of pitching with mockups, I built three complete, working landscaping websites and put them on one URL with a template switcher that stays on screen while you scroll.',
+    'All three templates share the sections a landscaping company actually needs: a hero that says what you do and where, services, a project gallery, reasons to trust you (local ownership, reliability, quality of work), customer reviews, and a contact section with a quote request. What changes between them is the personality: the layout, the type, the imagery treatment and the color palette, so an owner can pick the one that feels like their crew.',
+    'The templates are intentionally generic. The copy is placeholder copy and the photos are stock, on purpose. The point is to show the structure, the flow and the speed, then swap in the real business name, real photos and real service area in a short customization pass, which I offer for free when someone chooses a template.',
+    'Under the hood they are hand-coded HTML, CSS and JavaScript on Netlify, so each finished site loads fast, costs nothing to host, and has no plugins or page builder to maintain.',
+  ]}
+  tools={['HTML & CSS', 'JavaScript', 'Netlify', 'Figma', 'Photoshop', 'Claude']}
+/>

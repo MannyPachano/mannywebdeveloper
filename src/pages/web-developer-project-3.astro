@@ -1,56 +1,30 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ProjectHero from '../components/ProjectHero.astro';
+import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
 ---
 
-<Layout>
-	<ProjectHero title="MMA Class Tracker" description="A web application that makes it easy to keep track of your mma classes. Features include EXP progress bars and new characters as you level up." buttontext='live link' link="https://mma-fighter-stats.netlify.app/" arialabel='link to class tracking app' />
-
-	<div class="project-summary-section">
-		<div class="project-summary-container">
-			<div class="project-summary-video">
-				<div class="videos-container">
-					<div class="placeholder-img project-media-item" style="background-image: url(/images/mma.svg);">
-						<video class="project-video-item" playsinline autoplay muted loop src="videos/web-development-project-mma.mp4"></video>
-					</div>
-				</div>
-			</div>
-
-			
-			<div class="project-summary-copy">
-				<div>
-					<h3>Project Overview</h3>
-					<p>My friends and I needed a way to motivate ourselves to show up to our martial arts classes. I decided this would be  a good opportunity to practice my skills in design responsiveness and create a web app that would allow us to keep track of our mma classes in a fun way.</p><br />
-					<p>I used HTML, CSS, and Javascript for the frontend, and Google's firebase database to keep track of our progress across devices. The app is 100% responsive across screen sizes and features animated progress bars that increase every time you attend a class. Every time you attend a class, you'll see your experience points increase, with each type of class featuring a different amount of EXP points according to that class's difficulty.</p><br />
-				</div>
-
-				<div>
-					<h3>Tools Used</h3>
-					<ul class="skills-list">
-						<li>HTML</li>
-						<li>CSS</li>
-						<li>JavaScript</li>
-						<li>SQL</li>
-						<li>Google Firebase</li>
-						<li>Github</li>
-						<li>Netlify</li>
-					</ul>
-				</div>
-
-				<div>
-					<h3>See It Live</h3>
-					<div class="project-summary-btns">
-						<a href="https://mma-fighter-stats.netlify.app/" target="_blank" rel="noopener noreferrer">
-							<button class="button-small project-link">live link</button>
-						</a>
-						<a href="/#project-section">
-							<button class="button-small project-back-btn">go back</button>
-						</a>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-	</div>
-</Layout>
+<CaseStudyLayout
+  title="MMA Class Tracker"
+  description="A web app that gamifies showing up to martial arts class: experience points, level-ups and new characters, synced across devices."
+  client="Side project"
+  role="Design & development"
+  year="2023"
+  pageTitle="MMA Class Tracker side project | Manny Pachano"
+  slides={[
+    {
+      title: 'The app',
+      src: '/videos/web-development-project-mma.mp4',
+      poster: '/images/mma.svg',
+    },
+  ]}
+  highlights={[
+    { value: 'EXP per class', label: 'Harder classes earn more points' },
+    { value: 'Level-ups', label: 'Animated progress bars and new characters' },
+    { value: 'Cross-device', label: 'Progress stored in Firebase, works on any screen' },
+  ]}
+  overview={[
+    'My friends and I needed a reason to stop skipping martial arts class. So I built one: <strong>a tracker that turns attendance into a game.</strong> Every class you attend earns experience points, tougher classes earn more, and as the bar fills you level up and unlock a new character.',
+    'The front end is hand-written HTML, CSS and JavaScript, with animated progress bars that react the moment a class is logged. Google Firebase stores everyone\'s progress so the app stays in sync between phones and laptops. It is fully responsive, which was half the point: this project was a deliberate workout in responsive design.',
+    'It is a small app, but it did its job. We showed up more, and I got a cleaner mental model for state, sync and motion that I still use on client work.',
+  ]}
+  tools={['HTML & CSS', 'JavaScript', 'Google Firebase', 'GitHub', 'Netlify']}
+/>

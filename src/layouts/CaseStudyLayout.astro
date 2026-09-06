@@ -1,0 +1,283 @@
+---
+// One layout for every case study page. Pages only pass content.
+import Layout from './Layout.astro';
+
+export interface Slide {
+  /** Label shown above the carousel, e.g. "Homepage and social proof" */
+  title: string;
+  /** Path under /public, e.g. /videos/web-development-project-timeclick-intro.mp4 */
+  src: string;
+  /** Poster (video) or the image itself (type: image) */
+  poster: string;
+  type?: 'video' | 'image';
+  /** Alt text for type: image */
+  alt?: string;
+}
+
+export interface Highlight {
+  value: string;
+  label: string;
+}
+
+export interface Props {
+  title: string;
+  /** One sentence under the title. */
+  description: string;
+  client: string;
+  role: string;
+  year: string;
+  liveUrl?: string;
+  liveLabel?: string;
+  slides: Slide[];
+  /** Paragraphs. Inline HTML like <strong> is allowed. */
+  overview: string[];
+  tools: string[];
+  highlights?: Highlight[];
+  pageTitle?: string;
+  pageDescription?: string;
+}
+
+const {
+  title,
+  description,
+  client,
+  role,
+  year,
+  liveUrl,
+  liveLabel = 'Visit the live site',
+  slides,
+  overview,
+  tools,
+  highlights = [],
+  pageTitle = `${title} case study | Manny Pachano`,
+  pageDescription = description,
+} = Astro.props;
+
+const hasCarousel = slides.length > 1;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <section class="hero-section case-hero" aria-labelledby="case-title">
+    <div class="hero-content">
+      <p class="eyebrow">Case study</p>
+      <h1 id="case-title">{title}</h1>
+      <p class="lede">{description}</p>
+      <div class="hero-actions">
+        {liveUrl && (
+          <a class="button" href={liveUrl} target="_blank" rel="noopener noreferrer">
+            {liveLabel} <span aria-hidden="true">&#8599;</span>
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        )}
+        <a class="button button-secondary" href="/#project-section">All projects</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-summary-section" aria-labelledby="overview-title">
+    <div class="project-summary-container">
+      <dl class="case-facts">
+        <div>
+          <dt>Client</dt>
+          <dd>{client}</dd>
+        </div>
+        <div>
+          <dt>My role</dt>
+          <dd>{role}</dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>{year}</dd>
+        </div>
+      </dl>
+
+      <div class="project-summary-video">
+        {hasCarousel && (
+          <div class="video-nav">
+            <button class="video-nav-btn" id="video-nav-prev" type="button" aria-label="Previous screen">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" style="transform: rotate(225deg)">
+                <rect x="13.8" y="8.3999" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="15.6001" y="6.6001" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="15.6001" y="10.2002" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="15.6001" y="8.3999" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="12" y="6.6001" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="13.8" y="6.6001" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="12" y="10.2002" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="10.2002" y="12" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="6.6001" y="15.6001" width="1.8" height="1.8" fill="#111"></rect>
+              </svg>
+            </button>
+            <div class="video-titles-container">
+              <p class="video-title" id="video-title" aria-live="polite">{slides[0].title}</p>
+              <p class="video-counter" id="video-counter">1 / {slides.length}</p>
+            </div>
+            <button class="video-nav-btn" id="video-nav-next" type="button" aria-label="Next screen">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" style="transform: rotate(45deg)">
+                <rect x="13.8" y="8.3999" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="15.6001" y="6.6001" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="15.6001" y="10.2002" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="15.6001" y="8.3999" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="12" y="6.6001" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="13.8" y="6.6001" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="12" y="10.2002" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="10.2002" y="12" width="1.8" height="1.8" fill="#111"></rect>
+                <rect x="6.6001" y="15.6001" width="1.8" height="1.8" fill="#111"></rect>
+              </svg>
+            </button>
+          </div>
+        )}
+
+        <div class="videos-container" data-carousel tabindex={hasCarousel ? 0 : undefined} aria-roledescription={hasCarousel ? 'carousel' : undefined} aria-label={hasCarousel ? `${title} screens` : undefined}>
+          {slides.map((slide, index) => (
+            <figure class="project-media-item" data-slide data-title={slide.title} aria-hidden={index !== 0 ? 'true' : undefined}>
+              {slide.type === 'image' ? (
+                <img src={slide.src} alt={slide.alt ?? slide.title} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+              ) : (
+                <video muted playsinline loop preload="none" poster={slide.poster} data-autoplay>
+                  <source src={slide.src} type="video/mp4" />
+                </video>
+              )}
+            </figure>
+          ))}
+        </div>
+      </div>
+
+      <div class="project-summary-copy">
+        {highlights.length > 0 && (
+          <ul class="highlights" aria-label="Highlights">
+            {highlights.map((item) => (
+              <li>
+                <span class="highlight-value">{item.value}</span>
+                <span class="highlight-label">{item.label}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div>
+          <h2 class="section-title" id="overview-title">Project overview</h2>
+          {overview.map((paragraph) => <p set:html={paragraph} />)}
+        </div>
+
+        <div>
+          <h2 class="section-title">Tools used</h2>
+          <ul class="skills-list">
+            {tools.map((tool) => <li>{tool}</li>)}
+          </ul>
+        </div>
+
+        <div class="project-summary-btns">
+          {liveUrl && (
+            <a class="button button-small" href={liveUrl} target="_blank" rel="noopener noreferrer">
+              Live site <span aria-hidden="true">&#8599;</span>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          )}
+          <a class="button button-small project-back-btn" href="/#project-section">Back to projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .case-hero {
+    height: auto;
+    min-height: 0;
+    padding: 5rem 1rem 4rem;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+    position: relative;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .case-hero .hero-content {
+    text-align: center;
+    width: 92%;
+    max-width: 48rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .case-hero .lede {
+    margin: 0 auto;
+    max-width: 40rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .hero-actions .button {
+    margin: 0;
+    padding: 1rem 2.5rem;
+    font-size: 18px;
+  }
+
+  @media only screen and (min-width: 601px) {
+    .case-hero {
+      padding: 7rem 1.5rem 5rem;
+    }
+  }
+</style>
+
+<script>
+  // ---------------------------------------------------------------------
+  // SCREEN CAROUSEL (one per case study page)
+  // Slides sit side by side inside an overflow:hidden container and slide
+  // with translateX. Only the visible slide plays; the others pause.
+  // ---------------------------------------------------------------------
+  const carousel = document.querySelector<HTMLElement>('[data-carousel]');
+
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll<HTMLElement>('[data-slide]'));
+    const prevButton = document.getElementById('video-nav-prev') as HTMLButtonElement | null;
+    const nextButton = document.getElementById('video-nav-next') as HTMLButtonElement | null;
+    const titleEl = document.getElementById('video-title');
+    const counterEl = document.getElementById('video-counter');
+    let index = 0;
+
+    function render() {
+      slides.forEach((slide, i) => {
+        slide.style.transform = `translateX(${-100 * index}%)`;
+        slide.setAttribute('aria-hidden', String(i !== index));
+        const video = slide.querySelector('video');
+        if (!video) return;
+        if (i === index) {
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+      if (titleEl) titleEl.textContent = slides[index].dataset.title ?? '';
+      if (counterEl) counterEl.textContent = `${index + 1} / ${slides.length}`;
+      if (prevButton) prevButton.disabled = index === 0;
+      if (nextButton) nextButton.disabled = index === slides.length - 1;
+    }
+
+    function go(step: number) {
+      const next = index + step;
+      if (next < 0 || next >= slides.length) return;
+      index = next;
+      render();
+    }
+
+    prevButton?.addEventListener('click', () => go(-1));
+    nextButton?.addEventListener('click', () => go(1));
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') go(-1);
+      if (event.key === 'ArrowRight') go(1);
+    });
+
+    // Set button states without forcing playback on first paint
+    // (the visibility observer in Layout handles autoplay).
+    if (prevButton) prevButton.disabled = true;
+    if (nextButton) nextButton.disabled = slides.length < 2;
+  }
+</script>
