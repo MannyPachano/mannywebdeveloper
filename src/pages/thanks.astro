@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Message sent | Manny Pachano" description="Thanks for reaching out. I'll reply within one business day.">
+  <section class="thanks-section" aria-labelledby="thanks-title">
+    <div class="thanks-content">
+      <p class="eyebrow">Message sent</p>
+      <h1 id="thanks-title">Got it, thanks!</h1>
+      <p class="lede">
+        Your message is in my inbox. I read everything myself and I'll reply within one business day.
+        In the meantime, have a look around.
+      </p>
+      <div class="thanks-actions">
+        <a class="button button-small" href="/#project-section">See my work</a>
+        <a class="button button-small button-secondary" href="/">Back to home</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thanks-section {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+  }
+
+  .thanks-content {
+    text-align: center;
+    max-width: 40rem;
+  }
+
+  .thanks-content .lede {
+    margin: 0 auto;
+  }
+
+  .thanks-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .thanks-actions .button {
+    margin: 0;
+  }
+</style>

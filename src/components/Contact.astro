@@ -1,209 +1,229 @@
-<div class="contact-section" id="contact-section">
-    <div class="title-div">
-        <h2 class="title-after">GET IN TOUCH</h2>
-        <p>Need help on your next project? <strong>I'm available</strong>. Leave me a message using the form below and I'll get back to you right away.</p>
-    </div>
+---
+// Contact form handled by Netlify Forms.
+// Requirements: static build output (astro.config output: 'static') and
+// "Enable form detection" switched on in Netlify > Site configuration > Forms.
+const services = [
+  { id: 'redesign', label: 'Redesign my current website' },
+  { id: 'new-site', label: 'Build a new website' },
+  { id: 'seo', label: 'SEO and lead generation' },
+  { id: 'other', label: 'Something else' },
+];
+---
 
-    <div>
-        <form method="post" id="contact-form" class="form-container">
-            <div class="form-item">
-                <label for="name">First name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-item form-email">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-item">
-                <span>Which Services Do You Need? <span style="font-weight: 400; font-size: .8rem; color: var(--text-paragraph);">(select all that apply)</span></span>
-                
-                    <label class="checkbox-container" for="revamp">Revamp my current website
-                        <input type="checkbox" id="revamp" name="revamp" value="Revamp my current website">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container" for="design">Create a new website
-                        <input type="checkbox" id="design" name="design" value="New website design">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container" for="seo">Search engine optimization
-                        <input type="checkbox" id="seo" name="seo" value="Search engine optimization">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container" for="other">Other
-                        <input type="checkbox" id="other" name="other" value="Other">
-                        <span class="checkmark"></span>
-                    </label>
-                
-            </div>
-            <div class="form-item form-message">
-                <label for="message">Tell Me More</label>
-                <textarea id="message" name="message"></textarea>
-            </div>
-            <button type="submit" class="button-small">SEND
-            </button>
-            
-        </form>
-        
-    </div>
+<section class="contact-section" id="contact-section" aria-labelledby="contact-title">
+  <div class="title-div">
+    <h2 class="title-after" id="contact-title">Get in touch</h2>
+    <p>
+      Need a website that pulls its weight? <strong>I'm available.</strong> Tell me a bit about the project and
+      I'll get back to you within one business day.
+    </p>
+  </div>
 
-</div>
+  <div>
+    <form
+      name="contact"
+      method="POST"
+      action="/thanks"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      id="contact-form"
+      class="form-container"
+    >
+      <!-- Required by Netlify for forms rendered by frameworks -->
+      <input type="hidden" name="form-name" value="contact" />
 
+      <!-- Honeypot: hidden from people, tempting for bots -->
+      <p class="visually-hidden" aria-hidden="true">
+        <label>
+          Leave this field empty
+          <input name="bot-field" tabindex="-1" autocomplete="off" />
+        </label>
+      </p>
+
+      <div class="form-item">
+        <label for="name">First name</label>
+        <input type="text" id="name" name="name" autocomplete="given-name" required />
+      </div>
+
+      <div class="form-item form-email">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required />
+      </div>
+
+      <fieldset class="form-item form-services">
+        <legend>
+          What do you need?
+          <span class="legend-hint">(select all that apply)</span>
+        </legend>
+        {services.map((service) => (
+          <label class="checkbox-container" for={service.id}>
+            {service.label}
+            <input type="checkbox" id={service.id} name="services[]" value={service.label} />
+            <span class="checkmark" aria-hidden="true"></span>
+          </label>
+        ))}
+      </fieldset>
+
+      <div class="form-item form-message">
+        <label for="message">Tell me more</label>
+        <textarea id="message" name="message" rows="6" required placeholder="What's the project, and what does success look like?"></textarea>
+      </div>
+
+      <button type="submit" class="button-small">Send message</button>
+    </form>
+  </div>
+</section>
 
 <style>
-    /* CONTACT SECTION */
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1rem 4rem;
+    row-gap: 4rem;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+    min-width: 320px;
+  }
 
-    .contact-section {
-        display: flex;
-        flex-direction: column;
-        padding: 3rem 1rem 4rem;
-        grid-row-gap: 4rem;
-        background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(../images/common-bg.svg);
-    }
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    background-color: var(--white);
+    padding: 1.5rem 1.5rem 2rem;
+    border-radius: var(--radius);
+    max-width: 46rem;
+    margin: 0 auto;
+    box-shadow: 0 0 16px 2px rgba(153, 153, 153, 0.2);
+  }
 
-    .form-container {
-        display: grid; 
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        background-color: var(--white);
-        padding: 1.5rem 1.5rem 2rem;
-        border-radius: 8px;
-        max-width: 46rem;
-        margin: 0 auto;
-        box-shadow: 0 0 16px 2px #99999933;
-    }
+  .form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-paragraph);
+    letter-spacing: 0.8px;
+    line-height: 1.8;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    border: 0;
+    min-width: 0;
+  }
 
-    .form-item {
-        display: flex; 
-        flex-direction: column;
-        gap: 1rem;
-        color: var(--text-paragraph);
-        letter-spacing: .8px;
-        line-height: 1.8;
-        font-weight: 700;
-        font-size: .9375rem;
-    }
+  .form-services legend {
+    padding: 0;
+    margin-bottom: 1rem;
+  }
 
-    .form-item input {
-        height: 56px;
-        border-radius: 8px;
-        border: none;
-        padding: .75rem 1.4rem;
-        font-size: 1rem;
-        letter-spacing: .8px;
-        line-height: 1.8;
-        color: var(--text-subheader);
-        background-color: var(--contact-input-background);
-    }
+  .legend-hint {
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--text-paragraph);
+  }
 
-    .form-item input:focus {
-        border: solid var(--yellow) 2px;
-        outline: none;
-    }
+  .form-item input[type='text'],
+  .form-item input[type='email'],
+  .form-item textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    padding: 0.75rem 1.4rem;
+    font-size: 1rem;
+    letter-spacing: 0.8px;
+    line-height: 1.8;
+    color: var(--text-subheader);
+    background-color: var(--contact-input-background);
+    transition: border-color 0.2s var(--ease);
+  }
 
-    .form-item textarea {
-        height: 10rem;
-        border-radius: 4px;
-        border: none;
-        font-size: 1rem;
-        font-family: "Source Sans 3", sans-serif;    
-        letter-spacing: .8px;
-        line-height: 1.8;
-        padding: 1rem 1.4rem;
-        color: var(--text-subheader);
-        background-color: var(--contact-input-background);
-    }
+  .form-item input[type='text'],
+  .form-item input[type='email'] {
+    height: 56px;
+  }
 
-    .form-item textarea:focus {
-        border: solid var(--yellow) 2px;
-        outline: none;
-    }
+  .form-item textarea {
+    min-height: 10rem;
+    resize: vertical;
+    font-family: inherit;
+  }
 
-    .form-message {
-        margin-top: 1rem;
-    }
+  .form-item input:focus-visible,
+  .form-item textarea:focus-visible {
+    border-color: var(--yellow);
+    outline: none;
+  }
 
-    .checkbox-container {
-        display: block;
-        position: relative;
-        padding-left: 36px;
-        margin-bottom: 8px;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
+  .form-item ::placeholder {
+    color: #8a8a8a;
+    font-weight: 400;
+  }
 
-    .checkbox-container input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
+  .form-message {
+    margin-top: 1rem;
+  }
 
-    .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
-        border-radius: 4px;
-    }
+  .form-container button {
+    margin-top: 0;
+  }
 
-    .checkbox-container:hover input ~ .checkmark {
-        background-color: #ccc;
-    }
+  /* Custom checkboxes */
+  .checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    user-select: none;
+  }
 
-    .checkbox-container input:checked ~ .checkmark {
-        background-color: var(--yellow);
-    }
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
 
-    .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+    transition: background-color 0.15s var(--ease);
+  }
 
-    .checkbox-container input:checked ~ .checkmark:after {
-        display: block;
-    }
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
 
-    .checkbox-container .checkmark:after {
-        left: 10px;
-        top: 7px;
-        width: 5px;
-        height: 10px;
-        border: solid var(--black);
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: var(--yellow);
+  }
+
+  .checkbox-container input:focus-visible ~ .checkmark {
+    outline: 3px solid var(--yellow-dark);
+    outline-offset: 2px;
+  }
+
+  .checkmark::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 10px;
+    top: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--black);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  .checkbox-container input:checked ~ .checkmark::after {
+    display: block;
+  }
 </style>
-<script>
-    // CONTACT FORM
-
-    const constraints = {
-        name: {
-            presence: { allowEmpty: false }
-        },
-        email: {
-            presence: { allowEmpty: false },
-            email: true
-        },
-    };
-
-    const form = document.getElementById('contact-form') as HTMLFormElement;
-
-    if(form){
-        form.addEventListener('submit', function (event) {
-            const formValues = {
-                name: (form.elements.namedItem('name') as HTMLInputElement)?.value,
-                email: (form.elements.namedItem('email') as HTMLInputElement)?.value,
-            };
-            
-    }, false);
-    }
-</script>

@@ -1,73 +1,219 @@
-<div class="about-section" id="about-section">
-    <div class="about-container">
-        <div class="title-div">
-            <h2 class="title-after">About me</h2>
-            <p>When I'm not finding and fixing PHP bugs, designing new custom websites, or sipping on a bottomless cup of coffee, you might find me rock climbing, rolling around in a Brazilian jiu jitsu class, or traveling to my next international destination.</p>
-        </div>
+---
+import { SHOW_CLOX } from '../config';
 
-        <div>
-            <h3>Get to know me!</h3>
-            <p>I started designing websites on WordPress for small businesses during my college years. This included a hypnotherapy clinic in exchange for free hypnosis sessions, a farm community in exchange for room, board and some unforgettable experiences, and even a guesthouse owner in exchange for a bed to sleep at night. With every job I got better until eventually, I expanded my skills to the point that it just made more sense to code my own websites from scratch.</p><br /> 
-            <p>I spent my free time learning Javascript, PHP, basic and advanced design concepts, you name it, just on youtube and free/cheap learning websites that I found online. Eventually, I landed my first real gig coding the frontend (and some backend) for B2B web apps. Nowadays, I do frontend coding for a US-based tech company, but I still help business owners from around the world to create sleek, modern websites that they can proudly show to their clients.</p><br />
-            <a href="/#contact-section">
-                <button class="button-small">GET IN TOUCH</button>
-            </a>
-        </div>
+// Work history. Keep it factual: employer, role, where, when.
+const experience = [
+  {
+    org: 'TimeClick',
+    role: 'Front-End Developer & Marketing Specialist',
+    where: 'Remote for a Utah, US software company',
+    when: '2024 to present',
+  },
+  ...(SHOW_CLOX
+    ? [
+        {
+          org: 'Clox',
+          role: 'Founder',
+          where: 'B2B time-tracking SaaS for small field crews',
+          when: '2026 to present',
+        },
+      ]
+    : []),
+  {
+    org: 'Freelance',
+    role: 'Web Design, Development & SEO',
+    where: 'Clients in the US, Thailand and beyond',
+    when: '2019 to present',
+  },
+  {
+    org: 'nuVector LLC',
+    role: 'Front-End Developer, then SEO & Marketing',
+    where: 'US-based B2B software company',
+    when: '2022 to 2025',
+  },
+];
 
-        <div>
-            <h3>Skills and Tools</h3>
-            <ul class="skills-list">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>TypeScript</li>
-                <li>Vue</li>
-                <li>Astro JS</li>
-                <li>PHP</li>
-                <li>SQL</li>
-                <li>WordPress</li>
-                <li>Github</li>
-                <li>Netlify</li>
-                <li>Responsive Design</li>
-                <li>Figma</li>
-                <li>Photoshop</li>
-                <li>SEO</li>
-                <li>Copywriting</li>
-                <li>AI Prompt Engineering</li>
-            </ul>
-        </div>
+const skills = [
+  'HTML & CSS',
+  'JavaScript',
+  'TypeScript',
+  'Astro',
+  'Vue',
+  'WordPress',
+  'PHP',
+  'SQL',
+  'REST APIs & integrations',
+  'Zoho CRM',
+  'Stripe & WooCommerce',
+  'Netlify',
+  'Git & GitHub',
+  'Performance optimization',
+  'Responsive design',
+  'Accessibility',
+  'Technical & local SEO',
+  'Google Analytics 4',
+  'Search Console',
+  'Google Business Profile',
+  'Email marketing',
+  'Conversion copywriting',
+  'SaaS product design',
+  'Figma',
+  'Photoshop',
+  'Video for web (ffmpeg, HLS)',
+  'AI-assisted development (Claude Code)',
+  'Prompt engineering',
+];
+---
+
+<section class="about-section" id="about-section" aria-labelledby="about-title">
+  <div class="about-container">
+    <div class="title-div">
+      <h2 class="title-after" id="about-title">About me</h2>
+      <p>
+        Front-end developer and marketing specialist. I build websites and the marketing systems around them,
+        for a US software company, for clients around the world{SHOW_CLOX ? ', and for a product of my own' : ''}.
+        When I'm not shipping, I'm rock climbing, rolling in a Brazilian jiu jitsu class, or on a plane to the next country.
+      </p>
     </div>
 
-</div>
+    <div class="about-story">
+      <h3>How I got here</h3>
+      <p>
+        I started building WordPress sites for small businesses in college, often trading work for things like
+        hypnotherapy sessions, a room on a farm, or a bed at a guesthouse. Every project pushed me a little further,
+        until coding sites from scratch made more sense than fighting themes.
+      </p>
+      <p>
+        I taught myself JavaScript, PHP and design through YouTube and cheap online courses, then landed my first
+        real gig building the front end (and some of the back end) for B2B web apps. Today I work remotely as the
+        front-end developer and marketing specialist at TimeClick, a Utah software company, and I still take on
+        select client projects: new sites, redesigns and SEO.
+      </p>
+      {SHOW_CLOX && (
+        <p>
+          On the side I founded Clox, a B2B time-tracking app for small field crews in the trades. Building and
+          marketing my own product is the best training I've had for building yours.
+        </p>
+      )}
+      <a class="button button-small" href="/#contact-section">Get in touch</a>
+    </div>
 
+    <div class="about-skills">
+      <h3>Skills and tools</h3>
+      <ul class="skills-list skills-list-animated">
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </div>
+
+    <div class="about-experience">
+      <h3>Experience</h3>
+      <ol class="experience-list">
+        {experience.map((job) => (
+          <li class="experience-item">
+            <div class="experience-head">
+              <span class="experience-org">{job.org}</span>
+              <span class="experience-when">{job.when}</span>
+            </div>
+            <span class="experience-role">{job.role}</span>
+            <span class="experience-where">{job.where}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
 
 <style>
-    /* ABOUT SECTION */
-    .about-section {
-        background-color: var(--gray-background);
-        display: flex;
-        justify-content: center;
-    }
+  .about-section {
+    background-color: var(--gray-background);
+    display: flex;
+    justify-content: center;
+    min-width: 320px;
+  }
 
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1rem 4rem;
+    row-gap: 4rem;
+    max-width: 78rem;
+    width: 100%;
+  }
+
+  .about-story .button-small {
+    margin-top: 2.5rem;
+  }
+
+  .experience-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .experience-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-left: 5px solid var(--yellow);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+
+  .experience-head {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+  }
+
+  .experience-org {
+    font-weight: 800;
+    color: var(--text-header);
+    font-size: 1.05rem;
+  }
+
+  .experience-when {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-accent);
+  }
+
+  .experience-role {
+    font-weight: 600;
+    color: var(--text-subheader);
+  }
+
+  .experience-where {
+    font-size: 0.95rem;
+    color: var(--text-paragraph);
+  }
+
+  @media only screen and (min-width: 901px) {
     .about-container {
-        display: flex;
-        flex-direction: column;
-        padding: 3rem 1rem 4rem;
-        grid-row-gap: 4rem;
-        max-width: 78rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 5rem;
+      row-gap: 4rem;
+      padding-bottom: 6rem;
     }
 
-    @media only screen and (min-width: 901px) {
-        .about-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-column-gap: 5rem;
-            padding-bottom: 6rem;
-        }
-
-        .about-container .title-div {
-            grid-column: 1 / 3;
-        }
+    .about-container .title-div {
+      grid-column: 1 / 3;
     }
 
+    .about-experience {
+      grid-column: 1 / 3;
+    }
+
+    .experience-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+  }
 </style>
