@@ -87,6 +87,21 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: 'nuvector',
+    title: 'nuVector',
+    role: 'Corporate site redesign',
+    year: '2024 to 2025',
+    summary:
+      "Redesign and rebuild of the corporate site for an Atlanta returnable asset management company, <strong>rebuilt on Astro</strong> with services, client logos, case studies and an SEO blog, all pointed at one action: request a demo.",
+    tags: ['Astro', 'HTML & CSS', 'JavaScript', 'Figma', 'SEO'],
+    video: {
+      mp4: '/videos/nuvector-thumbnail.mp4',
+      webm: '/videos/nuvector-thumbnail.webm',
+      poster: '/images/nuvector-thumbnail.webp',
+      fit: 'cover',
+    },
+  },
+  {
     slug: 'jonathan-zalzman',
     title: 'Jonathan Zalzman Guitar',
     role: 'Design & development',
