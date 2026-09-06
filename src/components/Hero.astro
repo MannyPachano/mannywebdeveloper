@@ -1,125 +1,137 @@
+<section class="hero-section" aria-labelledby="h1-hero">
+  <div class="hero-content">
+    <h1 id="h1-hero">Hey, I'm Manny Pachano</h1>
+    <p class="lede hero-lede">
+      I build websites that load fast, read clearly, and turn visitors into customers.
+      Front-end developer by trade, marketer by habit.
+    </p>
+    <div class="hero-actions">
+      <a class="button" href="/#project-section">See my work</a>
+      <a class="button button-secondary" href="/#contact-section">Get in touch</a>
+    </div>
+  </div>
 
-<div class="hero-section">
-    <div class="hero-content">
-        <h1 id="h1-hero">Hey, I'm Manny Pachano</h1>
-        <h4>I make responsive, beautiful websites. But so does every other web developer these days. The difference is: I code my sites so that they're really... really... fast.</h4>
-        <a href="/#project-section">
-            <button aria-label="Go to projects.">projects</button>
-        </a>
-    </div>
-    <div class="manny-img" id="manny-img"></div>
-    <div class="mouse-section">
-        <div class="mouse"></div>
-    </div>
-</div>
+  <!-- Easter egg: hover the headline to reveal the photo behind it. -->
+  <div class="manny-img" id="manny-img" aria-hidden="true"></div>
+
+  <div class="mouse-section" aria-hidden="true">
+    <div class="mouse"></div>
+  </div>
+</section>
 
 <style>
+  .hero-section {
+    height: calc(100vh - var(--nav-height));
+    min-height: 36.5rem;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+    position: relative;
+    min-width: 320px;
+  }
 
-    .hero-section {
-        height: calc(100vh - 5rem);
-        min-height: 36.5rem;
-        background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
-        position: relative;
-    }
+  .hero-content {
+    text-align: center;
+    width: 92%;
+    max-width: 45rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
 
-    .hero-content {
-        text-align: center;
-        width: 92%;
-        max-width: 45rem;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);  
-        z-index: 1;
-    }
+  .hero-lede {
+    margin: 0 auto;
+    max-width: 38rem;
+  }
 
-    .mouse-section {
-        position: absolute;
-        bottom: 3%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2.75rem;
+  }
 
-    .mouse {
-        width: 25px;
-        height: 40px;
-        border: 2px solid #333;
-        border-radius: 60px;
-        position: relative;
-        overflow: hidden;
-    }
+  .hero-actions .button {
+    margin: 0;
+    padding: 1rem 3rem;
+    font-size: 18px;
+  }
 
-    .mouse::before {
-        content: '';
-        width: 5px;
-        height: 5px;
-        position: absolute;
-        top: 7px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #333;
-        border-radius: 50%;
-        opacity: 1;
-        animation: scroll 1.3s infinite;
-    }
+  .mouse-section {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
 
-    @keyframes scroll {
-        100% {
-            opacity: 0%;
-            top: 27px;
-        }
-    }
+  .mouse {
+    width: 25px;
+    height: 40px;
+    border: 2px solid #333;
+    border-radius: 60px;
+    position: relative;
+    overflow: hidden;
+  }
 
-    .manny-img {
-        background: linear-gradient(to right, rgba(245, 245, 245, 0.3), rgba(245, 245, 245, 0.3)), url(/images/manny-img.webp);
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: all ease-in-out .45s;
-    }
+  .mouse::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    border-radius: 50%;
+    opacity: 1;
+    animation: scroll 1.3s infinite;
+  }
 
-    .hero-section, .about-section, .projects-section, .contact-section, footer, .project-summary-section {
-        min-width: 320px;
+  @keyframes scroll {
+    100% {
+      opacity: 0;
+      top: 27px;
     }
+  }
+
+  .manny-img {
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.3), rgba(245, 245, 245, 0.3)), url(/images/manny-img.webp);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.45s var(--ease);
+  }
+
+  @media only screen and (min-width: 601px) {
+    .hero-actions .button {
+      padding: 1rem 3.5rem;
+      font-size: 20px;
+    }
+  }
 </style>
 
 <script>
-    // SHOW MANNY BACKGROUND IMAGE 
+  // Quick "peek" of the photo on first load, so people discover the hover effect.
+  const mannyImg = document.getElementById('manny-img');
+  const heroH1 = document.getElementById('h1-hero');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const mannyIMG = document.getElementById('manny-img');
-    const heroH1 = document.getElementById("h1-hero");
-
-    function showManny() {
-        if(mannyIMG && heroH1){
-            setTimeout(function(){
-                mannyIMG.classList.add("animate-img");
-            }, 1000);
-        
-            setTimeout(function(){
-                heroH1.classList.add("animate-h1");
-            }, 1500);
-            
-            setTimeout(function(){
-                heroH1.classList.remove("animate-h1");
-            }, 1720);
-            
-            setTimeout(function(){
-                heroH1.classList.add("animate-h1");
-            }, 1900);
-            
-            setTimeout(function(){
-                heroH1.classList.remove("animate-h1");
-            }, 2120);
-
-            setTimeout(function(){
-                mannyIMG.classList.remove("animate-img");
-            }, 2400);
-        }
-    }
-
-    showManny();
+  if (mannyImg && heroH1 && !reduceMotion) {
+    const steps: Array<[number, () => void]> = [
+      [1000, () => mannyImg.classList.add('animate-img')],
+      [1500, () => heroH1.classList.add('animate-h1')],
+      [1720, () => heroH1.classList.remove('animate-h1')],
+      [1900, () => heroH1.classList.add('animate-h1')],
+      [2120, () => heroH1.classList.remove('animate-h1')],
+      [2400, () => mannyImg.classList.remove('animate-img')],
+    ];
+    steps.forEach(([delay, fn]) => setTimeout(fn, delay));
+  }
 </script>

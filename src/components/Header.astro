@@ -1,332 +1,355 @@
 ---
-const Manface = '/images/man-face.webp'
----
-<div class="navigation-container">
-    <navigation id="navigation">
-        <div class="navigation-content">
-            <a href="/" class="logo">
-                <img src={Manface} width="150" height="auto" alt="logo" decoding="async" />
-                <span class="logo-text">MANNY PACHANO</span>
-            </a>
-            <ul class="show-601">
-                <li>Home<a href="/" aria-label="Go back to home."></a></li>
-                <li>About<a href="/#about-section" aria-label="Go to about me."></a></li>
-                <li>Projects<a href="/#project-section" aria-label="Go to my projects."></a></li>
-                <li>Contact<a href="/#contact-section" aria-label="Go to contact me."></a></li>
-            </ul>	
-            
-            
-            <!-- MOBILE BURGER BARS -->
-            <div class="burger-menu hide-601" id="burger-container">
-                <div class="burger-container">
-                    <div id="burger">
-                        <div class="bar topBar"></div>
-                        <div class="bar btmBar"></div>
-                    </div>	
-                </div>
-            
-                <!-- MOBILE DROPDOWN MENU -->
-                <div class="mobile-menu" id="mobile-menu">
-                    <ul style="display: flex !important; flex-direction:column;">
-                        <li class="mobile-menu-item">Home<a href="/" aria-label="Go back to home." ></a></li>
-                        <li class="mobile-menu-item">About<a href="/#about-section" aria-label="Go to about me." ></a></li>
-                        <li class="mobile-menu-item">Projects<a href="/#project-section" aria-label="Go to my projects." ></a></li>
-                        <li class="mobile-menu-item">Contact<a href="/#contact-section" aria-label="Go to contact me." ></a></li>
-                    </ul>	
-                </div>
-            </div>	
-            
-        </div>
-    </navigation>
-</div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
+// Site header: fixed nav, mobile overlay menu, and the cursor trail (desktop only).
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/#about-section', label: 'About' },
+  { href: '/#project-section', label: 'Projects' },
+  { href: '/#contact-section', label: 'Contact' },
+];
 
+const isHome = Astro.url.pathname === '/';
+---
+
+<header class="site-header">
+  <nav class="site-nav" id="site-nav" aria-label="Main">
+    <div class="navigation-content">
+      <a href="/" class="logo" aria-label="Manny Pachano, back to home">
+        <img src="/images/man-face.webp" width="24" alt="" decoding="async" />
+        <span class="logo-text">MANNY PACHANO</span>
+      </a>
+
+      <ul class="nav-links show-601">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} aria-current={isHome && link.href === '/' ? 'page' : undefined}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <button
+        class="burger-menu hide-601"
+        id="burger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open menu"
+      >
+        <span class="bar topBar"></span>
+        <span class="bar btmBar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <ul>
+      {links.map((link) => (
+        <li class="mobile-menu-item">
+          <a href={link.href}>{link.label}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<div class="cursor-trail" aria-hidden="true">
+  {Array.from({ length: 10 }).map(() => <div class="circle"></div>)}
+</div>
 
 <style>
-    /* NAVIGATION BAR */
+  /* Spacer so page content starts below the fixed bar. */
+  .site-header {
+    height: var(--nav-height);
+  }
 
-    .navigation-container {
-        margin: 5rem 1rem;
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    padding: 1rem 1rem;
+    background-color: rgba(250, 250, 250, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    transition: background-color 0.3s var(--ease);
+  }
+
+  .navigation-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 78rem;
+    margin: 0 auto;
+    min-height: 3rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: transform 0.15s var(--ease);
+  }
+
+  .logo:hover {
+    transform: translateY(-3px);
+  }
+
+  .logo img {
+    width: 24px;
+    height: auto;
+  }
+
+  .logo-text {
+    font-weight: 700;
+    color: var(--text-paragraph);
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    transition: color 0.3s var(--ease);
+  }
+
+  .nav-links {
+    display: none;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    list-style: none;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 0.4rem 0.15rem;
+    color: var(--text-paragraph);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.8px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: transform 0.15s var(--ease), border-color 0.15s var(--ease);
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible,
+  .nav-links a[aria-current='page'] {
+    border-bottom-color: var(--yellow);
+  }
+
+  .nav-links a:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Burger button (mobile) */
+  .burger-menu {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: var(--black);
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s var(--ease);
+  }
+
+  .burger-menu:hover {
+    transform: none;
+    scale: 1;
+    box-shadow: none;
+  }
+
+  .bar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    transition: transform 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99), background-color 0.3s var(--ease);
+  }
+
+  /* Open state: bar goes dark, burger becomes an X */
+  .menu-open .site-nav,
+  .site-nav.menu-open {
+    background-color: var(--black);
+    border-bottom-color: transparent;
+  }
+
+  .site-nav.menu-open .logo-text {
+    color: var(--white);
+  }
+
+  .site-nav.menu-open .burger-menu {
+    background-color: var(--white);
+  }
+
+  .site-nav.menu-open .bar {
+    background: var(--black);
+  }
+
+  .site-nav.menu-open .topBar {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .site-nav.menu-open .btmBar {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+  /* Full-screen mobile menu */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 15;
+    background-color: rgba(0, 0, 0, 0.96);
+    padding: calc(var(--nav-height) + 1.5rem) 1.5rem 2rem;
+    overflow-y: auto;
+    animation: menu-in 0.25s var(--ease);
+  }
+
+  .mobile-menu[hidden] {
+    display: none;
+  }
+
+  @keyframes menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    text-align: center;
+    max-width: 24rem;
+    margin: 0 auto;
+  }
+
+  .mobile-menu-item a {
+    display: block;
+    padding: 1.5rem;
+    font-size: 1.4rem;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(254, 249, 246, 0.3);
+  }
+
+  .mobile-menu-item a:hover,
+  .mobile-menu-item a:focus-visible {
+    color: var(--yellow);
+  }
+
+  @media only screen and (min-width: 601px) {
+    .site-nav {
+      padding: 1rem 1.5rem;
     }
 
-    navigation {
-        padding: 1rem 1rem 1rem;
-        position: fixed;
-        top: 0rem;
-        right: 0;
-        left: 0;
-        z-index: 2;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        transition: all .35s ease-in-out;
+    .nav-links {
+      display: flex;
     }
 
-    .navigation-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-right: 1rem;
-    }
-
-    .navigation-content ul {
-        display: none;
-        gap: 4vw;
-        list-style: none;
-        margin-top: 8px;
-    }
-    navigation a {
-        text-decoration: none;
-    }
-
-    navigation .show-601 li {
-        color: var(--text-paragraph);
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: .9rem;
-        letter-spacing: .8px;
-        line-height: 1.8;
-        position: relative;
-    }
-
-    navigation .show-601 a {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .logo {
-        transition: all ease-in-out .1s;
-    }
-
-    .logo:hover {
-        transform: translateY(-4px);
-    }
-
-    navigation li {
-        transition: all ease-in-out .1s;
-    }
-
-    navigation li:hover {
-        border-bottom: solid 2px var(--yellow);
-        transform: translateY(-4px);
-    }
-
-    .logo-text {
-        font-weight: 700;
-        color: var(--text-paragraph);
-        letter-spacing: 1.5px;
-        font-size: 18px;
-    }
-
-
-    /* MOBILE BURGER BARS */
-    .burger-menu {
-        background-color: var(--black);
-        border-radius: 40px;
-        width: 2.75rem;
-        height: 2.75rem;
-        overflow: hidden;
-        cursor: pointer;
-        transition: all .35s ease-in-out;
-    }
-
-    .burger-container {
-        position: relative;
-        float: right;
-        display: inline-block;
-        height: 44px;
-        width: 44px;
-        cursor: pointer;
-        transform: rotate(0deg);
-        transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-        -webkit-user-select: none;
-        -moz-user-select: none;
-            -ms-user-select: none;
-                user-select: none;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    .burger-container #burger {
-        width: 18px;
-        height: 8px;
-        position: relative;
-        display: block;
-        margin: -4px auto 0;
-        top: 50%;
-    }
-
-    .burger-container #burger .bar {
-        width: 100%;
-        height: 2px;
-        display: block;
-        position: relative;
-        background: #FFF;
-        transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-        transition-delay: 0s;
-    }
-
-    .burger-container #burger .bar.topBar {
-        transform: translateY(0px) rotate(0deg);
-    }
-
-    .burger-container #burger .bar.btmBar {
-        transform: translateY(6px) rotate(0deg);
-    }
-
-    .menu-open .burger-container {
-        transform: rotate(90deg);
-    }
-
-    .menu-open .burger-container #burger .bar {
-        transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-        transition-delay: 0.2s;
-    }
-
-    .menu-open .burger-container #burger .bar.topBar {
-        transform: translateY(4px) rotate(45deg);
-    }
-
-    .menu-open .burger-container #burger .bar.btmBar {
-        transform: translateY(3px) rotate(-45deg);
-    }
-
-    /* MOBILE DROPDOWN MENU */
-    .menu-open .burger-menu {
-        width: 86vw;
-        height: 500px;
-        background-color: #000000;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        border-radius: 8px;
-        overflow: scroll;
-        z-index: 2;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        grid-column-gap: .75rem;
-        min-width: fit-content;
-        align-self: start;
-        padding-top: 8px;
-        transition: all .2s ease-in-out;
-    }
-
-    .menu-open .logo {
-        margin-left: -13.6rem;
-        margin-right: 2rem;
-    }
-
-    .logo img {
-        width: 24px;
-    }
-
+    .burger-menu,
     .mobile-menu {
-        text-align: center;
-        padding: 0 1.5rem;
-        margin-top: 2rem;
+      display: none;
     }
-
-    .mobile-menu ul {
-        list-style: none;
-    }
-
-    .mobile-menu-item {
-        border-bottom: 1px solid #FEF9F64D;
-        padding: 1.5rem;
-        font-size: 20px;
-        color: var(--white);
-        position: relative;
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: .8px;
-        line-height: 1.8;
-    }
-
-    .mobile-menu-item a {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    @media only screen and (min-width: 601px) and (min-height: 400px) {
-        .mobile-menu-item {
-            font-size: 24px;
-        }
-
-    }
-
-    @media only screen and (min-width: 401px) {
-        .mobile-menu {
-            padding: 0 3rem;
-        }
-    }
+  }
 </style>
 
 <script>
-    // MOBILE DROPDOWN MENU 
+  // ---------------------------------------------------------------------
+  // MOBILE MENU
+  // ---------------------------------------------------------------------
+  const nav = document.getElementById('site-nav');
+  const burger = document.getElementById('burger') as HTMLButtonElement | null;
+  const menu = document.getElementById('mobile-menu');
 
-    const navigation = document.getElementById('navigation');
-    const burgerContainer = document.getElementById('burger-container');
+  function setMenu(open: boolean) {
+    if (!nav || !burger || !menu) return;
+    nav.classList.toggle('menu-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    menu.hidden = !open;
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
 
-    burgerContainer.addEventListener('click', function(){
-        navigation.classList.toggle('menu-open');
-    })
+  burger?.addEventListener('click', () => {
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
 
-    window.addEventListener("resize", function(){
-        if (window.matchMedia("(min-width: 900px)")) {
-            navigation.classList.remove('menu-open');
-    }
-    })
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenu(false));
+  });
 
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenu(false);
+  });
 
-    // MOUSE EFFECT
-    const coords = { x:0, y:0};
-    const circles = document.querySelectorAll(".circle") as NodeListOf<HTMLElement>;
+  // Close the overlay if the viewport grows past the mobile breakpoint.
+  const desktopQuery = window.matchMedia('(min-width: 601px)');
+  desktopQuery.addEventListener('change', (event) => {
+    if (event.matches) setMenu(false);
+  });
 
-    circles.forEach(function(circle) {
-        (circle as any).x = 0;
-        (circle as any).y = 0;
-    })
+  // ---------------------------------------------------------------------
+  // CURSOR TRAIL (desktop, fine pointer, no reduced-motion preference)
+  // The animation loop only runs while the cursor is moving, then stops.
+  // ---------------------------------------------------------------------
+  const circles = Array.from(document.querySelectorAll<HTMLElement>('.cursor-trail .circle'));
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    window.addEventListener("mousemove", function(e) {
-        coords.x = e.clientX;
-        coords.y = e.clientY;
-    })
+  if (circles.length && finePointer && !prefersReducedMotion) {
+    const cursor = { x: -100, y: -100 };
+    const positions = circles.map(() => ({ x: -100, y: -100 }));
+    let frameId = 0;
+    let idleFrames = 0;
 
-    function animateCircles() {
-        let x = coords.x;
-        let y = coords.y;
+    function frame() {
+      let x = cursor.x;
+      let y = cursor.y;
+      let moving = false;
 
-        circles.forEach(function(circle, index) {
-            circle.style.left = `${x - 12}px`;
+      circles.forEach((circle, index) => {
+        circle.style.left = `${x - 12}px`;
         circle.style.top = `${y - 12}px`;
+        circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+        positions[index] = { x, y };
 
-        const scaleValue = (circles.length - index) / circles.length;
-        circle.style.transform = `scale(${scaleValue})`;
+        const next = positions[index + 1] || positions[0];
+        const dx = (next.x - x) * 0.3;
+        const dy = (next.y - y) * 0.3;
+        if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) moving = true;
+        x += dx;
+        y += dy;
+      });
 
-        (circle as any).x = x;
-        (circle as any).y = y;
-
-        const nextCircle = circles[index + 1] || circles[0];
-        x += ((nextCircle as any).x - x) * 0.3;
-        y += ((nextCircle as any).y - y) * 0.3;
-        })
-        requestAnimationFrame(animateCircles);
+      if (moving || idleFrames++ < 30) {
+        frameId = requestAnimationFrame(frame);
+      } else {
+        frameId = 0;
+      }
     }
 
-    animateCircles();
+    window.addEventListener(
+      'mousemove',
+      (event) => {
+        cursor.x = event.clientX;
+        cursor.y = event.clientY;
+        idleFrames = 0;
+        if (!frameId) frameId = requestAnimationFrame(frame);
+      },
+      { passive: true }
+    );
+  }
 </script>
