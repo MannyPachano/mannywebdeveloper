@@ -1,256 +1,137 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
 import '../styles/global.css';
-// import Logo from '../images/logo.png';
-const Favicon = '/man-face.webp';
 
 export interface Props {
-	title?: string;
-	description?: string;
-	canonical?: string;
-    isHome?: boolean;
+  title?: string;
+  description?: string;
+  isHome?: boolean;
 }
 
-const { title = 'Manny Pachano | Frontend Web Developer', description = 'Front-end web developer experienced in creating fast, responsive, and beautiful Astro.js websites from scratch', canonical = '', isHome = false } = Astro.props;
+const {
+  title = SITE.title,
+  description = SITE.description,
+  isHome = false,
+} = Astro.props;
+
+// Absolute URLs for canonical + social tags, derived from the current route.
+const canonicalURL = new URL(Astro.url.pathname, SITE.url).href;
+const ogImageURL = new URL(SITE.ogImage, SITE.url).href;
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-	<meta name="description" content={description} />
-	<meta name="author" content="Manny Pachano" />
-    <link rel="canonical" href=`https://www.mannywebdev.netlify.app/${canonical}` />
-    <!-- todo: insert this -->
-	<link rel="icon" href={Favicon} type="image/x-icon" />
+    <meta name="description" content={description} />
+    <meta name="author" content={SITE.name} />
 
-    {isHome ? <link rel="preload" href="/images/common-bg.svg" as="image" /> : null}
+    <!-- This portfolio is shared by link only. Keep it out of search engines. -->
+    <meta name="robots" content="noindex, nofollow, noarchive" />
 
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" href="/images/man-face.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="/images/man-face.webp" />
+    <meta name="theme-color" content="#ffe83d" />
+
+    {isHome && <link rel="preload" href="/images/common-bg.svg" as="image" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content=`https://www.mannywebdev.netlify.app/${canonical}` />
-    <meta property="og:type" content="website" />
-	<!-- todo: find img for this -->
-    <meta property="og:image" content="https://www.mannywebdev.netlify.app/images/og-image.jpg" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-	<!-- todo: find img for this -->
-    <meta name="twitter:image" content="https://www.mannywebdev.netlify.app/images/twitter-image.jpg" />
+    <meta name="twitter:image" content={ogImageURL} />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <Header />
-    <slot />
+    <main id="main">
+      <slot />
+    </main>
     <Footer />
- </body>
+  </body>
 </html>
 
+<style>
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    background: var(--yellow);
+    color: var(--text-header);
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+  }
 
-<script src="//code.tidio.co/htto1uiocpy92atva55rhy1v5hr6f6vg.js" async></script>
+  .skip-link:focus {
+    top: 1rem;
+  }
+</style>
+
 <script>
-  // MEDIA LAZY LOAD FUNCTION
-  const placeholderImageDiv = document.querySelectorAll(".placeholder-img");
-  const placeholderImageDivHome = document.querySelectorAll(".home-placeholder-img");
-  const imgTags = document.getElementsByTagName("IMG");
-  const imgArray = Array.from(imgTags) as HTMLImageElement[];
-  const videoTags = document.getElementsByTagName('VIDEO');
-  const videoArray = Array.from(videoTags) as HTMLVideoElement[];
+  // ---------------------------------------------------------------------
+  // VIDEO AUTOPLAY, ONLY WHEN VISIBLE
+  // Every <video data-autoplay> starts with preload="none". It only downloads
+  // and plays once it scrolls near the viewport, and pauses when it leaves.
+  // Users who prefer reduced motion see the poster frame instead.
+  // ---------------------------------------------------------------------
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const autoplayVideos = Array.from(document.querySelectorAll<HTMLVideoElement>('video[data-autoplay]'));
 
-  placeholderImageDiv.forEach(function(div){
-
-      imgArray.forEach(function(img){
-          if(div.contains(img)){
-              
-              if (img.complete) {
-                  div.classList.add("loaded");
-                } else {
-                  img.addEventListener("load", function(){
-                      div.classList.add("loaded")
-                  });
-                }
-
+  if (autoplayVideos.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting && !reduceMotion) {
+            video.play().catch(() => {
+              /* autoplay can be blocked; the poster stays visible */
+            });
+          } else {
+            video.pause();
           }
-      })
-
-      videoArray.forEach(function(video){
-          if(div.contains(video)){
-              if (video.readyState === 4){
-                  div.classList.add("loaded");
-              } else {
-                  video.addEventListener("loadeddata", function(){
-                      div.classList.add("loaded")
-                  });
-              }
-          }
-      })
-  })
-
-  placeholderImageDivHome.forEach(function(div){
-
-      videoArray.forEach(function(video){
-          if(div.contains(video)){
-              if (video.readyState === 4){
-                  div.classList.add("loaded");
-              } else {
-                  video.addEventListener("loadeddata", function(){
-                      div.classList.add("loaded")
-                  });
-              }
-          }
-      })
-  })
-
-
-  // AUTOPLAY VIDEOS
-  function loadVideos(){
-      if(videoArray){
-          videoArray.forEach(function (video){
-              video.play();
-          })
-      }
-  }
-  loadVideos();
-
-
-  // SCALE ANIMATION INTERSECTION OBSERVER  
-
-  function callback(entries: IntersectionObserverEntry[]) {
-      entries.forEach(entry => {
-
-          const skillsTags = entry.target.querySelectorAll('li');
-          const skillsArray = Array.from(skillsTags) as HTMLElement[];
-          console.log(skillsArray);
-
-          skillsArray.forEach(function(skillItem) {
-              console.log(skillItem)
-              if (entry.isIntersecting) {
-                  skillItem.classList.add('scale-animation');
-                  return; 
-              }
-
-              skillItem.classList.remove('scale-animation');
-          })
-      });
+        });
+      },
+      { rootMargin: '200px 0px', threshold: 0.1 }
+    );
+    autoplayVideos.forEach((video) => observer.observe(video));
   }
 
-  var options = {
-      threshold: [1],
-      rootMargin: "-80px"
-  }
-
-  const observer = new IntersectionObserver(callback, options);
-    
-    observer.observe(document.querySelector('.skills-list') as Element);
-
-
-
-
-
-    // PROJECT VIDEO NAVIGATION BUTTONS
-
-  const prevBtn = document.getElementById('video-nav-prev');
-  const nextBtn = document.getElementById('video-nav-next');
-  const projectMedia = document.querySelectorAll('.project-media-item') as NodeListOf<HTMLElement>;
-  const videoTitles = document.querySelectorAll('p.video-title') as NodeListOf<HTMLElement>;
-
-  function translateTitleDown(){
-      videoTitles.forEach( function(title){
-          if(title.style.transform === "translateY(-150%)"){
-                  
-              title.style.transform = "translateY(0%)";
-              
-          } else if(title.style.transform !== "translateY(0%)"){
-
-              title.style.transform = "translateY(-150%)";
-
-          } 
-      })
-  }
-
-  function translateTitleUp(){
-      videoTitles.forEach( function(title){
-          if(title.style.transform === "translateY(-150%)"){
-                  
-              title.style.transform = "translateY(-300%)";
-              
-          } else if(title.style.transform !== "translateY(-300%)"){
-
-              title.style.transform = "translateY(-150%)";
-
-          } 
-      })
-  }
-
-  if(prevBtn){
-      if(!prevBtn.classList.contains('nav-disabled')){
-          prevBtn.classList.add('nav-disabled');
-      }
-
-      prevBtn.addEventListener('click', function(){
-          
-          translateTitleDown();
-
-          projectMedia.forEach( function(item){
-              if(item.style.transform === "translateX(-100%)"){
-                  
-                  item.style.transform = "translateX(0%)";
-                  prevBtn.classList.add('nav-disabled');
-                  
-                  videoArray.forEach(function(video){
-                      if(item.contains(video)){
-                          video.currentTime = 0;
-                      }
-                  })
-                  
-              } else if(item.style.transform !== "translateX(0%)"){
-
-                  item.style.transform = "translateX(-100%)";
-                  nextBtn.classList.remove('nav-disabled');
-
-                  videoArray.forEach(function(video){
-                      if(item.contains(video)){
-                          video.currentTime = 0;
-                      }
-                  })
-
-              } 
-          })
-      })
-  }
-
-  if(nextBtn){
-      nextBtn.addEventListener('click', function(){
-
-          translateTitleUp();
-
-          projectMedia.forEach( function(item){
-              if(item.style.transform === "translateX(-100%)"){
-                  
-                  item.style.transform = "translateX(-200%)";
-                  nextBtn.classList.add('nav-disabled');
-
-                  videoArray.forEach(function(video){
-                      if(item.contains(video)){
-                          video.currentTime = 0;
-                      }
-                  })
-                  
-              } else if(item.style.transform !== "translateX(-200%)"){
-
-                  item.style.transform = "translateX(-100%)";
-                  prevBtn.classList.remove('nav-disabled');
-
-                  videoArray.forEach(function(video){
-                      if(item.contains(video)){
-                          video.currentTime = 0;
-                      }
-                  })
-
-              } 
-          })
-      })
+  // ---------------------------------------------------------------------
+  // SKILL CHIP ANIMATION when the skills list scrolls into view
+  // ---------------------------------------------------------------------
+  const skillsList = document.querySelector('.skills-list-animated');
+  if (skillsList && !reduceMotion && 'IntersectionObserver' in window) {
+    const chips = Array.from(skillsList.querySelectorAll('li'));
+    const chipObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          chips.forEach((chip, i) => {
+            if (entry.isIntersecting) {
+              chip.style.animationDelay = `${i * 25}ms`;
+              chip.classList.add('scale-animation');
+            } else {
+              chip.classList.remove('scale-animation');
+            }
+          });
+        });
+      },
+      { threshold: 0.6 }
+    );
+    chipObserver.observe(skillsList);
   }
 </script>

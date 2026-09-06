@@ -1,75 +1,118 @@
-*, *:before, *:after {
+/* ==========================================================================
+   GLOBAL STYLES
+   Design tokens, typography, buttons, shared section pieces.
+   Component-specific styles live in each .astro file.
+   ========================================================================== */
+
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-html {
-    scroll-behavior: smooth;   
-}
-
-body, button, input {
-    font-family: "Source Sans 3", sans-serif;    
 }
 
 :root {
     --white: #ffffff;
     --yellow: #ffe83d;
+    --yellow-dark: #e6cf1c;
     --text-header: #111111;
     --text-subheader: #333333;
     --text-paragraph: #555555;
     --text-accent: #666666;
     --gray-box: rgba(153, 153, 153, 0.2);
+    --gray-line: #e9e9e9;
     --contact-input-background: #f0f0f0;
     --gray-background: #fafafa;
     --black: #000000;
+    --nav-height: 5rem;
+    --radius: 12px;
+    --shadow-sm: 0 4px 18px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 14px 32px rgba(0, 0, 0, 0.10);
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* source-sans-3-regular - latin */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+body,
+button,
+input,
+textarea {
+    font-family: "Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--text-paragraph);
+}
+
+/* Sections that are anchor targets stop below the fixed header. */
+#about-section,
+#project-section,
+#contact-section {
+    scroll-margin-top: calc(var(--nav-height) + 1rem);
+}
+
+/* Visible keyboard focus everywhere, in the brand color. */
+:focus-visible {
+    outline: 3px solid var(--yellow-dark);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+::selection {
+    background: var(--yellow);
+    color: var(--text-header);
+}
+
+/* --------------------------------------------------------------------------
+   Fonts (self-hosted, latin subset)
+   -------------------------------------------------------------------------- */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-display: swap;
     font-family: 'Source Sans 3';
     font-style: normal;
     font-weight: 400;
-    src: url('/fonts/source-sans-3-v15-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
-  /* source-sans-3-600 - latin */
-  @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    src: url('/fonts/source-sans-3-v15-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
     font-family: 'Source Sans 3';
     font-style: normal;
     font-weight: 600;
-    src: url('/fonts/source-sans-3-v15-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
-  /* source-sans-3-700 - latin */
-  @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    src: url('/fonts/source-sans-3-v15-latin-600.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
     font-family: 'Source Sans 3';
     font-style: normal;
     font-weight: 700;
-    src: url('/fonts/source-sans-3-v15-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
-  /* source-sans-3-800 - latin */
-  @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    src: url('/fonts/source-sans-3-v15-latin-700.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
     font-family: 'Source Sans 3';
     font-style: normal;
     font-weight: 800;
-    src: url('/fonts/source-sans-3-v15-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
-  /* source-sans-3-900 - latin */
-  @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    src: url('/fonts/source-sans-3-v15-latin-800.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
     font-family: 'Source Sans 3';
     font-style: normal;
     font-weight: 900;
-    src: url('/fonts/source-sans-3-v15-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
+    src: url('/fonts/source-sans-3-v15-latin-900.woff2') format('woff2');
+}
 
+/* --------------------------------------------------------------------------
+   Typography
+   -------------------------------------------------------------------------- */
 h1 {
     font-size: 2.5rem;
     color: var(--text-header);
@@ -77,29 +120,25 @@ h1 {
     letter-spacing: 2px;
     text-transform: uppercase;
     word-spacing: 2px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
     position: relative;
 }
 
 #h1-hero {
-    transition: all .2s ease-in-out;
+    transition: transform 0.2s var(--ease), scale 0.2s var(--ease);
     cursor: pointer;
 }
 
-#h1-hero:hover {
-    scale: 1.05;
-    transform: translateY(-2px);
-}
-
+#h1-hero:hover,
 .animate-h1 {
     scale: 1.05;
     transform: translateY(-2px);
 }
 
 .animate-img {
-    opacity: 1!important;
+    opacity: 1 !important;
 }
-
 
 h2 {
     font-size: 2.25rem;
@@ -108,22 +147,25 @@ h2 {
     letter-spacing: 2px;
     text-transform: uppercase;
     word-spacing: 2px;
-    margin: 2rem 0 2rem 0;
+    margin: 2rem 0;
+    line-height: 1.2;
 }
 
-h3 {
+h3,
+.section-title {
     font-size: 1.375rem;
     color: var(--text-subheader);
-    letter-spacing: .4px;
-    line-height: 1.8;
+    letter-spacing: 0.4px;
+    line-height: 1.6;
     font-weight: 800;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: none;
 }
 
 h4 {
     font-size: 1.125rem;
     color: var(--text-subheader);
-    letter-spacing: .4px;
+    letter-spacing: 0.4px;
     line-height: 1.8;
     font-weight: 400;
 }
@@ -131,43 +173,88 @@ h4 {
 p {
     font-size: 1rem;
     color: var(--text-paragraph);
-    letter-spacing: .8px;
+    letter-spacing: 0.4px;
     line-height: 1.8;
 }
 
+p + p {
+    margin-top: 1.25rem;
+}
+
+strong {
+    color: var(--text-subheader);
+}
+
+/* Large intro paragraph under a page title. */
+.lede {
+    font-size: 1.125rem;
+    color: var(--text-subheader);
+    line-height: 1.8;
+}
+
+/* Small uppercase label above a title. */
+.eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-accent);
+    margin-bottom: 1rem;
+}
+
+/* Inline text link with the brand underline. */
+.text-link {
+    font-weight: 700;
+    color: var(--text-subheader);
+    text-decoration: underline;
+    text-decoration-color: var(--yellow);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.2s var(--ease);
+}
+
+.text-link:hover {
+    text-decoration-color: var(--text-header);
+}
+
+/* --------------------------------------------------------------------------
+   Cursor trail (desktop, fine pointer only)
+   -------------------------------------------------------------------------- */
 .circle {
     height: 24px;
     width: 24px;
     border-radius: 24px;
-    background-color: black;
+    background-color: var(--black);
     position: fixed;
-    visibility: hidden;    
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 5;
     pointer-events: none;
+    display: none;
+    will-change: transform;
 }
 
-a, i  {
-    z-index: 1 !important;
+@media (min-width: 601px) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .circle {
+        display: block;
+    }
 }
 
-/* TITLE DIV */
-
+/* --------------------------------------------------------------------------
+   Section title block
+   -------------------------------------------------------------------------- */
 .title-div {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
-
 }
-
-/* AFTER TITLES */
 
 .title-after {
     position: relative;
     margin-bottom: 3rem;
 }
+
 .title-after::after {
     position: absolute;
     top: calc(100% + 1rem);
@@ -180,20 +267,27 @@ a, i  {
     border-radius: 5px;
 }
 
-/* BUTTONS */
-button {
+/* --------------------------------------------------------------------------
+   Buttons. `.button` is for links styled as buttons (never nest <button> in <a>).
+   -------------------------------------------------------------------------- */
+button,
+.button {
+    display: inline-block;
     text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
     background-color: var(--yellow);
     padding: 1rem 5rem;
     font-weight: 900;
     font-size: 20px;
-    letter-spacing: .4px;
+    letter-spacing: 0.4px;
+    line-height: 1.3;
     color: var(--text-header);
     border: none;
     border-radius: 8px;
-    box-shadow: 0 2px 12px 4px #0000004D;
+    box-shadow: 0 2px 12px 4px rgba(0, 0, 0, 0.3);
     margin: 3rem 0 1rem;
-    transition: all ease-in-out .2s;
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), scale 0.2s var(--ease), background-color 0.2s var(--ease);
     cursor: pointer;
 }
 
@@ -203,70 +297,89 @@ button {
     margin: 3rem 0 0;
 }
 
-button:hover {
+.button-secondary {
+    background-color: var(--white);
+    box-shadow: 0 2px 12px 2px rgba(0, 0, 0, 0.12);
+}
+
+button:hover,
+.button:hover {
     transform: translateY(-4px);
     scale: 1.04;
-    box-shadow: 0 6px 12px 2px #00000033;
+    box-shadow: 0 6px 12px 2px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    transform: none;
+    scale: 1;
+    box-shadow: none;
+    opacity: 0.6;
 }
 
 .project-summary-btns {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
-.project-link, .project-back-btn {
-    margin: 0 0 2rem;
-    width: 15rem;
+.project-summary-btns .button {
+    margin: 0;
+    width: 100%;
 }
 
 .project-back-btn {
     background-color: var(--gray-background);
 }
 
-
-
-
-
 .hero-section:has(h1:hover) .manny-img {
     opacity: 1;
 }
 
-/* SKILLS */
+/* --------------------------------------------------------------------------
+   Skills / tag chips
+   -------------------------------------------------------------------------- */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
 }
 
 .skills-list li {
-    padding: .75rem 1.5rem;
-    list-style: none;
+    padding: 0.75rem 1.5rem;
     background-color: var(--gray-box);
     border-radius: 8px;
-    margin: 0 .8rem .8rem 0;
+    margin: 0 0.8rem 0.8rem 0;
     font-weight: 600;
     color: var(--text-accent);
-    font-size: .925rem;
+    font-size: 0.925rem;
+}
+
+.skills-list-compact li {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.8rem;
+    margin: 0 0.5rem 0.5rem 0;
 }
 
 .scale-animation {
-    animation: scale .7s;
+    animation: scale 0.7s;
 }
-
 
 @keyframes scale {
-    
     50% {
-    scale: 1.05;
-    background-color: var(--yellow);
-    transform: translateY(-2px);
+        scale: 1.05;
+        background-color: var(--yellow);
+        transform: translateY(-2px);
     }
     100% {
-    scale: 1;
-    background-color: var(--gray-box);
+        scale: 1;
+        background-color: var(--gray-box);
     }
 }
 
-/* PROJECT 1 */
+/* --------------------------------------------------------------------------
+   Case study pages
+   -------------------------------------------------------------------------- */
 .project-summary-section {
     background-color: var(--gray-background);
     display: flex;
@@ -275,144 +388,125 @@ button:hover {
 
 .project-summary-container {
     max-width: 78rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 1.5rem 3rem;
+    padding: 3rem 1.5rem;
+    row-gap: 3rem;
+}
+
+.case-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1.5rem 2.5rem;
+    width: 100%;
+    max-width: 60rem;
+    padding: 1.5rem 2rem;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: var(--radius);
+}
+
+.case-facts dt {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-accent);
+    margin-bottom: 0.25rem;
+}
+
+.case-facts dd {
+    font-weight: 600;
+    color: var(--text-subheader);
 }
 
 .project-summary-video {
     display: flex;
     flex-direction: column;
-    padding-bottom: 3rem;
+    width: 100%;
+    align-items: center;
 }
 
 .videos-container {
     display: flex;
     overflow: hidden;
-    width: 92vw;
+    width: 100%;
     max-width: 60rem;
+    border-radius: var(--radius);
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    box-shadow: var(--shadow-sm);
 }
 
-.project-media-item{
-    transition: all ease-in-out .35s;
+.project-media-item {
+    flex: 0 0 100%;
+    width: 100%;
+    margin: 0;
+    transition: transform 0.35s var(--ease);
 }
 
-.project-summary-video video {
-    max-width: 60rem;
-    width: 92vw;
-    transition: all ease-in-out .35s;
-}
-
-.project-summary-video img {
-    max-width: 60rem;
-    width: 92vw;
-    transition: all ease-in-out .35s;
-}
-
-.placeholder-img {
-    background-repeat: no-repeat;
-    background-size: cover;
-    max-width: 60rem;
-    width: 92vw;
-    animation: pulse 2.3s infinite;
-}
-  
-@keyframes pulse {
-    0% {
-      opacity: 0.2;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.2;
-    }
-}
-
-
-.placeholder-img img {
-    opacity: 0;
-    transition: opacity 250ms ease-in-out;
-}
-
-.placeholder-img video {
-    opacity: 0;
-    transition: opacity 250ms ease-in-out;
-}
-
-.placeholder-img.loaded {
-    animation: none;
-    background-image: none !important;
-}
-  
-.placeholder-img.loaded img {
-    opacity: 1;
-}
-
-.placeholder-img.loaded video {
-    opacity: 1;
+.project-media-item video,
+.project-media-item img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .video-nav {
     display: flex;
     justify-content: center;
-    align-items: start;
-    grid-column-gap: 4.5rem;
-    z-index: 1;
-    overflow: hidden;
+    align-items: center;
+    gap: 1rem;
     height: 64px;
     padding: 12px;
+    margin-bottom: 0.5rem;
 }
 
 .video-nav-btn {
     width: 40px;
     min-width: 40px;
     height: 40px;
+    padding: 0;
+    margin: 0;
     background-color: var(--yellow);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    box-shadow: 0 1px 4px 1px #00000033;
-    transition: all ease-in-out .2s;
-}
-
-.video-nav-btn:hover {
-    transform: translateY(-4px);
-    scale: 1.2;
-    box-shadow: 0 3px 5px 0px #0000001F;
+    border: 0;
+    box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), scale 0.2s var(--ease);
     cursor: pointer;
 }
 
-.video-nav-btn:active {
-    transform: translateY(2px);
+.video-nav-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    scale: 1.15;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.video-nav-btn:active:not(:disabled) {
+    transform: translateY(1px);
     scale: 1;
     box-shadow: none;
-    cursor: pointer;
 }
 
-.nav-disabled {
-    background-color: #EBEBE4;
-    box-shadow: none;
+.video-nav-btn:disabled {
+    background-color: #ebebe4;
+    opacity: 1;
 }
 
-.nav-disabled rect {
-    fill: #707070;
-}
-
-.nav-disabled:hover {
-    transform: none;
-    scale: none;
-    box-shadow: none;
-    cursor: unset;
+.video-nav-btn:disabled svg rect {
+    fill: #8a8a8a;
 }
 
 .video-titles-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-row-gap: 1rem;
+    min-width: 12rem;
 }
 
 .video-title {
@@ -420,57 +514,85 @@ button:hover {
     border-bottom: solid 3px var(--yellow);
     text-transform: uppercase;
     font-weight: 700;
-    transition: all ease-in-out .2s;
+    font-size: 0.95rem;
+    letter-spacing: 0.8px;
+    text-align: center;
 }
 
-p.video-title {
-    transition: all ease-in-out .3s;
-}
-
-.video-title span {
-    display: none;
+.video-counter {
+    font-size: 0.8rem;
+    color: var(--text-accent);
+    margin-top: 0.35rem;
+    letter-spacing: 1px;
 }
 
 .project-summary-copy {
     max-width: 47rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    grid-row-gap: 3rem;
+    row-gap: 3rem;
 }
 
-
-@media only screen and (min-width: 408px) {
-    .video-title span {
-        display: unset;
-    }
-
-    .video-nav {
-        grid-column-gap: 1rem;
-    }
+.highlights {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
-@media only screen and (min-width: 461px) {
-    .video-nav {
-        grid-column-gap: 3rem;
-    }
+.highlights li {
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-left: 5px solid var(--yellow);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
 }
 
-@media only screen and (max-width: 601px) {
+.highlights .highlight-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-header);
+    line-height: 1.2;
+}
+
+.highlights .highlight-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-paragraph);
+    margin-top: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Utilities
+   -------------------------------------------------------------------------- */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoints
+   -------------------------------------------------------------------------- */
+@media only screen and (max-width: 600px) {
     .hero-content {
         max-width: 30rem;
     }
-    
+
     .mouse-section {
         display: none;
     }
-
 }
 
-  @media only screen and (min-width: 601px) {
-    .circle {
-        visibility: visible;
-    }
-
+@media only screen and (min-width: 601px) {
     .hide-601 {
         display: none;
     }
@@ -486,32 +608,46 @@ p.video-title {
     h2 {
         font-size: 2.5rem;
     }
-    
-    h3 {
+
+    h3,
+    .section-title {
         font-size: 1.5rem;
     }
-    
+
     h4 {
         font-size: 1.2rem;
     }
-    
+
     p {
         font-size: 1.125rem;
         max-width: 47rem;
+    }
+
+    .lede {
+        font-size: 1.25rem;
     }
 
     .skills-list li {
         font-size: 1rem;
         padding: 1rem 2rem;
         margin: 0 1rem 1rem 0;
-        
+    }
+
+    .skills-list-compact li {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.9rem;
+        margin: 0 0.5rem 0.5rem 0;
     }
 
     .form-item {
         font-size: 1rem;
     }
 
-    .about-section, .projects-section, .contact-section, footer, .project-summary-section {
+    .about-section,
+    .projects-section,
+    .contact-section,
+    footer,
+    .project-summary-section {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
     }
@@ -524,7 +660,7 @@ p.video-title {
     .footer-grid {
         display: grid;
         grid-template-columns: 2.5fr 1fr;
-        grid-column-gap: 2.5rem;
+        column-gap: 2.5rem;
     }
 
     .footer-social {
@@ -540,7 +676,30 @@ p.video-title {
 
     .project-summary-btns {
         flex-direction: row;
-        grid-column-gap: 4rem;
+        gap: 2rem;
     }
 
+    .project-summary-btns .button {
+        width: auto;
+        min-width: 15rem;
+    }
+
+    .video-nav {
+        gap: 3rem;
+    }
+
+    .highlights {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Respect reduced-motion for every animated piece. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
