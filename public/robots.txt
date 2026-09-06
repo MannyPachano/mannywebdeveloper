@@ -1,0 +1,5 @@
+# Crawling is allowed on purpose: search engines must be able to read the
+# noindex directive (meta tag + X-Robots-Tag header) to keep this site out of
+# their index. Blocking crawling here would let URLs get indexed without content.
+User-agent: *
+Allow: /
