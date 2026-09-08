@@ -5,6 +5,8 @@
 // Video files live in /public/videos, posters in /public/images.
 // ---------------------------------------------------------------------------
 
+import { SHOW_CLOX } from '../config';
+
 export type Project = {
   slug: string;
   title: string;
@@ -58,6 +60,27 @@ export const projects: Project[] = [
     },
     liveUrl: 'https://universalenvironmentalservices.com',
   },
+  // Temporary: removed from the homepage when SHOW_CLOX is false (src/config.ts).
+  ...(SHOW_CLOX
+    ? [
+        {
+          slug: 'clox',
+          title: 'Clox',
+          role: 'Founder, product & marketing',
+          year: '2026 to present',
+          summary:
+            'My own product: time tracking for small field crews in the trades. Native iOS and Android apps, a web dashboard and a marketing site, designed, built and marketed by me. <strong>One flat price, a 14-day trial, and payroll done by Friday.</strong>',
+          tags: ['Next.js', 'TypeScript', 'Mobile apps', 'SaaS', 'SEO', 'Product marketing'],
+          video: {
+            mp4: '/videos/clox-thumbnail.mp4',
+            webm: '/videos/clox-thumbnail.webm',
+            poster: '/images/clox-thumbnail.webp',
+            fit: 'cover' as const,
+          },
+          liveUrl: 'https://getclox.com',
+        },
+      ]
+    : []),
   {
     slug: 'explainer-visuals',
     title: 'Explainer Visuals',
