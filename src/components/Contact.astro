@@ -19,17 +19,7 @@ const services = [
     </p>
   </div>
 
-  <div class="contact-inner">
-    <figure class="contact-photo">
-      <img
-        src="/images/manny-office.webp"
-        width="640"
-        height="1146"
-        alt="Manny Pachano sitting at a desk in an office"
-        loading="lazy"
-        decoding="async"
-      />
-    </figure>
+  <div>
     <form
       name="contact"
       method="POST"
@@ -91,43 +81,6 @@ const services = [
     row-gap: 4rem;
     background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
     min-width: 320px;
-  }
-
-  .contact-inner {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    width: 100%;
-    max-width: 46rem;
-    margin: 0 auto;
-  }
-
-  /* The photo only shows beside the form on wider screens. It is lazy-loaded,
-     so phones do not download it. */
-  .contact-photo {
-    display: none;
-    margin: 0;
-  }
-
-  .contact-photo img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-sm);
-  }
-
-  @media only screen and (min-width: 901px) {
-    .contact-inner {
-      grid-template-columns: 16rem minmax(0, 46rem);
-      max-width: 64rem;
-      align-items: start;
-      justify-content: center;
-    }
-
-    .contact-photo {
-      display: block;
-    }
   }
 
   .form-container {
