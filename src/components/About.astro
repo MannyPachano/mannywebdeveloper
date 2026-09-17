@@ -33,35 +33,24 @@ const experience = [
   },
 ];
 
-const skills = [
-  'HTML & CSS',
-  'JavaScript',
-  'TypeScript',
-  'Astro',
-  'Vue',
-  'WordPress',
-  'PHP',
-  'SQL',
-  'REST APIs & integrations',
-  'Zoho CRM',
-  'Stripe & WooCommerce',
-  'Netlify',
-  'Git & GitHub',
-  'Performance optimization',
-  'Responsive design',
-  'Accessibility',
-  'Technical & local SEO',
-  'Google Analytics 4',
-  'Search Console',
-  'Google Business Profile',
-  'Email marketing',
-  'Conversion copywriting',
-  'SaaS product design',
-  'Figma',
-  'Photoshop',
-  'Video for web (ffmpeg, HLS)',
-  'AI-assisted development (Claude Code)',
-  'Prompt engineering',
+// Grouped so a reader can scan what kind of work I do, not just count tools.
+const skillGroups = [
+  {
+    name: 'Build',
+    items: ['HTML & CSS', 'JavaScript', 'TypeScript', 'Astro', 'Vue', 'WordPress', 'PHP', 'SQL', 'Git & GitHub', 'Netlify'],
+  },
+  {
+    name: 'Growth',
+    items: ['Technical & local SEO', 'Google Analytics 4', 'Search Console', 'Google Business Profile', 'Email marketing', 'Conversion copywriting'],
+  },
+  {
+    name: 'Integrations',
+    items: ['REST APIs', 'Zoho CRM', 'Stripe & WooCommerce', 'Netlify Forms', 'Payroll and CRM exports'],
+  },
+  {
+    name: 'Craft',
+    items: ['Performance optimization', 'Accessibility', 'Responsive design', 'Figma', 'SaaS product design', 'Video for web (ffmpeg, HLS)', 'AI-assisted development (Claude Code)'],
+  },
 ];
 ---
 
@@ -70,29 +59,30 @@ const skills = [
     <div class="title-div">
       <h2 class="title-after" id="about-title">About me</h2>
       <p>
-        Front-end developer and marketing specialist. I build websites and the marketing systems around them,
-        for a US software company, for clients across the US{SHOW_CLOX ? ', and for a product of my own' : ''}.
-        When I'm not shipping, I'm rock climbing, rolling in a Brazilian jiu jitsu class, or on a plane to the next country.
+        I work remotely as the front-end developer and marketing specialist at TimeClick, a Utah software company,
+        and take on select web and SEO projects for US clients{SHOW_CLOX ? '. I also run Clox, a time-tracking product of my own' : ''}.
+        Off the clock: rock climbing, Brazilian jiu jitsu, and the occasional flight somewhere new.
       </p>
     </div>
 
     <div class="about-story">
       <h3>How I got here</h3>
       <p>
-        I started building WordPress sites for small businesses in college, often trading work for things like
-        hypnotherapy sessions, a room on a farm, or a bed at a guesthouse. Every project pushed me a little further,
-        until coding sites from scratch made more sense than fighting themes.
+        I started building WordPress sites for small businesses in college, sometimes for pay and sometimes in trade
+        for a room, a meal or a lesson. Every project pushed me further, until coding sites from scratch made more
+        sense than fighting themes.
       </p>
       <p>
-        I taught myself JavaScript, PHP and design through YouTube and cheap online courses, then landed my first
-        real gig building the front end (and some of the back end) for B2B web apps. Today I work remotely as the
-        front-end developer and marketing specialist at TimeClick, a Utah software company, and I still take on
-        select client projects: new sites, redesigns and SEO.
+        I taught myself JavaScript, PHP and design, then spent three years at nuVector building the front end of
+        B2B web apps before moving into SEO and marketing there. Since 2024 I have been the front-end developer and
+        marketing specialist at TimeClick, where I own the marketing site end to end: design, code, CRM and checkout
+        integrations, SEO content and the email program.
       </p>
       {SHOW_CLOX && (
         <p>
-          On the side I founded Clox, a B2B time-tracking app for small field crews in the trades. Building and
-          marketing my own product is the best training I've had for building yours.
+          In 2026 I founded Clox, a time-tracking app for small field crews in the trades: native iOS and Android apps,
+          a web dashboard and the marketing site, all built and marketed by me. Running my own product is the best
+          training I have had for building yours.
         </p>
       )}
       <a class="button button-small" href="/#contact-section">Get in touch</a>
@@ -100,9 +90,14 @@ const skills = [
 
     <div class="about-skills">
       <h3>Skills and tools</h3>
-      <ul class="skills-list skills-list-animated">
-        {skills.map((skill) => <li>{skill}</li>)}
-      </ul>
+      {skillGroups.map((group) => (
+        <div class="skill-group">
+          <p class="eyebrow skill-group-name">{group.name}</p>
+          <ul class="skills-list skills-list-animated" aria-label={`${group.name} skills`}>
+            {group.items.map((skill) => <li>{skill}</li>)}
+          </ul>
+        </div>
+      ))}
     </div>
 
     <div class="about-experience">
@@ -142,6 +137,15 @@ const skills = [
 
   .about-story .button-small {
     margin-top: 2.5rem;
+  }
+
+  .skill-group + .skill-group {
+    margin-top: 1rem;
+  }
+
+  .skill-group-name {
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
   }
 
   .experience-list {

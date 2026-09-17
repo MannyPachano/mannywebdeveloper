@@ -119,12 +119,12 @@ const ogImageURL = new URL(SITE.ogImage, SITE.url).href;
   // ---------------------------------------------------------------------
   // SKILL CHIP ANIMATION when the skills list scrolls into view
   // ---------------------------------------------------------------------
-  const skillsList = document.querySelector('.skills-list-animated');
-  if (skillsList && !reduceMotion && 'IntersectionObserver' in window) {
-    const chips = Array.from(skillsList.querySelectorAll('li'));
+  const skillLists = Array.from(document.querySelectorAll<HTMLElement>('.skills-list-animated'));
+  if (skillLists.length && !reduceMotion && 'IntersectionObserver' in window) {
     const chipObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const chips = Array.from(entry.target.querySelectorAll<HTMLElement>('li'));
           chips.forEach((chip, i) => {
             if (entry.isIntersecting) {
               chip.style.animationDelay = `${i * 25}ms`;
@@ -137,6 +137,6 @@ const ogImageURL = new URL(SITE.ogImage, SITE.url).href;
       },
       { threshold: 0.6 }
     );
-    chipObserver.observe(skillsList);
+    skillLists.forEach((list) => chipObserver.observe(list));
   }
 </script>

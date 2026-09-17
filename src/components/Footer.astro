@@ -24,10 +24,14 @@ const year = new Date().getFullYear();
       <div class="footer-about">
         <h3 class="h3-footer">Manny Pachano</h3>
         <p class="footer-copy">
-          Developer by trade, designer at heart. I build fast, good-looking websites that put you in front of the right people, then I make sure they keep converting.
+          Front-end developer and marketing specialist. I build fast websites for software companies and small businesses, then run the SEO, email and CRM work that keeps them converting.
         </p>
         <p class="footer-copy footer-cta">
           Have a project in mind? <a href="/#contact-section">Send me a message</a>.
+        </p>
+        <p class="footer-copy footer-meta">
+          This site: Astro 7, hand-written CSS, no trackers, homepage under 1 MB.
+          <a href="https://github.com/MannyPachano/mannywebdeveloper" target="_blank" rel="noopener noreferrer">Source on GitHub<span class="visually-hidden"> (opens in a new tab)</span></a>.
         </p>
       </div>
     </div>
@@ -82,6 +86,22 @@ const year = new Date().getFullYear();
 
   .footer-cta a:hover {
     color: var(--white);
+  }
+
+  .footer-meta {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .footer-meta a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .footer-meta a:hover {
+    color: var(--yellow);
   }
 
   .social-icons {

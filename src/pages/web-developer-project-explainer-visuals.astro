@@ -33,7 +33,7 @@ import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
   overview={[
     'Explainer Visuals makes animated explainer videos for SaaS companies. Their portfolio is the pitch, and they wanted it to play automatically, every video, the moment the page opens. That is a bandwidth problem dressed up as a design request: <strong>the site had to be fast enough that a wall of autoplaying video never showed a buffering wheel.</strong>',
     'I started in Figma with their references and turned them into mockups the team could react to before any code existed. The direction is modern and playful, with motion placed where it keeps people watching rather than everywhere. Once the design was signed off, I built the site on Astro as a fully static site, so there is nothing to compute on each visit.',
-    'The video problem was solved by converting every MP4 into HLS playlists with a shell script I wrote for the job, so each video streams in small segments instead of downloading whole. The result is a page full of playing videos that loads like a page of images. The team was thrilled with the response from their own clients.',
+    'The video problem was solved by converting every MP4 into HLS playlists with a shell script I wrote for the job, so each video streams in small segments instead of downloading whole. The result is a page full of playing videos that loads like a page of images, on a static site with nothing to patch or renew.',
   ]}
-  tools={['Astro', 'HTML & CSS', 'JavaScript', 'Shell scripts', 'HLS video', 'Figma', 'ChatGPT']}
+  tools={['Astro', 'HTML & CSS', 'JavaScript', 'Shell scripts', 'HLS video', 'Figma']}
 />
