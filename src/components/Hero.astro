@@ -1,4 +1,4 @@
-<section class="hero-section" aria-labelledby="h1-hero">
+<section class="hero-section" id="hero" aria-labelledby="h1-hero">
   <div class="hero-content">
     <h1 id="h1-hero">Hey, I'm Manny Pachano</h1>
     <p class="lede hero-lede">
@@ -9,6 +9,9 @@
       <a class="button" href="/#project-section">See my work</a>
       <a class="button button-secondary" href="/#contact-section">Get in touch</a>
     </div>
+    <p class="hero-proof">
+      Recent work for TimeClick, Universal Environmental Services, nuVector and small businesses across the US.
+    </p>
   </div>
 
   <!-- Easter egg: hover the headline to reveal the photo behind it. -->
@@ -58,12 +61,32 @@
     font-size: 18px;
   }
 
+  @media only screen and (max-width: 600px) {
+    .hero-actions .button {
+      width: 100%;
+      max-width: 22rem;
+    }
+  }
+
+  .hero-proof {
+    margin: 2rem auto 0;
+    max-width: 34rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.6px;
+    color: var(--text-accent);
+  }
+
   .mouse-section {
     position: absolute;
     bottom: 3%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 0;
+    transition: opacity 0.3s var(--ease);
+  }
+
+  .hero-section.scrolled .mouse-section {
+    opacity: 0;
   }
 
   .mouse {
@@ -118,6 +141,14 @@
 </style>
 
 <script>
+  // Hide the scroll hint once the visitor has scrolled.
+  const hero = document.getElementById('hero');
+  window.addEventListener(
+    'scroll',
+    () => hero?.classList.toggle('scrolled', window.scrollY > 40),
+    { passive: true }
+  );
+
   // Quick "peek" of the photo on first load, so people discover the hover effect.
   const mannyImg = document.getElementById('manny-img');
   const heroH1 = document.getElementById('h1-hero');

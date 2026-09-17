@@ -1,6 +1,10 @@
 ---
 import { projects } from '../data/projects';
 import ProjectCard from './ProjectCard.astro';
+
+// On phones, show this many cards first and a "show the rest" button.
+const INITIAL_MOBILE_CARDS = 5;
+const hiddenCount = Math.max(projects.length - INITIAL_MOBILE_CARDS, 0);
 ---
 
 <section class="projects-section" id="project-section" aria-labelledby="projects-title">
@@ -8,14 +12,22 @@ import ProjectCard from './ProjectCard.astro';
     <div class="title-div">
       <h2 class="title-after" id="projects-title">Recent projects</h2>
       <p>
-        Here's what I've been building lately. Each one has a short case study: the problem, what I built, and what it changed.
-        If it looks like a fit, the contact form is at the bottom of the page. I reply fast.
+        Here's what I've been building lately. Each one has a short case study: the problem, what I built, and what
+        changed. If it looks like a fit, the contact form is at the bottom of the page.
       </p>
     </div>
 
-    <div class="projects-grid">
+    <div class="projects-grid" id="projects-grid">
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>
+
+    {hiddenCount > 0 && (
+      <div class="show-all-wrap" id="show-all-wrap">
+        <button class="button button-small button-secondary" id="show-all-projects" type="button" aria-controls="projects-grid" aria-expanded="false">
+          Show {hiddenCount} more {hiddenCount === 1 ? 'project' : 'projects'}
+        </button>
+      </div>
+    )}
   </div>
 </section>
 
@@ -41,6 +53,31 @@ import ProjectCard from './ProjectCard.astro';
     gap: 2rem;
   }
 
+  /* Desktop shows every card; the button only exists for phones. */
+  .show-all-wrap {
+    display: none;
+    justify-content: center;
+    margin-top: -1rem;
+  }
+
+  .show-all-wrap .button {
+    margin: 0;
+  }
+
+  @media only screen and (max-width: 900px) {
+    .projects-grid:not(.expanded) .project-card:nth-child(n + 6) {
+      display: none;
+    }
+
+    .show-all-wrap {
+      display: flex;
+    }
+
+    .show-all-wrap[hidden] {
+      display: none;
+    }
+  }
+
   @media only screen and (min-width: 901px) {
     .projects-container {
       padding-bottom: 6rem;
@@ -52,3 +89,20 @@ import ProjectCard from './ProjectCard.astro';
     }
   }
 </style>
+
+<script>
+  const grid = document.getElementById('projects-grid');
+  const wrap = document.getElementById('show-all-wrap');
+  const button = document.getElementById('show-all-projects');
+
+  button?.addEventListener('click', () => {
+    if (!grid) return;
+    grid.classList.add('expanded');
+    button.setAttribute('aria-expanded', 'true');
+    if (wrap) wrap.hidden = true;
+    // Move focus to the first newly revealed card so keyboard users land on it.
+    const revealed = grid.querySelectorAll<HTMLElement>('.project-card')[5];
+    const link = revealed?.querySelector<HTMLElement>('.project-card-title a');
+    link?.focus({ preventScroll: false });
+  });
+</script>

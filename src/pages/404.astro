@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Page not found | Manny Pachano" description="That page doesn't exist. Head back to the homepage or the project list.">
+  <section class="notfound-section" aria-labelledby="notfound-title">
+    <div class="notfound-content">
+      <p class="eyebrow">404</p>
+      <h1 id="notfound-title">That page isn't here</h1>
+      <p class="lede">
+        The link may be old, or the address has a typo. Everything on this site is one scroll away from the homepage.
+      </p>
+      <div class="notfound-actions">
+        <a class="button button-small" href="/">Back to home</a>
+        <a class="button button-small button-secondary" href="/#project-section">See my work</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .notfound-section {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+  }
+
+  .notfound-content {
+    text-align: center;
+    max-width: 40rem;
+  }
+
+  .notfound-content .lede {
+    margin: 0 auto;
+  }
+
+  .notfound-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .notfound-actions .button {
+    margin: 0;
+  }
+</style>

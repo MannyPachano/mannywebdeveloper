@@ -38,6 +38,11 @@ const ogImageURL = new URL(SITE.ogImage, SITE.url).href;
     <link rel="apple-touch-icon" href="/images/man-face.webp" />
     <meta name="theme-color" content="#ffe83d" />
 
+    <!-- The three weights used above the fold; the rest load on demand. -->
+    <link rel="preload" href="/fonts/source-sans-3-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/source-sans-3-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/source-sans-3-v15-latin-900.woff2" as="font" type="font/woff2" crossorigin />
+
     {isHome && <link rel="preload" href="/images/common-bg.svg" as="image" />}
 
     <meta property="og:type" content="website" />

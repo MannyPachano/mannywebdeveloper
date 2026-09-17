@@ -53,11 +53,16 @@ const isHome = Astro.url.pathname === '/';
   </div>
 </header>
 
-<div class="cursor-trail" aria-hidden="true">
+<div class="cursor-trail" id="cursor-trail" aria-hidden="true">
   {Array.from({ length: 10 }).map(() => <div class="circle"></div>)}
 </div>
 
 <style>
+  /* Cursor trail stays invisible until the mouse actually moves. */
+  .cursor-trail:not(.is-active) .circle {
+    opacity: 0;
+  }
+
   /* Spacer so page content starts below the fixed bar. */
   .site-header {
     height: var(--nav-height);
@@ -70,9 +75,9 @@ const isHome = Astro.url.pathname === '/';
     right: 0;
     z-index: 20;
     padding: 1rem 1rem;
-    background-color: rgba(250, 250, 250, 0.88);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(250, 250, 250, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     transition: background-color 0.3s var(--ease);
   }
@@ -205,9 +210,11 @@ const isHome = Astro.url.pathname === '/';
     position: fixed;
     inset: 0;
     z-index: 15;
-    background-color: rgba(0, 0, 0, 0.96);
+    background-color: var(--black);
     padding: calc(var(--nav-height) + 1.5rem) 1.5rem 2rem;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     animation: menu-in 0.25s var(--ease);
   }
 
@@ -229,8 +236,9 @@ const isHome = Astro.url.pathname === '/';
   .mobile-menu ul {
     list-style: none;
     text-align: center;
+    width: 100%;
     max-width: 24rem;
-    margin: 0 auto;
+    margin: auto;
   }
 
   .mobile-menu-item a {
@@ -305,6 +313,7 @@ const isHome = Astro.url.pathname === '/';
   // CURSOR TRAIL (desktop, fine pointer, no reduced-motion preference)
   // The animation loop only runs while the cursor is moving, then stops.
   // ---------------------------------------------------------------------
+  const trail = document.getElementById('cursor-trail');
   const circles = Array.from(document.querySelectorAll<HTMLElement>('.cursor-trail .circle'));
   const finePointer = window.matchMedia('(pointer: fine)').matches;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -347,6 +356,7 @@ const isHome = Astro.url.pathname === '/';
         cursor.x = event.clientX;
         cursor.y = event.clientY;
         idleFrames = 0;
+        trail?.classList.add('is-active');
         if (!frameId) frameId = requestAnimationFrame(frame);
       },
       { passive: true }

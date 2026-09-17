@@ -127,7 +127,7 @@ const hasCarousel = slides.length > 1;
           </div>
         )}
 
-        <div class="videos-container" data-carousel tabindex={hasCarousel ? 0 : undefined} aria-roledescription={hasCarousel ? 'carousel' : undefined} aria-label={hasCarousel ? `${title} screens` : undefined}>
+        <div class="videos-container" data-carousel tabindex={hasCarousel ? 0 : undefined} role={hasCarousel ? 'region' : undefined} aria-roledescription={hasCarousel ? 'carousel' : undefined} aria-label={hasCarousel ? `${title} screens` : undefined}>
           {slides.map((slide, index) => (
             <figure class="project-media-item" data-slide data-title={slide.title} aria-hidden={index !== 0 ? 'true' : undefined}>
               {slide.type === 'image' ? (
@@ -217,6 +217,13 @@ const hasCarousel = slides.length > 1;
     margin: 0;
     padding: 1rem 2.5rem;
     font-size: 18px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .hero-actions .button {
+      width: 100%;
+      max-width: 22rem;
+    }
   }
 
   @media only screen and (min-width: 601px) {
