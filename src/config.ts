@@ -5,7 +5,7 @@ export const SITE = {
   name: 'Manny Pachano',
   title: 'Manny Pachano | Front-End Developer & Marketing Specialist',
   description:
-    'Front-end developer and marketing specialist building fast, conversion-focused websites for small businesses and software companies. Case studies for TimeClick, Universal Environmental Services and more.',
+    'Front-end developer and marketing specialist. I build and maintain websites for software companies and small businesses in the US. Case studies for TimeClick, Universal Environmental Services, nuVector and others.',
   ogImage: '/images/og-image.jpg',
 } as const;
 

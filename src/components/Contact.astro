@@ -14,12 +14,22 @@ const services = [
   <div class="title-div">
     <h2 class="title-after" id="contact-title">Get in touch</h2>
     <p>
-      Need a website that pulls its weight? <strong>I'm available.</strong> Tell me a bit about the project and
-      I'll get back to you within one business day.
+      Need help with a website? I'm available. Tell me a bit about the project and I'll reply within one
+      business day.
     </p>
   </div>
 
-  <div>
+  <div class="contact-inner">
+    <figure class="contact-photo">
+      <img
+        src="/images/manny-office.webp"
+        width="640"
+        height="1146"
+        alt="Manny Pachano sitting at a desk in an office"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
     <form
       name="contact"
       method="POST"
@@ -65,7 +75,7 @@ const services = [
 
       <div class="form-item form-message">
         <label for="message">Tell me more</label>
-        <textarea id="message" name="message" rows="6" required placeholder="What's the project, and what does success look like?"></textarea>
+        <textarea id="message" name="message" rows="6" required placeholder="Tell me about the project and what you want it to do."></textarea>
       </div>
 
       <button type="submit" class="button-small">Send message</button>
@@ -81,6 +91,43 @@ const services = [
     row-gap: 4rem;
     background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
     min-width: 320px;
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 46rem;
+    margin: 0 auto;
+  }
+
+  /* The photo only shows beside the form on wider screens. It is lazy-loaded,
+     so phones do not download it. */
+  .contact-photo {
+    display: none;
+    margin: 0;
+  }
+
+  .contact-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media only screen and (min-width: 901px) {
+    .contact-inner {
+      grid-template-columns: 16rem minmax(0, 46rem);
+      max-width: 64rem;
+      align-items: start;
+      justify-content: center;
+    }
+
+    .contact-photo {
+      display: block;
+    }
   }
 
   .form-container {

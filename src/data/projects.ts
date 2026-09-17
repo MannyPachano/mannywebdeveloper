@@ -30,11 +30,11 @@ export const projects: Project[] = [
   {
     slug: 'timeclick',
     title: 'TimeClick',
-    role: 'Website redesign & growth',
+    role: 'Website redesign and marketing',
     year: '2024 to present',
     featured: true,
     summary:
-      'A full redesign of the marketing site for a time clock software company used by thousands of small businesses, plus the CRM, checkout and email systems behind it. <strong>One goal: get the right visitors into a free trial with zero friction.</strong>',
+      'I redesigned the marketing website for TimeClick, a time clock software company used by thousands of small businesses, and built the CRM, checkout and email systems that support it. The main goal of the site is to get the right visitors to start a free trial.',
     tags: ['WordPress', 'JavaScript', 'Zoho CRM', 'Stripe & WooCommerce', 'SEO', 'Email marketing'],
     video: {
       mp4: '/videos/timeclick-thumbnail.mp4',
@@ -47,10 +47,10 @@ export const projects: Project[] = [
   {
     slug: 'ues',
     title: 'Universal Environmental Services',
-    role: 'Homepage rebuild & SEO program',
+    role: 'Homepage rebuild and SEO',
     year: '2026',
     summary:
-      'Rebuilt the homepage for a used oil collection company running routes in 28 states, then took over their search presence: <strong>local SEO, Google Business Profile listings and end-to-end lead tracking.</strong>',
+      'I rebuilt the homepage for a used oil collection company that operates in 28 states, and I run their SEO program: local SEO, Google Business Profile listings and lead tracking.',
     tags: ['WordPress', 'Local SEO', 'Google Business Profile', 'GA4', 'Search Console', 'Conversion design'],
     video: {
       mp4: '/videos/ues-thumbnail.mp4',
@@ -66,10 +66,10 @@ export const projects: Project[] = [
         {
           slug: 'clox',
           title: 'Clox',
-          role: 'Founder, product & marketing',
+          role: 'Founder',
           year: '2026 to present',
           summary:
-            'My own product: time tracking for small field crews in the trades. Native iOS and Android apps, a web dashboard and a marketing site, designed, built and marketed by me. <strong>One flat price, a 14-day trial, and payroll done by Friday.</strong>',
+            'My own product. Clox is a time-tracking app for small field crews in the trades, with native iOS and Android apps, a web dashboard and a marketing site. I designed, built and market it myself.',
           tags: ['Next.js', 'TypeScript', 'Mobile apps', 'SaaS', 'SEO', 'Product marketing'],
           video: {
             mp4: '/videos/clox-thumbnail.mp4',
@@ -84,10 +84,10 @@ export const projects: Project[] = [
   {
     slug: 'explainer-visuals',
     title: 'Explainer Visuals',
-    role: 'Design & development',
+    role: 'Design and development',
     year: '2024',
     summary:
-      "A video production studio's portfolio site where every video autoplays at once. <strong>Built on Astro with HLS video playlists</strong> so the page stays fast under a wall of motion.",
+      'A portfolio website for a video production studio. Every video on the page plays automatically, so I built the site on Astro and converted the videos to HLS playlists to keep it fast.',
     tags: ['Astro', 'HLS video', 'Figma', 'Shell scripting'],
     video: {
       mp4: '/videos/explainer-visuals-thumbnail.mp4',
@@ -98,10 +98,10 @@ export const projects: Project[] = [
   {
     slug: 'loopmanager',
     title: 'LoopManager',
-    role: 'Redesign & custom CMS',
+    role: 'Redesign and custom CMS',
     year: '2024',
     summary:
-      "Website redesign for nuVector's returnable asset software, moved from WordPress to Astro to match a new explainer video, <strong>with a custom blog CMS so the marketing team could publish without a developer.</strong>",
+      "A redesign of the website for nuVector's LoopManager software. I moved it from WordPress to Astro to match a new explainer video and built a custom blog CMS so the marketing team could publish posts without a developer.",
     tags: ['Astro', 'Figma', 'Custom CMS', 'HLS video'],
     video: {
       mp4: '/videos/loopmanager-thumbnail.mp4',
@@ -112,10 +112,10 @@ export const projects: Project[] = [
   {
     slug: 'nuvector',
     title: 'nuVector',
-    role: 'Corporate site redesign',
+    role: 'Company website redesign',
     year: '2024 to 2025',
     summary:
-      "Redesign and rebuild of the corporate site for an Atlanta returnable asset management company, <strong>rebuilt on Astro</strong> with services, client logos, case studies and an SEO blog, all pointed at one action: request a demo.",
+      "A redesign and rebuild of nuVector's company website on Astro, with services, client logos, case studies and an SEO blog. The main call to action on the site is a demo request.",
     tags: ['Astro', 'HTML & CSS', 'JavaScript', 'Figma', 'SEO'],
     video: {
       mp4: '/videos/nuvector-thumbnail.mp4',
@@ -127,10 +127,10 @@ export const projects: Project[] = [
   {
     slug: 'jonathan-zalzman',
     title: 'Jonathan Zalzman Guitar',
-    role: 'Design & development',
+    role: 'Design and development',
     year: '2026',
     summary:
-      'Lesson booking site for a working musician in Suwanee, Georgia: nine teaching styles, transparent pricing, and <strong>a free trial lesson CTA that follows you down the page.</strong>',
+      'A website for a guitar teacher in Suwanee, Georgia. It covers the nine styles he teaches, his pricing, student reviews and a form to book a free trial lesson.',
     tags: ['HTML & CSS', 'JavaScript', 'Netlify Forms', 'Local business'],
     video: {
       mp4: '/videos/jonathan-zalzman-thumbnail.mp4',
@@ -143,10 +143,10 @@ export const projects: Project[] = [
   {
     slug: 'landscaper-templates',
     title: 'Landscaper Templates',
-    role: 'Template system',
+    role: 'Website templates',
     year: '2026',
     summary:
-      'Three ready-to-customize website templates for landscaping companies. <strong>Intentionally generic</strong>, so a business owner can see the layout, the flow and the speed before I make it theirs.',
+      'Three website templates for landscaping companies. They are intentionally generic so a business owner can see the layout and speed first. I then customize the one they choose.',
     tags: ['HTML & CSS', 'JavaScript', 'Netlify', 'Templates'],
     video: {
       mp4: '/videos/landscaper-templates-thumbnail.mp4',
@@ -162,7 +162,7 @@ export const projects: Project[] = [
     role: 'Wix Studio build',
     year: '2023',
     summary:
-      "Membership site for an online gaming community with 5,000+ members: <strong>facial verification for sign-ups, a members-only area and a virtual currency system</strong>, built on Wix Studio with Velo.",
+      'A membership website for an online gaming community with more than 5,000 members, built on Wix Studio with Velo. It includes facial verification for new sign-ups, a members-only area and a virtual currency system.',
     tags: ['Wix Studio', 'JavaScript (Velo)', 'Third-party APIs', 'Figma'],
     video: {
       mp4: '/videos/panda-playhouse-thumbnail.mp4',
@@ -176,7 +176,7 @@ export const projects: Project[] = [
     role: 'Side project',
     year: '2023',
     summary:
-      'A web app that <strong>gamifies showing up to martial arts class</strong>: EXP bars, level-ups and new characters, synced across devices with Firebase.',
+      'A small web app my friends and I use to track martial arts classes. Attendance earns experience points and levels, and progress syncs across devices with Firebase.',
     tags: ['JavaScript', 'Firebase', 'Netlify'],
     video: {
       mp4: '/videos/mma-thumbnail.mp4',

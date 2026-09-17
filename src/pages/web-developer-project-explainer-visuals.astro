@@ -4,18 +4,18 @@ import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
 
 <CaseStudyLayout
   title="Explainer Visuals"
-  description="A portfolio site for a video production studio where every video autoplays at once, built to stay fast under a wall of motion."
+  description="A portfolio website for a video production studio. Every video on the page plays automatically, so the site had to be built to stay fast."
   client="Explainer Visuals (video production studio)"
-  role="Design & development"
+  role="Design and development"
   year="2024"
   slides={[
     {
-      title: 'Showcasing the quality',
+      title: 'Portfolio section',
       src: '/videos/explainer-visuals-thumbnail.mp4',
       poster: '/images/explainer-visuals-thumbnail.svg',
     },
     {
-      title: 'Highlighting the value',
+      title: 'Process section',
       src: '/videos/web-development-project-explainer-visuals-process.mp4',
       poster: '/images/explainer-visuals-thumbnail.svg',
     },
@@ -26,14 +26,14 @@ import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
     },
   ]}
   highlights={[
-    { value: 'Autoplay, all of it', label: 'Every portfolio video plays at once without buffering' },
-    { value: 'HLS playlists', label: 'MP4s converted to streaming segments with a custom script' },
-    { value: 'Static Astro', label: 'No server, no CMS, nothing slow between visitor and video' },
+    { value: 'Autoplay', label: 'Every portfolio video plays at once without buffering' },
+    { value: 'HLS playlists', label: 'MP4 files converted to streaming segments with a script I wrote' },
+    { value: 'Static Astro site', label: 'No server and no CMS' },
   ]}
   overview={[
-    'Explainer Visuals makes animated explainer videos for SaaS companies. Their portfolio is the pitch, and they wanted it to play automatically, every video, the moment the page opens. That is a bandwidth problem dressed up as a design request: <strong>the site had to be fast enough that a wall of autoplaying video never showed a buffering wheel.</strong>',
-    'I started in Figma with their references and turned them into mockups the team could react to before any code existed. The direction is modern and playful, with motion placed where it keeps people watching rather than everywhere. Once the design was signed off, I built the site on Astro as a fully static site, so there is nothing to compute on each visit.',
-    'The video problem was solved by converting every MP4 into HLS playlists with a shell script I wrote for the job, so each video streams in small segments instead of downloading whole. The result is a page full of playing videos that loads like a page of images, on a static site with nothing to patch or renew.',
+    'Explainer Visuals makes animated explainer videos for SaaS companies. Their portfolio is how they sell, and they wanted every video to play automatically as soon as the page opens. That is a lot of video for one page, so the main technical requirement was that the videos play without buffering.',
+    'I started in Figma with their reference sites and made mockups the team could review before any code was written. The design is modern with some animation, and the site is built on Astro as a static site.',
+    'To handle the video, I wrote a shell script that converts each MP4 into an HLS playlist, so each video streams in small segments instead of downloading as one file. The page loads quickly even with all the videos playing, and because the site is static there is nothing to update or renew.',
   ]}
   tools={['Astro', 'HTML & CSS', 'JavaScript', 'Shell scripts', 'HLS video', 'Figma']}
 />

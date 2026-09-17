@@ -4,9 +4,9 @@ import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
 
 <CaseStudyLayout
   title="MMA Class Tracker"
-  description="A web app that gamifies showing up to martial arts class: experience points, level-ups and new characters, synced across devices."
+  description="A small web app that tracks martial arts class attendance with experience points and levels. Progress syncs across devices."
   client="Side project"
-  role="Design & development"
+  role="Design and development"
   year="2023"
   pageTitle="MMA Class Tracker side project | Manny Pachano"
   slides={[
@@ -17,14 +17,14 @@ import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
     },
   ]}
   highlights={[
-    { value: 'EXP per class', label: 'Harder classes earn more points' },
-    { value: 'Level-ups', label: 'Animated progress bars and new characters' },
-    { value: 'Cross-device', label: 'Progress stored in Firebase, works on any screen' },
+    { value: 'Points per class', label: 'Harder classes are worth more points' },
+    { value: 'Levels', label: 'Progress bars and a new character at each level' },
+    { value: 'Synced', label: 'Progress is stored in Firebase and works on any device' },
   ]}
   overview={[
-    'My friends and I needed a reason to stop skipping martial arts class. So I built one: <strong>a tracker that turns attendance into a game.</strong> Every class you attend earns experience points, tougher classes earn more, and as the bar fills you level up and unlock a new character.',
-    'The front end is hand-written HTML, CSS and JavaScript, with animated progress bars that react the moment a class is logged. Google Firebase stores everyone\'s progress so the app stays in sync between phones and laptops. It is fully responsive, which was half the point: this project was a deliberate workout in responsive design.',
-    'It is a small app, but it did its job. We showed up more, and I got a cleaner mental model for state, sync and motion that I still use on client work.',
+    'My friends and I wanted a reason to keep going to martial arts class, so I built a tracker that turns attendance into a game. Each class you attend adds experience points, harder classes add more, and when the bar fills you level up and unlock a new character.',
+    'The front end is HTML, CSS and JavaScript with animated progress bars. Google Firebase stores everyone\'s progress so the app stays in sync between phones and laptops. It is fully responsive, which was one of the reasons I built it. I wanted practice with responsive layouts.',
+    'It is a small app, but it worked. We went to class more often, and the project gave me practice with state, syncing and animation that I still use on client work.',
   ]}
   tools={['HTML & CSS', 'JavaScript', 'Google Firebase', 'GitHub', 'Netlify']}
 />
