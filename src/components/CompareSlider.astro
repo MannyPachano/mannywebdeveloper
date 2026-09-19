@@ -1,0 +1,187 @@
+---
+// Light and dark comparison. The light screenshot sits underneath, the dark one
+// on top clipped from the left, and a full-size range input moves the divider.
+// Mouse, touch and keyboard all work because it is a real <input type="range">.
+export interface Props {
+  light: string;
+  dark: string;
+  width: number;
+  height: number;
+  /** Describes the screen shown (used for the light image). */
+  alt: string;
+  label?: string;
+  /** Load right away instead of lazily (for the first screen on a page). */
+  eager?: boolean;
+}
+
+const {
+  light,
+  dark,
+  width,
+  height,
+  alt,
+  label = 'Compare the light and dark versions',
+  eager = false,
+} = Astro.props;
+
+const loading = eager ? 'eager' : 'lazy';
+---
+
+<div class="compare" data-compare>
+  <img class="compare-base" src={light} width={width} height={height} alt={alt} loading={loading} decoding="async" />
+  <div class="compare-top" aria-hidden="true">
+    <img src={dark} width={width} height={height} alt="" loading={loading} decoding="async" />
+  </div>
+  <span class="compare-tag compare-tag-light" aria-hidden="true">Light</span>
+  <span class="compare-tag compare-tag-dark" aria-hidden="true">Dark</span>
+  <div class="compare-handle" aria-hidden="true">
+    <span class="compare-knob">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M9 7l-5 5 5 5" />
+        <path d="M15 7l5 5-5 5" />
+      </svg>
+    </span>
+  </div>
+  <input
+    class="compare-range"
+    type="range"
+    min="0"
+    max="100"
+    step="1"
+    value="50"
+    aria-label={label}
+    aria-valuetext="50% light, 50% dark"
+  />
+</div>
+
+<style>
+  .compare {
+    --pos: 50%;
+    position: relative;
+    overflow: hidden;
+    background: #0a0a0c;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+  }
+
+  .compare img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .compare-top {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 0 0 var(--pos));
+  }
+
+  .compare-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .compare-tag {
+    position: absolute;
+    top: 0.75rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  .compare-tag-light {
+    left: 0.75rem;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text-header);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  }
+
+  .compare-tag-dark {
+    right: 0.75rem;
+    background: rgba(0, 0, 0, 0.78);
+    color: var(--white);
+  }
+
+  .compare-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--pos);
+    width: 2px;
+    background: var(--white);
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+  }
+
+  .compare-knob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--yellow);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* The range input covers the whole picture, invisible, so any drag moves the line. */
+  .compare-range {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+  }
+
+  .compare-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 2px;
+    height: 100%;
+  }
+
+  .compare-range::-moz-range-thumb {
+    width: 2px;
+    height: 100%;
+    border: 0;
+  }
+
+  .compare:has(.compare-range:focus-visible) .compare-knob {
+    outline: 3px solid var(--yellow-dark);
+    outline-offset: 3px;
+  }
+</style>
+
+<script>
+  // One listener per slider. The input value becomes the --pos custom property
+  // that both the clip-path and the handle read.
+  document.querySelectorAll<HTMLElement>('[data-compare]').forEach((box) => {
+    const range = box.querySelector<HTMLInputElement>('.compare-range');
+    if (!range) return;
+
+    const apply = () => {
+      const value = Math.min(100, Math.max(0, Number(range.value) || 0));
+      box.style.setProperty('--pos', `${value}%`);
+      range.setAttribute('aria-valuetext', `${value}% light, ${100 - value}% dark`);
+    };
+
+    range.addEventListener('input', apply);
+    apply();
+  });
+</script>

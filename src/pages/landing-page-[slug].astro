@@ -1,0 +1,482 @@
+---
+// Walkthrough page for one landing page. One template for all of them:
+// every entry in src/data/landing-pages.ts gets a page at /landing-page-<slug>.
+import Layout from '../layouts/Layout.astro';
+import BrowserFrame from '../components/BrowserFrame.astro';
+import CompareSlider from '../components/CompareSlider.astro';
+import PhoneFrame from '../components/PhoneFrame.astro';
+import { landingPages } from '../data/landing-pages';
+import type { LandingPage } from '../data/landing-pages';
+
+export function getStaticPaths() {
+  return landingPages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+const pageTitle = `${page.title} landing page | Manny Pachano`;
+---
+
+<Layout title={pageTitle} description={page.pageDescription}>
+  <section class="hero-section landing-hero" aria-labelledby="landing-title">
+    <div class="hero-content">
+      <p class="eyebrow">Landing page</p>
+      <h1 id="landing-title">{page.title}</h1>
+      <p class="lede">{page.description}</p>
+      <div class="hero-actions">
+        <a class="button" href={page.liveUrl} target="_blank" rel="noopener noreferrer">
+          Open the live page <span aria-hidden="true">&#8599;</span>
+          <span class="visually-hidden">(opens in a new tab)</span>
+        </a>
+        <a class="button button-secondary" href="/#landing-pages">All landing pages</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-summary-section" aria-labelledby="overview-title">
+    <div class="project-summary-container">
+      <dl class="case-facts">
+        <div>
+          <dt>Client</dt>
+          <dd>{page.client}</dd>
+        </div>
+        <div>
+          <dt>My role</dt>
+          <dd>{page.role}</dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>{page.year}</dd>
+        </div>
+        {page.facts?.map((fact) => (
+          <div>
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <figure class="landing-compare">
+        <BrowserFrame url={page.liveUrl}>
+          <CompareSlider
+            light={page.hero.light}
+            dark={page.hero.dark}
+            width={page.hero.width}
+            height={page.hero.height}
+            alt={page.hero.alt}
+            label={`Compare the light and dark versions of the ${page.title} page`}
+            eager
+          />
+        </BrowserFrame>
+        <figcaption>{page.heroCaption}</figcaption>
+      </figure>
+
+      <div class="project-summary-copy">
+        <div>
+          <h2 class="section-title" id="overview-title">{page.overviewTitle}</h2>
+          {page.overview.map((paragraph) => <p set:html={paragraph} />)}
+        </div>
+      </div>
+
+      <div class="walkthrough" data-walkthrough data-theme="dark">
+        <div class="walkthrough-head">
+          <div>
+            <h2 class="section-title" id="walkthrough-title">Section by section</h2>
+            <p>{page.walkthroughIntro}</p>
+          </div>
+          <div class="theme-switch" role="group" aria-label="Screenshot theme" data-theme-switch>
+            <button type="button" data-theme="dark" aria-pressed="true">Dark</button>
+            <button type="button" data-theme="light" aria-pressed="false">Light</button>
+          </div>
+        </div>
+
+        <ol class="walkthrough-list" aria-labelledby="walkthrough-title">
+          {page.sections.map((section, index) => (
+            <li class="walkthrough-item">
+              <figure>
+                <div class="walkthrough-shot">
+                  <img
+                    src={section.dark}
+                    data-src-dark={section.dark}
+                    data-src-light={section.light}
+                    width={section.width}
+                    height={section.height}
+                    alt={section.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="walkthrough-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                  <span class="walkthrough-name">{section.title}</span>
+                  <span class="walkthrough-caption">{section.caption}</span>
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div class="phones-block">
+        <h2 class="section-title" id="phones-title">On a phone</h2>
+        <p>{page.phonesIntro}</p>
+        <ul class="phones" aria-labelledby="phones-title">
+          {page.phones.map((shot) => (
+            <li class="phone-item">
+              <figure>
+                <PhoneFrame src={shot.src} width={shot.width} height={shot.height} alt={shot.alt} />
+                <figcaption>{shot.caption}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="project-summary-copy">
+        <div>
+          <h2 class="section-title">What went into it</h2>
+          <div class="details">
+            <div>
+              <p class="eyebrow">Design</p>
+              <ul class="detail-list">
+                {page.details.design.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div>
+              <p class="eyebrow">Build</p>
+              <ul class="detail-list">
+                {page.details.build.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-title">Tools used</h2>
+          <ul class="skills-list">
+            {page.tools.map((tool) => <li>{tool}</li>)}
+          </ul>
+        </div>
+
+        <div class="project-summary-btns">
+          <a class="button button-small" href={page.liveUrl} target="_blank" rel="noopener noreferrer">
+            Live page <span aria-hidden="true">&#8599;</span>
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+          <a class="button button-small project-back-btn" href="/#landing-pages">Back to landing pages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Title block, same look as the case study pages. */
+  .landing-hero {
+    height: auto;
+    min-height: 0;
+    padding: 5rem 1rem 4rem;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+    position: relative;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .landing-hero .hero-content {
+    text-align: center;
+    width: 92%;
+    max-width: 48rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .landing-hero .lede {
+    margin: 0 auto;
+    max-width: 42rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .hero-actions .button {
+    margin: 0;
+    padding: 1rem 2.5rem;
+    font-size: 18px;
+  }
+
+  /* First screen, light against dark. */
+  .landing-compare {
+    width: 100%;
+    max-width: 64rem;
+    margin: 0;
+  }
+
+  .landing-compare figcaption {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-accent);
+  }
+
+  /* Section by section */
+  .walkthrough {
+    width: 100%;
+  }
+
+  .walkthrough-head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  .walkthrough-head .section-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .theme-switch {
+    display: inline-flex;
+    padding: 4px;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .theme-switch button {
+    margin: 0;
+    padding: 0.55rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: var(--text-paragraph);
+    background: transparent;
+    border-radius: 999px;
+    box-shadow: none;
+  }
+
+  .theme-switch button:hover {
+    transform: none;
+    scale: 1;
+    box-shadow: none;
+    color: var(--text-header);
+  }
+
+  .theme-switch button[aria-pressed='true'] {
+    background: var(--text-header);
+    color: var(--white);
+  }
+
+  .walkthrough-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .walkthrough-item figure {
+    margin: 0;
+  }
+
+  .walkthrough-shot {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--gray-line);
+    box-shadow: var(--shadow-sm);
+    background: #0a0a0c;
+  }
+
+  .walkthrough[data-theme='light'] .walkthrough-shot {
+    background: #f6f6f4;
+  }
+
+  .walkthrough-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .walkthrough-item figcaption {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.85rem;
+    row-gap: 0.35rem;
+    margin-top: 1rem;
+    align-items: baseline;
+  }
+
+  .walkthrough-number {
+    grid-row: 1 / 3;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--text-header);
+    background: var(--yellow);
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    align-self: start;
+  }
+
+  .walkthrough-name {
+    font-weight: 800;
+    color: var(--text-subheader);
+    font-size: 1.1rem;
+    letter-spacing: 0.3px;
+  }
+
+  .walkthrough-caption {
+    color: var(--text-paragraph);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* On a phone */
+  .phones-block {
+    width: 100%;
+  }
+
+  .phones-block > p {
+    margin-bottom: 1.5rem;
+  }
+
+  .phones {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.5rem 0.25rem 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .phone-item {
+    flex: 0 0 min(64%, 15rem);
+    scroll-snap-align: center;
+  }
+
+  .phone-item figure {
+    margin: 0;
+  }
+
+  .phone-item figcaption {
+    margin-top: 0.85rem;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-accent);
+  }
+
+  /* What went into it */
+  .details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .detail-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .detail-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    line-height: 1.7;
+    color: var(--text-paragraph);
+    letter-spacing: 0.4px;
+  }
+
+  .detail-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--yellow);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .hero-actions .button {
+      width: 100%;
+      max-width: 22rem;
+    }
+  }
+
+  @media only screen and (min-width: 601px) {
+    .landing-hero {
+      padding: 7rem 1.5rem 5rem;
+    }
+
+    .walkthrough-head {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .details {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media only screen and (min-width: 901px) {
+    .walkthrough-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem 2.5rem;
+    }
+
+    .phones {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2rem;
+      overflow: visible;
+      padding: 0.5rem 0 0;
+    }
+
+    .phone-item {
+      flex: none;
+    }
+  }
+</style>
+
+<script>
+  // ---------------------------------------------------------------------
+  // WALKTHROUGH THEME SWITCH
+  // Every screenshot carries both versions in data attributes. The switch
+  // swaps src, so only the version being looked at is ever downloaded.
+  // ---------------------------------------------------------------------
+  const walkthrough = document.querySelector<HTMLElement>('[data-walkthrough]');
+  const switcher = document.querySelector<HTMLElement>('[data-theme-switch]');
+
+  if (walkthrough && switcher) {
+    const buttons = Array.from(switcher.querySelectorAll<HTMLButtonElement>('button[data-theme]'));
+    const images = Array.from(walkthrough.querySelectorAll<HTMLImageElement>('img[data-src-dark][data-src-light]'));
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const theme = button.dataset.theme === 'light' ? 'light' : 'dark';
+        walkthrough.dataset.theme = theme;
+        buttons.forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+        images.forEach((img) => {
+          const next = theme === 'light' ? img.dataset.srcLight : img.dataset.srcDark;
+          if (next && img.getAttribute('src') !== next) img.src = next;
+        });
+      });
+    });
+  }
+</script>

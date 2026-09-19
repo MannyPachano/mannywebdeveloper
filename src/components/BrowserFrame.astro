@@ -1,0 +1,67 @@
+---
+// A browser window drawn in CSS, wrapped around a screenshot or a compare slider.
+// Pass the page URL; the address bar shows it without the protocol.
+export interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+const address = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+---
+
+<div class="browser">
+  <div class="browser-bar" aria-hidden="true">
+    <span class="browser-dot"></span>
+    <span class="browser-dot"></span>
+    <span class="browser-dot"></span>
+    <span class="browser-url">{address}</span>
+  </div>
+  <div class="browser-body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .browser {
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 0.9rem;
+    background: #f1f1f1;
+    border-bottom: 1px solid var(--gray-line);
+  }
+
+  .browser-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #cfcfcf;
+  }
+
+  .browser-url {
+    flex: 1;
+    min-width: 0;
+    margin-left: 0.5rem;
+    padding: 0.3rem 0.75rem;
+    background: var(--white);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+    color: var(--text-accent);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .browser-body {
+    background: #0a0a0c;
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+import { landingPages } from '../data/landing-pages';
+import LandingPageCard from './LandingPageCard.astro';
+---
+
+<section class="landing-section" id="landing-pages" aria-labelledby="landing-title">
+  <div class="landing-container">
+    <div class="title-div">
+      <h2 class="title-after" id="landing-title">Landing pages</h2>
+      <p>
+        A landing page has one job: get the visitor to do one thing. These are complete pages I designed and built
+        myself, including the animations and the phone version. Each one has a walkthrough that goes through the page
+        section by section and explains what each part is for.
+      </p>
+    </div>
+
+    <div class="landing-list">
+      {landingPages.map((page) => <LandingPageCard page={page} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .landing-section {
+    display: flex;
+    justify-content: center;
+    min-width: 320px;
+    background-color: var(--gray-background);
+  }
+
+  .landing-container {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1rem 4rem;
+    row-gap: 3rem;
+    max-width: 78rem;
+    width: 100%;
+  }
+
+  .landing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media only screen and (min-width: 601px) {
+    .landing-section {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media only screen and (min-width: 901px) {
+    .landing-container {
+      padding-bottom: 6rem;
+    }
+
+    .landing-list {
+      gap: 2.5rem;
+    }
+  }
+</style>

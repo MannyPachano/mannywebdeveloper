@@ -55,6 +55,7 @@ body {
 /* Sections that are anchor targets stop below the fixed header. */
 #about-section,
 #project-section,
+#landing-pages,
 #contact-section {
     scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
@@ -597,14 +598,6 @@ button:disabled {
 }
 
 @media only screen and (min-width: 601px) {
-    .hide-601 {
-        display: none;
-    }
-
-    .show-601 {
-        display: flex !important;
-    }
-
     h1 {
         font-size: 3.5rem;
     }
