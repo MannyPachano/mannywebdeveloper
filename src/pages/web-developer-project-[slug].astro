@@ -1,0 +1,23 @@
+---
+// Case study pages for the live sites, in the walkthrough format. Every entry in
+// src/data/project-walkthroughs.ts gets a page at /web-developer-project-<slug>,
+// except Clox, which has its own file so it can redirect when SHOW_CLOX is off.
+// The older projects (no live site) still use src/layouts/CaseStudyLayout.astro.
+import WalkthroughPage from '../components/WalkthroughPage.astro';
+import { projectWalkthroughs } from '../data/project-walkthroughs';
+import type { Walkthrough } from '../data/walkthrough-types';
+
+export function getStaticPaths() {
+  return projectWalkthroughs
+    .filter((page) => page.slug !== 'clox')
+    .map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+interface Props {
+  page: Walkthrough;
+}
+
+const { page } = Astro.props;
+---
+
+<WalkthroughPage page={page} />

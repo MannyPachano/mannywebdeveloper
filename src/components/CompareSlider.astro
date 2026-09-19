@@ -1,13 +1,17 @@
 ---
-// Light and dark comparison. The light screenshot sits underneath, the dark one
-// on top clipped from the left, and a full-size range input moves the divider.
-// Mouse, touch and keyboard all work because it is a real <input type="range">.
+// Two versions of one screen behind a draggable divider: image A sits
+// underneath (seen on the left), image B on top clipped from the left (seen on
+// the right), and a full-size range input moves the divider. Mouse, touch and
+// keyboard all work because it is a real <input type="range">.
+// Used for light vs dark (Rythm) and before vs after (redesigns).
 export interface Props {
-  light: string;
-  dark: string;
+  a: string;
+  b: string;
+  labelA: string;
+  labelB: string;
   width: number;
   height: number;
-  /** Describes the screen shown (used for the light image). */
+  /** Describes the screen shown (used for image A). */
   alt: string;
   label?: string;
   /** Load right away instead of lazily (for the first screen on a page). */
@@ -15,25 +19,27 @@ export interface Props {
 }
 
 const {
-  light,
-  dark,
+  a,
+  b,
+  labelA,
+  labelB,
   width,
   height,
   alt,
-  label = 'Compare the light and dark versions',
+  label = `Compare the ${labelA.toLowerCase()} and ${labelB.toLowerCase()} versions`,
   eager = false,
 } = Astro.props;
 
 const loading = eager ? 'eager' : 'lazy';
 ---
 
-<div class="compare" data-compare>
-  <img class="compare-base" src={light} width={width} height={height} alt={alt} loading={loading} decoding="async" />
+<div class="compare" data-compare data-label-a={labelA} data-label-b={labelB}>
+  <img class="compare-base" src={a} width={width} height={height} alt={alt} loading={loading} decoding="async" />
   <div class="compare-top" aria-hidden="true">
-    <img src={dark} width={width} height={height} alt="" loading={loading} decoding="async" />
+    <img src={b} width={width} height={height} alt="" loading={loading} decoding="async" />
   </div>
-  <span class="compare-tag compare-tag-light" aria-hidden="true">Light</span>
-  <span class="compare-tag compare-tag-dark" aria-hidden="true">Dark</span>
+  <span class="compare-tag compare-tag-a" aria-hidden="true">{labelA}</span>
+  <span class="compare-tag compare-tag-b" aria-hidden="true">{labelB}</span>
   <div class="compare-handle" aria-hidden="true">
     <span class="compare-knob">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
@@ -50,7 +56,7 @@ const loading = eager ? 'eager' : 'lazy';
     step="1"
     value="50"
     aria-label={label}
-    aria-valuetext="50% light, 50% dark"
+    aria-valuetext={`50% ${labelA}, 50% ${labelB}`}
   />
 </div>
 
@@ -95,14 +101,14 @@ const loading = eager ? 'eager' : 'lazy';
     pointer-events: none;
   }
 
-  .compare-tag-light {
+  .compare-tag-a {
     left: 0.75rem;
     background: rgba(255, 255, 255, 0.92);
     color: var(--text-header);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
   }
 
-  .compare-tag-dark {
+  .compare-tag-b {
     right: 0.75rem;
     background: rgba(0, 0, 0, 0.78);
     color: var(--white);
@@ -175,10 +181,13 @@ const loading = eager ? 'eager' : 'lazy';
     const range = box.querySelector<HTMLInputElement>('.compare-range');
     if (!range) return;
 
+    const labelA = box.dataset.labelA ?? 'A';
+    const labelB = box.dataset.labelB ?? 'B';
+
     const apply = () => {
       const value = Math.min(100, Math.max(0, Number(range.value) || 0));
       box.style.setProperty('--pos', `${value}%`);
-      range.setAttribute('aria-valuetext', `${value}% light, ${100 - value}% dark`);
+      range.setAttribute('aria-valuetext', `${value}% ${labelA}, ${100 - value}% ${labelB}`);
     };
 
     range.addEventListener('input', apply);

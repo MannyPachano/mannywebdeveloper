@@ -1,0 +1,674 @@
+---
+// The walkthrough page: one template for the landing pages and the project case
+// studies. Every block after the title is driven by the entry in
+// src/data/landing-pages.ts or src/data/project-walkthroughs.ts, and optional
+// blocks (compare slider, highlights, results, gallery, second phone row) only
+// render when the entry has them.
+import Layout from '../layouts/Layout.astro';
+import BrowserFrame from './BrowserFrame.astro';
+import CompareSlider from './CompareSlider.astro';
+import PhoneFrame from './PhoneFrame.astro';
+import type { Walkthrough } from '../data/walkthrough-types';
+
+interface Props {
+  page: Walkthrough;
+}
+
+const { page } = Astro.props;
+const pageTitle = page.pageTitle ?? `${page.title} ${page.eyebrow.toLowerCase()} | Manny Pachano`;
+const liveLabel = page.liveLabel ?? 'Open the live site';
+const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section) => section.srcB);
+---
+
+<Layout title={pageTitle} description={page.pageDescription}>
+  <section class="hero-section walkthrough-hero" aria-labelledby="walkthrough-page-title">
+    <div class="hero-content">
+      <p class="eyebrow">{page.eyebrow}</p>
+      <h1 id="walkthrough-page-title">{page.title}</h1>
+      <p class="lede">{page.description}</p>
+      <div class="hero-actions">
+        {page.liveUrl && (
+          <a class="button" href={page.liveUrl} target="_blank" rel="noopener noreferrer">
+            {liveLabel} <span aria-hidden="true">&#8599;</span>
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        )}
+        <a class="button button-secondary" href={page.backHref}>{page.backLabel}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-summary-section" aria-labelledby="overview-title">
+    <div class="project-summary-container">
+      <dl class="case-facts">
+        <div>
+          <dt>Client</dt>
+          <dd>{page.client}</dd>
+        </div>
+        <div>
+          <dt>My role</dt>
+          <dd>{page.role}</dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>{page.year}</dd>
+        </div>
+        {page.facts?.map((fact) => (
+          <div>
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <figure class="walkthrough-first">
+        <BrowserFrame url={page.liveUrl ?? page.title}>
+          {page.compare ? (
+            <CompareSlider
+              a={page.compare.a}
+              b={page.compare.b}
+              labelA={page.compare.labelA}
+              labelB={page.compare.labelB}
+              width={page.compare.width}
+              height={page.compare.height}
+              alt={page.compare.alt}
+              label={`Compare the ${page.compare.labelA.toLowerCase()} and ${page.compare.labelB.toLowerCase()} versions of the ${page.title} page`}
+              eager
+            />
+          ) : (
+            <img class="walkthrough-first-image" src={page.hero.src} width={page.hero.width} height={page.hero.height} alt={page.hero.alt} loading="eager" decoding="async" />
+          )}
+        </BrowserFrame>
+        {page.heroCaption && <figcaption>{page.heroCaption}</figcaption>}
+      </figure>
+
+      {page.highlights && page.highlights.length > 0 && (
+        <ul class="highlights walkthrough-highlights" aria-label="Highlights">
+          {page.highlights.map((item) => (
+            <li>
+              <span class="highlight-value">{item.value}</span>
+              <span class="highlight-label">{item.label}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div class="project-summary-copy">
+        <div>
+          <h2 class="section-title" id="overview-title">{page.overviewTitle}</h2>
+          {page.overview.map((paragraph) => <p set:html={paragraph} />)}
+        </div>
+      </div>
+
+      {page.results && (
+        <div class="results" aria-labelledby="results-title">
+          <div class="results-head">
+            <h2 class="section-title" id="results-title">{page.results.title}</h2>
+            {page.results.intro && <p>{page.results.intro}</p>}
+          </div>
+          {page.results.stats && page.results.stats.length > 0 && (
+            <ul class="highlights results-stats" aria-label="Results">
+              {page.results.stats.map((item) => (
+                <li>
+                  <span class="highlight-value">{item.value}</span>
+                  <span class="highlight-label">{item.label}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          {page.results.figures?.map((figure) => (
+            <figure class="results-figure">
+              <div class="walkthrough-shot">
+                <img src={figure.src} width={figure.width} height={figure.height} alt={figure.alt} loading="lazy" decoding="async" />
+              </div>
+              <figcaption>{figure.caption}</figcaption>
+            </figure>
+          ))}
+          {page.results.paragraphs && page.results.paragraphs.length > 0 && (
+            <div class="results-copy">
+              {page.results.paragraphs.map((paragraph) => <p set:html={paragraph} />)}
+            </div>
+          )}
+        </div>
+      )}
+
+      <div class="walkthrough" data-walkthrough data-variant="a">
+        <div class="walkthrough-head">
+          <div>
+            <h2 class="section-title" id="walkthrough-title">Section by section</h2>
+            <p>{page.walkthroughIntro}</p>
+          </div>
+          {hasVariants && page.sectionVariants && (
+            <div class="theme-switch" role="group" aria-label="Screenshot version" data-variant-switch>
+              <button type="button" data-variant="a" aria-pressed="true">{page.sectionVariants.a}</button>
+              <button type="button" data-variant="b" aria-pressed="false">{page.sectionVariants.b}</button>
+            </div>
+          )}
+        </div>
+
+        <ol class="walkthrough-list" aria-labelledby="walkthrough-title">
+          {page.sections.map((section, index) => (
+            <li class="walkthrough-item">
+              <figure>
+                <div class="walkthrough-shot">
+                  <img
+                    src={section.src}
+                    data-src-a={section.src}
+                    data-src-b={section.srcB}
+                    width={section.width}
+                    height={section.height}
+                    alt={section.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span class="walkthrough-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                  <span class="walkthrough-name">{section.title}</span>
+                  <span class="walkthrough-caption">{section.caption}</span>
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {page.galleries?.map((gallery, galleryIndex) => (
+        <div class="gallery-block" aria-labelledby={`gallery-title-${galleryIndex}`}>
+          <h2 class="section-title" id={`gallery-title-${galleryIndex}`}>{gallery.title}</h2>
+          {gallery.intro && <p>{gallery.intro}</p>}
+          <ul class:list={['gallery', `gallery-${gallery.columns ?? 3}`]}>
+            {gallery.items.map((item) => (
+              <li>
+                <figure>
+                  <div class="walkthrough-shot">
+                    <img src={item.src} width={item.width} height={item.height} alt={item.alt} loading="lazy" decoding="async" />
+                  </div>
+                  <figcaption>{item.caption}</figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      {page.phones.length > 0 && (
+        <div class="phones-block">
+          <h2 class="section-title" id="phones-title">On a phone</h2>
+          <p>{page.phonesIntro}</p>
+          <ul class="phones" aria-labelledby="phones-title">
+            {page.phones.map((shot) => (
+              <li class="phone-item">
+                <figure>
+                  <PhoneFrame src={shot.src} width={shot.width} height={shot.height} alt={shot.alt} />
+                  <figcaption>{shot.caption}</figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+          {page.phonesB && (
+            <div class="phones-b">
+              <p>{page.phonesB.intro}</p>
+              <ul class="phones" aria-label="Phone screens, second set">
+                {page.phonesB.items.map((shot) => (
+                  <li class="phone-item">
+                    <figure>
+                      <PhoneFrame src={shot.src} width={shot.width} height={shot.height} alt={shot.alt} />
+                      <figcaption>{shot.caption}</figcaption>
+                    </figure>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+
+      <div class="project-summary-copy">
+        <div>
+          <h2 class="section-title">What went into it</h2>
+          <div class:list={['details', { 'details-3': Boolean(page.details.marketing) }]}>
+            <div>
+              <p class="eyebrow">Design</p>
+              <ul class="detail-list">
+                {page.details.design.map((item) => <li set:html={item} />)}
+              </ul>
+            </div>
+            <div>
+              <p class="eyebrow">Build</p>
+              <ul class="detail-list">
+                {page.details.build.map((item) => <li set:html={item} />)}
+              </ul>
+            </div>
+            {page.details.marketing && (
+              <div>
+                <p class="eyebrow">Marketing</p>
+                <ul class="detail-list">
+                  {page.details.marketing.map((item) => <li set:html={item} />)}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-title">Tools used</h2>
+          <ul class="skills-list">
+            {page.tools.map((tool) => <li>{tool}</li>)}
+          </ul>
+        </div>
+
+        <div class="project-summary-btns">
+          {page.liveUrl && (
+            <a class="button button-small" href={page.liveUrl} target="_blank" rel="noopener noreferrer">
+              Live site <span aria-hidden="true">&#8599;</span>
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          )}
+          <a class="button button-small project-back-btn" href={page.backHref}>{page.backLabel}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Title block, same look as the older case study pages. */
+  .walkthrough-hero {
+    height: auto;
+    min-height: 0;
+    padding: 5rem 1rem 4rem;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+    position: relative;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .walkthrough-hero .hero-content {
+    text-align: center;
+    width: 92%;
+    max-width: 48rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .walkthrough-hero .lede {
+    margin: 0 auto;
+    max-width: 42rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .hero-actions .button {
+    margin: 0;
+    padding: 1rem 2.5rem;
+    font-size: 18px;
+  }
+
+  /* First screen */
+  .walkthrough-first {
+    width: 100%;
+    max-width: 64rem;
+    margin: 0;
+  }
+
+  .walkthrough-first-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .walkthrough-first figcaption {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-accent);
+  }
+
+  .walkthrough-highlights {
+    width: 100%;
+    max-width: 64rem;
+  }
+
+  /* Results (numbers and charts) */
+  .results {
+    width: 100%;
+    max-width: 64rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .results-head .section-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .results-stats {
+    width: 100%;
+  }
+
+  .results-figure {
+    margin: 0;
+  }
+
+  .results-figure figcaption {
+    margin-top: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-accent);
+  }
+
+  .results-copy {
+    max-width: 47rem;
+  }
+
+  /* Section by section */
+  .walkthrough {
+    width: 100%;
+  }
+
+  .walkthrough-head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+
+  .walkthrough-head .section-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .theme-switch {
+    display: inline-flex;
+    padding: 4px;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .theme-switch button {
+    margin: 0;
+    padding: 0.55rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: var(--text-paragraph);
+    background: transparent;
+    border-radius: 999px;
+    box-shadow: none;
+  }
+
+  .theme-switch button:hover {
+    transform: none;
+    scale: 1;
+    box-shadow: none;
+    color: var(--text-header);
+  }
+
+  .theme-switch button[aria-pressed='true'] {
+    background: var(--text-header);
+    color: var(--white);
+  }
+
+  .walkthrough-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .walkthrough-item figure {
+    margin: 0;
+  }
+
+  .walkthrough-shot {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--gray-line);
+    box-shadow: var(--shadow-sm);
+    background: var(--white);
+  }
+
+  .walkthrough-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .walkthrough-item figcaption {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.85rem;
+    row-gap: 0.35rem;
+    margin-top: 1rem;
+    align-items: baseline;
+  }
+
+  .walkthrough-number {
+    grid-row: 1 / 3;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--text-header);
+    background: var(--yellow);
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    align-self: start;
+  }
+
+  .walkthrough-name {
+    font-weight: 800;
+    color: var(--text-subheader);
+    font-size: 1.1rem;
+    letter-spacing: 0.3px;
+  }
+
+  .walkthrough-caption {
+    color: var(--text-paragraph);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* Gallery */
+  .gallery-block {
+    width: 100%;
+  }
+
+  .gallery-block > p {
+    margin-bottom: 1.5rem;
+  }
+
+  .gallery {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .gallery figure {
+    margin: 0;
+  }
+
+  .gallery figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-paragraph);
+  }
+
+  /* On a phone */
+  .phones-block {
+    width: 100%;
+  }
+
+  .phones-block > p,
+  .phones-b > p {
+    margin-bottom: 1.5rem;
+  }
+
+  .phones-b {
+    margin-top: 2.5rem;
+  }
+
+  .phones {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.5rem 0.25rem 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .phone-item {
+    flex: 0 0 min(64%, 15rem);
+    scroll-snap-align: center;
+  }
+
+  .phone-item figure {
+    margin: 0;
+  }
+
+  .phone-item figcaption {
+    margin-top: 0.85rem;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-accent);
+  }
+
+  /* What went into it */
+  .details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .detail-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .detail-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    line-height: 1.7;
+    color: var(--text-paragraph);
+    letter-spacing: 0.4px;
+  }
+
+  .detail-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--yellow);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .hero-actions .button {
+      width: 100%;
+      max-width: 22rem;
+    }
+  }
+
+  @media only screen and (min-width: 601px) {
+    .walkthrough-hero {
+      padding: 7rem 1.5rem 5rem;
+    }
+
+    .walkthrough-head {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .details {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .details-3 {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .gallery-2,
+    .gallery-3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .results-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media only screen and (min-width: 901px) {
+    .walkthrough-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem 2.5rem;
+    }
+
+    .gallery-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .results-stats {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .phones {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2rem;
+      overflow: visible;
+      padding: 0.5rem 0 0;
+    }
+
+    .phone-item {
+      flex: none;
+    }
+  }
+</style>
+
+<script>
+  // ---------------------------------------------------------------------
+  // SECTION VERSION SWITCH (only rendered when sections have two versions)
+  // Every screenshot carries both versions in data attributes. The switch
+  // swaps src, so only the version being looked at is ever downloaded.
+  // ---------------------------------------------------------------------
+  const walkthrough = document.querySelector<HTMLElement>('[data-walkthrough]');
+  const switcher = document.querySelector<HTMLElement>('[data-variant-switch]');
+
+  if (walkthrough && switcher) {
+    const buttons = Array.from(switcher.querySelectorAll<HTMLButtonElement>('button[data-variant]'));
+    const images = Array.from(walkthrough.querySelectorAll<HTMLImageElement>('img[data-src-a][data-src-b]'));
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const variant = button.dataset.variant === 'b' ? 'b' : 'a';
+        walkthrough.dataset.variant = variant;
+        buttons.forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+        images.forEach((img) => {
+          const next = variant === 'b' ? img.dataset.srcB : img.dataset.srcA;
+          if (next && img.getAttribute('src') !== next) img.src = next;
+        });
+      });
+    });
+  }
+</script>

@@ -17,15 +17,21 @@ const phone = page.phones[0];
   <div class="landing-card-media">
     <div class="landing-card-stage">
       <div class="landing-card-browser">
-        <BrowserFrame url={page.liveUrl}>
-          <CompareSlider
-            light={page.hero.light}
-            dark={page.hero.dark}
-            width={page.hero.width}
-            height={page.hero.height}
-            alt={page.hero.alt}
-            label={`Compare the light and dark versions of the ${page.title} page`}
-          />
+        <BrowserFrame url={page.liveUrl ?? page.title}>
+          {page.compare ? (
+            <CompareSlider
+              a={page.compare.a}
+              b={page.compare.b}
+              labelA={page.compare.labelA}
+              labelB={page.compare.labelB}
+              width={page.compare.width}
+              height={page.compare.height}
+              alt={page.compare.alt}
+              label={`Compare the ${page.compare.labelA.toLowerCase()} and ${page.compare.labelB.toLowerCase()} versions of the ${page.title} page`}
+            />
+          ) : (
+            <img class="landing-card-first" src={page.hero.src} width={page.hero.width} height={page.hero.height} alt={page.hero.alt} loading="lazy" decoding="async" />
+          )}
         </BrowserFrame>
       </div>
       {phone && (
@@ -34,7 +40,9 @@ const phone = page.phones[0];
         </div>
       )}
     </div>
-    <p class="landing-card-hint">Drag the handle to compare the light and dark versions.</p>
+    {page.compare && (
+      <p class="landing-card-hint">Drag the handle to compare the {page.compare.labelA.toLowerCase()} and {page.compare.labelB.toLowerCase()} versions.</p>
+    )}
   </div>
 
   <div class="landing-card-body">
@@ -50,10 +58,12 @@ const phone = page.phones[0];
 
     <div class="landing-card-actions">
       <a class="button button-small" href={href}>See the walkthrough</a>
-      <a class="text-link" href={page.liveUrl} target="_blank" rel="noopener noreferrer">
-        Live page <span aria-hidden="true">&#8599;</span>
-        <span class="visually-hidden">(opens in a new tab)</span>
-      </a>
+      {page.liveUrl && (
+        <a class="text-link" href={page.liveUrl} target="_blank" rel="noopener noreferrer">
+          Live page <span aria-hidden="true">&#8599;</span>
+          <span class="visually-hidden">(opens in a new tab)</span>
+        </a>
+      )}
     </div>
   </div>
 </article>
@@ -80,6 +90,12 @@ const phone = page.phones[0];
   .landing-card-browser {
     flex: 1;
     min-width: 0;
+  }
+
+  .landing-card-first {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   /* The phone only shows beside the browser on wide screens. */

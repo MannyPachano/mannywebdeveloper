@@ -1,89 +1,14 @@
 ---
-import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
+import WalkthroughPage from '../components/WalkthroughPage.astro';
+import { projectWalkthroughs } from '../data/project-walkthroughs';
 import { SHOW_CLOX } from '../config';
 
 // Temporary project. When SHOW_CLOX is false the card disappears from the
 // homepage and this URL becomes a redirect to the homepage at build time.
 if (!SHOW_CLOX) return Astro.redirect('/');
+
+const page = projectWalkthroughs.find((entry) => entry.slug === 'clox');
+if (!page) throw new Error('Clox entry missing from src/data/project-walkthroughs.ts');
 ---
 
-<CaseStudyLayout
-  title="Clox"
-  description="Clox is my own product, a time-tracking app for small field crews in the trades. I designed, built and market the native apps, the web dashboard and the marketing site."
-  client="Clox (my own company)"
-  role="Founder"
-  year="2026 to present"
-  liveUrl="https://getclox.com"
-  liveLabel="Visit getclox.com"
-  slides={[
-    {
-      title: 'Homepage: introduction',
-      src: '/videos/web-development-project-clox-intro.mp4',
-      poster: '/images/clox-intro.webp',
-    },
-    {
-      title: 'Homepage: features',
-      src: '/videos/web-development-project-clox-features.mp4',
-      poster: '/images/clox-features.webp',
-    },
-    {
-      title: 'Homepage: pricing',
-      src: '/videos/web-development-project-clox-pricing.mp4',
-      poster: '/images/clox-pricing.webp',
-    },
-    {
-      title: 'App: time tracking',
-      src: '/images/clox-app-tracking.webp',
-      poster: '/images/clox-app-tracking.webp',
-      type: 'image',
-      alt: 'Clox reports screen on a laptop showing 383 hours by employee, with the mobile clock-in screen next to it.',
-    },
-    {
-      title: 'App: clock-in',
-      src: '/images/clox-app-clock-in.webp',
-      poster: '/images/clox-app-clock-in.webp',
-      type: 'image',
-      alt: 'Two phones showing the Clox clock-in screen. On the second one the clock-in is blocked because the worker is outside the job site.',
-    },
-    {
-      title: 'App: job site map',
-      src: '/images/clox-app-map.webp',
-      poster: '/images/clox-app-map.webp',
-      type: 'image',
-      alt: 'Clox team roster on a laptop and a phone, with each clock-in shown on a map of job sites.',
-    },
-    {
-      title: 'App: scheduling',
-      src: '/images/clox-app-schedule.webp',
-      poster: '/images/clox-app-schedule.webp',
-      type: 'image',
-      alt: 'Clox weekly schedule on a laptop, with the same schedule shown on a phone.',
-    },
-    {
-      title: 'App: approvals',
-      src: '/images/clox-app-approvals.webp',
-      poster: '/images/clox-app-approvals.webp',
-      type: 'image',
-      alt: 'Clox team page with pending approvals on a laptop, and the approvals list on a phone.',
-    },
-    {
-      title: 'App: overtime',
-      src: '/images/clox-app-overtime.webp',
-      poster: '/images/clox-app-overtime.webp',
-      type: 'image',
-      alt: 'Clox report showing hours by employee with overtime highlighted and a labor cost total.',
-    },
-  ]}
-  highlights={[
-    { value: '$29 a month', label: 'Includes three users, then $6 per user' },
-    { value: 'iOS, Android and web', label: 'Native apps for the crew and a web dashboard for the office' },
-    { value: '14-day trial', label: 'No credit card, no sales call, no onboarding fee' },
-  ]}
-  overview={[
-    'Many small trades crews (electricians, plumbers, HVAC, landscapers, general contractors) still track hours on paper timecards or in text messages. The hours get collected at the end of the week and the totals are often wrong. Clox records hours at the time they happen. The crew clocks in from their phones, and the office sees hours, job costs and the schedule in one place. I founded the company and I am responsible for the product, the design, the front end and the marketing.',
-    'The product is a native iOS and Android app for workers and a web dashboard for managers. Clock-ins use GPS and geofencing, so a clock-in from outside the job site is blocked. Overtime and break rules are applied automatically, each job shows its labor cost, and payroll can be exported to QuickBooks, ADP, Gusto or Paychex. Managers can build schedules by drag and drop, approve shifts and time-off requests, and see the day\'s clock-ins on a map. Time records can be exported as a signed PDF if there is a dispute.',
-    'The marketing site at getclox.com follows the same structure I use for client sites: a short headline, the problem and how the product solves it, a feature section, a tour of the product, three steps to get started, a list of the trades it is built for, the price and one call to action. Behind the site there is a blog written from search data, app store listings, directory profiles and a Product Hunt launch.',
-    'Running my own product means I deal with positioning, pricing, onboarding, SEO and support directly. That experience carries over to the client sites I build.',
-  ]}
-  tools={['Next.js', 'TypeScript', 'React', 'Native mobile apps', 'Figma', 'SEO', 'Product Hunt']}
-/>
+<WalkthroughPage page={page} />
