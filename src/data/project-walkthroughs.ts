@@ -45,13 +45,13 @@ const timeclick: Walkthrough = {
   highlights: [
     { value: '4,000 to 30,000+', label: 'Monthly organic visitors, December 2025 to April 2026 (Google Analytics)' },
     { value: 'Full redesign', label: 'Homepage, feature pages, pricing and the free trial flow' },
-    { value: '11 emails, 3 integrations', label: 'Trial email sequence; Zoho CRM, WooCommerce and Stripe' },
+    { value: 'Email campaigns', label: 'Launched the trial and post-trial sequences, plus Zoho CRM, WooCommerce and Stripe' },
   ],
   overviewTitle: 'What the site has to do',
   overview: [
     'TimeClick sells desktop time clock software to small businesses. Unlike most competitors, it is sold for a one-time price with no subscription. The website has to explain that quickly, show that the product is trusted, and get the right visitors to start the 14-day free trial, which does not need a credit card. I redesigned the site with that goal, and then ran the SEO program that brought the visitors to it.',
     'The homepage starts with the offer and the trial button, followed by the proof: a 4.7 out of 5 rating from more than 1,000 reviews, customer logos, and a feature section that covers time tracking, PTO, job codes, reports, mobile apps, geofencing and payroll integrations with QuickBooks, ADP and Gusto. Reviews and a second trial button close the page. The site is responsive and built to load quickly on the laptops and phones that small business owners use.',
-    'I also built the systems around the site. I integrated a Zoho CRM newsletter signup into the blog. The original embed was being broken by WordPress content filters, so I replaced it with a plain JavaScript <code>fetch()</code> call. I fixed a WooCommerce and Stripe ACH microdeposit problem on the purchase site with a small script. I wrote the 11-email trial and post-trial sequence and the first newsletter to existing customers.',
+    'I also built the systems around the site. I integrated a Zoho CRM newsletter signup into the blog. The original embed was being broken by WordPress content filters, so I replaced it with a plain JavaScript <code>fetch()</code> call. I fixed a WooCommerce and Stripe ACH microdeposit problem on the purchase site with a small script. I wrote and launched the trial and post-trial email campaigns, and the first newsletter to the existing customer base.',
     'Separately from the website, I led a screen-by-screen redesign of the TimeClick 25 admin interface and delivered interactive HTML, CSS and JavaScript mockups that the development team built from.',
   ],
   results: {
@@ -268,7 +268,7 @@ const timeclick: Walkthrough = {
     ],
     marketing: [
       'Five-month SEO program: tools and resource pages, articles, on-page fixes, schema fixes, backlinks and internal linking. Organic traffic went from about 4,000 to over 30,000 visitors a month.',
-      'An 11-email trial and post-trial sequence, and the first newsletter to existing customers.',
+      'Launched the trial and post-trial email campaigns, and the first newsletter to the existing customer base.',
       'Monthly reporting from Google Analytics 4, Search Console and Ahrefs.',
     ],
   },
@@ -313,7 +313,7 @@ const ues: Walkthrough = {
     'The first screen before and after. Drag the handle. The old page opened with a photo and a phone number; the new one opens with what the company does, where, and two ways to get a pickup.',
   highlights: [
     { value: '28 states', label: 'Service area covered by the local SEO program' },
-    { value: '9 services', label: 'Each explained in a short card on the homepage' },
+    { value: 'One template', label: 'The homepage pattern the rest of the site is now being rebuilt on' },
     { value: 'Lead tracking', label: 'Form submissions and phone calls tracked in Google Analytics 4' },
   ],
   overviewTitle: 'What the site has to do',
@@ -511,7 +511,6 @@ const clox: Walkthrough = {
     'Clox is my own product, a time-tracking app for small field crews in the trades. I designed, built and market the native apps, the web dashboard and the marketing site at getclox.com.',
   pageDescription:
     'Clox case study: the getclox.com marketing site section by section, the product screens, the industry and comparison pages, and the mobile version.',
-  facts: [{ label: 'Platforms', value: 'iOS, Android and web' }],
   hero: {
     src: `${cloxImages}/first-screen.webp`,
     width: 1920,
@@ -688,7 +687,6 @@ const landscaperTemplates: Walkthrough = {
     'Three complete landscaping websites built as a sales tool. A business owner picks the layout they like, and I customize it with their name, photos and service area.',
   pageDescription:
     'Landscaper Templates case study: three landscaping website templates shown section by section and on a phone, and how the switcher and the customization work.',
-  facts: [{ label: 'Templates', value: 'Three complete designs' }],
   hero: {
     src: `${landscaperImages}/first-screen.webp`,
     width: 1920,
@@ -697,7 +695,7 @@ const landscaperTemplates: Walkthrough = {
   },
   heroCaption: 'The first screen of template 1 at 1680 pixels wide. A bar at the bottom of the live page switches between the three templates and stays visible while you scroll.',
   highlights: [
-    { value: '3 templates', label: 'Three complete websites, not mockups' },
+    { value: 'Complete sites', label: 'Three finished websites to compare, not mockups or wireframes' },
     { value: 'One switcher', label: 'Visitors move between templates without leaving the page' },
     { value: 'Free customization', label: 'Included when a business owner chooses a template' },
   ],
@@ -851,7 +849,7 @@ const jonathanZalzman: Walkthrough = {
   heroCaption: 'The first screen at 1680 pixels wide.',
   highlights: [
     { value: 'Hand-coded', label: 'HTML, CSS and JavaScript, no page builder or plugins' },
-    { value: '9 styles', label: 'A short description for each style Jonathan teaches' },
+    { value: 'Two audiences', label: 'Adult players and parents, each given their own section on one page' },
     { value: 'One booking form', label: 'Every call to action on the page leads to it' },
   ],
   overviewTitle: 'What the site has to do',
@@ -861,7 +859,7 @@ const jonathanZalzman: Walkthrough = {
     'Pricing is shown on the page: the first lesson is free, then 30 or 60 minute lessons at a flat rate, with no registration fee, contract or subscription. The booking form asks for the instrument, experience level and whether the lessons are in person or online. Every call to action on the page links to the form, and his phone number and email are also shown.',
     'The site is hand-coded HTML, CSS and JavaScript hosted on Netlify. There is no page builder and there are no plugins to update.',
   ],
-  walkthroughIntro: 'The page, top to bottom, down to the reviews. Below them the page closes with his band section, seven common questions and the booking form.',
+  walkthroughIntro: 'The page, top to bottom.',
   sections: [
     {
       title: 'Header and hero',
@@ -925,19 +923,46 @@ const jonathanZalzman: Walkthrough = {
       width: 1600,
       height: 813,
     },
+    {
+      title: 'I play guitar for a living',
+      caption:
+        'A band photo and three links: Spotify, YouTube and his band Free Hat. This is the section that backs up the headline, so a visitor can go and hear him before booking.',
+      alt: 'The section "I play guitar for a living" with a band photo and links to Spotify, YouTube and Free Hat.',
+      src: `${jonathanImages}/08-band.webp`,
+      width: 1600,
+      height: 739,
+    },
+    {
+      title: 'Common questions',
+      caption:
+        'Seven questions in an accordion: is my kid too young, I have not played in 20 years, do I need my own guitar, what happens if I miss a lesson. These are the questions that otherwise arrive one at a time by email.',
+      alt: 'An accordion of seven common questions under the heading "Questions I get every week".',
+      src: `${jonathanImages}/09-faq.webp`,
+      width: 1600,
+      height: 1146,
+    },
+    {
+      title: 'Booking form and footer',
+      caption:
+        'The form the whole page points at. It asks for the instrument, the student age, the experience level, in person or online, the plan and the best times, so the first reply can already suggest a slot. Under it, an email link and a phone number for people who would rather reach him directly.',
+      alt: 'The booking form under the heading "Book your free lesson", followed by the footer.',
+      src: `${jonathanImages}/10-book-footer.webp`,
+      width: 1600,
+      height: 1730,
+    },
   ],
   phonesIntro: 'The site on a phone, where most parents and students will find it.',
   phones: [
-    { src: `${jonathanImages}/mobile-hero.webp`, width: 1170, height: 2535, alt: 'The Jonathan Zalzman homepage on a phone: the condensed headline, one paragraph and two buttons.', caption: 'The headline still fills the screen, and both buttons are within reach of a thumb.' },
-    { src: `${jonathanImages}/mobile-learning.webp`, width: 1170, height: 2535, alt: 'A stage photo and the card listing what students are learning right now.', caption: 'The photo and the what-students-are-learning card stack instead of sitting side by side.' },
-    { src: `${jonathanImages}/mobile-bio.webp`, width: 1170, height: 2535, alt: 'The credentials ticker and the start of the bio section on a phone.', caption: 'The ticker keeps scrolling at phone width, then his story starts.' },
-    { src: `${jonathanImages}/mobile-styles.webp`, width: 1170, height: 2535, alt: 'The nine styles as one column of colored cards on a phone.', caption: 'The three-by-three grid of styles becomes one column, each with its own color.' },
+    { src: `${jonathanImages}/mobile-hero.webp`, width: 1170, height: 2535, alt: 'The Jonathan Zalzman homepage on a phone: the condensed headline, one paragraph and two buttons, with a fixed bar at the bottom.', caption: 'The headline still fills the screen, and the fixed bar keeps Book free trial and Call one tap away.' },
+    { src: `${jonathanImages}/mobile-styles.webp`, width: 1170, height: 2535, alt: 'The teaching styles as one column of colored cards on a phone.', caption: 'The three-by-three grid of styles becomes one column, each style keeping its own color.' },
+    { src: `${jonathanImages}/mobile-pricing.webp`, width: 1170, height: 2535, alt: 'The pricing section on a phone, starting with the free first lesson card.', caption: 'Pricing stacks, and the free first lesson comes first so the risk is gone before the prices appear.' },
+    { src: `${jonathanImages}/mobile-booking.webp`, width: 1170, height: 2535, alt: 'The booking form on a phone with the fields stacked one per line.', caption: 'The booking form at phone width, one field per line, with the bar still sitting at the bottom.' },
   ],
   details: {
     design: [
       'Dark background, orange accent and condensed display type, so the site looks like a musician\'s site, not a tutoring directory.',
       'His own performance photos in every section. No stock photos.',
-      'Two audiences on one page: adult players and parents. Each gets a section written for them.',
+      'Proof sits between the price and the form: student reviews, then the band section, then the questions people actually ask.',
       'The trial lesson button is in the header, the hero, after the styles, after pricing and at the end. On phones it sits in a bar at the bottom of the screen.',
     ],
     build: [
