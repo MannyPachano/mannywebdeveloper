@@ -104,7 +104,8 @@ const loading = eager ? 'eager' : 'lazy';
   .compare-tag-a {
     left: 0.75rem;
     background: rgba(255, 255, 255, 0.92);
-    color: var(--text-header);
+    /* White pill over the picture: the label stays dark in both themes. */
+    color: var(--shot-fg);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
   }
 
@@ -120,7 +121,7 @@ const loading = eager ? 'eager' : 'lazy';
     bottom: 0;
     left: var(--pos);
     width: 2px;
-    background: var(--white);
+    background: var(--shot-bed);
     transform: translateX(-50%);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
     pointer-events: none;

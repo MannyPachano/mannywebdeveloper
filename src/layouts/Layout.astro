@@ -38,6 +38,13 @@ const ogImageURL = new URL(SITE.ogImage, SITE.url).href;
     <link rel="apple-touch-icon" href="/images/man-face.webp" />
     <meta name="theme-color" content="#ffe83d" />
 
+    <!--
+      Sets light or dark on <html> before the first paint, so there is no flash.
+      A real file, not an inline script: the CSP is script-src 'self'.
+      is:inline keeps Astro from bundling it, which would defer it past paint.
+    -->
+    <script is:inline src="/theme.js"></script>
+
     <!-- The three weights used above the fold; the rest load on demand. -->
     <link rel="preload" href="/fonts/source-sans-3-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/source-sans-3-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin />

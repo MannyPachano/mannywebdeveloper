@@ -23,8 +23,8 @@ const address = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 
 <style>
   .browser {
-    background: var(--white);
-    border: 1px solid var(--gray-line);
+    background: var(--shot-bed);
+    border: 1px solid var(--shot-line);
     border-radius: var(--radius);
     box-shadow: var(--shadow-md);
     overflow: hidden;
@@ -35,15 +35,15 @@ const address = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
     align-items: center;
     gap: 0.4rem;
     padding: 0.6rem 0.9rem;
-    background: #f1f1f1;
-    border-bottom: 1px solid var(--gray-line);
+    background: var(--shot-chrome);
+    border-bottom: 1px solid var(--shot-line);
   }
 
   .browser-dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #cfcfcf;
+    background: #cfcfcf; /* browser dots, part of the frame illustration */
   }
 
   .browser-url {
@@ -51,11 +51,12 @@ const address = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
     min-width: 0;
     margin-left: 0.5rem;
     padding: 0.3rem 0.75rem;
-    background: var(--white);
+    background: var(--shot-bed);
     border-radius: 6px;
     font-size: 0.75rem;
     letter-spacing: 0.3px;
-    color: var(--text-accent);
+    /* The bar stays light in both themes, so this stays dark. */
+    color: var(--shot-fg-soft);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

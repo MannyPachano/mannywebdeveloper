@@ -27,7 +27,7 @@
   .hero-section {
     height: calc(100vh - var(--nav-height));
     min-height: 36.5rem;
-    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+    background: linear-gradient(to right, var(--page-wash), var(--page-wash)), url(/images/common-bg.svg);
     position: relative;
     min-width: 320px;
   }
@@ -93,7 +93,7 @@
   .mouse {
     width: 25px;
     height: 40px;
-    border: 2px solid #333;
+    border: 2px solid var(--text-subheader);
     border-radius: 60px;
     position: relative;
     overflow: hidden;
@@ -107,7 +107,7 @@
     top: 7px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #333;
+    background-color: var(--text-subheader);
     border-radius: 50%;
     opacity: 1;
     animation: scroll 1.3s infinite;
@@ -121,7 +121,7 @@
   }
 
   .manny-img {
-    background: linear-gradient(to right, rgba(245, 245, 245, 0.3), rgba(245, 245, 245, 0.3)), url(/images/manny-img.webp);
+    background: linear-gradient(to right, var(--page-wash-soft), var(--page-wash-soft)), url(/images/manny-img.webp);
     background-size: cover;
     background-position: center;
     position: absolute;

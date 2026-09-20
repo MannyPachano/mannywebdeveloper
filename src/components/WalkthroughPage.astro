@@ -278,7 +278,7 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
     height: auto;
     min-height: 0;
     padding: 5rem 1rem 4rem;
-    background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(/images/common-bg.svg);
+    background: linear-gradient(to right, var(--page-wash), var(--page-wash)), url(/images/common-bg.svg);
     position: relative;
     min-width: 320px;
     display: flex;
@@ -389,8 +389,8 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
   .theme-switch {
     display: inline-flex;
     padding: 4px;
-    background: var(--white);
-    border: 1px solid var(--gray-line);
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: 999px;
     box-shadow: var(--shadow-sm);
   }
@@ -417,7 +417,8 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
 
   .theme-switch button[aria-pressed='true'] {
     background: var(--text-header);
-    color: var(--white);
+    /* Inverted chip: the page colour, so it flips with the theme. */
+    color: var(--page);
   }
 
   .walkthrough-list {
@@ -434,9 +435,9 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
   .walkthrough-shot {
     border-radius: var(--radius);
     overflow: hidden;
-    border: 1px solid var(--gray-line);
+    border: 1px solid var(--shot-line);
     box-shadow: var(--shadow-sm);
-    background: var(--white);
+    background: var(--shot-bed);
   }
 
   .walkthrough-shot img {
@@ -459,7 +460,8 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
     font-size: 1.5rem;
     font-weight: 900;
     line-height: 1;
-    color: var(--text-header);
+    /* On yellow, so it must not flip with the theme. */
+    color: var(--on-accent);
     background: var(--yellow);
     padding: 0.35rem 0.5rem;
     border-radius: 6px;
