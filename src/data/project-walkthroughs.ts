@@ -643,8 +643,8 @@ const clox: Walkthrough = {
   phonesIntro: 'getclox.com on a phone. Most crew owners will see it there first.',
   phones: [
     { src: `${cloxImages}/mobile-hero.webp`, width: 1170, height: 2535, alt: 'The Clox homepage on a phone: the headline, the trial button, the app store badges and the top of the clock-in phone mockup.', caption: 'One column, the trial button above the fold, and the tour link for people who want to look first.' },
-    { src: `${cloxImages}/mobile-fix.webp`, width: 1170, height: 2535, alt: 'The fix box and the start of the feature list on a phone.', caption: 'The one-line answer sits in its own box, then the feature list starts.' },
-    { src: `${cloxImages}/mobile-features.webp`, width: 1170, height: 2535, alt: 'Feature cards stacked in one column: clock in even offline, off-site clock-ins blocked, overtime and breaks calculated, real job costs.', caption: 'The two rows of three cards become one column, in the same order.' },
+    { src: `${cloxImages}/mobile-fix.webp`, width: 1170, height: 2535, alt: 'The problem section on a phone: the paragraph about paper timecards, then the fix in its own bordered box.', caption: 'The problem in three sentences, then the one-line answer in its own box.' },
+    { src: `${cloxImages}/mobile-features.webp`, width: 1170, height: 2535, alt: 'The what you get section on a phone: the heading, then the feature cards stacked one per row, clock in even offline and off-site clock-ins blocked.', caption: 'The feature grid becomes one column, in the same order.' },
     { src: `${cloxImages}/mobile-tour.webp`, width: 1170, height: 2535, alt: 'The product tour on a phone: the 40-second video and the first dashboard row.', caption: 'The video and the dashboard rows, each one full width.' },
   ],
   details: {
@@ -802,8 +802,8 @@ const landscaperTemplates: Walkthrough = {
   phonesIntro: 'The templates at phone width. One column, photos first, and a quote button on every screen.',
   phones: [
     { src: `${landscaperImages}/mobile-t1-hero.webp`, width: 1170, height: 2535, alt: 'Template 1 on a phone: the top bar, the logo, a garden photo and the headline with two buttons.', caption: 'Template 1. The photo fills the first screen, with the headline and the quote button over it.' },
-    { src: `${landscaperImages}/mobile-t1-services.webp`, width: 1170, height: 2535, alt: 'Service photo cards stacked in one column on a phone.', caption: 'The four service cards become one column, each photo full width.' },
-    { src: `${landscaperImages}/mobile-t1-quote.webp`, width: 1170, height: 2535, alt: 'The contact details and the quote form on a phone: office, hours, then name, phone, email and service fields.', caption: 'Address and hours first, then the quote form, so calling is always the easier option.' },
+    { src: `${landscaperImages}/mobile-t1-services.webp`, width: 1170, height: 2535, alt: 'The what we do section of template 1 on a phone: the heading, then the first service card, a landscape design photo with a learn more link.', caption: 'The service cards become one column, each photo full width.' },
+    { src: `${landscaperImages}/mobile-t1-quote.webp`, width: 1170, height: 2535, alt: 'The get in touch section of template 1 on a phone: the heading, then phone, email, office address and opening hours listed above the quote form.', caption: 'Phone, email, address and hours come before the form, so calling is always the easier option.' },
     { src: `${landscaperImages}/mobile-t2-hero.webp`, width: 1170, height: 2535, alt: 'Template 2 on a phone: a boxed uppercase headline over a lawn photo with two stacked buttons.', caption: 'Template 2 on the same screen size. Same job, different look.' },
   ],
   details: {
