@@ -15,6 +15,7 @@ const uesImages = '/images/projects/ues';
 const cloxImages = '/images/projects/clox';
 const jonathanImages = '/images/projects/jonathan-zalzman';
 const landscaperImages = '/images/projects/landscaper-templates';
+const keysetImages = '/images/projects/keyset';
 
 const backToProjects = { backHref: '/#project-section', backLabel: 'Back to projects' };
 
@@ -28,10 +29,10 @@ const timeclick: Walkthrough = {
   year: '2024 to present',
   liveUrl: 'https://timeclick.com',
   summary:
-    'A full redesign of the marketing site for a time clock software company, plus the CRM, checkout and email systems behind it, and the SEO program that took organic traffic from about 4,000 to over 30,000 visitors a month.',
+    'I redesigned the marketing site for a time clock software company, built the CRM, checkout and email systems behind it, and ran the SEO program that took organic traffic from about 4,000 to over 30,000 visitors a month.',
   tags: ['WordPress', 'JavaScript', 'Zoho CRM', 'Stripe and WooCommerce', 'SEO', 'Email marketing'],
   description:
-    'I redesigned timeclick.com, the marketing website for a time clock software company, built the CRM, checkout and email systems behind it, and ran the SEO program that took organic traffic from about 4,000 to over 30,000 visitors a month.',
+    'I redesigned timeclick.com, built the CRM, checkout and email systems behind it, and ran the SEO program that took organic traffic from about 4,000 to over 30,000 visitors a month.',
   pageDescription:
     'TimeClick case study: the website redesign, the CRM, checkout and email systems behind it, and the SEO program that grew organic traffic from about 4,000 to over 30,000 monthly visitors between December 2025 and April 2026.',
   facts: [{ label: 'SEO program', value: 'December 2025 to April 2026' }],
@@ -286,10 +287,10 @@ const ues: Walkthrough = {
   year: '2026 to present',
   liveUrl: 'https://universalenvironmentalservices.com',
   summary:
-    'Rebuilt the homepage for a used oil collection company running routes in 28 states, and now rebuilding the rest of the site page by page while running their local SEO program.',
+    'I rebuilt the homepage for a used oil collection company that operates in 28 states. I am now rebuilding the rest of the site page by page while running its local SEO program.',
   tags: ['WordPress', 'Local SEO', 'Google Business Profile', 'GA4', 'Search Console', 'Conversion design'],
   description:
-    'I rebuilt the homepage for a used oil collection and recycling company that operates in 28 states, I am rebuilding the rest of the site on the same template, and I run their SEO program.',
+    'I rebuilt the homepage for a used oil collection and recycling company that operates in 28 states. I am rebuilding the rest of the site on the same template and running its SEO program.',
   pageDescription:
     'Universal Environmental Services case study: the homepage rebuild shown before and after and section by section, the mobile version, and the local SEO program behind it.',
   pageTitle: 'Universal Environmental Services case study | Manny Pachano',
@@ -505,10 +506,10 @@ const clox: Walkthrough = {
   liveUrl: 'https://getclox.com',
   liveLabel: 'Visit getclox.com',
   summary:
-    'My own product: time tracking for small field crews in the trades. Native iOS and Android apps, a web dashboard and a marketing site, designed, built and marketed by me.',
+    'I built Clox for small field crews in the trades: native iOS and Android apps, a web dashboard and the marketing site. I designed, built and market the whole product.',
   tags: ['Next.js', 'TypeScript', 'Mobile apps', 'SaaS', 'SEO', 'Product marketing'],
   description:
-    'Clox is my own product, a time-tracking app for small field crews in the trades. I designed, built and market the native apps, the web dashboard and the marketing site at getclox.com.',
+    'Clox is my own time-tracking product for small field crews in the trades. I designed and built the native apps, web dashboard and marketing site, and I handle the marketing.',
   pageDescription:
     'Clox case study: the getclox.com marketing site section by section, the product screens, the industry and comparison pages, and the mobile version.',
   hero: {
@@ -977,10 +978,175 @@ const jonathanZalzman: Walkthrough = {
   ...backToProjects,
 };
 
+const keyset: Walkthrough = {
+  slug: 'keyset',
+  title: 'Keyset',
+  eyebrow: 'Case study',
+  client: 'My own project. No client, and the data is generated.',
+  kind: 'React application',
+  role: 'Design and development',
+  year: '2026',
+  liveUrl: 'https://keyset-project.netlify.app',
+  liveLabel: 'Open Keyset',
+  summary:
+    'A maintenance desk for a property management company, built in React and TypeScript to have something with real state behind it. Filtering, bulk edits, a keyboard-operable schedule board, and optimistic saves that roll back.',
+  tags: ['React', 'TypeScript', 'Vite', 'Vitest', 'Playwright', 'Accessibility'],
+  description:
+    'A maintenance desk for a property management company: 200 requests across five properties, filtered, edited in bulk and scheduled on a week board. I built it to work in React and TypeScript on an app with enough state to be worth testing. The data is generated and there is no client.',
+  pageDescription:
+    'Keyset case study: a React and TypeScript maintenance desk with filtering, bulk edits, a keyboard-operable schedule board and optimistic saves that roll back.',
+  facts: [
+    { label: 'Source', value: 'github.com/MannyPachano/keyset' },
+    { label: 'Tests', value: '132 across three suites' },
+  ],
+  hero: {
+    src: `${keysetImages}/first-screen.webp`,
+    width: 1920,
+    height: 1200,
+    alt: 'The Keyset queue: a table of maintenance requests with filter chips, priority and status pills, and an open-for column.',
+  },
+  heroCaption:
+    'The queue. 200 requests across five properties, sorted by how long each has been open. The status chips carry live counts, and rows past their deadline are marked.',
+  highlights: [
+    { value: '132 tests', label: 'Logic, components, and browser tests covering four journeys and six accessibility checks' },
+    { value: '100 accessibility', label: 'Lighthouse, with axe run against four separate states of the app' },
+    { value: 'No router, no CSS framework', label: 'The History API and hand-written CSS' },
+  ],
+  overviewTitle: 'Why I built it',
+  overview: [
+    'I had not shipped a React application, and reading about it was not going to fix that. So I picked a problem with enough state to be awkward: a maintenance desk where a property manager triages repair requests, assigns contractors and books visits.',
+    'The rule I set was that all the logic lives in plain modules with no React in them. Filtering, sorting, pagination, dates and the reducer are ordinary functions, so they run under the bare Node test runner with nothing installed. Only rendering needs a toolchain. That is why most of the test suite kept working while the interface changed.',
+    'Saves are optimistic: the row changes immediately and rolls back if the request fails. There is a Force failures button in the header so you can see that happen rather than take my word for it. The data comes from a fixed seed, so everyone sees the same 200 requests.',
+  ],
+  walkthroughIntro: 'The app, screen by screen.',
+  sections: [
+    {
+      title: 'Filtering',
+      caption:
+        'Search matches reference, unit, tenant and contractor, and every term has to match. The status chips carry live counts that ignore the status filter itself, so clicking Done shows you what Done contains rather than zero. Filters go into the URL, so a narrowed queue is a link you can send.',
+      alt: 'The queue filtered to the word boiler, showing three matching requests and a Clear filters button.',
+      src: `${keysetImages}/01-filters.webp`,
+      width: 1600,
+      height: 1000,
+    },
+    {
+      title: 'Selecting a range',
+      caption:
+        'Click one checkbox, shift-click another, and everything between them is selected. The bar that appears assigns a contractor, sets a status or sets a priority for all of them at once. A change that pushes rows out of the current filter says so afterwards, with a button to show them.',
+      alt: 'Five rows selected in the queue with a bulk action bar above them.',
+      src: `${keysetImages}/02-bulk.webp`,
+      width: 1600,
+      height: 1000,
+    },
+    {
+      title: 'One request',
+      caption:
+        'Everything about a request in one panel: the property, the tenant, how long it has been open, and a history of every change with who made it. Opening it moves focus inside, Escape closes it, and Tab stays in the panel while it is open.',
+      alt: 'The detail panel open over the queue, showing request MR-1196 with its history and a note field.',
+      src: `${keysetImages}/03-detail.webp`,
+      width: 1600,
+      height: 1000,
+    },
+    {
+      title: 'The week',
+      caption:
+        'Scheduled visits laid out by day. Empty days stay on the board because they are drop targets. A day holding more visits than a crew can fit is flagged rather than quietly accepted.',
+      alt: 'A week board with seven day columns and scheduled visits as cards.',
+      src: `${keysetImages}/04-board.webp`,
+      width: 1600,
+      height: 1000,
+    },
+    {
+      title: 'Moving a visit without a mouse',
+      caption:
+        'Each card has a handle. Enter picks the visit up, the arrow keys choose a day, Enter drops it and Escape puts it back. Every step is announced. Drag on its own would have made rescheduling a mouse-only feature.',
+      alt: 'A visit picked up with the keyboard, with the target day column highlighted.',
+      src: `${keysetImages}/05-board-move.webp`,
+      width: 1600,
+      height: 1000,
+    },
+    {
+      title: 'When a save fails',
+      caption:
+        'The row changes immediately and goes back exactly as it was if the request is rejected, field by field. The banner says what failed and that nothing was saved. Force failures in the header makes every save fail, so this is something you can try rather than something I claim.',
+      alt: 'A red banner reading "The server rejected that change. Nothing was saved." above the queue.',
+      src: `${keysetImages}/06-error.webp`,
+      width: 1600,
+      height: 1000,
+    },
+    {
+      title: 'Nothing to show',
+      caption:
+        'An empty queue and a filter that matches nothing are different situations, so they say different things. This one names the filters as the reason and offers to clear them.',
+      alt: 'An empty state reading "No requests match these filters" with a Clear filters button.',
+      src: `${keysetImages}/07-empty.webp`,
+      width: 1600,
+      height: 1000,
+    },
+    {
+      title: 'Dark theme',
+      caption:
+        'The theme follows the operating system until you pick one, and the choice is remembered. A small file loaded before the first paint sets it, so the page never flashes light before turning dark. Colours run through tokens, and both themes were measured against the 4.5 to 1 contrast minimum.',
+      alt: 'The Keyset queue in the dark theme.',
+      src: `${keysetImages}/08-dark.webp`,
+      width: 1600,
+      height: 1000,
+    },
+  ],
+  phonesIntro:
+    'On a phone the table becomes cards. A nine-column table at 390 pixels is unreadable however it is scaled.',
+  phones: [
+    {
+      src: `${keysetImages}/mobile-queue.webp`,
+      width: 1170,
+      height: 2532,
+      alt: 'The Keyset queue on a phone, with each request as a card.',
+      caption:
+        'Each row becomes a card with the reference, the property, the issue and the status. The checkbox moves to the corner and the overdue marker runs down the edge of the card.',
+    },
+    {
+      src: `${keysetImages}/mobile-detail.webp`,
+      width: 1170,
+      height: 2532,
+      alt: 'The Keyset detail panel filling a phone screen.',
+      caption:
+        'The detail panel fills the screen. The controls are the same ones as on desktop, at a size you can hit with a thumb.',
+    },
+    {
+      src: `${keysetImages}/mobile-board.webp`,
+      width: 1170,
+      height: 2532,
+      alt: 'The Keyset week board on a phone, with one day per row.',
+      caption:
+        'The week stacks one day per row, keeping the move handle and the visit count on every day.',
+    },
+  ],
+  details: {
+    design: [
+      'Status and priority are never colour alone. Priority carries a dot and a word, so it still reads if you cannot separate red from amber.',
+      'One accent colour. Red is kept for overdue and for failures, so it means one thing.',
+      'Figures use tabular numerals, so columns of days and counts line up.',
+      'The bar under each age shows how much of the response window has been used: four hours for an emergency, two days for urgent, seven for routine.',
+      'Every control is at least 24 pixels, and the ones used repeatedly on a phone are larger.',
+    ],
+    build: [
+      'React 19 and TypeScript on Vite. No router: the view and the open request live in the query string and are set with the History API directly.',
+      'All logic sits in plain modules with no React imports, so 88 of the tests run under the bare Node test runner with nothing installed.',
+      '34 component tests in Vitest and Testing Library, and 10 browser tests in Playwright: four journeys and six accessibility checks.',
+      'The accessibility suite runs axe against the queue in both themes, the board, the open panel and a 390 pixel viewport, then measures tap targets and checks that nothing overlaps.',
+      'A mock API with adjustable latency and failure rate, backed by localStorage, so the optimistic updates and the rollback have something real to fail against.',
+      'Deployed on Netlify with a Content Security Policy that keeps script-src at self, which is why the theme script is a file rather than an inline tag.',
+    ],
+  },
+  tools: ['React', 'TypeScript', 'Vite', 'Vitest', 'Testing Library', 'Playwright', 'axe', 'Netlify'],
+  ...backToProjects,
+};
+
 export const projectWalkthroughs: Walkthrough[] = [
   timeclick,
   ues,
   ...(SHOW_CLOX ? [clox] : []),
+  keyset,
   landscaperTemplates,
   jonathanZalzman,
 ];
