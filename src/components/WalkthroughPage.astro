@@ -415,6 +415,11 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
     color: var(--text-header);
   }
 
+  /* Same reason as the header toggle: scoped box-shadow: none removes the ring. */
+  .theme-switch button:focus-visible {
+    box-shadow: 0 0 0 6px var(--white);
+  }
+
   .theme-switch button[aria-pressed='true'] {
     background: var(--text-header);
     /* Inverted chip: the page colour, so it flips with the theme. */

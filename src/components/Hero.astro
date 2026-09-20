@@ -122,7 +122,12 @@
   .manny-img {
     background: linear-gradient(to right, var(--page-wash-soft), var(--page-wash-soft)), url(/images/manny-img.webp);
     background-size: cover;
-    background-position: center;
+    /* The drawing sits in the left 43% of a 1680x1080 file, so a centred cover
+       crop shows blank paper on any portrait viewport: at 375px wide it frames
+       33% to 66% of the image and the figure is gone. Anchoring left keeps it in
+       frame on phones and tablets. This is a no-op on wide screens, where the
+       image fits the width and there is no horizontal crop to position. */
+    background-position: left center;
     position: absolute;
     top: 0;
     left: 0;

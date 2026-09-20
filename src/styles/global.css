@@ -155,11 +155,19 @@ body {
     scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
-/* Visible keyboard focus everywhere, in the brand color. */
+/* Keyboard focus has to be visible on a white page, on a dark page and on the
+   yellow button, and no single colour does all three. Two rings: a dark inner
+   outline that carries on light surfaces and on yellow, and a white outer ring
+   that carries on dark surfaces. Measured 18.9:1 on white, 15.2:1 on the yellow
+   button, 14.1:1 on the darkest surface, against a 3:1 requirement. Anything
+   declaring its own box-shadow replaces this ring rather than adding to it, so
+   those elements are handled at the end of this file and in their own
+   components. The old rule set border-radius here, which changed the shape of
+   any element whose own radius was not class-scoped the moment it took focus. */
 :focus-visible {
-    outline: 3px solid var(--yellow-dark);
-    outline-offset: 3px;
-    border-radius: 4px;
+    outline: 3px solid var(--on-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px var(--white);
 }
 
 ::selection {
@@ -797,4 +805,20 @@ button:disabled {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* --------------------------------------------------------------------------
+   Focus ring on elements that own their box-shadow
+   The global :focus-visible rule above adds a white outer ring. Any element
+   that declares its own box-shadow replaces that ring instead of adding to it,
+   which left every button with only the dark inner outline: 1.07:1 on the dark
+   page. These restore the ring. They are last in the file on purpose, because
+   .button:focus-visible and .button:hover tie at the same specificity.
+   -------------------------------------------------------------------------- */
+button:focus-visible,
+.button:focus-visible,
+.button-secondary:focus-visible,
+.video-nav-btn:focus-visible,
+.video-nav-btn:hover:focus-visible {
+    box-shadow: 0 0 0 6px var(--white);
 }

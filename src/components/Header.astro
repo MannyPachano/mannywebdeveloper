@@ -191,6 +191,13 @@ const isHome = Astro.url.pathname === '/';
     color: var(--text-header);
   }
 
+  /* Scoped styles outrank global.css, so the focus ring has to be restored
+     here. Without it the toggle has no visible focus in dark theme: the dark
+     outline measures 1.22:1 against its own surface. */
+  .theme-toggle:focus-visible {
+    box-shadow: 0 0 0 6px var(--white);
+  }
+
   .theme-toggle svg {
     display: block;
   }
@@ -390,13 +397,27 @@ const isHome = Astro.url.pathname === '/';
   const burger = document.getElementById('burger') as HTMLButtonElement | null;
   const menu = document.getElementById('mobile-menu');
 
+  const behind = [document.getElementById('main'), document.querySelector('footer')];
+
   function setMenu(open: boolean) {
     if (!nav || !burger || !menu) return;
+    const wasOpen = burger.getAttribute('aria-expanded') === 'true';
     nav.classList.toggle('menu-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
     menu.hidden = !open;
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+
+    /* Everything behind the overlay is unreachable while it is open, focus
+       moves into the menu, and closing puts it back on the burger. The wasOpen
+       guard stops a viewport resize stealing focus when no menu was showing. */
+    behind.forEach((el) => {
+      if (!el) return;
+      if (open) el.setAttribute('inert', '');
+      else el.removeAttribute('inert');
+    });
+    if (open) menu.querySelector('a')?.focus();
+    else if (wasOpen) burger.focus();
   }
 
   burger?.addEventListener('click', () => {
