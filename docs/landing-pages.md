@@ -17,20 +17,43 @@ adding images and one entry there. No new components, no new page files.
 
 ## Screenshots to capture
 
-Capture the live page with Chrome DevTools > Command menu > "Capture full size screenshot",
-on a 2x display, once per theme:
+Two scripts on the Mac do this. Neither lives in this repo.
 
-- Desktop: viewport 1680 px wide, light and dark. Result: 3360 px wide PNGs.
-- Phone: viewport 390 px wide at 3x (or 480 px wide at 1x for a quick job).
+`~/Downloads/_claude-captures/capture3.mjs` opens each live URL three times with Playwright and
+writes to `~/Downloads/_claude-captures/<slug>/`:
+
+- `home-first.png`, the first screen at 1920 x 1200 css and 2x, for the homepage card.
+- `home-sec-NN.png`, one PNG per top-level block at 1680 css wide and 2x. The walker treats a block
+  as a section when it is at least 120 css px tall and most of the page width, and opens up anything
+  taller than 2600 css px. Blocks taller than the viewport are fine: each one is shot as an element,
+  which avoids the blank areas Chromium produces past 16384 px in a full-page screenshot.
+- `home-phone-NN.png`, one 390 x 844 css viewport at 3x per section.
+- `home-parts.json`, the manifest. Always read the crops from this, not from a glob: a re-run
+  can produce fewer sections than the run before and leave stale frames in the folder.
+
+It hides the annotation layer (`#mockbar`, `.ann`, `.ann-slot`, `.legend`) before shooting, so a
+mockup that carries notes is photographed clean. Pass slugs to limit it: `node capture3.mjs apple-seo`.
 
 ## Cropping rules
 
-- Cut the desktop capture at section boundaries (read them with `getBoundingClientRect()` in the console at the same viewport width; multiply by 2 for the 2x PNG).
-- Combine short neighbouring sections so no crop is much shorter than 500 css px.
-- First screen ("hero", from the top of the page): 1920 px wide WebP, both themes, named `hero-light.webp` and `hero-dark.webp`. They are used by the compare slider on the card and on the page (`compare`), and `hero` is the fallback single image.
-- Every other section: 1600 px wide WebP, quality 82, named `NN-name-light.webp` / `NN-name-dark.webp` (`src` and `srcB` in the entry, switched by `sectionVariants`).
-- Phone screens: 6:13 crops of the phone capture (1170 x 2535 at 3x, or 480 x 1040 at 1x), WebP quality 85, named `mobile-<name>.webp`. The first one is shown on the homepage card.
-- Remove anything that is not the page (for example the "Powered by Netlify" badge) by adjusting the crop edges.
+`~/rythm/lp.py <spec.json>` turns the captures into the WebP files this repo uses. The spec names
+the output for each section and the PNGs that make it up; several PNGs stack vertically into one
+image, and `["home-sec-04.png", y0, y1]` takes a window in PNG pixels out of one.
+
+- First screen: 1920 px wide WebP, named `first-screen.webp`. Used by `hero` on the card and page.
+- Every other section: 1600 px wide WebP, quality 82, named `NN-name.webp`.
+- Phone screens: 1170 x 2535 WebP, named `mobile-<name>.webp`. The first one is shown on the card.
+- Merge a strip under about 200 css px into the section above it, and merge the footer into the
+  last content section, so no crop is much shorter than 400 css px.
+- Check the result on a contact sheet before writing the entry: `python3 ~/rythm/sheet3.py <dir> out.jpg 3 470`
+  builds one from the manifest, and `sheet3.py <dir> out.jpg 7 200 phone` does the phone shots.
+- A section whose top is overlapped by the site's own sticky header cannot be fixed by cropping the
+  header off, because the heading underneath is already destroyed. Start the crop below the heading
+  and let the entry's `title` carry the name instead.
+
+A page with two themes still follows the older pattern: `hero-light.webp` / `hero-dark.webp` for the
+compare slider, and `NN-name-light.webp` / `NN-name-dark.webp` for sections, switched by
+`sectionVariants`. Rythm is the only entry that does this.
 
 ## Data entry
 
