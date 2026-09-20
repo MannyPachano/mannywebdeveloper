@@ -610,11 +610,6 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
       gap: 2.5rem;
     }
 
-    .details-3 {
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
-    }
-
     .gallery-2,
     .gallery-3 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -649,6 +644,21 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
 
     .phone-item {
       flex: none;
+    }
+  }
+
+  /* The three column version of "What went into it" does not fit inside the
+     47rem prose measure: each column lands near 230px and the lines break
+     every four or five words. Once there is room for it, the block steps
+     outside the measure and takes the container width instead. */
+  @media only screen and (min-width: 1100px) {
+    .details-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.5rem;
+      width: min(68rem, calc(100vw - 8rem));
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 </style>
