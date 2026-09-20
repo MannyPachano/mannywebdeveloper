@@ -230,7 +230,7 @@ export const landingPages: LandingPage[] = [
         'One accent color. Red is used for one word in the main headline, the buttons and the small labels above section titles.',
         'Two themes from one set of CSS variables. The dark version is the default; the light version swaps nine variables.',
         'Every section has one job, and the sections that matter most end in the same button.',
-        'Cards, pills and buttons share the same radius and border, so the page reads as one system.',
+        'Cards, pills and buttons share the same corner radius and border treatment, so the components stay consistent across the page.',
       ],
       build: [
         'One HTML file, about 70 KB, with hand-written CSS and JavaScript. No framework and no build step.',
@@ -254,7 +254,7 @@ export const landingPages: LandingPage[] = [
     year: '2026',
     liveUrl: 'https://manny-mockup-example.netlify.app',
     summary:
-      'A redesign of the homepage for a local SEO agency, built without being asked. Their services, their case studies and their brand stayed. <strong>What changed is the order, one consistent way of showing proof, and three sections that answer the questions a discovery call usually eats.</strong>',
+      'A redesign of the homepage for a local SEO agency, built without being asked. Their services, their case studies and their brand stayed. <strong>What changed is the order, one consistent format for showing proof, and three new sections that answer the questions a discovery call normally has to cover.</strong>',
     tags: ['HTML & CSS', 'JavaScript', 'Conversion design', 'Information hierarchy', 'SVG', 'Netlify'],
     description:
       'A redesign of the Apple SEO homepage, designed and built in 2026. It was not commissioned and I am not affiliated with them. Their copy, services and case studies are theirs; the structure, the design and the code are mine. Press Show notes on the live page to see what changed in each section and why.',
@@ -277,7 +277,7 @@ export const landingPages: LandingPage[] = [
     overviewTitle: 'What the page has to do',
     overview: [
       'Apple SEO already had the hard part: three real clients, three industries, and results they could name. What the homepage did not do was put them in the order a buyer thinks in. So the structure changed and almost none of the words did. The offer, then what you get, then what the first six months look like, then the proof, then the people, then the questions, then the form.',
-      'Two things were fixed rather than added. The three case studies were each styled differently, which made the strongest one look like the only one; they now share a format, so the pattern reads as a playbook rather than a lucky client. And the page previously ended at a booking tool, which loses everyone not ready to pick a time, so it now ends at a form that takes an email as well.',
+      'Two fixes rather than additions. The three case studies were each styled differently, which made the strongest one look like the only one. They now share a single format, so the three read as a repeatable process. The page also ended at a booking tool, which loses anyone not ready to pick a time, so it now ends at a form that accepts an email instead.',
       'This was not commissioned and I am not affiliated with Apple SEO. The copy, the services and the case study figures are theirs. The structure, the design, the code and the three new sections are mine. The live page keeps a Show notes button that explains each change in place, which is how it was sent to them.',
     ],
     walkthroughIntro: 'The page, top to bottom.',
@@ -321,7 +321,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Case study: dermatology',
         caption:
-          'The same format, a different problem. This one is about cleaning up forty locations rather than starting from nothing, and the tiles carry a zero on purpose: no ad spend, and no duplicate listings left.',
+          'The same format applied to a different problem: cleaning up forty locations rather than starting from nothing. Two of the tiles show a zero, for no ad spend and no duplicate listings remaining.',
         alt: 'Apple SEO case study: "From scattered listings to owning every market" for a dermatology client, with narrative, three checked points, tactic tags, four stat tiles reading 40+ locations fully optimized, $0 ad spend, traffic boosted across all locations and 0 inaccurate or duplicate listings left, and a photograph of a clinic.',
         src: `${appleImages}/04-case-dermatology.webp`,
         width: 1600,
@@ -330,7 +330,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Case study: roofing',
         caption:
-          'The third, at the largest scale of the three: fifteen markets rather than one town. Reading them in this order, smallest to largest, is what makes the last line of the section land.',
+          'The third case study, at the largest scale: fifteen markets rather than one town. The three are ordered smallest to largest so the scale builds across the section.',
         alt: 'Apple SEO case study: "From invisible in half their markets to #1 across all of them" for a roofing client, with narrative, three checked points, tactic tags, four stat tiles reading 15+ Google profiles managed, 10+ LSA accounts, #1 ranking across multiple service areas and 15+ markets built from scratch, and a photograph of a roofing crew.',
         src: `${appleImages}/05-case-roofing.webp`,
         width: 1600,
@@ -339,7 +339,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Across every client',
         caption:
-          'A new section. It adds the three stories into four numbers, so somebody who skimmed the case studies still leaves with the scale. The line underneath says the figures come from accounts the agency runs, not from an industry average, which is the part that makes them worth printing.',
+          'A new section that totals the three case studies into four figures, so a visitor who skimmed them still gets the scale. The line underneath states that the figures come from accounts the agency runs, not from an industry average.',
         alt: 'Apple SEO results band: the heading "The numbers behind the three stories above" with four counting figures reading 55+ Google profiles managed and verified, 15+ markets built from scratch, 100+ verified leads a month for one client, and 3 to 6 months to the top of a market.',
         src: `${appleImages}/06-numbers.webp`,
         width: 1600,
@@ -407,7 +407,7 @@ export const landingPages: LandingPage[] = [
     details: {
       design: [
         'Their dark charcoal and red were kept. What changed is that red now marks one thing at a time rather than competing with yellow and green boxes.',
-        'The three case studies share one format on purpose. Styling them differently made the best one look like the only one.',
+        'The three case studies use one shared format. Styling them differently made the best one look like the only one.',
         'Two typefaces: Poppins for headlines, Figtree for text. Figures get their own weight so a reader can scan the proof without reading the page.',
         'The search result panel in the hero is drawn rather than screenshotted, so it stays sharp and cannot go out of date.',
         'Every section that could lead to contact ends in the same red button, and the header carries one the whole way down.',
@@ -417,7 +417,7 @@ export const landingPages: LandingPage[] = [
         'Seven figures count up when their block comes into view, on IntersectionObserver, and hold their value for anyone who prefers reduced motion.',
         'The FAQ uses native details elements, so it opens before the JavaScript runs.',
         'Four breakpoints, 1000, 820, 600 and 520 pixels.',
-        'The annotation layer is part of the file: a Show notes button reveals a note on every section explaining what changed. It is off by default so the page reads as the page.',
+        'The annotation layer is part of the file: a Show notes button reveals a note on every section explaining what changed. It is off by default so the page loads as a normal page.',
         'Deployed on Netlify.',
       ],
     },
@@ -502,7 +502,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The numbers',
         caption:
-          'Their navy band with orange numbers, kept in substance and tidied in spacing, with the figures counting up as the band comes into view. The original had a fourth stat reading "Days" with no number in front of it, which reads as an unfinished placeholder, so it is left out here until they supply the real figure.',
+          'Their navy band with orange numbers, kept in substance and tidied in spacing, with the figures counting up as the band comes into view. The original had a fourth stat reading "Days" with no number in front of it, which looks like an unfinished placeholder, so it is left out until they supply the figure.',
         alt: 'Rise Talent stats band: three figures on dark navy reading 126+ companies served, 2002 year founded with the note two-plus decades of placements, and 100% owner-operated and accountable.',
         src: `${riseImages}/04-numbers.webp`,
         width: 1600,
@@ -511,7 +511,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Roles we fill',
         caption:
-          'A new section. Five practice areas as filters, and behind each one the actual job titles they place. This is the difference between a hiring manager thinking these people do technology and thinking these people have filled my role before.',
+          'A new section. Five practice areas as filters, and behind each one the actual job titles they place. Naming the titles tells a hiring manager whether the firm has filled their specific role, which a category label alone does not.',
         alt: 'Rise Talent roles section: the heading "Titles we place, every week", five filter chips reading IT and SaaS, Fintech, Accounting, Construction and Operations, and twelve job title tags including Backend Engineer, Site Reliability Engineer, QA Lead, Product Manager and Security Analyst.',
         src: `${riseImages}/05-roles.webp`,
         width: 1600,
@@ -607,7 +607,7 @@ export const landingPages: LandingPage[] = [
     year: '2026',
     liveUrl: 'https://sunny-skys-mockup.netlify.app',
     summary:
-      'A redesign of the homepage for an animal rescue, built without being asked. Everything on it is theirs: their story, their photographs, their links, their tax ID. <strong>What changed is that adopting, volunteering and donating are all reachable from the first screen instead of buried down one long page.</strong>',
+      'A redesign of the homepage for an animal rescue, built without being asked. Everything on it is theirs: their story, their photographs, their links, their tax ID. <strong>What changed is that adopting, volunteering and donating are all reachable from the first screen instead of partway down a long page.</strong>',
     tags: ['HTML & CSS', 'JavaScript', 'Nonprofit design', 'Accessible accordions', 'Responsive layout', 'Netlify'],
     description:
       'A redesign of the Sunny Sky\'s Animal Rescue homepage, designed and built in 2026. It was not commissioned and I am not affiliated with them. Their story, photographs, links and details are theirs; the structure, the design and the code are mine. Press Show notes on the live page to see what changed in each section and why.',
@@ -647,7 +647,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Our story',
         caption:
-          'The 2021 fire, the years displaced, and the sanctuary they are building now. This is the strongest thing they have and it was hard to find, so it gets a section near the top with their own photograph and a link to the full version.',
+          'The 2021 fire, the years displaced, and the sanctuary they are building now. It was hard to find on the original site, so it moves to a section near the top with their own photograph and a link to the full version.',
         alt: "Sunny Sky's story section: a photograph of a volunteer kneeling with a black dog, captioned Graham, Washington, our sanctuary still under construction, next to the heading \"Rebuilding a home for animals who've lost theirs.\", two paragraphs about the 2021 fire and the new sanctuary, and a Read our full story button.",
         src: `${sunnyImages}/01-story.webp`,
         width: 1600,
@@ -722,7 +722,7 @@ export const landingPages: LandingPage[] = [
         width: 1170,
         height: 2535,
         alt: "Sunny Sky's on a phone: the two figures, then the four action cards stacked, Adopt a pet, Volunteer, Donate and Call us, each with an icon and a line of description.",
-        caption: 'The four actions stack into a tappable list, which is the whole point of the strip.',
+        caption: 'The four actions stack into a tappable list at phone width.',
       },
       {
         src: `${sunnyImages}/mobile-pets.webp`,
@@ -770,7 +770,7 @@ export const landingPages: LandingPage[] = [
     year: '2026',
     liveUrl: 'https://b12-cafe-mockup.netlify.app',
     summary:
-      'A one-page site for a neighborhood coffee bar. It answers the two questions people actually have, what is on the menu and when are you open, without making anyone hunt. <strong>The menu filters by category, the plus buttons build an order in a drawer, and the events book through a dialog.</strong> One hand-written HTML file.',
+      'A one-page site for a neighborhood coffee bar. It answers the two questions people actually have, what is on the menu and when are you open, without making anyone search for them. <strong>The menu filters by category, the plus buttons build an order in a drawer, and the events book through a dialog.</strong> One hand-written HTML file.',
     tags: ['HTML & CSS', 'JavaScript', 'Accessible tabs and dialogs', 'Responsive layout', 'SVG', 'Netlify'],
     description:
       'A one-page site for a neighborhood coffee bar, designed and built in 2026. Almanac is not a real business. I invented it so I could design and build every part of a small hospitality site without waiting for a client to ask for one.',
@@ -828,7 +828,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Our coffee',
         caption:
-          'Where the beans come from and how they are roasted, in plain sentences with no origin-story padding. Three numbers sit under it, and the three stages from green bean to cup are spelled out so the claim is checkable rather than just warm.',
+          'Where the beans come from and how they are roasted, in plain sentences. Three figures sit under it, and the three stages from green bean to cup are named, so the sourcing claim is specific rather than general.',
         alt: 'Almanac our coffee section: a photograph of a coffee roaster, the heading "Roasted in small batches, poured with care.", three numbers reading 6 single-origin roasts, 12 pounds per batch and 2019 family-owned since, and three cards headed Sourced, Roasted and Poured.',
         src: `${almanacImages}/03-our-coffee.webp`,
         width: 1600,
@@ -837,7 +837,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'This week at Almanac',
         caption:
-          'Three things happening this week, each with the day, the time, what it costs and how many spots are left. Save a spot opens a dialog. The spots-left line is what makes someone act now instead of meaning to.',
+          'Three events this week, each with the day, the time, the price and how many spots are left. Save a spot opens a dialog. The spots-left count gives a reason to book now rather than later.',
         alt: 'Almanac events section: three cards headed Saturday cupping, Latte art night and Open mic Thursday, each with a photograph, a day badge, a description, the number of spots left and a button.',
         src: `${almanacImages}/04-events.webp`,
         width: 1600,
@@ -855,7 +855,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Kind words',
         caption:
-          'The rating broken down star by star, next to the reviews themselves in a slider. The breakdown is there on purpose: an average alone tells you nothing, and 91 percent of reviews at five stars is the part worth showing.',
+          'The rating broken down star by star, next to the reviews themselves in a slider. The breakdown is more useful than the average on its own: 91 percent of the reviews are five stars.',
         alt: 'Almanac reviews section: a dark panel showing 4.9 out of 5 from 312 Google reviews with a bar for each star rating, next to two review cards with five stars each.',
         src: `${almanacImages}/06-reviews.webp`,
         width: 1600,
@@ -951,12 +951,12 @@ export const landingPages: LandingPage[] = [
     year: '2026',
     liveUrl: 'https://wasatch-ridge.netlify.app',
     summary:
-      'A one-page site for a real estate investment firm, which is the hardest kind of page to make trustworthy. <strong>Every figure on it is labeled illustrative, and the page says it is a concept in four places.</strong> A filterable portfolio, a track record with a chart, three offerings and an accredited-investor form, all hand-written in one HTML file.',
+      'A one-page concept site for a real estate investment firm. <strong>Wasatch Ridge is an invented firm, every figure is labeled illustrative, and a concept notice appears in four places.</strong> It includes a filterable portfolio, a distributions chart, three offerings and an accredited-investor form, hand-written in a single HTML file.',
     tags: ['HTML & CSS', 'JavaScript', 'Data presentation', 'Long-form layout', 'SVG', 'Netlify'],
     description:
-      'A one-page site for a real estate investment firm, designed and built in 2026. Wasatch Ridge is not a real firm and none of the figures are real. I built it to work through a harder problem than a brochure page: how a site earns trust when what it is asking for is money.',
+      'A one-page site for a real estate investment firm, designed and built in 2026. Wasatch Ridge is an invented firm and none of the figures are real. I built it to practice presenting dense financial data clearly and to handle the disclosure a page like this needs.',
     pageDescription:
-      'A one-page concept site for a real estate investment firm, shown section by section: a filterable portfolio, a track record with a distributions chart, three live offerings, an FAQ and an accredited-investor access form.',
+      'A one-page concept site for a real estate investment firm, shown section by section: a filterable portfolio, a track record with a distributions chart, three offerings, an FAQ and an accredited-investor access form.',
     facts: [{ label: 'Format', value: 'One-page site' }],
     hero: {
       src: `${wasatchImages}/first-screen.webp`,
@@ -965,24 +965,24 @@ export const landingPages: LandingPage[] = [
       alt: 'First screen of the Wasatch Ridge Capital concept: the headline "Invest in the real estate powering the Mountain West.", a drawn illustration of mountains and buildings, two buttons, an accredited investor notice, and four numbers.',
     },
     heroCaption:
-      'The first screen. The illustration is drawn in SVG rather than photographed, the accredited-investor line sits above the fold on purpose, and the four numbers are the whole pitch in one row.',
+      'The first screen. The illustration is SVG rather than a photograph, the accredited-investor notice sits above the fold, and four key figures close the section.',
     highlights: [
       { value: 'Labeled throughout', label: 'Every figure, property and offering is marked illustrative, with a concept notice in four places' },
       { value: 'Filterable portfolio', label: 'Six properties by type, each with units, year acquired and occupancy' },
       { value: 'One HTML file', label: 'About 52 KB, hand-written, no framework and no build step' },
     ],
-    overviewTitle: 'What the page has to do',
+    overviewTitle: 'What the page does',
     overview: [
-      'An investment firm\'s site is asking for more than a phone call, so it has to do more than look expensive. Someone landing on it wants four things in order: what you buy, whether you have done it before, what is open right now, and what happens if they put their name in. The page answers them in that order and does not ask for anything until the end.',
-      'The harder problem was honesty. A page like this is built out of numbers, and invented numbers on an invented firm can read as a real offer if nothing says otherwise. So the concept notice appears under the portfolio, under the offerings, in the footer and on the form, the chart caption says the figures are illustrative, and the returns line carries an asterisk that resolves in the footer. Nothing on the page can be mistaken for a solicitation.',
-      'Wasatch Ridge is not a real firm. I invented it because the constraints are what make it worth building: dense figures that still have to scan, a portfolio that has to be filterable without a framework, and a form that has to feel serious enough for the amount of money it is asking about.',
+      'The page answers four questions in order: what the firm buys, whether it has done it before, what is open now, and what happens after you submit your details. The request form sits at the end, after all four are answered.',
+      'Disclosure was the main constraint. Every figure on the page is invented, so the page states that clearly and repeatedly: a concept notice under the portfolio, under the offerings, in the footer and on the form. The chart caption marks the figures illustrative, and the returns figure carries an asterisk that resolves in the footer. Nothing on the page can be read as a solicitation.',
+      'Wasatch Ridge is not a real firm. I invented it for the constraints: dense figures that still have to scan on a phone, a portfolio filter built without a framework, and a form serious enough for the amount it asks about.',
     ],
     walkthroughIntro: 'The page, top to bottom.',
     sections: [
       {
         title: 'Header and hero',
         caption:
-          'The headline says what the firm does and where. The illustration is drawn in SVG so it loads instantly and cannot look like a stock photo of a skyline. The accredited-investor notice sits above the fold rather than in the footer, and four numbers close the section.',
+          'The headline states what the firm does and where it operates. The illustration is drawn in SVG, so it loads instantly and avoids the stock skyline photograph. The accredited-investor notice sits above the fold rather than in the footer, and four figures close the section.',
         alt: 'Wasatch Ridge hero: the headline "Invest in the real estate powering the Mountain West.", a flat illustration of mountains and buildings labeled Wasatch Front, Utah, Request investor access and View current offerings buttons, an accredited investor notice, and the numbers $480M+ assets under management, 14 yrs operating across cycles, 2,600+ units owned and managed and 9 states across the West.',
         src: `${wasatchImages}/00-hero.webp`,
         width: 1600,
@@ -991,7 +991,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Strategy',
         caption:
-          'Three strategies, each with a one-line reason it is there and a bar showing how much of the portfolio it is: 58 percent multifamily, 27 percent commercial and industrial, 15 percent value-add. The bars turn a claim about discipline into something a reader can check.',
+          'Three strategies, each with a one-line rationale and a bar showing its share of the portfolio: 58 percent multifamily, 27 percent commercial and industrial, 15 percent value-add. The bars let a reader check the allocation instead of taking it on trust.',
         alt: 'Wasatch Ridge strategy section: three columns headed Income Multifamily, Stability Commercial and industrial, and Growth Value-add, each with a short description and a bar showing its share of the portfolio.',
         src: `${wasatchImages}/01-strategy.webp`,
         width: 1600,
@@ -1009,7 +1009,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Track record',
         caption:
-          'The one section in the firm\'s dark green, so it reads as the center of the page. Three numbers, then distributions by year as a bar chart built in CSS rather than an image, so it stays sharp and screen readers skip it. The caption says the figures are illustrative and the returns number carries an asterisk.',
+          'The only section in the firm\'s dark green, which marks it as the center of the page. Three headline figures, then distributions by year as a bar chart built in CSS rather than an image, so it stays sharp at any size. The caption marks the figures illustrative and the returns figure carries an asterisk.',
         alt: 'Wasatch Ridge track record: a dark green band reading "Since 2011, we\'ve acquired more than $480M in real estate and returned over $120M to our investors.", the numbers $120M+ distributed, 14.2% average annualized return and 96% average occupancy, and a bar chart of distributions from 2019 to 2026.',
         src: `${wasatchImages}/03-track-record.webp`,
         width: 1600,
@@ -1018,7 +1018,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'How investing works',
         caption:
-          'Four numbered steps from request to distribution, in plain words. This is the section that removes the reason people hesitate, which is not the return, it is not knowing what happens after they hand over their details.',
+          'Four numbered steps from request to distribution, in plain language. It answers what happens after a visitor submits their details, which the form itself does not explain.',
         alt: 'Wasatch Ridge process section: four numbered steps headed Request access, Review the offering, Subscribe, and Get paid and stay informed, each with two sentences.',
         src: `${wasatchImages}/04-how-it-works.webp`,
         width: 1600,
@@ -1027,7 +1027,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Offerings',
         caption:
-          'Three offerings with their status on the card: open now, opening next quarter, fully subscribed. Each shows the target return, the hold period, the minimum and how much of the raise is committed. The fully subscribed one stays on the page, because showing a closed deal is what makes the open one credible.',
+          'Three offerings with status on each card: open now, opening next quarter, and fully subscribed. Each shows target return, hold period, minimum investment and the share of the raise committed. The fully subscribed offering stays on the page as evidence of completed deals.',
         alt: 'Wasatch Ridge offerings section: three cards headed Ridgeline II marked Open now, Silver Creek Phase II marked Opens in Q1, and Canyon Court marked Fully subscribed, each listing target annualized return, target hold, minimum investment and distributions, with a progress bar and a button.',
         src: `${wasatchImages}/05-offerings.webp`,
         width: 1600,
@@ -1036,7 +1036,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Insights',
         caption:
-          'Four pieces written for investors rather than for search engines, each tagged by the part of the business it comes from. A firm that publishes its own view of the market reads differently from one that only publishes deals.',
+          'Four articles written for investors rather than for search, each tagged by the part of the business it covers.',
         alt: 'Wasatch Ridge insights section: four rows, each with a date, a category label, a headline and a one-line summary, with a Read update link.',
         src: `${wasatchImages}/06-insights.webp`,
         width: 1600,
@@ -1045,7 +1045,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Before you request access',
         caption:
-          'Six questions in an accordion, and the uncomfortable ones are in it on purpose: how long the money is committed, whether the firm invests its own, and what the risks are. Leaving those out is what makes a page like this feel like a sales pitch.',
+          'Six questions in an accordion, including the difficult ones: how long capital is committed, whether the firm invests alongside its investors, and what the risks are.',
         alt: 'Wasatch Ridge FAQ: six collapsed questions reading Who can invest, What is the minimum investment, How long is my money committed, How do you get paid, Do you invest your own money, and What are the risks.',
         src: `${wasatchImages}/07-faq.webp`,
         width: 1600,
@@ -1054,21 +1054,21 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Investor access and footer',
         caption:
-          'The form the page has been walking towards. Name, email, phone, the amount being considered as a range rather than a figure, a free-text box and an accredited-investor confirmation. Three reassurances sit beside it, and the footer carries the full disclaimer.',
+          'The request form: name, email, phone, investment amount as a range rather than a figure, a free-text field and an accredited-investor confirmation. Three reassurances sit beside it, and the footer carries the full disclaimer.',
         alt: 'Wasatch Ridge access section: the heading "Invest alongside us." with three reassurances about review time, no obligation and privacy, next to a Request investor access form with first and last name, email, phone, an amount range select, a message box and an accredited investor checkbox. Below it a dark green footer with company and investor links and a disclaimer.',
         src: `${wasatchImages}/08-access-footer.webp`,
         width: 1600,
         height: 1306,
       },
     ],
-    phonesIntro: 'The page on a phone. The figures are the part that usually breaks at this width, so they were the part designed first.',
+    phonesIntro: 'The page on a phone. The figures are the hardest part to keep readable at this width, so they were designed first.',
     phones: [
       {
         src: `${wasatchImages}/mobile-hero.webp`,
         width: 1170,
         height: 2535,
         alt: 'Wasatch Ridge on a phone: the drawn illustration above the headline, the description and a full-width Request investor access button.',
-        caption: 'The illustration moves above the headline, and the one button fills the width.',
+        caption: 'The illustration moves above the headline and the single button fills the width.',
       },
       {
         src: `${wasatchImages}/mobile-portfolio.webp`,
@@ -1089,21 +1089,21 @@ export const landingPages: LandingPage[] = [
         width: 1170,
         height: 2535,
         alt: 'Wasatch Ridge on a phone: the heading "Invest alongside us.", three reassurances, and the start of the access form.',
-        caption: 'The three reassurances come before the form, so the ask is answered before it is made.',
+        caption: 'The three reassurances move above the form rather than beside it.',
       },
     ],
     details: {
       design: [
         'Two typefaces: Lora for headlines, Instrument Sans for text and every figure. Numbers get the sans so columns of them line up.',
-        'Dark green, cream and a muted gold. The green is used once, on the track record, so it reads as the center of the page.',
-        'The hero illustration is drawn rather than photographed, which keeps the page off the stock-skyline shelf every competitor is on.',
+        'Dark green, cream and muted gold. The green appears once, on the track record, which marks it as the center of the page.',
+        'The hero illustration is drawn rather than photographed, which avoids the stock skyline photograph most firms in this sector use.',
         'Figures are grouped in rows of three or four and never mixed with body copy, so a reader can scan the numbers without reading the page.',
-        'Honesty is part of the design: the concept notice appears in four places and the chart, the offerings and the returns figure each carry their own label.',
+        'Disclosure is built into the layout: the concept notice appears in four places, and the chart, the offerings and the returns figure each carry their own label.',
       ],
       build: [
         'One HTML file, about 52 KB, with hand-written CSS and JavaScript. No framework and no build step.',
-        'The portfolio filters on a data attribute and updates aria-pressed on the buttons, so the state is readable rather than just visible.',
-        'The distributions chart is CSS, with each bar height set by a custom property. It stays sharp at any size and is hidden from screen readers, which get the figures in text above it.',
+        'The portfolio filters on a data attribute and updates aria-pressed on the buttons, so the filter state is exposed to screen readers, not just shown visually.',
+        'The distributions chart is CSS, with each bar height set by a custom property. It stays sharp at any size and is hidden from screen readers, which get the same figures as text above it.',
         'Ten numbers count up when their block comes into view, on IntersectionObserver, and hold their final value for anyone who prefers reduced motion.',
         'The FAQ uses native details elements, so it works before the JavaScript runs.',
         'Three breakpoints, 980, 680 and 480 pixels. Deployed on Netlify.',

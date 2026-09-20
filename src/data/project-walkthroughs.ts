@@ -926,7 +926,7 @@ const jonathanZalzman: Walkthrough = {
     {
       title: 'I play guitar for a living',
       caption:
-        'A band photo and three links: Spotify, YouTube and his band Free Hat. This is the section that backs up the headline, so a visitor can go and hear him before booking.',
+        'A band photo and three links: Spotify, YouTube and his band Free Hat. It lets a visitor hear him play before booking a lesson.',
       alt: 'The section "I play guitar for a living" with a band photo and links to Spotify, YouTube and Free Hat.',
       src: `${jonathanImages}/08-band.webp`,
       width: 1600,
