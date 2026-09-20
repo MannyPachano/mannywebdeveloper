@@ -16,6 +16,7 @@ const cloxImages = '/images/projects/clox';
 const jonathanImages = '/images/projects/jonathan-zalzman';
 const landscaperImages = '/images/projects/landscaper-templates';
 const keysetImages = '/images/projects/keyset';
+const nuvectorImages = '/images/projects/nuvector';
 
 const backToProjects = { backHref: '/#project-section', backLabel: 'Back to projects' };
 
@@ -1142,11 +1143,233 @@ const keyset: Walkthrough = {
   ...backToProjects,
 };
 
+const nuvector: Walkthrough = {
+  slug: 'nuvector',
+  title: 'nuVector',
+  eyebrow: 'Case study',
+  client: 'nuVector LLC (Atlanta, Georgia)',
+  kind: 'Company website',
+  role: 'Design, front-end development and content',
+  year: '2024 to 2025',
+  frameUrl: 'www.nu-vector.com',
+  summary:
+    "The company website for nuVector, which sells software for tracking returnable containers, racks and tooling. Nine client pages, three service pages and a blog of 20 posts, all pointed at one thing: a demo request.",
+  tags: ['Astro', 'SCSS', 'TypeScript', 'Netlify', 'Figma', 'SEO'],
+  description:
+    "The company website for nuVector, which sells software for tracking returnable containers, racks and tooling. Nine client pages, three service pages and a blog of 20 posts, all pointed at one thing: a demo request.",
+  pageDescription:
+    'nuVector case study: an Astro company website with nine client pages, three service pages and a blog of 20 posts, rendered on demand on Netlify with structured data on every page.',
+  facts: [
+    { label: 'Scale', value: '17 fixed pages and 20 blog posts, plus the index, category and author pages built from them' },
+    { label: 'Status', value: 'Not live in this form. The screens come from the build.' },
+  ],
+  hero: {
+    src: `${nuvectorImages}/first-screen.webp`,
+    width: 1920,
+    height: 1200,
+    alt: 'The nuVector homepage: the headline Next-Level Asset Management with a Discover Our Solutions button, beside the company monogram.',
+  },
+  heroCaption:
+    'The first screen. One headline, one sentence and one button. Above the navigation there is a strip with the email address and the opening hours, and the header carries the phone number, which are the same details the homepage puts into its structured data.',
+  highlights: [
+    { value: '9 client pages', label: 'Volvo, Warner Bros. Discovery, Sonoco, Regal, ZF, Bosch, CHEP, UES and packIQ, all from one layout' },
+    { value: '20 posts', label: 'Markdown files that produce the post pages, the paginated index, the category pages and the author pages' },
+    { value: 'Astro on Netlify', label: 'Pages rendered on demand and cached at the edge, with the blog index and its category and author pages built ahead of time' },
+  ],
+  overviewTitle: 'What the site had to do',
+  overview: [
+    'nuVector sells software that tracks returnable assets: the containers, racks and tooling that leave a plant and are supposed to come back. I worked there as a front-end developer and later in SEO and marketing, so I knew the customers before I started on the site. The site this one replaced was bad, and that is what drove the rebuild.',
+    'The company site had a different job from the <a class="text-link" href="/web-developer-project-loopmanager">LoopManager product site</a>. LoopManager is nuVector\'s product, and that site explains what the software does. This one had to show that the company behind it is real and established, and then get a demo booked. That is why the client work sits high on the page and why every route ends at the same form.',
+    'Most of the build is about not typing anything twice. The nine client pages are one layout with the client name, the kind of result, a photograph and a quote passed into it. The blog posts are Markdown files, and the post pages, the index, the category pages and the author pages are all generated from those files. Publishing a post means adding a file.',
+    'I did the design, the front-end build and the 20 blog posts. The photography, the logos and the product claims are nuVector\'s. The four numbers in the case studies section are their claims about what their software does for their customers, not outcomes of my work on the website, and I have not presented them as mine.',
+  ],
+  walkthroughIntro: 'The homepage, section by section.',
+  sections: [
+    {
+      title: 'Hero',
+      caption:
+        'One headline, one sentence and one button. The button goes to the asset management service page rather than to the contact form, so the first click is to read more. The demo request is in the header and again at the bottom of the page for anyone who already knows what they want.',
+      alt: 'The nuVector hero: the headline Next-Level Asset Management, a line of copy and a Discover Our Solutions button, next to the company monogram.',
+      src: `${nuvectorImages}/01-hero.webp`,
+      width: 1600,
+      height: 664,
+    },
+    {
+      title: 'Services',
+      caption:
+        'Three services, numbered, each one a card that turns over on hover to show a sentence about what it covers and a link to its own page. Returnable asset management, workflow tracking, and data and infrastructure. On a phone the cards turn on tap instead.',
+      alt: 'Three numbered service cards over grayscale photographs: Returnable Asset Management, Workflow Tracking, and Data and Infrastructure.',
+      src: `${nuvectorImages}/02-services.webp`,
+      width: 1600,
+      height: 643,
+    },
+    {
+      title: 'Clients and company',
+      caption:
+        'Nine client logos on a loop, then a short piece of company history. The logos are drawn as masks so they all come out in one gray, which stops a row of nine different brand treatments from fighting each other. The row is duplicated to make the loop seamless, and the copy is hidden from screen readers so the same nine names are not read out twice.',
+      alt: 'A row of client logos in gray above the About nuVector block, with a heading reading Innovating Together.',
+      src: `${nuvectorImages}/03-clients.webp`,
+      width: 1600,
+      height: 1002,
+    },
+    {
+      title: 'What the software does',
+      caption:
+        'A dark band across the page with four capabilities on the left and six tiles on the right, each tile a link into the asset management page. Three of the tiles carry a shorter heading that is used on narrow screens, so nothing wraps to three lines on a phone.',
+      alt: 'A dark section listing four software capabilities beside six linked tiles with orange icons.',
+      src: `${nuvectorImages}/04-benefits.webp`,
+      width: 1600,
+      height: 735,
+    },
+    {
+      title: 'Client work',
+      caption:
+        'Six clients, each one linking to a full page about that client, and four numbers underneath. The client name and the kind of work sit over each photograph and appear on hover, which is why a still like this reads as six pictures. The four numbers are nuVector\'s claims about what their software does for their customers. They are not results of my work on the website and I am not presenting them as mine.',
+      alt: 'The case studies section: a heading reading Real Results, Real Impact, a grid of six client photographs, and four percentage figures.',
+      src: `${nuvectorImages}/05-results.webp`,
+      width: 1600,
+      height: 1536,
+    },
+    {
+      title: 'Blog',
+      caption:
+        'The six most recent posts, read from the Markdown files at build time and sorted by date. One file produces the card, the post page, the category page and the author page, so publishing is a matter of adding a file.',
+      alt: 'The blog section with six post cards, each showing a category, an image, a title, an author and date, and a Read Post button.',
+      src: `${nuvectorImages}/06-blog.webp`,
+      width: 1600,
+      height: 1569,
+    },
+    {
+      title: 'Demo request',
+      caption:
+        'The page ends on the same request the header opens with. One line, one button, no form fields here, so there is one thing to do and one place the whole site is pointed at.',
+      alt: 'A full-width dark band reading Request a Free Demo with a Get Started Today button.',
+      src: `${nuvectorImages}/07-cta.webp`,
+      width: 1600,
+      height: 489,
+    },
+  ],
+  galleries: [
+    {
+      title: 'The rest of the site',
+      intro:
+        'Every page below the homepage gets its banner and its breadcrumb from one component, so you can always see how deep in the site you are.',
+      columns: 2,
+      items: [
+        {
+          src: `${nuvectorImages}/08-service-page.webp`,
+          width: 1600,
+          height: 1000,
+          alt: 'The returnable asset management service page, headed Meet LoopManager, with four capabilities around the company monogram.',
+          caption:
+            'One of the three service pages. This one opens with LoopManager, which is nuVector\'s product and the subject of the other case study.',
+        },
+        {
+          src: `${nuvectorImages}/09-result-volvo.webp`,
+          width: 1600,
+          height: 1000,
+          alt: 'The Volvo client page: a banner reading Container Fleet Precision, a breadcrumb, the client name, share buttons and a photograph.',
+          caption:
+            'A client page. The layout takes the client name, the kind of result, a photograph, a pull quote and the body copy. Nine clients use it.',
+        },
+        {
+          src: `${nuvectorImages}/10-results-index.webp`,
+          width: 1600,
+          height: 1000,
+          alt: 'The Client Success Stories index page with an introduction and the start of the client grid.',
+          caption: 'The index that holds all nine of them.',
+        },
+        {
+          src: `${nuvectorImages}/11-blog-index.webp`,
+          width: 1600,
+          height: 1000,
+          alt: 'The blog index with an introduction and a featured post.',
+          caption:
+            'The blog index: a featured post, then six posts to a page with pagination and a list of categories. The category and author pages are generated from the same files.',
+        },
+        {
+          src: `${nuvectorImages}/12-about.webp`,
+          width: 1600,
+          height: 1000,
+          alt: 'The About Us page with a heading reading Transforming Supply Chains with Innovative Tech, and Our Mission and Our Vision cards.',
+          caption: 'About, which is where the company history goes in full.',
+        },
+        {
+          src: `${nuvectorImages}/13-contact.webp`,
+          width: 1600,
+          height: 1000,
+          alt: 'The Contact Us page with introductory copy beside a dark form panel.',
+          caption:
+            'Contact. The form marks its required fields and says what happens to the address, and it posts to a serverless function rather than to a third party.',
+        },
+      ],
+    },
+  ],
+  phonesIntro:
+    'The strip above the navigation is dropped on a phone, so the logo and the menu button are the only things above the content.',
+  phones: [
+    {
+      src: `${nuvectorImages}/mobile-home.webp`,
+      width: 1170,
+      height: 2532,
+      alt: 'The nuVector homepage on a phone, with the monogram above the headline.',
+      caption: 'The homepage. The monogram moves above the headline and the copy runs full width.',
+    },
+    {
+      src: `${nuvectorImages}/mobile-results.webp`,
+      width: 1170,
+      height: 2532,
+      alt: 'The Client Success Stories page on a phone, with the banner and breadcrumb above the introduction.',
+      caption: 'The client index. The banner and the breadcrumb hold their shape at this width.',
+    },
+    {
+      src: `${nuvectorImages}/mobile-volvo.webp`,
+      width: 1170,
+      height: 2532,
+      alt: 'The Volvo client page on a phone, showing the client name, share buttons, a photograph and the body copy.',
+      caption: 'A client page. The photograph sits between the client name and the write-up rather than beside it.',
+    },
+    {
+      src: `${nuvectorImages}/mobile-contact.webp`,
+      width: 1170,
+      height: 2532,
+      alt: 'The contact page on a phone, with the address, email and phone number above the form.',
+      caption: 'Contact. The address, the email and the phone number come before the form, because on a phone most people want to call.',
+    },
+  ],
+  details: {
+    design: [
+      'Montserrat for headings and Nunito Sans for body text, both self-hosted and preloaded rather than fetched from Google.',
+      "The brand's orange and charcoal, kept from the existing identity rather than replaced.",
+      'Every section opens with a small double slash label above its heading, so someone scanning the page can tell where they are.',
+      'Client logos are drawn as single color masks, so a row of nine different brand treatments reads as one row.',
+      'Every page below the homepage takes its banner and breadcrumb from one component, so the size of the site is visible from anywhere in it.',
+    ],
+    build: [
+      'Astro 4 with MDX, the sitemap integration and astro-icon, using three icon sets.',
+      'Hosted on Netlify through the Netlify adapter. Pages are rendered on demand and cached at the edge. The paginated blog index, the category pages and the author pages are built ahead of time instead, since they come from a fixed set of files.',
+      'SCSS with one variables file and one mixins file. No CSS framework.',
+      'The nine client pages are a single layout that takes the client name, the kind of result, a photograph, a pull quote and the body copy.',
+      'Posts are Markdown. The frontmatter carries the title, date, author, category, description, image and a table of contents, and on 14 of them a list of questions and answers.',
+      'Drafts and posts dated in the future are filtered out at build, so a post can be written early and dated for later.',
+      'The contact form posts to a serverless function on Netlify, which sends the mail.',
+    ],
+    marketing: [
+      'Structured data is generated for each page: BlogPosting on posts, LocalBusiness on the homepage, and FAQPage merged into the 14 posts that carry questions and answers.',
+      'Canonical URL, Open Graph and Twitter card tags on every page, with a per page switch to mark one noindex.',
+      'The 20 posts, across four categories, from February 2023 to March 2025. Each one is aimed at a particular search and ends at the demo form.',
+    ],
+  },
+  tools: ['Astro', 'SCSS', 'TypeScript', 'JavaScript', 'Figma', 'Netlify', 'SEO'],
+  ...backToProjects,
+};
+
 export const projectWalkthroughs: Walkthrough[] = [
   timeclick,
   ues,
   ...(SHOW_CLOX ? [clox] : []),
   keyset,
+  nuvector,
   landscaperTemplates,
   jonathanZalzman,
 ];

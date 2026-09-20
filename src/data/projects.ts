@@ -131,8 +131,8 @@ export const projects: Project[] = [
     role: 'Company website redesign',
     year: '2024 to 2025',
     summary:
-      "I redesigned and rebuilt nuVector's company website on Astro, with services, client logos, case studies and an SEO blog. The main call to action is a demo request.",
-    tags: ['Astro', 'HTML & CSS', 'JavaScript', 'Figma', 'SEO'],
+      "I redesigned and rebuilt nuVector's company website on Astro: nine client pages, three service pages and a blog of 20 posts, all pointed at one demo request.",
+    tags: ['Astro', 'SCSS', 'TypeScript', 'Figma', 'SEO'],
     video: {
       mp4: '/videos/nuvector-thumbnail.mp4',
       webm: '/videos/nuvector-thumbnail.webm',

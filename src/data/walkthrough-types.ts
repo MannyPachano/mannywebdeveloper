@@ -71,6 +71,8 @@ export type Walkthrough = {
   year: string;
   liveUrl?: string;
   liveLabel?: string;
+  /** Address to draw in the browser frame when there is no live site to link to. */
+  frameUrl?: string;
   /** Card text, rendered by LandingPageCard from landing-pages.ts. Project case
    *  studies carry this field too because they share this type, but nothing
    *  renders it for them: their homepage card comes from projects.ts.

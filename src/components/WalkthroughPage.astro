@@ -62,7 +62,7 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
       </dl>
 
       <figure class="walkthrough-first">
-        <BrowserFrame url={page.liveUrl ?? page.title}>
+        <BrowserFrame url={page.liveUrl ?? page.frameUrl ?? page.title}>
           {page.compare ? (
             <CompareSlider
               a={page.compare.a}
