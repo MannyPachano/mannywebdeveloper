@@ -71,7 +71,10 @@ export type Walkthrough = {
   year: string;
   liveUrl?: string;
   liveLabel?: string;
-  /** Card text. Inline <strong> is allowed. */
+  /** Card text, rendered by LandingPageCard from landing-pages.ts. Project case
+   *  studies carry this field too because they share this type, but nothing
+   *  renders it for them: their homepage card comes from projects.ts.
+   *  Inline <strong> is allowed. */
   summary: string;
   tags: string[];
   /** One or two sentences under the title. */

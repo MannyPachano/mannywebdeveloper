@@ -17,6 +17,7 @@ import { landingPages } from '../src/data/landing-pages.ts';
    repeated per entry, because the job of a field never changes. */
 const FIELD_JOB = {
   summary: 'Card text in the homepage grid. This is the first thing a visitor reads about this page. Inline <strong> allowed.',
+  'summary.unused': 'NOT RENDERED ANYWHERE. The homepage card for this project comes from projects.ts instead. This field exists only because landing pages and case studies share one TypeScript type, and landing pages do render it. Do not spend effort rewriting it.',
   description: 'One or two sentences directly under the page title.',
   pageDescription: 'Meta description. Shown in search results and link previews, never on the page itself. Aim for 150 to 160 characters.',
   pageTitle: 'Browser tab title and search result headline.',
@@ -81,7 +82,8 @@ function walkEntry(out, file, entry, kindLabel) {
 
   const p = (f) => `${file} → ${id}.${f}`;
 
-  block(out, 'summary', p('summary'), entry.summary, FIELD_JOB.summary);
+  block(out, 'summary', p('summary'), entry.summary,
+    kindLabel === 'landing-page' ? FIELD_JOB.summary : FIELD_JOB['summary.unused']);
   block(out, 'description', p('description'), entry.description, FIELD_JOB.description);
   block(out, 'pageTitle', p('pageTitle'), entry.pageTitle, FIELD_JOB.pageTitle);
   block(out, 'pageDescription', p('pageDescription'), entry.pageDescription, FIELD_JOB.pageDescription);

@@ -346,7 +346,7 @@ My own product. Clox is a time-tracking app for small field crews in the trades,
 *Card summary. Role: Design and development. Year: 2026. Tags: React, TypeScript, Vite, Vitest, Playwright, Accessibility.*
 
 ```
-My own build, made to work in React and TypeScript on something with real state: a maintenance desk for a property management company. Filtering and bulk edits, a schedule board you can move visits around with the keyboard, and optimistic saves that roll back when the server refuses. The data is generated and there is no client.
+My own project: a maintenance desk for a property management company, built so I had a React and TypeScript application with real state in it. Filtering and bulk edits, a schedule board that works by keyboard as well as by dragging, and optimistic saves that roll back when the server refuses. The data is generated and there is no client.
 ```
 
 #### Explainer Visuals
@@ -418,7 +418,7 @@ I built a small web app my friends and I use to track martial arts classes. Atte
 
 #### summary
 `src/data/project-walkthroughs.ts → timeclick.summary`
-*Card text in the homepage grid. This is the first thing a visitor reads about this page. Inline <strong> allowed.*
+*NOT RENDERED ANYWHERE. The homepage card for this project comes from projects.ts instead. This field exists only because landing pages and case studies share one TypeScript type, and landing pages do render it. Do not spend effort rewriting it.*
 
 ```
 I redesigned the marketing site for a time clock software company, built the CRM, checkout and email systems behind it, and ran the SEO program that took organic traffic from about 4,000 to over 30,000 visitors a month.
@@ -955,7 +955,7 @@ Monthly reporting from Google Analytics 4, Search Console and Ahrefs.
 
 #### summary
 `src/data/project-walkthroughs.ts → ues.summary`
-*Card text in the homepage grid. This is the first thing a visitor reads about this page. Inline <strong> allowed.*
+*NOT RENDERED ANYWHERE. The homepage card for this project comes from projects.ts instead. This field exists only because landing pages and case studies share one TypeScript type, and landing pages do render it. Do not spend effort rewriting it.*
 
 ```
 I rebuilt the homepage for a used oil collection company that operates in 28 states. I am now rebuilding the rest of the site page by page while running its local SEO program.
@@ -1412,7 +1412,7 @@ Second month of the program. Results will be added here when there are enough mo
 
 #### summary
 `src/data/project-walkthroughs.ts → clox.summary`
-*Card text in the homepage grid. This is the first thing a visitor reads about this page. Inline <strong> allowed.*
+*NOT RENDERED ANYWHERE. The homepage card for this project comes from projects.ts instead. This field exists only because landing pages and case studies share one TypeScript type, and landing pages do render it. Do not spend effort rewriting it.*
 
 ```
 I built Clox for small field crews in the trades: native iOS and Android apps, a web dashboard and the marketing site. I designed, built and market the whole product.
@@ -1909,10 +1909,10 @@ Running my own product means I handle positioning, pricing, onboarding, SEO and 
 
 #### summary
 `src/data/project-walkthroughs.ts → keyset.summary`
-*Card text in the homepage grid. This is the first thing a visitor reads about this page. Inline <strong> allowed.*
+*NOT RENDERED ANYWHERE. The homepage card for this project comes from projects.ts instead. This field exists only because landing pages and case studies share one TypeScript type, and landing pages do render it. Do not spend effort rewriting it.*
 
 ```
-A maintenance desk for a property management company, built in React and TypeScript to have something with real state behind it. Filtering, bulk edits, a keyboard-operable schedule board, and optimistic saves that roll back.
+A maintenance desk for a property management company, built in React and TypeScript. Filtering, bulk edits, a schedule board that works by keyboard as well as by dragging, and optimistic saves that roll back when a save is refused.
 ```
 
 #### description
@@ -1920,7 +1920,7 @@ A maintenance desk for a property management company, built in React and TypeScr
 *One or two sentences directly under the page title.*
 
 ```
-A maintenance desk for a property management company: 200 requests across five properties, filtered, edited in bulk and scheduled on a week board. I built it to work in React and TypeScript on an app with enough state to be worth testing. The data is generated and there is no client.
+A maintenance desk for a property management company: 200 requests across five properties, filtered, edited in bulk and scheduled on a week board. I built it because I wanted a React and TypeScript application with enough state in it to be worth testing. The data is generated and there is no client.
 ```
 
 #### pageDescription
@@ -2278,7 +2278,7 @@ Deployed on Netlify with a Content Security Policy that keeps script-src at self
 
 #### summary
 `src/data/project-walkthroughs.ts → landscaper-templates.summary`
-*Card text in the homepage grid. This is the first thing a visitor reads about this page. Inline <strong> allowed.*
+*NOT RENDERED ANYWHERE. The homepage card for this project comes from projects.ts instead. This field exists only because landing pages and case studies share one TypeScript type, and landing pages do render it. Do not spend effort rewriting it.*
 
 ```
 Three ready-to-customize website templates for landscaping companies. Intentionally generic, so a business owner can see the layout, the flow and the speed before I make it theirs.
@@ -2679,7 +2679,7 @@ Hosted free on Netlify. A finished client site costs nothing to run.
 
 #### summary
 `src/data/project-walkthroughs.ts → jonathan-zalzman.summary`
-*Card text in the homepage grid. This is the first thing a visitor reads about this page. Inline <strong> allowed.*
+*NOT RENDERED ANYWHERE. The homepage card for this project comes from projects.ts instead. This field exists only because landing pages and case studies share one TypeScript type, and landing pages do render it. Do not spend effort rewriting it.*
 
 ```
 Lesson booking site for a working musician in Suwanee, Georgia: nine teaching styles, transparent pricing, and a free trial lesson button that follows you down the page.

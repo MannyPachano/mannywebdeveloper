@@ -989,10 +989,10 @@ const keyset: Walkthrough = {
   liveUrl: 'https://keyset-project.netlify.app',
   liveLabel: 'Open Keyset',
   summary:
-    'A maintenance desk for a property management company, built in React and TypeScript to have something with real state behind it. Filtering, bulk edits, a keyboard-operable schedule board, and optimistic saves that roll back.',
+    'A maintenance desk for a property management company, built in React and TypeScript. Filtering, bulk edits, a schedule board that works by keyboard as well as by dragging, and optimistic saves that roll back when a save is refused.',
   tags: ['React', 'TypeScript', 'Vite', 'Vitest', 'Playwright', 'Accessibility'],
   description:
-    'A maintenance desk for a property management company: 200 requests across five properties, filtered, edited in bulk and scheduled on a week board. I built it to work in React and TypeScript on an app with enough state to be worth testing. The data is generated and there is no client.',
+    'A maintenance desk for a property management company: 200 requests across five properties, filtered, edited in bulk and scheduled on a week board. I built it because I wanted a React and TypeScript application with enough state in it to be worth testing. The data is generated and there is no client.',
   pageDescription:
     'Keyset case study: a React and TypeScript maintenance desk with filtering, bulk edits, a keyboard-operable schedule board and optimistic saves that roll back.',
   facts: [

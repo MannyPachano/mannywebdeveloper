@@ -87,7 +87,7 @@ export const projects: Project[] = [
     role: 'Design and development',
     year: '2026',
     summary:
-      'My own build, made to work in React and TypeScript on something with real state: a maintenance desk for a property management company. Filtering and bulk edits, a schedule board you can move visits around with the keyboard, and optimistic saves that roll back when the server refuses. The data is generated and there is no client.',
+      'My own project: a maintenance desk for a property management company, built so I had a React and TypeScript application with real state in it. Filtering and bulk edits, a schedule board that works by keyboard as well as by dragging, and optimistic saves that roll back when the server refuses. The data is generated and there is no client.',
     tags: ['React', 'TypeScript', 'Vite', 'Vitest', 'Playwright', 'Accessibility'],
     video: {
       mp4: '/videos/keyset-thumbnail.mp4',
