@@ -66,11 +66,11 @@ export const projects: Project[] = [
         {
           slug: 'clox',
           title: 'Clox',
-          role: 'Founder',
+          role: 'Founder: product and front end',
           year: '2026 to present',
           summary:
-            'My own product. Clox is a time-tracking app for small field crews in the trades, with native iOS and Android apps, a web dashboard and a marketing site. I designed, built and market it myself.',
-          tags: ['Next.js', 'TypeScript', 'Mobile apps', 'SaaS', 'SEO', 'Product marketing'],
+            'My own product: a time tracking application for small trades crews. The crew clocks in from a phone, the office approves the week and sends it to payroll, and a punch made with no signal still lands. I run the company and I designed and built it.',
+          tags: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Stripe', 'SaaS'],
           video: {
             mp4: '/videos/clox-thumbnail.mp4',
             webm: '/videos/clox-thumbnail.webm',
