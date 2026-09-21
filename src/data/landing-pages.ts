@@ -268,7 +268,7 @@ export const landingPages: LandingPage[] = [
       alt: 'First screen of the Apple SEO concept: the headline "We make sure customers find you everywhere they search." with "everywhere" in red, two buttons, and a drawn local search result showing a business moving from rank seven to the top.',
     },
     heroCaption:
-      'The first screen. The panel on the right is a local search result drawn in HTML rather than screenshotted, showing the one thing the agency sells: a business at rank seven moving into the top three.',
+      'The first screen. The panel on the right is a local search result drawn in HTML rather than screenshotted, showing a business at rank seven moving into the top three.',
     highlights: [
       { value: 'Answered before the call', label: 'A six-month timeline and an FAQ, so the questions that eat a discovery call are handled on the page' },
       { value: 'One proof format', label: 'All three case studies get the same four stat tiles, so the strongest one stops outshining the other two' },
@@ -484,7 +484,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'What sets our hiring model apart',
         caption:
-          'Their three differentiators, each on a clean card with an orange icon tile. The copy is unchanged. The point of the card treatment is that three claims of equal weight should look equal, which they did not before.',
+          'Their three differentiators, each on a clean card with an orange icon tile. The copy is unchanged. Three claims of equal weight should look equal, which they did not before.',
         alt: 'Rise Talent section: three cards headed Focused advisor attention, Flexible hiring structures and Nationwide staffing reach, each with an orange icon tile and a short paragraph.',
         src: `${riseImages}/02-model.webp`,
         width: 1600,
@@ -493,7 +493,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'How it works',
         caption:
-          'A new section, and the one that does the most work. The original page said what Rise does but never what happens after someone fills in the form, which is the reason people hesitate. Four steps, each with the day or week it lands in, ending with staying in touch through the first ninety days.',
+          'A new section. The original page said what Rise does but never what happens after someone fills in the form. Four steps, each with the day or week it lands in, ending with staying in touch through the first ninety days.',
         alt: 'Rise Talent process section: the heading "From first call to signed offer" and four numbered steps, Intake call, Targeted search, Shortlist and Offer and start, each with a paragraph and a timeframe reading Day 1, Days 2 to 7, Week 2 and Weeks 3 to 6.',
         src: `${riseImages}/03-process.webp`,
         width: 1600,
@@ -529,7 +529,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'For candidates',
         caption:
-          'A new section, and the reason it sits this low is deliberate: everything a company needs comes first. Recently posted roles with location, working model and pay range, plus a way to send a resume without applying to anything specific.',
+          'A new section, placed after everything a company needs. Recently posted roles with location, working model and pay range, plus a way to send a resume without applying to anything specific.',
         alt: 'Rise Talent candidates section: the heading "Looking for your next role?", a paragraph about honest feedback and no resume blasting, Browse open roles and Send us your resume buttons, and a recently posted panel listing Senior Backend Engineer, Assistant Controller, Heavy Civil Superintendent, Payments Product Manager and FP&A Analyst with locations and pay ranges.',
         src: `${riseImages}/07-candidates.webp`,
         width: 1600,
@@ -683,7 +683,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The BLUE book',
         caption:
-          'One of their adopters wrote a children\'s book and gives them a share of the proceeds, which is a genuinely unusual thing to be able to say. The cover is a stand-in that says so, because the artwork belongs to the author and was not mine to recreate.',
+          'One of their adopters wrote a children\'s book and gives them a share of the proceeds. The cover is a stand-in that says so, because the artwork belongs to the author and was not mine to recreate.',
         alt: "Sunny Sky's book section: a light blue book cover mockup reading BLUE, A Story of a Dog's Best Friend and a True Heart, by Allan Mullen, with a strip across the bottom reading cover art not reproduced, next to the heading \"Read BLUE, and help our animals.\" and a Find BLUE on Amazon button.",
         src: `${sunnyImages}/05-book.webp`,
         width: 1600,

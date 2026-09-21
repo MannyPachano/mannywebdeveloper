@@ -1059,7 +1059,7 @@ const jonathanZalzman: Walkthrough = {
     {
       title: 'Booking form and footer',
       caption:
-        'The form the whole page points at. It asks for the instrument, the student age, the experience level, in person or online, the plan and the best times, so the first reply can already suggest a slot. Under it, an email link and a phone number for people who would rather reach him directly.',
+        'The booking form asks for the instrument, the student age, the experience level, in person or online, the plan and the best times, so the first reply can already suggest a slot. Under it, an email link and a phone number for anyone who would rather reach him directly.',
       alt: 'The booking form under the heading "Book your free lesson", followed by the footer.',
       src: `${jonathanImages}/10-book-footer.webp`,
       width: 1600,
@@ -1182,7 +1182,7 @@ const keyset: Walkthrough = {
     {
       title: 'When a save fails',
       caption:
-        'The row changes immediately and goes back exactly as it was if the request is rejected, field by field. The banner says what failed and that nothing was saved. Force failures in the header makes every save fail, so this is something you can try rather than something I claim.',
+        'The row changes immediately and goes back exactly as it was if the request is rejected, field by field. The banner says what failed and that nothing was saved. Force failures in the header makes every save fail.',
       alt: 'A red banner reading "The server rejected that change. Nothing was saved." above the queue.',
       src: `${keysetImages}/06-error.webp`,
       width: 1600,
@@ -1319,7 +1319,7 @@ const nuvector: Walkthrough = {
     {
       title: 'Clients and company',
       caption:
-        'Nine client logos on a loop, then a short piece of company history. The logos are drawn as masks so they all come out in one gray, which stops a row of nine different brand treatments from fighting each other. The row is duplicated to make the loop seamless, and the copy is hidden from screen readers so the same nine names are not read out twice.',
+        'Nine client logos on a loop, then a short piece of company history. The logos are drawn as masks so they all come out in one gray, which stops a row of nine different brand treatments from fighting each other. The row is duplicated so the loop has no visible join, and the copy is hidden from screen readers so the same nine names are not read out twice.',
       alt: 'A row of client logos in gray above the About nuVector block, with a heading reading Innovating Together.',
       src: `${nuvectorImages}/03-clients.webp`,
       width: 1600,
@@ -1355,7 +1355,7 @@ const nuvector: Walkthrough = {
     {
       title: 'Demo request',
       caption:
-        'The page ends on the same request the header opens with. One line, one button, no form fields here, so there is one thing to do and one place the whole site is pointed at.',
+        'The page ends on the same request the header opens with. One line, one button, no form fields.',
       alt: 'A full-width dark band reading Request a Free Demo with a Get Started Today button.',
       src: `${nuvectorImages}/07-cta.webp`,
       width: 1600,
