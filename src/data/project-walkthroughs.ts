@@ -507,12 +507,12 @@ const clox: Walkthrough = {
   liveUrl: 'https://getclox.com',
   liveLabel: 'Visit getclox.com',
   summary:
-    'My own time tracking product for small trades crews. An application in Next.js and TypeScript where the crew clocks in from a phone, the office approves the week and exports it to payroll, and a punch made with no signal still lands.',
+    'A time tracking product I built for small trades crews. Workers clock in from their phones, managers review and approve hours, and approved time can be exported to payroll.',
   tags: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Postgres', 'Stripe'],
   description:
-    'My own time tracking product for small trades crews: an application where the crew clocks in from a phone, the office approves the week and sends it to payroll, and a punch made with no signal still lands. I run the company, and I designed and built the product.',
+    'A time tracking product I built for small trades crews. Workers clock in from their phones, managers review and approve hours, and approved time can be exported to payroll. I run the company and built the product end to end.',
   pageDescription:
-    'Clox case study: a Next.js and TypeScript time tracking application with Supabase auth, an offline punch queue, a capability model, payroll exports and 365 tests.',
+    'Clox case study: a Next.js and TypeScript time tracking application with offline punches, Supabase, payroll exports, role-based access and 365 tests.',
   facts: [
     { label: 'Scale', value: '481 TypeScript files, 19 app routes, 55 API routes, 365 tests' },
     { label: 'Screens', value: 'The live app and the crew app, signed in to the demo organization' },
@@ -524,26 +524,26 @@ const clox: Walkthrough = {
     alt: 'The Clox Today screen: the current time on a paper background, a project field, a note field and a large Clock in button.',
   },
   heroCaption:
-    'The screen the whole product exists for. One button, the time, and somewhere to say which job this is. Everything else in the application is downstream of someone pressing this.',
+    'The main clock-in screen. The current time, project, note and Clock in action are all visible without scrolling.',
   highlights: [
-    { value: 'Works offline', label: 'Punches queue on the device and replay through the same code path the online write uses' },
-    { value: '365 tests', label: 'Across 39 suites, nearly all of it plain logic: overtime, pay periods, timezones, geofences, exports' },
-    { value: '19 app routes, 55 API routes', label: 'Plus Stripe billing, payroll exports for four providers, and four scheduled jobs' },
+    { value: 'Works offline', label: 'Punches are stored on the device and synced when the connection returns' },
+    { value: '365 tests', label: '39 test suites covering overtime, pay periods, timezones, geofences, imports and payroll exports' },
+    { value: '19 app routes, 55 API routes', label: 'Plus Stripe billing, four payroll integrations and four scheduled jobs' },
   ],
   overviewTitle: 'What the front end has to get right',
   overview: [
-    'Small trades crews still track hours on paper or in text messages, and the totals are collected on Friday and are often wrong. Clox records the hours as they happen. The crew clocks in from a phone, the office sees who is working and where, approves the week and sends it to payroll. I founded the company and I designed and built the product.',
-    'Two things make the front end harder than a normal dashboard. The person using it is standing in a truck or a basement with one bar of signal, and the number it produces is somebody\'s paycheck. So the interface cannot assume the network is there, and it cannot quietly lose a punch when the network is not.',
-    'When the phone is offline a punch goes into a queue in the browser instead of to the server. Each queued punch carries a UUID generated on the device, and that same UUID is the idempotency key the server writes to a unique index, so a replay that arrives after a successful sync is a no-op rather than a second row. Clock in, clock out, break start, break end and switching project all queue the same way, and every one of them replays through the exact server action the online path calls, so there is only ever one piece of write logic to be right.',
-    'What happens to a punch the server refuses is a table, not a pile of conditionals: retry it, drop it, or hold it for a person. Retry covers a network fault or an expired session. Drop covers a punch that can never land and carries no time worth keeping, like clocking in when you are already clocked in. Everything else is held for the worker and the manager to resolve by hand, and a response code the table does not recognize is held too, because a punch is evidence that somebody worked.',
-    'The same rule I used on <a class="text-link" href="/web-developer-project-keyset">Keyset</a> applies here: the logic lives in plain modules with nothing framework-specific in them. That is why 365 tests cover overtime including the California daily rules, pay periods, week boundaries across timezones, geofences, CSV import and every payroll export format, and why they run without a browser.',
+    'Clox is a time tracking product for small trades crews. Workers clock in from their phones, managers review hours and approve the week, and approved time can be exported to payroll. I founded the company and built the product end to end.',
+    'The main technical constraint is that workers are often using the app on a job site with a weak connection. At the same time, the hours being recorded feed into payroll. The interface therefore has to handle offline use without losing or duplicating punches.',
+    'When the phone is offline, punches are stored in an IndexedDB queue. Each one gets a UUID on the device, which is also used as the server-side idempotency key, so a punch that replays after a successful sync is ignored rather than written twice. When the connection returns, the queue uses the same server action as the normal online path. Clock in, clock out, breaks and project changes all use the same system.',
+    'Failed punches are handled according to the type of failure. Temporary errors are retried, invalid punches can be discarded, and anything that needs a human decision is held for review. Unknown responses are held as well rather than silently dropping the punch.',
+    'As with <a class="text-link" href="/web-developer-project-keyset">Keyset</a>, the business logic lives in plain modules rather than being tied to the framework. The 365 tests cover overtime, pay periods, timezone boundaries, geofences, CSV imports and payroll exports, with most of the logic tested without a browser.',
   ],
   walkthroughIntro: 'The application, screen by screen. These are the live app, signed in to the demo organization.',
   sections: [
     {
       title: 'Clocking in',
       caption:
-        'The clock-in button is the largest thing on the screen and everything optional sits under it: tag a project, leave a note for your manager. The page loads only what this control needs. History, week totals, schedule and break state stream in behind it, so the thing you came to press is ready before the rest of the page is.',
+        'The primary action is the Clock in button. Workers can optionally select a project and add a note before starting.',
       alt: 'The Clox Today screen, not clocked in: the time, a project picker, a note field and a Clock in button, with the week total below.',
       src: `${cloxImages}/app-01-today.webp`,
       width: 1600,
@@ -552,7 +552,7 @@ const clox: Walkthrough = {
     {
       title: 'The same screen, on shift',
       caption:
-        'The moment a shift starts the whole application inverts to dark and the button becomes Clock out. It is the one piece of state a worker has to be able to read at arm\'s length, in a truck, in sunlight, without looking for a label. The timer counts from the punch the server recorded, not from when the page loaded.',
+        'After clocking in, the interface switches to a dark state and the primary action becomes Clock out. The timer uses the server-recorded punch rather than the time the page was opened.',
       alt: 'The Clox Today screen while clocked in: the same layout inverted to dark, a running timer and a coral Clock out button.',
       src: `${cloxImages}/app-01-today-onshift.webp`,
       width: 1600,
@@ -561,7 +561,7 @@ const clox: Walkthrough = {
     {
       title: 'The week',
       caption:
-        'Seven days with the hours under each, then the shifts themselves with their project, their break deduction and what they are worth. Every shift here is pending until somebody approves it. A forgotten clock-out shows up as its own row with two ways to fix it rather than as a number that is quietly wrong.',
+        'The timesheet shows daily hours and individual shifts, including projects, break deductions and pay. Forgotten clock-outs are flagged so they can be corrected before approval.',
       alt: 'The Clox timesheet: a week of days with hours, and a list of shifts with projects, break deductions and pay.',
       src: `${cloxImages}/app-02-timesheet.webp`,
       width: 1600,
@@ -570,7 +570,7 @@ const clox: Walkthrough = {
     {
       title: 'Building the schedule',
       caption:
-        'People down the side, days across the top, every shift a chip you drag. Drag it to another day or another person, click it to edit, double-click an empty cell to add one. It is built on pointer events rather than HTML5 drag, so a phone behaves the same as a mouse, and four pixels of travel is what separates a drag from a click. Tab to a chip and press Enter and you get the same menu, which the board says on screen rather than hiding in a help article. A dropped shift keeps its duration instead of having its end recomputed, so an overnight shift stays the same length and one moved across a daylight saving boundary does not quietly gain or lose an hour.',
+        'People are listed down the side and days run across the top. Shifts can be dragged between people and days, clicked to edit, or added to an empty cell. Dragging is built on pointer events rather than HTML5 drag, so touch behaves the same as a mouse, and the same moves work from the keyboard. Moving a shift preserves its duration across overnight and daylight saving changes.',
       alt: 'The Clox schedule board: eight employees down the side, seven days across the top, and shift chips showing times and project names.',
       src: `${cloxImages}/app-03-schedule-board.webp`,
       width: 1600,
@@ -579,7 +579,7 @@ const clox: Walkthrough = {
     {
       title: 'The approvals queue',
       caption:
-        'Who is on the clock right now, the team total for the week, and everything waiting on a decision. Shifts and time off are separate groups because they are different decisions, and shifts can be selected in bulk. A queue with real work sitting in it is what a Friday actually looks like.',
+        'The team screen shows who is working, weekly hours and items waiting for approval. Shifts can be approved individually or in bulk.',
       alt: 'The Clox Team page: nobody on shift, 338 hours this week, and a pending approvals panel with time off and shift groups.',
       src: `${cloxImages}/app-04-team.webp`,
       width: 1600,
@@ -588,7 +588,7 @@ const clox: Walkthrough = {
     {
       title: 'Where the punches happened',
       caption:
-        'Every clock-in for the week on a map of the job sites, with the list beside it. This is built from the punches, not from following anybody: a location is recorded at the moment someone clocks in and never between. Clock in outside the site you are assigned to and the punch is refused rather than flagged.',
+        'The map shows where clock-ins happened during the week. Clox records location at the time of the punch rather than continuously tracking workers, and punches outside an assigned worksite are refused.',
       alt: 'The Clox map view: 44 located punches for one week, a day-grouped list on the left and a map of New York with clustered markers.',
       src: `${cloxImages}/app-05-team-map.webp`,
       width: 1600,
@@ -597,7 +597,7 @@ const clox: Walkthrough = {
     {
       title: 'Reports',
       caption:
-        'The week as one number, the payroll estimate beside it, and then per person with overtime split out of regular on the same bar. The point of the screen is to find the overtime before Friday rather than after. It rolls up by employee, project, client and task, and exports to ADP, Paychex, Gusto or QuickBooks.',
+        'Reports show total hours, estimated payroll and overtime by employee. Hours can also be grouped by project, client and task, then exported to ADP, Paychex, Gusto or QuickBooks.',
       alt: 'The Clox reports page: 338 hours 49 minutes, $10,905 estimated payroll, and per-employee bars with overtime in a second color.',
       src: `${cloxImages}/app-08-reports.webp`,
       width: 1600,
@@ -606,7 +606,7 @@ const clox: Walkthrough = {
     {
       title: 'Getting last year in',
       caption:
-        'Nobody switches time tracking systems if it means retyping a year. Paste from a spreadsheet or upload a CSV, and the column spec is on the page with an example row rather than in a help article. It matches rows to people and projects that already exist and refuses to invent either, and nothing is written until you confirm the preview.',
+        'The import tool accepts pasted spreadsheet data or CSV files. Existing people and projects are matched during the import, and nothing is written until the user confirms the preview.',
       alt: 'The Clox import page: a column specification table with example values, a CSV template download and a paste box.',
       src: `${cloxImages}/app-12-import.webp`,
       width: 1600,
@@ -615,7 +615,7 @@ const clox: Walkthrough = {
     {
       title: 'The audit log',
       caption:
-        'Every rate change, approval, role change, worksite edit and shift edit, with the values before and after. When a crew member disputes a week, this is the screen that answers it. It is read-only by design, filterable by person and action, and exports to CSV.',
+        'The audit log records changes to rates, approvals, roles, worksites and shifts, including the values before and after each change. It can be filtered and exported to CSV.',
       alt: 'The Clox audit log: 140 entries with kiosk events and shift edits showing their before and after values.',
       src: `${cloxImages}/app-13-audit.webp`,
       width: 1600,
@@ -626,7 +626,7 @@ const clox: Walkthrough = {
     {
       title: 'The rest of the application',
       intro:
-        'The nav only shows what the person signed in is allowed to do. There are eleven capabilities with defaults by role and an override per person, so an employee can be given the roster without being given payroll.',
+        'The rest of the application covers scheduling, projects, worksites, kiosk mode and billing. Access is controlled through eleven capabilities with role defaults and per-person overrides.',
       columns: 2,
       items: [
         {
@@ -634,42 +634,42 @@ const clox: Walkthrough = {
           width: 1600,
           height: 1000,
           alt: 'The Clox schedule month view: weeks as columns, each cell showing a person\'s shift count and hours.',
-          caption: 'The same board zoomed out to a month, weeks as columns, with a shift count and an hour total per person. Open a week to change anything in it.',
+          caption: 'A month view of the schedule, with shift counts and total hours for each person.',
         },
         {
           src: `${cloxImages}/app-06-projects.webp`,
           width: 1600,
           height: 1000,
           alt: 'The Clox projects page: six jobs with member and task counts and a bar of hours against each.',
-          caption: 'Jobs, with hours against each one. Tagging a shift to a project is what turns hours into job cost.',
+          caption: 'Hours by job. Assigning a shift to a project makes those hours available for job costing.',
         },
         {
           src: `${cloxImages}/app-07-worksites.webp`,
           width: 1600,
           height: 1000,
           alt: 'The Clox worksites page: three named sites with their radius and the number of employees assigned.',
-          caption: 'Worksites are named clock-in zones with a radius. A punch from outside your assigned site is refused.',
+          caption: 'Named clock-in zones with a radius and assigned employees.',
         },
         {
           src: `${cloxImages}/app-10-settings.webp`,
           width: 1600,
           height: 1000,
           alt: 'The Clox settings page: profile, time and pay, notifications, organization, kiosk and integrations tabs.',
-          caption: 'Settings, including the kiosk PIN. A shared tablet on site identifies people by PIN, and leaving kiosk mode takes a manager PIN.',
+          caption: 'Organization settings, integrations and kiosk mode for shared tablets.',
         },
         {
           src: `${cloxImages}/app-11-settings-billing.webp`,
           width: 1600,
           height: 1000,
           alt: 'The Clox billing page: seats to pay for, a promo code field, and monthly and annual plan cards.',
-          caption: 'Billing, on Stripe. Seats, a promo code, monthly or annual, and a scheduled job that reconciles the subscription against what the database thinks.',
+          caption: 'Stripe billing with seat counts, promo codes and monthly or annual plans.',
         },
       ],
     },
     {
       title: 'The marketing site',
       intro:
-        'getclox.com has a different job from the application: get a crew owner to start the trial. It is the same stack, and there is not a single image file on the homepage. The phones, the dashboard windows and the map are drawn in HTML, CSS and SVG.',
+        'The marketing site has a different job: explain the product and get crew owners into a trial. It uses the same stack as the application, with the phones, dashboards and map built in HTML, CSS and SVG rather than image files.',
       columns: 3,
       items: [
         {
@@ -677,108 +677,108 @@ const clox: Walkthrough = {
           width: 1600,
           height: 905,
           alt: 'getclox.com hero: "Stop chasing paper timecards", a trial button, app store badges and two phones showing the clock-in screen.',
-          caption: 'One headline naming the problem, one button. The phones are CSS, not screenshots.',
+          caption: 'The homepage leads with the problem and a single primary action. The phone screens are built with CSS rather than screenshots.',
         },
         {
           src: `${cloxImages}/03-features.webp`,
           width: 1600,
           height: 880,
           alt: 'A grid of six feature cards under the heading "Everything you need to run an hourly crew".',
-          caption: 'Six features, two or three sentences each, no icons and no marketing words.',
+          caption: 'Six feature sections explain the main parts of the product without relying on icons or decorative graphics.',
         },
         {
           src: `${cloxImages}/05-product-tour.webp`,
           width: 1600,
           height: 1726,
           alt: 'Four alternating rows of dashboard screens: reports, team, schedule and map.',
-          caption: 'The product tour, with each dashboard screen drawn rather than captured.',
+          caption: 'The product tour uses dashboard screens built directly in the page rather than captured images.',
         },
         {
           src: `${cloxImages}/08-pricing.webp`,
           width: 1600,
           height: 463,
           alt: 'A pricing section showing $29 per month with a short explanation.',
-          caption: 'One price in one line. Every feature is on every plan.',
+          caption: 'One price, with the full feature set included.',
         },
         {
           src: `${cloxImages}/page-electricians.webp`,
           width: 1600,
           height: 1000,
           alt: 'The electricians page: "Time tracking built for electrical contractors".',
-          caption: 'One of twenty trade pages, each written from search data.',
+          caption: 'One of twenty trade-specific pages built around search demand for that industry.',
         },
         {
           src: `${cloxImages}/page-vs-clockshark.webp`,
           width: 1600,
           height: 1000,
           alt: 'The Clox vs ClockShark comparison page with a feature and price table.',
-          caption: 'One of five comparison pages, with a plain price and feature table.',
+          caption: 'One of five comparison pages, using a straightforward price and feature table.',
         },
       ],
     },
   ],
   phonesIntro:
-    'The crew app, built in Expo and React Native against the same Supabase project as the web app. These are screenshots from the app itself.',
+    'The crew app is built with Expo and React Native and shares the same Supabase project as the web app.',
   phones: [
     {
       src: `${cloxImages}/app-native-clock.webp`,
       width: 1170,
       height: 2532,
       alt: 'The Clox app clock screen, not clocked in, with a large Clock in button and the line All punches synced below it.',
-      caption: 'Clocked out. The line under the button reads "All punches synced", which is the offline queue reporting that it is empty. When it is not empty, it says that instead.',
+      caption: 'The clock screen when a worker is not on shift. The status below the button confirms that all offline punches have synced.',
     },
     {
       src: `${cloxImages}/app-native-clock-project.webp`,
       width: 1170,
       height: 2532,
       alt: 'The same screen with a project and a task chosen before clocking in.',
-      caption: 'Tagging the job before clocking in. This is what turns hours into job cost later, and an organization can make it required rather than optional.',
+      caption: 'Workers can select a project and task before clocking in. Organizations can make this required.',
     },
     {
       src: `${cloxImages}/app-native-board.webp`,
       width: 1170,
       height: 2532,
       alt: 'The Clox app schedule board on a phone, with the instruction to hold a shift then drag it onto a day to move it.',
-      caption: 'The same board as the desktop, on a phone. Hold a shift and drag it onto a day, and the instruction sits above the grid rather than in a help article.',
+      caption: 'The schedule board also works on the phone. Hold a shift and drag it onto another day to move it.',
     },
     {
       src: `${cloxImages}/app-native-map.webp`,
       width: 1170,
       height: 2532,
       alt: 'The Clox app map of punches for a month, showing 124 located punches over New York.',
-      caption: '124 located punches for the month, and under the map it says that pins are where punches happened and that Clox does not track location between them. The product says it, not only the privacy policy.',
+      caption: 'Punch locations for the month. Clox records location for punches rather than tracking workers between them.',
     },
     {
       src: `${cloxImages}/app-native-approvals.webp`,
       width: 1170,
       height: 2532,
       alt: 'The Clox app approvals screen listing 45 timesheets, each with edit, reject and approve.',
-      caption: 'Forty-five timesheets waiting, each with edit, reject and approve, and approve all at the top. This is the screen that actually gets used on a Friday.',
+      caption: 'Timesheets waiting for review, with edit, reject and approve actions.',
     },
   ],
   details: {
     design: [
-      'Paper, ink and one clay accent. Color is used for two things only: the primary action, and overtime.',
-      'The application inverts to dark for the length of a shift. It is the only global state change in the product, and it means a worker can tell from across a room whether they are on the clock.',
-      'The nav is built from eleven capabilities with defaults by role and an override per person, so people are not shown doors they cannot open.',
-      'Kiosk mode for a shared tablet on site: PIN to identify, manager PIN to leave.',
-      'Figures use tabular numerals so columns of hours line up, and every screen states the organization\'s timezone rather than assuming the reader shares it.',
+      'Paper, ink and one clay accent. Color is reserved for primary actions and overtime.',
+      'The app switches to a dark state while a worker is on shift, making the current state easy to recognize at a glance.',
+      'Navigation is based on eleven capabilities, with defaults by role and overrides for individual people.',
+      'Kiosk mode supports shared tablets on site. Workers use a PIN to identify themselves and a manager PIN to exit.',
+      "Hours use tabular numerals so columns line up, and screens identify the organization's timezone.",
     ],
     build: [
-      'Next.js 16 App Router, React 19 and TypeScript in strict mode, with Tailwind and shadcn/ui. Server components read, server actions write, across 35 action modules.',
-      'Supabase Auth through the SSR client with cookies refreshed in middleware. Auth is resolved once per render with React cache, and it calls getUser rather than getSession: getSession decodes the cookie locally and can come back empty in the moment after sign-in, which used to bounce people back to the sign-in page.',
-      'Postgres on Supabase through Drizzle, with the migrations in the repo.',
-      'The offline queue is IndexedDB with no library, because the API surface needed is smaller than the dependency would be. Client tap times are trusted but clamped: never in the future, never more than a day old.',
-      '365 tests across 39 suites in Vitest, nearly all against plain modules with no framework in them.',
-      'Payroll exports for ADP, Paychex, Gusto and QuickBooks, plus CSV and signed PDF. Any exported cell that starts with a formula character is neutralized, so a display name cannot execute when the file is opened in Excel, while well-formed numbers are left alone so the hours columns survive.',
-      'Stripe for billing, Upstash for rate limiting, Sentry for errors, PostHog for product analytics, Resend for transactional mail, Leaflet for the map.',
-      'Four scheduled jobs: close shifts somebody left running, reconcile Stripe against the database, remind trials before they end, and send the weekly summary.',
-      'The crew apps are Expo and React Native, sharing the same Supabase project, with biometric unlock, the camera, location, push and over-the-air updates.',
+      'Next.js 16 App Router, React 19 and TypeScript in strict mode, with Tailwind and shadcn/ui. Server components handle reads and server actions handle writes across 35 action modules.',
+      'Supabase Auth uses the SSR client with cookies refreshed in middleware. Authentication resolves once per render with React cache, using getUser rather than getSession, because getSession reads the cookie locally and can come back empty in the moment after sign-in.',
+      'Postgres runs on Supabase through Drizzle, with database migrations stored in the repository.',
+      'The offline queue uses IndexedDB directly. Client timestamps are validated so they cannot be in the future or more than one day old.',
+      '365 tests across 39 Vitest suites, with most business logic tested independently of the framework and browser.',
+      'Payroll exports support ADP, Paychex, Gusto and QuickBooks, along with CSV and signed PDF. Spreadsheet formula characters are neutralized in exported text fields, so a value like a display name cannot execute when the file is opened.',
+      'Stripe for billing, Upstash for rate limiting, Sentry for errors, PostHog for product analytics, Resend for transactional email, and Leaflet for maps.',
+      'Four scheduled jobs handle abandoned shifts, Stripe reconciliation, trial reminders and weekly summaries.',
+      'The crew apps use Expo and React Native and share the same Supabase project, with biometric unlock, camera, location, push notifications and over-the-air updates.',
     ],
     marketing: [
-      'Twenty trade pages, five comparison pages, docs and a blog, all written from search data and built on the same components as the homepage.',
-      'App store listings, directory profiles and a Product Hunt launch.',
-      'Running my own product means positioning, pricing, onboarding, SEO and support are all mine, which is the part that carries over to the client sites I build.',
+      'Twenty trade pages, five comparison pages, documentation and a blog, all built from the same components as the homepage and informed by search data.',
+      'App Store listings, directory profiles and a Product Hunt launch.',
+      'I also handle positioning, pricing, onboarding, SEO and support. Building my own product gives me experience across the same parts of a project I handle for clients.',
     ],
   },
   tools: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Postgres', 'Drizzle', 'Tailwind', 'Stripe', 'Expo', 'Vitest'],
