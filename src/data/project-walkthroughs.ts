@@ -515,7 +515,7 @@ const clox: Walkthrough = {
     'Clox case study: a Next.js and TypeScript time tracking application with Supabase auth, an offline punch queue, a capability model, payroll exports and 365 tests.',
   facts: [
     { label: 'Scale', value: '481 TypeScript files, 19 app routes, 55 API routes, 365 tests' },
-    { label: 'Screens', value: 'The live app at app.getclox.com, signed in to the demo organization' },
+    { label: 'Screens', value: 'The live app and the crew app, signed in to the demo organization' },
   ],
   hero: {
     src: `${cloxImages}/app-first-screen.webp`,
@@ -564,6 +564,15 @@ const clox: Walkthrough = {
         'Seven days with the hours under each, then the shifts themselves with their project, their break deduction and what they are worth. Every shift here is pending until somebody approves it. A forgotten clock-out shows up as its own row with two ways to fix it rather than as a number that is quietly wrong.',
       alt: 'The Clox timesheet: a week of days with hours, and a list of shifts with projects, break deductions and pay.',
       src: `${cloxImages}/app-02-timesheet.webp`,
+      width: 1600,
+      height: 1000,
+    },
+    {
+      title: 'Building the schedule',
+      caption:
+        'People down the side, days across the top, every shift a chip you drag. Drag it to another day or another person, click it to edit, double-click an empty cell to add one. It is built on pointer events rather than HTML5 drag, so a phone behaves the same as a mouse, and four pixels of travel is what separates a drag from a click. Tab to a chip and press Enter and you get the same menu, which the board says on screen rather than hiding in a help article. A dropped shift keeps its duration instead of having its end recomputed, so an overnight shift stays the same length and one moved across a daylight saving boundary does not quietly gain or lose an hour.',
+      alt: 'The Clox schedule board: eight employees down the side, seven days across the top, and shift chips showing times and project names.',
+      src: `${cloxImages}/app-03-schedule-board.webp`,
       width: 1600,
       height: 1000,
     },
@@ -621,11 +630,11 @@ const clox: Walkthrough = {
       columns: 2,
       items: [
         {
-          src: `${cloxImages}/app-03-schedule.webp`,
+          src: `${cloxImages}/app-03-schedule-month.webp`,
           width: 1600,
           height: 1000,
-          alt: 'The Clox schedule: upcoming shifts grouped by employee with date, time and worksite.',
-          caption: 'The schedule, grouped by person rather than laid out as a week grid, because that is how a crew is actually staffed.',
+          alt: 'The Clox schedule month view: weeks as columns, each cell showing a person\'s shift count and hours.',
+          caption: 'The same board zoomed out to a month, weeks as columns, with a shift count and an hour total per person. Open a week to change anything in it.',
         },
         {
           src: `${cloxImages}/app-06-projects.webp`,
@@ -709,35 +718,42 @@ const clox: Walkthrough = {
     },
   ],
   phonesIntro:
-    'The application at phone width. There are also native iOS and Android apps built in Expo, which add biometric unlock, the camera for a selfie at clock-in, and the same offline queue backed by the phone\'s own storage. These four are the web app, which is what a worker gets before they install anything.',
+    'The crew app, built in Expo and React Native against the same Supabase project as the web app. These are screenshots from the app itself.',
   phones: [
     {
-      src: `${cloxImages}/app-phone-today.webp`,
+      src: `${cloxImages}/app-native-clock.webp`,
       width: 1170,
       height: 2532,
-      alt: 'The Clox Today screen on a phone, not clocked in, with a large Clock in button.',
-      caption: 'Clocked out. The button is the screen, and the week total sits under it.',
+      alt: 'The Clox app clock screen, not clocked in, with a large Clock in button and the line All punches synced below it.',
+      caption: 'Clocked out. The line under the button reads "All punches synced", which is the offline queue reporting that it is empty. When it is not empty, it says that instead.',
     },
     {
-      src: `${cloxImages}/app-phone-today-onshift.webp`,
+      src: `${cloxImages}/app-native-clock-project.webp`,
       width: 1170,
       height: 2532,
-      alt: 'The Clox Today screen on a phone while clocked in, inverted to dark with a running timer and a Clock out button.',
-      caption: 'On shift. The same inversion as the desktop, which is how you tell across a job site whether somebody is on the clock.',
+      alt: 'The same screen with a project and a task chosen before clocking in.',
+      caption: 'Tagging the job before clocking in. This is what turns hours into job cost later, and an organization can make it required rather than optional.',
     },
     {
-      src: `${cloxImages}/app-phone-timesheet.webp`,
+      src: `${cloxImages}/app-native-board.webp`,
       width: 1170,
       height: 2532,
-      alt: 'The Clox timesheet on a phone, showing the week strip and the first shifts.',
-      caption: 'The week strip keeps all seven days at this width rather than becoming a scroll.',
+      alt: 'The Clox app schedule board on a phone, with the instruction to hold a shift then drag it onto a day to move it.',
+      caption: 'The same board as the desktop, on a phone. Hold a shift and drag it onto a day, and the instruction sits above the grid rather than in a help article.',
     },
     {
-      src: `${cloxImages}/app-phone-team.webp`,
+      src: `${cloxImages}/app-native-map.webp`,
       width: 1170,
       height: 2532,
-      alt: 'The Clox team page on a phone, showing who is on shift and the pending approvals panel.',
-      caption: 'The approvals queue on a phone, which is where a lot of them actually get approved.',
+      alt: 'The Clox app map of punches for a month, showing 124 located punches over New York.',
+      caption: '124 located punches for the month, and under the map it says that pins are where punches happened and that Clox does not track location between them. The product says it, not only the privacy policy.',
+    },
+    {
+      src: `${cloxImages}/app-native-approvals.webp`,
+      width: 1170,
+      height: 2532,
+      alt: 'The Clox app approvals screen listing 45 timesheets, each with edit, reject and approve.',
+      caption: 'Forty-five timesheets waiting, each with edit, reject and approve, and approve all at the top. This is the screen that actually gets used on a Friday.',
     },
   ],
   details: {
