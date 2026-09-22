@@ -224,7 +224,7 @@ export const landingPages: LandingPage[] = [
         'Petrol blue, warm cream and safety yellow, with a hot orange used only on the emergency route. Yellow marks the next action anywhere on the page, so a visitor who learns the orange once can find the emergency route again without reading.',
         'One theme on purpose. A contractor\'s page is read in daylight on a phone in a plant room, so the page stays light whatever the visitor\'s system is set to.',
         'Archivo set at a width of 112 for display, IBM Plex Sans for text and IBM Plex Mono for labels and every figure. Four sizes and that is the whole scale.',
-        'Every image slot pairs a photograph with a drawing: the roof plan over the hero, the building section under the plant room. The drawings sit on their own ink tokens, which is what lets the lo-fi take the whole thing back to gray with one override.',
+        'Every image slot pairs a photograph with a drawing: the roof plan over the hero, the building section under the plant room. The drawings sit on their own ink tokens.',
         'Dark appears twice, on the hero and on the footer. Everything between them alternates white and cream, and every band sits on one of three padding steps.',
         'Contrast was computed from the tokens rather than estimated: 14.8 to 1 for headings on the page ground, 11.7 to 1 for text on the yellow button, 12.5 to 1 for the headline on the dark ground.',
       ],
