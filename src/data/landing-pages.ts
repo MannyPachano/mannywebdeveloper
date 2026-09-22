@@ -17,8 +17,240 @@ const riseImages = '/images/landing-pages/rise-talent';
 const sunnyImages = '/images/landing-pages/sunny-skys';
 const almanacImages = '/images/landing-pages/almanac';
 const wasatchImages = '/images/landing-pages/wasatch-ridge';
+const halsteadImages = '/images/landing-pages/halstead-mechanical';
 
 export const landingPages: LandingPage[] = [
+  {
+    slug: 'halstead-mechanical',
+    title: 'Halstead Mechanical',
+    eyebrow: 'Landing page',
+    client: 'Halstead Mechanical (an invented contractor)',
+    kind: 'Concept design',
+    role: 'Research, design and front-end development',
+    year: '2026',
+    liveUrl: 'https://halstead-mechanical.netlify.app',
+    summary:
+      'A one-page site for a commercial HVAC, plumbing and controls contractor, carrying two visitors who want opposite things: a facility manager with a chiller down at 2 a.m., and a general contractor bidding a job six months out. <strong>Halstead is invented and every figure is written to be plausible, with a concept notice at the top of the page.</strong> It includes a clickable roof plan, a symptom triage that tells you how urgent your problem is, a labeled building section and a response-time chart, hand-written in a single HTML file.',
+    tags: ['HTML & CSS', 'JavaScript', 'Container queries', 'SVG drawings', 'Accessibility', 'Netlify'],
+    description:
+      'A one-page site for a commercial mechanical contractor, designed and built in 2026. Halstead Mechanical is an invented company and no figure on the page belongs to a real business. I built it to work on a harder problem than a normal landing page: one screen that has to serve an emergency caller and a bidding contractor without hiding either of them.',
+    pageDescription:
+      'A one-page concept site for a commercial HVAC, plumbing and controls contractor, shown section by section: a clickable roof plan, a symptom triage, a labeled building section, four projects, a response-time chart and a service area map.',
+    facts: [
+      { label: 'Format', value: 'One-page site, plus a process document' },
+      { label: 'Process', value: 'halstead-mechanical.netlify.app/process' },
+    ],
+    hero: {
+      src: `${halsteadImages}/first-screen.webp`,
+      width: 1920,
+      height: 1200,
+      alt: 'First screen of the Halstead Mechanical concept: a dark petrol hero over a photograph of rooftop air handlers at dusk, the headline "When the chiller goes down at 2 a.m., call us.", a call button and an estimate button, a roof plan panel with four rooftop units where one is selected, and an orange emergency strip underneath with a live Columbus clock and the phone number.',
+    },
+    heroCaption:
+      'The first screen. The photograph is a real rooftop and the roof plan on top of it is drawn, which is the pairing the whole page is built on. The four units are clickable and the panel below reads out capacity, age and status.',
+    highlights: [
+      { value: 'Two intents, one page', label: 'An emergency caller reaches the number in the first two screens, a bidding contractor reaches the evidence before the form' },
+      { value: 'Nine container queries', label: 'The layout responds to the width of the page itself, so the same markup lays out correctly inside a scaled frame' },
+      { value: 'One HTML file', label: 'About 115 KB, hand-written, no framework and no build step' },
+    ],
+    overviewTitle: 'What the page has to do',
+    overview: [
+      'Two people arrive at a mechanical contractor\'s site and they want opposite things. One is a facility manager standing in a plant room with something broken, on a phone, who wants a number a person answers and a promise about how long. The other is a general contractor or owner\'s rep pricing a job, on a desktop, who wants to know whether this contractor handles the scope, the size and the delivery method before spending a call. Splitting into two sites doubles the maintenance for a company with no marketing staff, so both routes run down one page.',
+      'The split happens in the first screen and again in the strip underneath it. The urgent route never passes through a form: it gets a filled call button in the hero, a full-bleed emergency strip with a live Columbus clock, and a triage that turns a symptom into a verdict and a short list of what to have in front of you before you dial. The planned route earns the form by answering the size question first, with four projects carrying square footage, tonnage and delivery method, then a chart of measured response times, then the counties covered.',
+      'The art direction is a drawing sitting on top of every photograph. The hero is a rooftop air handler at dusk with the roof plan laid over it. The plant room photograph sits directly above the building section that labels what is in it. The photographs carry the weather, the scale and the wear that a drawing cannot; the drawings carry the unit tags, the dimensions and the callout numbers that a photograph cannot. Both use the same petrol and cream tokens, so it reads as one commissioned set.',
+      'Halstead Mechanical is not a real company. I invented it for the constraints: two intents on one page, a phone layout that has to work in a room with bad light, and enough technical specificity that a facility manager would believe it.',
+    ],
+    walkthroughIntro: 'The page, top to bottom.',
+    sections: [
+      {
+        title: 'Hero and emergency strip',
+        caption:
+          'The headline names the moment the visitor is in. Two primary actions sit in the first screen because the page serves two intents, with the call button filled in the alert color and the estimate button outlined beside it. The roof plan is drawn in SVG over the photograph, and its four units are clickable. The strip underneath is the only full-bleed alert color on the page, and its clock reads Eastern time through Intl rather than the visitor\'s clock.',
+        alt: 'Halstead hero: a petrol gradient over a photograph of rooftop air handlers under a dark sky, the headline "When the chiller goes down at 2 a.m., call us.", a description of the services, a red Call button and an outlined Request an estimate button, and a dark roof plan panel showing RTU-1 to RTU-4 with RTU-3 highlighted in yellow and a readout giving 45 tons, installed 2006, tagged for replacement.',
+        src: `${halsteadImages}/00-hero.webp`,
+        width: 1600,
+        height: 670,
+      },
+      {
+        title: 'Three ways in',
+        caption:
+          'Emergency, a project, ongoing upkeep, named the way a visitor names them. Each card states what happens next and carries its own action, so the section works as a decision. The emergency card is the only one with a filled button and a tinted ground.',
+        alt: 'Halstead entry section: the heading "Call us, ask for a quote, or put the building on a plan" with three cards headed Emergency service, Installation and replacement, and Service agreements, each with a short paragraph and an action.',
+        src: `${halsteadImages}/01-start.webp`,
+        width: 1600,
+        height: 714,
+      },
+      {
+        title: 'What the company does',
+        caption:
+          'Four trades on one contract, each card ending on a rule with the figure that matters for that trade: equipment size, pipe size, protocols, buildings covered. Beside them a photograph of a plant room sits directly above a drawn building section, and the four numbered callouts under the cards highlight the matching part of the drawing on hover or tap.',
+        alt: 'Halstead services section: the heading "HVAC, plumbing and controls on one contract", four cards headed HVAC, Plumbing, Building automation and Maintenance each ending in a specification line, a numbered list of four callouts, and on the right a photograph of a mechanical room above a line drawing of a building section with numbered bubbles.',
+        src: `${halsteadImages}/02-do.webp`,
+        width: 1600,
+        height: 1261,
+      },
+      {
+        title: 'Triage',
+        caption:
+          'Six symptoms, each one producing a verdict, a short checklist and an action. The action swaps between a phone link and the estimate form depending on how urgent the verdict is, which is the point of it. One symptom is open at rest so the panel is never an empty half of the section.',
+        alt: 'Halstead triage section: the heading "Check how fast this needs a technician", six buttons reading No cooling, No heat, Water or a leak, Alarm on the controls, Ice on the unit and Noise or vibration, and a panel below headed Call now with an explanation, three things to have ready and a red Call button.',
+        src: `${halsteadImages}/03-triage.webp`,
+        width: 1600,
+        height: 749,
+      },
+      {
+        title: 'Projects',
+        caption:
+          'Four buildings from the last two years. Square footage in Archivo with tabular numerals, then the scope in one sentence, then tonnage and delivery method on a rule at the foot of every card. Those are the figures a contractor uses to work out whether this company works at their size.',
+        alt: 'Halstead projects section: the heading "Four buildings from the last two years" and four cards, each with a photograph of a building above a square footage figure, a year, a project name, one sentence of scope and a line giving tonnage and delivery method.',
+        src: `${halsteadImages}/04-work.webp`,
+        width: 1600,
+        height: 1527,
+      },
+      {
+        title: 'Response times',
+        caption:
+          'Median time from the call to a technician on site, drawn as three bars on one scale that fill when the panel comes into view. The two emergency rows are in the alert color and the routine row is not, so the chart encodes urgency as well as duration. Three figures underneath give the size of the operation.',
+        alt: 'Halstead response section: the heading "How long it takes us to get there" and a panel with three horizontal bars reading 47 min for emergency business hours, 1 hr 8 min for emergency nights and weekends, and 3 hr 48 min for a same day service call, on an axis from zero to four hours, with the figures 340 buildings on a service agreement, 60 technicians on our own payroll and 1974 as the year the company started.',
+        src: `${halsteadImages}/05-proof.webp`,
+        width: 1600,
+        height: 1092,
+      },
+      {
+        title: 'Service area',
+        caption:
+          'Seven central Ohio counties drawn as buttons in an inline SVG, each one tabbable, driving the readout beside it. Selection is carried by the readout as well as by the fill, so it does not depend on color alone.',
+        alt: 'Halstead service area section: the heading "The counties we cover" and a schematic map of seven counties with Franklin selected in teal and a red dot marking the shop in Hilliard, beside a panel reading Franklin County with drive time, buildings under contract, emergency cover and a list of towns.',
+        src: `${halsteadImages}/06-area.webp`,
+        width: 1600,
+        height: 821,
+      },
+      {
+        title: 'Estimate and title block',
+        caption:
+          'Three fields and a required work type, because a dropdown of building types loses the sentence the estimator wants. Beside it, what happens after you send it, in three rows with a time on each. The footer is set as a drawing title block, which is the one place the industrial reference is literal.',
+        alt: 'Halstead estimate section: the heading "Tell us what you are working on" with a list of what happens next business day, within the week and with the quote, beside a form with work type buttons reading Install, Service and Controls, a building and size field, an email field and a yellow Request an estimate button. Below it a dark footer laid out as a drawing title block with the contractor name, licence numbers, dispatch number and the year founded.',
+        src: `${halsteadImages}/07-ask-footer.webp`,
+        width: 1600,
+        height: 1124,
+      },
+    ],
+    galleries: [
+      {
+        title: 'The process document',
+        intro:
+          'The page ships with a second document at /process that shows how it was made: the brief, the user flow, the wireframe beside the lo-fi and the hi-fi, the decisions, the component system and the developer handoff. The three stages are one set of markup with the tokens swapped, and the built page runs inside the document rather than sitting in it as a screenshot.',
+        columns: 2,
+        items: [
+          {
+            src: `${halsteadImages}/p1-flow.webp`,
+            width: 1400,
+            height: 447,
+            alt: 'A user flow diagram splitting into an urgent route reaching an emergency band and a technician assignment, and a planned route reaching the services and projects and then a qualified inquiry.',
+            caption: 'The split happens in the first screen and again in the strip under it. The urgent route never passes through a form.',
+          },
+          {
+            src: `${halsteadImages}/p2-stages.webp`,
+            width: 1400,
+            height: 2419,
+            alt: 'Three columns side by side: a gray wireframe of the page structure, a lo-fi version of the built page in grays with flattened photographs, and the hi-fi version in full color with real photographs.',
+            caption: 'Wireframe, lo-fi and hi-fi. The last two are the same markup with the tokens swapped, which is the argument for tokens shown rather than claimed.',
+          },
+          {
+            src: `${halsteadImages}/p3-decisions.webp`,
+            width: 1400,
+            height: 593,
+            alt: 'Four note cards headed Two primary actions, The form is at the end, Three entry points named the way a visitor names them, and A drawing sits on top of every photograph.',
+            caption: 'Four decisions, each traced back to the split in the flow rather than to taste.',
+          },
+          {
+            src: `${halsteadImages}/p4-system.webp`,
+            width: 1400,
+            height: 1732,
+            alt: 'A component system panel: nine color swatches with their roles, a table of measured contrast ratios, a type scale in four sizes, six button states and a ten step spacing scale.',
+            caption: 'The swatches, the contrast table and the spacing scale are read out of the stylesheet at build time, so the document cannot claim a color the page does not use.',
+          },
+          {
+            src: `${halsteadImages}/p5-devices.webp`,
+            width: 1400,
+            height: 1088,
+            alt: 'A tablet frame and a phone frame showing the live page at 768 and 390 pixels, beside a table listing nine container widths and what changes at each one.',
+            caption: 'The two frames are the live page at their own widths. Container queries rather than viewport queries are what make that work inside a scaled document.',
+          },
+          {
+            src: `${halsteadImages}/p6-inventory.webp`,
+            width: 1400,
+            height: 1398,
+            alt: 'A component inventory table listing band, button, field, path card, trade card, project card, figure tile, image slot, clock, triage, response chart, county map, schedule list, drawing, header, emergency strip and title block, each with its variants and notes for build.',
+            caption: 'The handoff inventory, including the notes a developer would otherwise have to rediscover, such as the specificity trap where a bare anchor rule silently blanks every button.',
+          },
+        ],
+      },
+    ],
+    phonesIntro:
+      'The page on a phone. Visitor A is in a mechanical room holding a phone, so this is the layout that was designed first.',
+    phones: [
+      {
+        src: `${halsteadImages}/mobile-hero.webp`,
+        width: 1170,
+        height: 2535,
+        alt: 'Halstead on a phone: the concept notice, the header with the phone number and a full-width estimate button, the headline over the rooftop photograph and a full-width red Call button.',
+        caption: 'The phone number and the estimate button sit above the navigation, so the two actions are reachable before anything else loads.',
+      },
+      {
+        src: `${halsteadImages}/mobile-do.webp`,
+        width: 1170,
+        height: 2535,
+        alt: 'Halstead on a phone: the heading "HVAC, plumbing and controls on one contract", a paragraph, then the HVAC and Plumbing cards stacked with their specification lines.',
+        caption: 'The four trade cards go one per row and each keeps its specification line on a rule at the foot, whether the heading above ran to one line or two.',
+      },
+      {
+        src: `${halsteadImages}/mobile-triage.webp`,
+        width: 1170,
+        height: 2535,
+        alt: 'Halstead on a phone: the heading "Check how fast this needs a technician", six symptom buttons wrapped over three rows, and the start of the Call now verdict panel.',
+        caption: 'The symptom buttons wrap rather than scroll sideways, and the verdict opens directly underneath them.',
+      },
+      {
+        src: `${halsteadImages}/mobile-work.webp`,
+        width: 1170,
+        height: 2535,
+        alt: 'Halstead on a phone: the heading "Four buildings from the last two years" and the first project card with its photograph, 218,000 sq ft, the project name and the scope.',
+        caption: 'Project cards go one per screen and the square footage stays the first thing read, above the name.',
+      },
+      {
+        src: `${halsteadImages}/mobile-ask.webp`,
+        width: 1170,
+        height: 2535,
+        alt: 'Halstead on a phone: the heading "Tell us what you are working on", the three rows of what happens next, and the work type buttons at the start of the form.',
+        caption: 'What happens after you send it moves above the form rather than beside it, so the form is the last thing on the screen.',
+      },
+    ],
+    details: {
+      design: [
+        'Petrol blue, warm cream and safety yellow, with a hot orange used only on the emergency route. Yellow marks the next action anywhere on the page, so a visitor who learns the orange once can find the emergency route again without reading.',
+        'One theme on purpose. A contractor\'s page is read in daylight on a phone in a plant room, so the page stays light whatever the visitor\'s system is set to.',
+        'Archivo set at a width of 112 for display, IBM Plex Sans for text and IBM Plex Mono for labels and every figure. Four sizes and that is the whole scale.',
+        'Every image slot pairs a photograph with a drawing: the roof plan over the hero, the building section under the plant room. The drawings sit on their own ink tokens, which is what lets the lo-fi take the whole thing back to gray with one override.',
+        'Dark appears twice, on the hero and on the footer. Everything between them alternates white and cream, and every band sits on one of three padding steps.',
+        'Contrast was computed from the tokens rather than estimated: 14.8 to 1 for headings on the page ground, 11.7 to 1 for text on the yellow button, 12.5 to 1 for the headline on the dark ground.',
+      ],
+      build: [
+        'One HTML file, about 115 KB, with hand-written CSS and JavaScript. No framework and no build step on the page itself, though a small Python script assembles it from the token, base and section stylesheets.',
+        'Container queries rather than viewport queries, nine of them, so the layout responds to the width of the page rather than the width of the window. That is what lets the same markup lay out correctly inside the scaled device frames in the process document.',
+        'The roof plan, the building section and the county map are inline SVG with no raster and no text baked in. Every clickable part is a real button with aria-pressed, so they work by keyboard.',
+        'The triage maps six symptoms to a verdict, a checklist and an action, and swaps the action between a phone link and the form depending on the verdict.',
+        'The response chart fills on IntersectionObserver, and a bar past 72 percent of the track moves its value inside itself and waits for the fill to land before it appears.',
+        'The clock reads Eastern time through Intl rather than the visitor\'s clock, so the 24 hour claim is checked against the hours the company keeps.',
+        'Every image slot keeps its drawing underneath the photograph, so a missing file degrades to artwork rather than to a broken icon. The page still reads with images turned off.',
+        'The build refuses to write the file if a class in the markup has no rule, or if an em dash, an en dash or an exclamation mark reaches visible copy.',
+        'Deployed on Netlify.',
+      ],
+    },
+    tools: ['HTML & CSS', 'JavaScript', 'SVG', 'Python', 'Google Fonts', 'Netlify'],
+    backHref: '/#landing-pages',
+    backLabel: 'Back to landing pages',
+  },
   {
     slug: 'rythm',
     title: 'Rythm',
