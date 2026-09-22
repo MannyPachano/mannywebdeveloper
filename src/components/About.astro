@@ -60,9 +60,9 @@ const skillGroups = [
       <img
         class="about-photo"
         src="/images/manny-headshot.webp"
-        width="480"
-        height="480"
-        alt="Manny Pachano"
+        width="800"
+        height="500"
+        alt="Manny Pachano crouching on a lawn, holding out a hand to two Canada geese"
         loading="lazy"
         decoding="async"
       />
@@ -148,10 +148,19 @@ const skillGroups = [
     width: 100%;
   }
 
+  /* Landscape rather than a circle: the photo has to hold the whole scene,
+     so a round crop would throw away either the geese or the person. The
+     aspect ratio rather than a fixed height keeps it from overflowing a
+     narrow phone and reserves the box before the image loads. */
   .about-photo {
-    width: 11rem;
-    height: 11rem;
-    border-radius: 50%;
+    width: 22rem;
+    max-width: 100%;
+    /* height:auto is required: the height attribute on the img is a
+       presentational hint, and without this it wins and aspect-ratio is
+       ignored, which renders the box portrait instead of landscape. */
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius);
     object-fit: cover;
     border: 4px solid var(--surface);
     box-shadow: var(--shadow-sm);

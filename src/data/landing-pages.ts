@@ -139,7 +139,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The page ships with a second document at /process that shows how it was made: the brief, the user flow, the wireframe beside the lo-fi mockup and the hi-fi design, the decisions and the component system. The three later stages are one set of markup with the tokens swapped, and the finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'The page ships with a second document at /process that shows how it was made: the brief, the user flow, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
         columns: 2,
         items: [
           {
@@ -152,9 +152,9 @@ export const landingPages: LandingPage[] = [
           {
             src: `${halsteadImages}/p2-stages.webp`,
             width: 1400,
-            height: 2882,
-            alt: 'Three columns side by side: a gray wireframe of the page structure, a lo-fi version of the built page in grays with flattened photographs, and the finished version in full color with real photographs.',
-            caption: 'Wireframe, lo-fi mockup and final build. The last two are the same markup with the tokens swapped, which shows the argument for tokens instead of claiming it.',
+            height: 3157,
+            alt: 'The wireframe of the page structure in gray, with the finished page beside it running in full color inside the document.',
+            caption: 'The wireframe on the left and the finished page beside it, running live inside the document. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
           },
           {
             src: `${halsteadImages}/p3-decisions.webp`,
@@ -421,15 +421,15 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The page ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the lo-fi mockup and the final build, the decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'The page ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
         columns: 2,
         items: [
           {
             src: `${rythmImages}/p1-stages.webp`,
             width: 1400,
-            height: 4021,
-            alt: 'Three columns side by side: a gray wireframe of the page structure, a lo-fi version of the dark built page with the red accent neutralized and the photographs flattened, and the finished version in full color.',
-            caption: 'Wireframe, lo-fi mockup and final build. The last two are the same file, with one stylesheet appended to the lo-fi that neutralizes the accent colors and collapses the two typefaces into one. Nothing is rebuilt between them.',
+            height: 4002,
+            alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished dark page in full color running at 1240 pixels.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
           },
           {
             src: `${rythmImages}/p2-system.webp`,
@@ -633,15 +633,15 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The redesign ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the lo-fi mockup and the final build, the four changes and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'The redesign ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the changes and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
         columns: 2,
         items: [
           {
             src: `${appleImages}/p1-stages.webp`,
             width: 1400,
             height: 3290,
-            alt: 'Three columns side by side: a gray wireframe of the page structure, a lo-fi version of the dark built page with the red neutralized and the photographs flattened, and the finished version in full color.',
-            caption: 'Wireframe, lo-fi mockup and final build. The last two are the same file, with one stylesheet appended to the lo-fi that neutralizes the red and collapses the two typefaces into one. Nothing is rebuilt between them.',
+            alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished dark page in full color running at 1240 pixels.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
           },
           {
             src: `${appleImages}/p2-system.webp`,
@@ -836,15 +836,15 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The redesign ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the lo-fi mockup and the final build, the four changes and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'The redesign ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the changes and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
         columns: 2,
         items: [
           {
             src: `${riseImages}/p1-stages.webp`,
             width: 1400,
             height: 2076,
-            alt: 'Three columns side by side: a gray wireframe of the page structure, a lo-fi version of the built page with the orange neutralized and the gradient flattened, and the finished version in navy and orange.',
-            caption: 'Wireframe, lo-fi mockup and final build. The last two are the same file, with one stylesheet appended to the lo-fi that neutralizes the orange and flattens the gradient. Nothing is rebuilt between them.',
+            alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished page in navy and orange running at 1240 pixels.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
           },
           {
             src: `${riseImages}/p2-system.webp`,
@@ -1030,15 +1030,15 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The redesign ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the lo-fi mockup and the final build, the four changes and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'The redesign ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the changes and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
         columns: 2,
         items: [
           {
             src: `${sunnyImages}/p1-stages.webp`,
             width: 1400,
-            height: 2549,
-            alt: 'Three columns side by side: a gray wireframe of the page structure, a lo-fi version of the built page with the yellow, teal and green neutralized and the photographs flattened, and the finished version in full color.',
-            caption: 'Wireframe, lo-fi mockup and final build. The last two are the same file, with one stylesheet appended to the lo-fi that neutralizes the yellow, the teal and the green and flattens the photographs. Nothing is rebuilt between them.',
+            height: 2506,
+            alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished page in full color running at 1240 pixels.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
           },
           {
             src: `${sunnyImages}/p2-system.webp`,
@@ -1242,15 +1242,15 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The page ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the lo-fi mockup and the final build, the four decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'The page ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
         columns: 2,
         items: [
           {
             src: `${almanacImages}/p1-stages.webp`,
             width: 1400,
-            height: 3342,
-            alt: 'Three columns side by side: a gray wireframe of the page structure, a lo-fi version of the built page with the amber and sage neutralized and the photographs flattened, and the finished version in full color.',
-            caption: 'Wireframe, lo-fi mockup and final build. The last two are the same file, with one stylesheet appended to the lo-fi that neutralizes the amber and the sage and flattens the photographs. Nothing is rebuilt between them.',
+            height: 3259,
+            alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished page in full color running at 1240 pixels.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
           },
           {
             src: `${almanacImages}/p2-system.webp`,
@@ -1445,15 +1445,15 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The page ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the lo-fi mockup and the final build, the four decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'The page ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
         columns: 2,
         items: [
           {
             src: `${wasatchImages}/p1-stages.webp`,
             width: 1400,
-            height: 3154,
-            alt: 'Three columns side by side: a gray wireframe of the page structure, a lo-fi version of the built page with the green and gold neutralized and the property photographs flattened, and the finished version in cream, dark green and gold.',
-            caption: 'Wireframe, lo-fi mockup and final build. The last two are the same file, with one stylesheet appended to the lo-fi that neutralizes the green and the gold and collapses the serif and the sans into one face. Nothing is rebuilt between them.',
+            height: 3129,
+            alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished page in cream, dark green and gold running at 1240 pixels.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
           },
           {
             src: `${wasatchImages}/p2-system.webp`,
