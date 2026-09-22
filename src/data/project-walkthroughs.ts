@@ -49,7 +49,7 @@ const timeclick: Walkthrough = {
     { value: 'Full redesign', label: 'Homepage, feature pages, pricing and the free trial flow' },
     { value: 'Email campaigns', label: 'Launched the trial and post-trial sequences, plus Zoho CRM, WooCommerce and Stripe' },
   ],
-  overviewTitle: 'What the site has to do',
+  overviewTitle: 'About the project',
   overview: [
     'TimeClick sells desktop time clock software to small businesses. Unlike most competitors, it is sold for a one-time price with no subscription. The website has to explain that quickly, show that the product is trusted, and get the right visitors to start the 14-day free trial, which does not need a credit card. I redesigned the site with that goal, and then ran the SEO program that brought the visitors to it.',
     'The homepage starts with the offer and the trial button, followed by the proof: a 4.7 out of 5 rating from more than 1,000 reviews, customer logos, and a feature section that covers time tracking, PTO, job codes, reports, mobile apps, geofencing and payroll integrations with QuickBooks, ADP and Gusto. Reviews and a second trial button close the page. The site is responsive and built to load quickly on the laptops and phones that small business owners use.',
@@ -318,7 +318,7 @@ const ues: Walkthrough = {
     { value: 'One template', label: 'The homepage pattern the rest of the site is now being rebuilt on' },
     { value: 'Lead tracking', label: 'Form submissions and phone calls tracked in Google Analytics 4' },
   ],
-  overviewTitle: 'What the site has to do',
+  overviewTitle: 'About the project',
   overview: [
     'UES collects used oil, filters, antifreeze and oily water from more than 35,000 businesses and re-refines the oil into new base oil at its plant in Peachtree City, Georgia. Its customers are shop owners and fleet managers. They want to know that a truck will show up and that the paperwork will pass an inspection. The old homepage did not answer either question quickly, so I rebuilt it with both answers near the top of the page.',
     'The new homepage is the first page built on a template that the rest of the site is being rebuilt on; the hazardous waste page is the second. It starts with a short headline, a call button and a request-a-pickup button with a same-day reply promise, followed by the company\'s numbers. The nine collection services each get a short card. Below that are a four-step explanation of how a pickup works, a compliance section (a receipt at every pickup, EPA transporter ID, insurance and industry memberships), a section about the re-refinery, a list of states, customer quotes and a pickup request form. The page uses large text and high contrast and was designed for phones first.',
@@ -530,7 +530,7 @@ const clox: Walkthrough = {
     { value: '365 tests', label: '39 test suites covering overtime, pay periods, timezones, geofences, imports and payroll exports' },
     { value: '19 app routes, 55 API routes', label: 'Plus Stripe billing, four payroll integrations and four scheduled jobs' },
   ],
-  overviewTitle: 'What the front end has to get right',
+  overviewTitle: 'About the project',
   overview: [
     'Clox is a time tracking product for small trades crews. Workers clock in from their phones, managers review hours and approve the week, and approved time can be exported to payroll. I founded the company and built the product end to end.',
     'The main technical constraint is that workers are often using the app on a job site with a weak connection. At the same time, the hours being recorded feed into payroll. The interface therefore has to handle offline use without losing or duplicating punches.',
@@ -814,7 +814,7 @@ const landscaperTemplates: Walkthrough = {
     { value: 'One switcher', label: 'Visitors move between templates without leaving the page' },
     { value: 'Free customization', label: 'Included when a business owner chooses a template' },
   ],
-  overviewTitle: 'What the pages have to do',
+  overviewTitle: 'About the project',
   overview: [
     'Most landscaping business owners want to see what their website would look like before they commit to anything. Instead of showing mockups, I built three complete landscaping websites and put them behind a switcher that stays visible while you scroll, so an owner can compare them in a minute.',
     'All three cover the same ground: a headline that says what the company does and where, services, a gallery of past work, reasons to choose the company, customer reviews and a quote request. Each one orders and styles it differently, and each adds a section of its own (seasonal tips in one, a blog and a team page in another, service areas in the third), so an owner can pick the one that fits how they sell.',
@@ -967,7 +967,7 @@ const jonathanZalzman: Walkthrough = {
     { value: 'Two audiences', label: 'Adult players and parents, each given their own section on one page' },
     { value: 'One booking form', label: 'Every call to action on the page leads to it' },
   ],
-  overviewTitle: 'What the site has to do',
+  overviewTitle: 'About the project',
   overview: [
     'Jonathan teaches guitar, bass and ukulele in Suwanee, Georgia and online, and he performs regularly. The site is built around that. The headline is "Learn guitar from a working musician", and the design and copy are meant to make that clear right away and then make booking a lesson easy.',
     'The design uses performance photos on a dark background so the site looks like a musician\'s site rather than a directory listing. The nine styles he teaches (rock and blues, funk, jazz and fusion, prog and shred, metal, theory and ear training, bass and ukulele, songwriting, improvisation) each have a short description. Three five-star reviews from students of different ages are placed where a parent or an adult beginner would be deciding.',
@@ -1126,7 +1126,7 @@ const keyset: Walkthrough = {
     { value: '100 accessibility', label: 'Lighthouse, with axe run against four separate states of the app' },
     { value: 'No router, no CSS framework', label: 'The History API and hand-written CSS' },
   ],
-  overviewTitle: 'Why I built it',
+  overviewTitle: 'About the project',
   overview: [
     'I had not shipped a React application, and reading about it was not going to fix that. So I picked a problem with enough state to be awkward: a maintenance desk where a property manager triages repair requests, assigns contractors and books visits.',
     'The rule I set was that all the logic lives in plain modules with no React in them. Filtering, sorting, pagination, dates and the reducer are ordinary functions, so they run under the bare Node test runner with nothing installed. Only rendering needs a toolchain. That is why most of the test suite kept working while the interface changed.',
@@ -1289,7 +1289,7 @@ const nuvector: Walkthrough = {
     { value: '20 posts', label: 'Markdown files that produce the post pages, the paginated index, the category pages and the author pages' },
     { value: 'Astro on Netlify', label: 'Pages rendered on demand and cached at the edge, with the blog index and its category and author pages built ahead of time' },
   ],
-  overviewTitle: 'What the site had to do',
+  overviewTitle: 'About the project',
   overview: [
     'nuVector sells software that tracks returnable assets: the containers, racks and tooling that leave a plant and are supposed to come back. I worked there as a front-end developer and later in SEO and marketing, so I knew the customers before I started on the site. The site this one replaced was bad, and that is what drove the rebuild.',
     'The company site had a different job from the <a class="text-link" href="/web-developer-project-loopmanager">LoopManager product site</a>. LoopManager is nuVector\'s product, and that site explains what the software does. This one had to show that the company behind it is real and established, and then get a demo booked. That is why the client work sits high on the page and why every route ends at the same form.',
