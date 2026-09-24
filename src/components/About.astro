@@ -1,5 +1,6 @@
 ---
 import { SHOW_CLOX } from '../config';
+import DayInTheLife from './DayInTheLife.astro';
 
 // Work history. Keep it factual: employer, role, where, when.
 const experience = [
@@ -71,8 +72,13 @@ const skillGroups = [
         I work remotely as the front-end developer and marketing specialist at TimeClick, a software company in Utah.
         I am also the web developer and SEO consultant for Universal Environmental Services, and I take on web
         design and SEO projects for other US clients.{SHOW_CLOX ? ' I also run my own product, Clox.' : ''}{' '}
-        Outside of work I rock climb, train Brazilian jiu jitsu and travel.
+        Outside of work I play with my dog, train Brazilian jiu jitsu and eat a lot of Mexican food.
       </p>
+    </div>
+
+    <div class="about-day">
+      <h3>A day in the life</h3>
+      <DayInTheLife />
     </div>
 
     <div class="about-story">
@@ -242,7 +248,8 @@ const skillGroups = [
       grid-column: 1 / 3;
     }
 
-    .about-experience {
+    .about-experience,
+    .about-day {
       grid-column: 1 / 3;
     }
 

@@ -1,0 +1,580 @@
+---
+// A day in the life: one figure walks through five scenes on a 44 second
+// loop. The drawing is one inline SVG, the motion is CSS keyframes, and the
+// script below only moves the timeline's clock and keeps the caption in step.
+// Everything is scoped under .ditl so nothing here reaches the rest of the page.
+---
+
+<div class="ditl" id="day-in-the-life" data-scene="0">
+  <div class="ditl-panel">
+    <div class="ditl-stage">
+      <svg viewBox="0 0 960 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A looping line drawing of a day. A man throws a ball for his dog in the park, walks to a gym and trains jiu jitsu, walks to a desk and builds a website, walks to a food truck and eats a very large burrito at a picnic table, then walks to a campfire and plays guitar while two friends sing along.">
+<g class="pan-sky"><g class="sky"><g transform="translate(0,0)"><path d="M0 262 q120 -22 240 -6 t240 -16 t240 10 t240 -8 L960 264"/></g><g transform="translate(960,0)"><path d="M0 262 q120 -22 240 -6 t240 -16 t240 10 t240 -8 L960 264"/></g><g transform="translate(1920,0)"><path d="M0 262 q120 -22 240 -6 t240 -16 t240 10 t240 -8 L960 264"/></g><g transform="translate(2880,0)"><path d="M0 262 q120 -22 240 -6 t240 -16 t240 10 t240 -8 L960 264"/></g></g></g>
+<g class="pan-far"><g><g transform="translate(0,0)"><circle class="s1" cx="700" cy="84" r="18"/><path class="s1" d="M700 56 l0 -8 M700 112 l0 8 M672 84 l-8 0 M728 84 l8 0 M680 64 l-5 -5 M720 104 l5 5 M720 64 l5 -5 M680 104 l-5 5"/><path class="s1" d="M40 286 L40 252 M92 286 L92 252 M144 286 L144 252 M196 286 L196 252 M248 286 L248 252 M20 262 L270 262 M20 276 L270 276"/><path class="s1" d="M880 292 L880 182"/><path class="s1" d="M880 182 q-56 -8 -66 -60 q24 -48 66 -40 q42 -8 66 40 q-10 52 -66 60 Z"/><path class="s1" d="M856 132 q24 -18 48 0"/></g>
+<g transform="translate(960,0)"><rect class="wall" x="0" y="0" width="960" height="292"/><path class="s1" d="M0 72 L960 72"/><rect class="s1" x="560" y="92" width="240" height="72" rx="4"/><text class="sign" x="680" y="141" text-anchor="middle" font-size="27" letter-spacing="4">JIU JITSU</text><circle class="s1" cx="150" cy="122" r="26"/><path class="s1" d="M150 106 L150 122 L162 128"/><rect class="s1" x="30" y="280" width="110" height="12" rx="6"/><rect class="s1" x="34" y="267" width="102" height="12" rx="6"/><rect class="s1" x="38" y="254" width="94" height="12" rx="6"/><path class="s1" d="M880 292 L880 232 q0 -8 8 -8 l14 0 q8 0 8 8 L910 292"/><circle class="s1" cx="904" cy="262" r="1.6"/></g>
+<g transform="translate(1920,0)"><path class="wall" fill-rule="evenodd" d="M0 0 H960 V292 H0 Z M600 56 h260 v150 h-260 Z"/><rect class="s1" x="600" y="56" width="260" height="150" rx="3"/><path class="s1" d="M730 56 L730 206 M600 131 L860 131"/><rect class="s1" x="96" y="82" width="90" height="64" rx="3"/><path class="s1" d="M110 132 q20 -30 32 -6 q10 -18 30 6"/><path class="s1" d="M220 116 L330 116"/><rect class="s1" x="232" y="86" width="12" height="30"/><rect class="s1" x="248" y="92" width="10" height="24"/><rect class="s1" x="262" y="84" width="14" height="32" transform="rotate(-8 262 116)"/></g>
+<g transform="translate(2880,0)"><path class="s1 fillb" d="M76 262 a24 24 0 0 1 48 0 Z"/><path class="s1" d="M60 128 l64 0 M150 104 l44 0 M700 96 l70 0"/></g>
+<g transform="translate(3840,0)"><g class="stars"><circle class="star" cx="120" cy="60" r="2"/><circle class="star" cx="300" cy="40" r="1.6"/><circle class="star" cx="520" cy="70" r="2.2"/><circle class="star" cx="660" cy="36" r="1.6"/><circle class="star" cx="860" cy="84" r="2"/><circle class="star" cx="420" cy="24" r="1.4"/><circle class="star" cx="220" cy="110" r="1.4"/><circle class="star" cx="600" cy="120" r="1.6"/></g><path class="s1" d="M770 48 a24 24 0 1 0 0 48 a18 18 0 1 1 0 -48 Z"/><path class="s1" d="M40 292 L120 142 L200 292 Z M120 142 L120 292 M76 292 L100 252 L124 292"/><path class="s1" d="M820 292 L820 232 M820 232 q-56 -10 -60 -70 q40 -20 60 -60 q20 40 60 60 q-4 60 -60 70 Z"/><path class="s1" d="M920 292 L920 242 M920 242 q-40 -6 -44 -50 q28 -14 44 -44 q16 30 44 44 q-4 44 -44 50 Z"/></g></g><g transform="translate(4800,0)"><g transform="translate(0,0)"><circle class="s1" cx="700" cy="84" r="18"/><path class="s1" d="M700 56 l0 -8 M700 112 l0 8 M672 84 l-8 0 M728 84 l8 0 M680 64 l-5 -5 M720 104 l5 5 M720 64 l5 -5 M680 104 l-5 5"/><path class="s1" d="M40 286 L40 252 M92 286 L92 252 M144 286 L144 252 M196 286 L196 252 M248 286 L248 252 M20 262 L270 262 M20 276 L270 276"/><path class="s1" d="M880 292 L880 182"/><path class="s1" d="M880 182 q-56 -8 -66 -60 q24 -48 66 -40 q42 -8 66 40 q-10 52 -66 60 Z"/><path class="s1" d="M856 132 q24 -18 48 0"/></g>
+<g transform="translate(960,0)"><rect class="wall" x="0" y="0" width="960" height="292"/><path class="s1" d="M0 72 L960 72"/><rect class="s1" x="560" y="92" width="240" height="72" rx="4"/><text class="sign" x="680" y="141" text-anchor="middle" font-size="27" letter-spacing="4">JIU JITSU</text><circle class="s1" cx="150" cy="122" r="26"/><path class="s1" d="M150 106 L150 122 L162 128"/><rect class="s1" x="30" y="280" width="110" height="12" rx="6"/><rect class="s1" x="34" y="267" width="102" height="12" rx="6"/><rect class="s1" x="38" y="254" width="94" height="12" rx="6"/><path class="s1" d="M880 292 L880 232 q0 -8 8 -8 l14 0 q8 0 8 8 L910 292"/><circle class="s1" cx="904" cy="262" r="1.6"/></g>
+<g transform="translate(1920,0)"><path class="wall" fill-rule="evenodd" d="M0 0 H960 V292 H0 Z M600 56 h260 v150 h-260 Z"/><rect class="s1" x="600" y="56" width="260" height="150" rx="3"/><path class="s1" d="M730 56 L730 206 M600 131 L860 131"/><rect class="s1" x="96" y="82" width="90" height="64" rx="3"/><path class="s1" d="M110 132 q20 -30 32 -6 q10 -18 30 6"/><path class="s1" d="M220 116 L330 116"/><rect class="s1" x="232" y="86" width="12" height="30"/><rect class="s1" x="248" y="92" width="10" height="24"/><rect class="s1" x="262" y="84" width="14" height="32" transform="rotate(-8 262 116)"/></g>
+<g transform="translate(2880,0)"><path class="s1 fillb" d="M76 262 a24 24 0 0 1 48 0 Z"/><path class="s1" d="M60 128 l64 0 M150 104 l44 0 M700 96 l70 0"/></g>
+<g transform="translate(3840,0)"><g class="stars"><circle class="star" cx="120" cy="60" r="2"/><circle class="star" cx="300" cy="40" r="1.6"/><circle class="star" cx="520" cy="70" r="2.2"/><circle class="star" cx="660" cy="36" r="1.6"/><circle class="star" cx="860" cy="84" r="2"/><circle class="star" cx="420" cy="24" r="1.4"/><circle class="star" cx="220" cy="110" r="1.4"/><circle class="star" cx="600" cy="120" r="1.6"/></g><path class="s1" d="M770 48 a24 24 0 1 0 0 48 a18 18 0 1 1 0 -48 Z"/><path class="s1" d="M40 292 L120 142 L200 292 Z M120 142 L120 292 M76 292 L100 252 L124 292"/><path class="s1" d="M820 292 L820 232 M820 232 q-56 -10 -60 -70 q40 -20 60 -60 q20 40 60 60 q-4 60 -60 70 Z"/><path class="s1" d="M920 292 L920 242 M920 242 q-40 -6 -44 -50 q28 -14 44 -44 q16 30 44 44 q-4 44 -44 50 Z"/></g></g></g>
+<g class="pan"><g><path class="ground" d="M0 292 L4800 292"/>
+<g transform="translate(0,0)"><path class="s1 grass" d="M400 292 l4 -12 l4 12 M412 292 l3 -9 l3 9 M600 292 l4 -12 l4 12 M614 292 l3 -8 l3 8 M840 292 l4 -11 l4 11 M854 292 l3 -8 l3 8"/><path class="s1" d="M120 290 l10 0 M520 290 l8 0 M760 290 l12 0"/><g class="ball-fly" style="offset-path:path('M362 128 Q560 -10 740 284')"><circle class="accent-fill" cx="0" cy="0" r="9"/><path class="s2 on-accent" d="M-6 -3 q6 3 12 0"/></g><g class="dog-away"><g class="dog-run"><ellipse class="shadow" cx="500" cy="295" rx="54" ry="4"/><g class="dog-flip" style="transform-origin:510px 250px"><g class="dog-bounce"><path class="s3 tail" style="transform-origin:434px 232px" d="M434 232 Q418 208 428 188"/><g class="dlegs-b" style="transform-origin:452px 258px"><path class="s3" d="M446 258 L442 274 L444 288 M462 258 L464 274 L464 288"/><path class="s3" d="M438 288 l13 0 M458 288 l13 0"/></g><path class="s3 fillb" d="M432 254 q0 -30 34 -32 l44 -2 q28 0 34 24 q2 22 -20 26 l-70 4 q-22 -2 -22 -20 Z"/><path class="s3" d="M510 224 q8 -14 22 -18"/><path class="s3 fillb" d="M528 206 q-12 -4 -12 12 q4 14 14 8 Z"/><path class="s3 fillb" d="M524 206 q16 -14 34 -2 q10 8 8 22 q-6 12 -22 12 q-18 -2 -24 -14 q-2 -12 4 -18 Z"/><path class="s3 fillb" d="M564 218 q14 -2 22 6 q-6 8 -20 8 Z"/><circle class="s3 nose" cx="584" cy="222" r="2.2"/><circle class="s3 eye" cx="554" cy="218" r="2.4"/><path class="s2" d="M566 232 q6 4 12 -2"/><path class="s2" d="M522 234 q10 10 24 6"/><circle class="s2 nfill" cx="536" cy="242" r="2.6"/><g class="dlegs-f" style="transform-origin:528px 258px"><path class="s3" d="M522 258 L520 274 L518 288 M536 260 L538 276 L536 288"/><path class="s3" d="M514 288 l13 0 M532 288 l13 0"/></g><g class="ball-mouth"><circle class="accent-fill" cx="588" cy="236" r="7"/></g></g></g></g></g></g>
+<g transform="translate(960,0)"><rect class="mat" x="120" y="278" width="760" height="14" rx="7"/><path class="s1" d="M300 278 L300 292 M620 278 L620 292"/><rect class="s2 fillb" x="94" y="266" width="10" height="26" rx="3"/><path class="s2" d="M96 270 l6 0"/><g class="partner" style="transform-origin:404px 288px"><g class="partner-tug"><path class="s3" d="M386 214 L376 250"/><path class="s3" d="M376 250 L372 288"/><path class="s3 fillb" d="M382 288 l-22 0 q-8 0 -8 -6 l4 0 q4 0 4 6 Z"/><path class="s3" d="M402 214 L410 250"/><path class="s3" d="M410 250 L412 288"/><path class="s3 fillb" d="M422 288 l-22 0 q-8 0 -8 -6 l4 0 q4 0 4 6 Z"/><path class="s3" d="M400 160 L414 186 L396 196"/><circle class="s3 skin" cx="396" cy="196" r="5.5"/><path class="s3 fillb" d="M372 166 q0 -8 8 -8 L406 158 q8 0 8 8 L414 214 L370 214 Z"/><path class="s2" d="M401 160 q-6 23.1 -11 40 M383 160 q6 23.1 9 40"/><path class="s3 belt-white" d="M370 202 L414 202"/><path class="s3 belt-white" d="M388 202 l-5 15 M388 202 l5 15"/><path class="s3" d="M392 146 L392 158"/><circle class="s3 skin" cx="392" cy="126" r="20"/><path class="s2" d="M382 124 l-4 0"/><path class="s2" d="M384 136 l-10 0"/><path class="s3" d="M374 162 L350 178 L344 172"/><circle class="s3 skin" cx="344" cy="172" r="5.5"/></g></g><path class="s2 impact" d="M588 276 l5 -13 M600 274 l0 -15 M612 276 l-5 -13"/><ellipse class="shadow" cx="392" cy="295" rx="26" ry="4"/></g>
+<g transform="translate(1920,0)"><path class="s2" d="M262 236 L332 236 M296 236 L296 278 M274 286 q22 -10 44 0"/><path class="s2" d="M266 236 L260 158 q0 -8 8 -8 l16 0"/><path class="s3 fillb" d="M330 206 L740 206 L740 214 L330 214 Z"/><path class="s2" d="M356 214 L356 292 M712 214 L712 292 M356 252 L712 252"/><g class="monitor"><rect class="s3 fillb" x="440" y="70" width="200" height="118" rx="6"/><rect class="accent-screen" x="448" y="78" width="184" height="102" rx="3"/><path class="s2 code" style="--len:50px;animation-delay:0.0s" d="M464 98 l50 0"/><path class="s2 code" style="--len:80px;animation-delay:0.7s" d="M464 114 l80 0"/><path class="s2 code" style="--len:56px;animation-delay:1.4s" d="M474 130 l56 0"/><path class="s2 code" style="--len:84px;animation-delay:2.1s" d="M474 146 l84 0"/><path class="s2 code" style="--len:40px;animation-delay:2.8s" d="M464 162 l40 0"/><path class="s3" d="M540 188 L540 200 M512 206 L568 206"/></g><path class="s2 fillb" d="M372 198 L448 198 L452 206 L368 206 Z"/><path class="s2" d="M470 199 q10 0 10 6 q-10 2 -18 0 q0 -6 8 -6 Z"/><path class="s2 fillb" d="M664 206 L660 176 L692 176 L688 206 Z"/><path class="s2 leaf" style="transform-origin:676px 176px" d="M676 176 q-24 -20 -10 -44 q18 14 10 44 M676 176 q24 -24 12 -48 q-18 16 -12 48 M676 176 q0 -30 4 -50"/><path class="s2 fillb" d="M600 206 L600 184 L632 184 L632 206 Z M632 188 q12 0 12 9 t-12 8"/><g class="steam"><path class="s1" d="M610 176 q8 -12 0 -24"/><path class="s1" d="M622 176 q8 -12 0 -24"/></g></g>
+<g transform="translate(2880,0)"><path class="s1" d="M60 290 l10 0 M700 290 l8 0 M920 290 l12 0"/><path class="s2 fillb" d="M268 250 L324 250 L324 258 L268 258 Z"/><path class="s2" d="M276 258 L274 292 M316 258 L318 292"/><path class="s2 fillb" d="M340 214 L470 214 L470 222 L340 222 Z"/><path class="s2" d="M360 222 L348 292 M450 222 L462 292 M354 262 L456 262"/><path class="s2 fillb" d="M480 250 L536 250 L536 258 L480 258 Z"/><path class="s2" d="M488 258 L486 292 M528 258 L530 292"/><path class="s2 fillb" d="M380 214 L384 196 L424 196 L428 214 Z"/><path class="s2" d="M388 196 l6 -10 l6 10 M400 196 l5 -8 l5 8 M410 196 l6 -9 l6 9"/><path class="s2 fillb" d="M436 214 L438 204 L452 204 L454 214 Z"/><path class="s2 fillb" d="M458 214 L460 184 L474 184 L476 214 Z M468 184 l4 -12"/><path class="s2 fillb" d="M560 284 L560 150 L560 150 q0 -12 12 -12 L880 138 q12 0 12 12 L892 284 Z"/><path class="s2" d="M832 164 L882 164 L882 200 L832 200 Z"/><rect class="s2 fillb2" x="590" y="168" width="150" height="72" rx="3"/><path class="s2" d="M582 240 L748 240 L748 250 L582 250 Z"/><circle class="s2 fillb" cx="665" cy="200" r="13"/><path class="s2" d="M643 212 q22 -14 44 0"/><path class="s2 fillb" d="M652 192 q13 -14 26 0 l-4 -8 q-9 -8 -18 0 Z"/><path class="s2 fillb" d="M540 168 L552 150 L780 150 L792 168 Z"/><path class="s2" d="M540 168 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0"/><path class="s2" d="M540 150 L540 168"/><circle class="bulb" cx="550" cy="180" r="2.6"/><circle class="bulb" cx="573" cy="180" r="2.6"/><circle class="bulb" cx="596" cy="180" r="2.6"/><circle class="bulb" cx="619" cy="180" r="2.6"/><circle class="bulb" cx="642" cy="180" r="2.6"/><circle class="bulb" cx="665" cy="180" r="2.6"/><circle class="bulb" cx="688" cy="180" r="2.6"/><circle class="bulb" cx="711" cy="180" r="2.6"/><circle class="bulb" cx="734" cy="180" r="2.6"/><circle class="bulb" cx="757" cy="180" r="2.6"/><circle class="bulb" cx="780" cy="180" r="2.6"/><rect class="s2 fillb" x="560" y="96" width="240" height="42" rx="5"/><text class="sign-near" x="680" y="128" text-anchor="middle" font-size="26" letter-spacing="5">BURRITOS</text><circle class="s2 fillb" cx="620" cy="288" r="16"/><circle class="s2" cx="620" cy="288" r="5"/><circle class="s2 fillb" cx="840" cy="288" r="16"/><circle class="s2" cx="840" cy="288" r="5"/></g>
+<g transform="translate(3840,0)"><path class="s2" d="M240 292 q0 -22 30 -22 l90 0 q30 0 30 22"/><path class="glow" d="M424 292 a96 96 0 0 1 192 0 Z"/><ellipse class="glow" cx="520" cy="292" rx="96" ry="9"/><path class="s2" d="M450 292 q-14 -14 0 -20 q14 6 0 20 M586 292 q-14 -14 0 -20 q14 6 0 20"/><path class="s3" d="M470 286 L570 258 M470 258 L570 286"/><g class="flame-g" style="transform-origin:520px 254px"><path class="accent-fill flame" d="M520 254 q-40 -30 -18 -72 q6 20 24 26 q-12 -42 20 -66 q-4 46 26 70 q20 26 -4 46 q-26 22 -48 -4 Z"/><path class="flame-in" d="M520 252 q-16 -18 -6 -38 q4 10 12 14 q-6 -22 10 -34 q-2 24 12 36 q8 14 -2 24 q-14 10 -26 -2 Z"/></g><g class="sparks"><circle class="accent-fill sp" cx="508" cy="172" r="2"/><circle class="accent-fill sp" cx="536" cy="158" r="1.6"/><circle class="accent-fill sp" cx="524" cy="142" r="1.4"/></g><path class="s2" d="M640 292 q0 -22 30 -22 l170 0 q30 0 30 22"/><g class="friend" transform="translate(-40,0)"><path class="s3 fillb" d="M736 174 L784 172 L780 238 L736 240 Z"/><circle class="s3 skin" cx="762" cy="142" r="20"/><path class="s3 fillb" d="M784 130 q-22 -30 -46 -6 q-2 -10 8 -14 q14 -8 30 4 q10 8 8 16 Z"/><path class="s2" d="M750 140 l-4 0"/><g class="sing"><path class="s2 mouth-a" d="M756 154 q-8 8 -14 0"/><ellipse class="s2 fillb2 mouth-b" cx="749" cy="155" rx="3.4" ry="4.6"/></g><path class="s3" d="M762 162 L758 172"/><path class="s3" d="M740 184 L704 204 L686 200"/><circle class="s3 skin" cx="682" cy="199" r="5.5"/><path class="s3" d="M780 186 L752 214 L718 214"/><circle class="s3 skin" cx="714" cy="214" r="5.5"/><path class="s3" d="M742 240 L702 250 L694 288"/><path class="s3" d="M766 238 L726 246 L716 288"/><path class="s3 fillb" d="M702 288 l-22 0 q-8 0 -8 -6 l4 0 q4 0 4 6 Z"/><path class="s3 fillb" d="M724 288 l-22 0 q-8 0 -8 -6 l4 0 q4 0 4 6 Z"/></g><g class="friend2" transform="translate(-50,0)"><path class="s2 fillb" d="M876 236 q18 -22 -4 -34 q-18 -6 -24 12"/><circle class="s2 fillb" cx="860" cy="204" r="15"/><path class="s2" d="M860 219 L858 228"/><path class="s2 fillb" d="M844 230 L874 228 L876 262 L842 264 Z"/><path class="s2" d="M844 262 L826 236 L812 262 M876 260 L890 236 L904 262"/><path class="s2" d="M848 240 L828 244 L812 248 M872 240 L890 244 L904 248"/><path class="s2 stick" d="M812 248 L640 238"/><circle class="s2 fillb" cx="636" cy="237" r="4"/></g></g></g><g transform="translate(4800,0)"><path class="ground" d="M0 292 L4800 292"/>
+<g transform="translate(0,0)"><path class="s1 grass" d="M400 292 l4 -12 l4 12 M412 292 l3 -9 l3 9 M600 292 l4 -12 l4 12 M614 292 l3 -8 l3 8 M840 292 l4 -11 l4 11 M854 292 l3 -8 l3 8"/><path class="s1" d="M120 290 l10 0 M520 290 l8 0 M760 290 l12 0"/><g class="ball-fly" style="offset-path:path('M362 128 Q560 -10 740 284')"><circle class="accent-fill" cx="0" cy="0" r="9"/><path class="s2 on-accent" d="M-6 -3 q6 3 12 0"/></g><g class="dog-away"><g class="dog-run"><ellipse class="shadow" cx="500" cy="295" rx="54" ry="4"/><g class="dog-flip" style="transform-origin:510px 250px"><g class="dog-bounce"><path class="s3 tail" style="transform-origin:434px 232px" d="M434 232 Q418 208 428 188"/><g class="dlegs-b" style="transform-origin:452px 258px"><path class="s3" d="M446 258 L442 274 L444 288 M462 258 L464 274 L464 288"/><path class="s3" d="M438 288 l13 0 M458 288 l13 0"/></g><path class="s3 fillb" d="M432 254 q0 -30 34 -32 l44 -2 q28 0 34 24 q2 22 -20 26 l-70 4 q-22 -2 -22 -20 Z"/><path class="s3" d="M510 224 q8 -14 22 -18"/><path class="s3 fillb" d="M528 206 q-12 -4 -12 12 q4 14 14 8 Z"/><path class="s3 fillb" d="M524 206 q16 -14 34 -2 q10 8 8 22 q-6 12 -22 12 q-18 -2 -24 -14 q-2 -12 4 -18 Z"/><path class="s3 fillb" d="M564 218 q14 -2 22 6 q-6 8 -20 8 Z"/><circle class="s3 nose" cx="584" cy="222" r="2.2"/><circle class="s3 eye" cx="554" cy="218" r="2.4"/><path class="s2" d="M566 232 q6 4 12 -2"/><path class="s2" d="M522 234 q10 10 24 6"/><circle class="s2 nfill" cx="536" cy="242" r="2.6"/><g class="dlegs-f" style="transform-origin:528px 258px"><path class="s3" d="M522 258 L520 274 L518 288 M536 260 L538 276 L536 288"/><path class="s3" d="M514 288 l13 0 M532 288 l13 0"/></g><g class="ball-mouth"><circle class="accent-fill" cx="588" cy="236" r="7"/></g></g></g></g></g></g>
+<g transform="translate(960,0)"><rect class="mat" x="120" y="278" width="760" height="14" rx="7"/><path class="s1" d="M300 278 L300 292 M620 278 L620 292"/><rect class="s2 fillb" x="94" y="266" width="10" height="26" rx="3"/><path class="s2" d="M96 270 l6 0"/><g class="partner" style="transform-origin:404px 288px"><g class="partner-tug"><path class="s3" d="M386 214 L376 250"/><path class="s3" d="M376 250 L372 288"/><path class="s3 fillb" d="M382 288 l-22 0 q-8 0 -8 -6 l4 0 q4 0 4 6 Z"/><path class="s3" d="M402 214 L410 250"/><path class="s3" d="M410 250 L412 288"/><path class="s3 fillb" d="M422 288 l-22 0 q-8 0 -8 -6 l4 0 q4 0 4 6 Z"/><path class="s3" d="M400 160 L414 186 L396 196"/><circle class="s3 skin" cx="396" cy="196" r="5.5"/><path class="s3 fillb" d="M372 166 q0 -8 8 -8 L406 158 q8 0 8 8 L414 214 L370 214 Z"/><path class="s2" d="M401 160 q-6 23.1 -11 40 M383 160 q6 23.1 9 40"/><path class="s3 belt-white" d="M370 202 L414 202"/><path class="s3 belt-white" d="M388 202 l-5 15 M388 202 l5 15"/><path class="s3" d="M392 146 L392 158"/><circle class="s3 skin" cx="392" cy="126" r="20"/><path class="s2" d="M382 124 l-4 0"/><path class="s2" d="M384 136 l-10 0"/><path class="s3" d="M374 162 L350 178 L344 172"/><circle class="s3 skin" cx="344" cy="172" r="5.5"/></g></g><path class="s2 impact" d="M588 276 l5 -13 M600 274 l0 -15 M612 276 l-5 -13"/><ellipse class="shadow" cx="392" cy="295" rx="26" ry="4"/></g>
+<g transform="translate(1920,0)"><path class="s2" d="M262 236 L332 236 M296 236 L296 278 M274 286 q22 -10 44 0"/><path class="s2" d="M266 236 L260 158 q0 -8 8 -8 l16 0"/><path class="s3 fillb" d="M330 206 L740 206 L740 214 L330 214 Z"/><path class="s2" d="M356 214 L356 292 M712 214 L712 292 M356 252 L712 252"/><g class="monitor"><rect class="s3 fillb" x="440" y="70" width="200" height="118" rx="6"/><rect class="accent-screen" x="448" y="78" width="184" height="102" rx="3"/><path class="s2 code" style="--len:50px;animation-delay:0.0s" d="M464 98 l50 0"/><path class="s2 code" style="--len:80px;animation-delay:0.7s" d="M464 114 l80 0"/><path class="s2 code" style="--len:56px;animation-delay:1.4s" d="M474 130 l56 0"/><path class="s2 code" style="--len:84px;animation-delay:2.1s" d="M474 146 l84 0"/><path class="s2 code" style="--len:40px;animation-delay:2.8s" d="M464 162 l40 0"/><path class="s3" d="M540 188 L540 200 M512 206 L568 206"/></g><path class="s2 fillb" d="M372 198 L448 198 L452 206 L368 206 Z"/><path class="s2" d="M470 199 q10 0 10 6 q-10 2 -18 0 q0 -6 8 -6 Z"/><path class="s2 fillb" d="M664 206 L660 176 L692 176 L688 206 Z"/><path class="s2 leaf" style="transform-origin:676px 176px" d="M676 176 q-24 -20 -10 -44 q18 14 10 44 M676 176 q24 -24 12 -48 q-18 16 -12 48 M676 176 q0 -30 4 -50"/><path class="s2 fillb" d="M600 206 L600 184 L632 184 L632 206 Z M632 188 q12 0 12 9 t-12 8"/><g class="steam"><path class="s1" d="M610 176 q8 -12 0 -24"/><path class="s1" d="M622 176 q8 -12 0 -24"/></g></g>
+<g transform="translate(2880,0)"><path class="s1" d="M60 290 l10 0 M700 290 l8 0 M920 290 l12 0"/><path class="s2 fillb" d="M268 250 L324 250 L324 258 L268 258 Z"/><path class="s2" d="M276 258 L274 292 M316 258 L318 292"/><path class="s2 fillb" d="M340 214 L470 214 L470 222 L340 222 Z"/><path class="s2" d="M360 222 L348 292 M450 222 L462 292 M354 262 L456 262"/><path class="s2 fillb" d="M480 250 L536 250 L536 258 L480 258 Z"/><path class="s2" d="M488 258 L486 292 M528 258 L530 292"/><path class="s2 fillb" d="M380 214 L384 196 L424 196 L428 214 Z"/><path class="s2" d="M388 196 l6 -10 l6 10 M400 196 l5 -8 l5 8 M410 196 l6 -9 l6 9"/><path class="s2 fillb" d="M436 214 L438 204 L452 204 L454 214 Z"/><path class="s2 fillb" d="M458 214 L460 184 L474 184 L476 214 Z M468 184 l4 -12"/><path class="s2 fillb" d="M560 284 L560 150 L560 150 q0 -12 12 -12 L880 138 q12 0 12 12 L892 284 Z"/><path class="s2" d="M832 164 L882 164 L882 200 L832 200 Z"/><rect class="s2 fillb2" x="590" y="168" width="150" height="72" rx="3"/><path class="s2" d="M582 240 L748 240 L748 250 L582 250 Z"/><circle class="s2 fillb" cx="665" cy="200" r="13"/><path class="s2" d="M643 212 q22 -14 44 0"/><path class="s2 fillb" d="M652 192 q13 -14 26 0 l-4 -8 q-9 -8 -18 0 Z"/><path class="s2 fillb" d="M540 168 L552 150 L780 150 L792 168 Z"/><path class="s2" d="M540 168 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0 q10 12 20 0"/><path class="s2" d="M540 150 L540 168"/><circle class="bulb" cx="550" cy="180" r="2.6"/><circle class="bulb" cx="573" cy="180" r="2.6"/><circle class="bulb" cx="596" cy="180" r="2.6"/><circle class="bulb" cx="619" cy="180" r="2.6"/><circle class="bulb" cx="642" cy="180" r="2.6"/><circle class="bulb" cx="665" cy="180" r="2.6"/><circle class="bulb" cx="688" cy="180" r="2.6"/><circle class="bulb" cx="711" cy="180" r="2.6"/><circle class="bulb" cx="734" cy="180" r="2.6"/><circle class="bulb" cx="757" cy="180" r="2.6"/><circle class="bulb" cx="780" cy="180" r="2.6"/><rect class="s2 fillb" x="560" y="96" width="240" height="42" rx="5"/><text class="sign-near" x="680" y="128" text-anchor="middle" font-size="26" letter-spacing="5">BURRITOS</text><circle class="s2 fillb" cx="620" cy="288" r="16"/><circle class="s2" cx="620" cy="288" r="5"/><circle class="s2 fillb" cx="840" cy="288" r="16"/><circle class="s2" cx="840" cy="288" r="5"/></g>
+<g transform="translate(3840,0)"><path class="s2" d="M240 292 q0 -22 30 -22 l90 0 q30 0 30 22"/><path class="glow" d="M424 292 a96 96 0 0 1 192 0 Z"/><ellipse class="glow" cx="520" cy="292" rx="96" ry="9"/><path class="s2" d="M450 292 q-14 -14 0 -20 q14 6 0 20 M586 292 q-14 -14 0 -20 q14 6 0 20"/><path class="s3" d="M470 286 L570 258 M470 258 L570 286"/><g class="flame-g" style="transform-origin:520px 254px"><path class="accent-fill flame" d="M520 254 q-40 -30 -18 -72 q6 20 24 26 q-12 -42 20 -66 q-4 46 26 70 q20 26 -4 46 q-26 22 -48 -4 Z"/><path class="flame-in" d="M520 252 q-16 -18 -6 -38 q4 10 12 14 q-6 -22 10 -34 q-2 24 12 36 q8 14 -2 24 q-14 10 -26 -2 Z"/></g><g class="sparks"><circle class="accent-fill sp" cx="508" cy="172" r="2"/><circle class="accent-fill sp" cx="536" cy="158" r="1.6"/><circle class="accent-fill sp" cx="524" cy="142" r="1.4"/></g><path class="s2" d="M640 292 q0 -22 30 -22 l170 0 q30 0 30 22"/><g class="friend" transform="translate(-40,0)"><path class="s3 fillb" d="M736 174 L784 172 L780 238 L736 240 Z"/><circle class="s3 skin" cx="762" cy="142" r="20"/><path class="s3 fillb" d="M784 130 q-22 -30 -46 -6 q-2 -10 8 -14 q14 -8 30 4 q10 8 8 16 Z"/><path class="s2" d="M750 140 l-4 0"/><g class="sing"><path class="s2 mouth-a" d="M756 154 q-8 8 -14 0"/><ellipse class="s2 fillb2 mouth-b" cx="749" cy="155" rx="3.4" ry="4.6"/></g><path class="s3" d="M762 162 L758 172"/><path class="s3" d="M740 184 L704 204 L686 200"/><circle class="s3 skin" cx="682" cy="199" r="5.5"/><path class="s3" d="M780 186 L752 214 L718 214"/><circle class="s3 skin" cx="714" cy="214" r="5.5"/><path class="s3" d="M742 240 L702 250 L694 288"/><path class="s3" d="M766 238 L726 246 L716 288"/><path class="s3 fillb" d="M702 288 l-22 0 q-8 0 -8 -6 l4 0 q4 0 4 6 Z"/><path class="s3 fillb" d="M724 288 l-22 0 q-8 0 -8 -6 l4 0 q4 0 4 6 Z"/></g><g class="friend2" transform="translate(-50,0)"><path class="s2 fillb" d="M876 236 q18 -22 -4 -34 q-18 -6 -24 12"/><circle class="s2 fillb" cx="860" cy="204" r="15"/><path class="s2" d="M860 219 L858 228"/><path class="s2 fillb" d="M844 230 L874 228 L876 262 L842 264 Z"/><path class="s2" d="M844 262 L826 236 L812 262 M876 260 L890 236 L904 262"/><path class="s2" d="M848 240 L828 244 L812 248 M872 240 L890 244 L904 248"/><path class="s2 stick" d="M812 248 L640 238"/><circle class="s2 fillb" cx="636" cy="237" r="4"/></g></g></g></g>
+<g class="figure"><g class="pose pose-walk"><ellipse class="shadow" cx="300" cy="295" rx="24" ry="4"/><g class="w-legs"><g class="w-leg-b" style="transform-origin:296px 208px"><path class="s3" d="M296 208 L294 250"/><g class="w-shin-b" style="transform-origin:294px 250px"><path class="s3" d="M294 250 L294 288"/><path class="s3 fillb" d="M284 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/></g></g><g class="w-leg-f" style="transform-origin:306px 208px"><path class="s3" d="M306 208 L308 250"/><g class="w-shin-f" style="transform-origin:308px 250px"><path class="s3" d="M308 250 L308 288"/><path class="s3 fillb" d="M298 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/></g></g></g><g class="w-body"><g class="w-arm-b" style="transform-origin:284px 158px"><path class="s3" d="M284 158 L278 186 L284 212"/><circle class="s3 skin" cx="284" cy="212" r="5.5"/></g><path class="s3 fillb" d="M278 160 q0 -8 8 -8 L314 152 q8 0 8 8 L318 210 L282 210 Z"/><path class="s2" d="M292 152 q8 8 16 0"/><path class="s3" d="M300 138 L300 150"/><circle class="s3 skin" cx="300" cy="118" r="20"/><path class="s3 fillb" d="M278 106 q22 -30 46 -6 q2 -10 -8 -14 q-14 -8 -30 4 q-10 8 -8 16 Z"/><path class="s2" d="M310 116 l4 0"/><path class="s2" d="M308 128 q6 4 10 0"/><g class="w-arm-f" style="transform-origin:316px 158px"><path class="s3" d="M316 158 L324 186 L320 212"/><circle class="s3 skin" cx="320" cy="212" r="5.5"/></g></g></g><g class="pose pose-throw"><ellipse class="shadow" cx="304" cy="295" rx="28" ry="4"/><path class="s3" d="M294 208 L284 250"/><path class="s3" d="M284 250 L282 288"/><path class="s3 fillb" d="M272 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/><path class="s3" d="M308 208 L322 250"/><path class="s3" d="M322 250 L330 288"/><path class="s3 fillb" d="M320 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/><g class="throw-arm" style="transform-origin:318px 158px"><path class="s3" d="M318 158 L344 142 L358 118"/><circle class="s3 skin" cx="358" cy="118" r="5.5"/><g class="ball-hand"><circle class="accent-fill" cx="358" cy="118" r="9"/><path class="s2 on-accent" d="M352 115 q6 3 12 0"/></g></g><path class="s3 fillb" d="M278 160 q0 -8 8 -8 L314 152 q8 0 8 8 L318 210 L282 210 Z"/><path class="s2" d="M292 152 q8 8 16 0"/><path class="s3" d="M300 138 L300 150"/><circle class="s3 skin" cx="300" cy="118" r="20"/><path class="s3 fillb" d="M278 106 q22 -30 46 -6 q2 -10 -8 -14 q-14 -8 -30 4 q-10 8 -8 16 Z"/><path class="s2" d="M310 116 l4 0"/><path class="s2" d="M308 128 q6 4 10 0"/><path class="s3" d="M284 158 L296 186 L316 198"/><circle class="s3 skin" cx="316" cy="198" r="5.5"/></g><g class="pose pose-grapple"><ellipse class="shadow" cx="306" cy="295" rx="34" ry="4"/><path class="s3" d="M292 210 L278 250"/><path class="s3" d="M278 250 L278 288"/><path class="s3 fillb" d="M268 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/><g class="reap" style="transform-origin:308px 210px"><path class="s3" d="M308 210 L324 250"/><path class="s3" d="M324 250 L330 288"/><path class="s3 fillb" d="M320 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/></g><g class="grip-b" style="transform-origin:294px 158px"><path class="s3" d="M294 158 L316 184 L340 176"/><circle class="s3 skin" cx="340" cy="176" r="5.5"/></g><path class="s3 fillb" d="M286 162 q0 -8 8 -8 L322 150 q8 0 8 8 L324 210 L284 210 Z"/><path class="s2" d="M299 152 q6 26.4 11 46 M317 152 q-6 26.4 -9 46"/><path class="s3 belt" d="M284 200 L324 200"/><path class="s3 belt" d="M306 200 l-5 15 M306 200 l5 15"/><path class="s3" d="M304 141 L307 151"/><circle class="s3 skin" cx="304" cy="122" r="20"/><path class="s3 fillb" d="M282 110 q22 -30 46 -6 q2 -10 -8 -14 q-14 -8 -30 4 q-10 8 -8 16 Z"/><path class="s2" d="M314 120 l4 0"/><path class="s2" d="M312 132 l10 0"/><g class="grip-f" style="transform-origin:322px 152px"><path class="s3" d="M322 152 L352 166 L382 170"/><circle class="s3 skin" cx="382" cy="170" r="5.5"/></g></g><g class="pose pose-type"><path class="s3" d="M298 232 L352 238"/><path class="s3" d="M352 238 L356 288"/><path class="s3 fillb" d="M346 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/><path class="s3" d="M330 230 L370 238"/><path class="s3" d="M370 238 L380 288"/><path class="s3 fillb" d="M370 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/><path class="s3" d="M290 178 L336 196 L400 196"/><circle class="s3 skin" cx="400" cy="196" r="5.5"/><path class="s3 fillb" d="M282 170 q0 -8 8 -8 L318 158 q8 0 8 8 L334 232 L290 236 Z"/><path class="s2" d="M296 160 q8 8 16 0"/><path class="s3" d="M300 150 L304 160"/><circle class="s3 skin" cx="300" cy="130" r="20"/><path class="s3 fillb" d="M278 118 q22 -30 46 -6 q2 -10 -8 -14 q-14 -8 -30 4 q-10 8 -8 16 Z"/><path class="s2" d="M310 128 l4 0"/><path class="s2" d="M308 140 q6 4 10 0"/><path class="s3" d="M279 124 q22 -34 44 -4"/><rect class="s3 fillb" x="317" y="122" width="9" height="13" rx="3"/><g class="type-arm" style="transform-origin:326px 172px"><path class="s3" d="M326 172 L360 186 L378 196"/><circle class="s3 skin" cx="378" cy="196" r="5.5"/></g></g><g class="pose pose-eat"><path class="s3" d="M302 248 L348 250"/><path class="s3" d="M348 250 L350 288"/><path class="s3 fillb" d="M340 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/><path class="s3" d="M318 246 L362 248"/><path class="s3" d="M362 248 L366 288"/><path class="s3 fillb" d="M356 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/><path class="s3 fillb" d="M280 200 q0 -8 8 -8 L316 190 q8 0 8 8 L322 250 L282 252 Z"/><path class="s2" d="M294 191 q8 8 16 0"/><g class="nod" style="transform-origin:302px 190px"><path class="s3" d="M302 178 L302 190"/><circle class="s3 skin" cx="302" cy="158" r="20"/><path class="s3 fillb" d="M280 146 q22 -30 46 -6 q2 -10 -8 -14 q-14 -8 -30 4 q-10 8 -8 16 Z"/><path class="s2" d="M312 156 l4 0"/><ellipse class="s2 fillb2" cx="315" cy="169" rx="3.4" ry="4.6"/></g><g class="eat-arms"><path class="tortilla" d="M347.2 221.7 L317.1 183.7 Q341.4 192.5 337.8 167.3 L343.8 162.6 L373.9 200.7 Z"/><path class="s2 tl" d="M338.0 206.0 Q345.6 192.4 360.7 188.1 M329.3 195.0 Q337.0 181.4 352.0 177.1 "/><circle class="fill-dot" cx="327.8" cy="186.7" r="1.9"/><circle class="fill-dot" cx="335.9" cy="184.1" r="1.9"/><circle class="fill-dot" cx="339.4" cy="176.3" r="1.9"/><path class="fill-line" d="M342.0 184.4 q3 -4 7 -1"/><path class="foil" d="M374.7 256.5 L344.1 217.8 L342.6 211.3 L348.5 214.3 L347.0 207.8 L353.0 210.8 L351.5 204.3 L357.4 207.3 L355.9 200.8 L361.9 203.8 L360.4 197.3 L366.3 200.2 L364.8 193.8 L370.8 196.7 L401.3 235.5 Q398.5 259.3 374.7 256.5 Z"/><path class="foilline" d="M371.8 246.1 L376.1 233.7 L391.8 231.6 M364.4 236.6 L368.7 224.3 L384.3 222.1 M356.9 227.2 L361.3 214.9 L376.9 212.7 "/><path class="s3" d="M288 198 L322 224 L352 216"/><circle class="s3 skin" cx="352" cy="216" r="5.5"/><path class="s3" d="M320 196 L350 214 L372 234"/><circle class="s3 skin" cx="372" cy="234" r="5.5"/></g><g class="steam"><path class="s1" d="M322 158 q10 -14 0 -28"/><path class="s1" d="M336 152 q10 -14 0 -28"/><path class="s1" d="M350 160 q10 -14 0 -28"/></g></g><g class="pose pose-play"><path class="s3" d="M300 240 L346 250"/><path class="s3" d="M346 250 L352 288"/><path class="s3 fillb" d="M342 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/><path class="s3" d="M326 236 L366 246"/><path class="s3" d="M366 246 L372 288"/><path class="s3 fillb" d="M362 288 l22 0 q8 0 8 -6 l-4 0 q-4 0 -4 6 Z"/><path class="s3 fillb" d="M284 182 q0 -8 8 -8 L322 172 q8 0 8 8 L336 236 L292 240 Z"/><path class="s2" d="M299 173 q8 8 16 0"/><g class="nod" style="transform-origin:304px 172px"><path class="s3" d="M300 164 L306 172"/><circle class="s3 skin" cx="300" cy="144" r="20"/><path class="s3 fillb" d="M278 132 q22 -30 46 -6 q2 -10 -8 -14 q-14 -8 -30 4 q-10 8 -8 16 Z"/><path class="s2" d="M310 142 l4 0"/><g class="sing"><path class="s2 mouth-a" d="M306 156 q8 8 14 0"/><ellipse class="s2 fillb2 mouth-b" cx="313" cy="157" rx="3.4" ry="4.6"/></g></g><g class="guitar"><path class="s3 fillb" d="M342 214 q-4 -26 20 -30 q16 -2 22 10 q26 -14 40 8 q8 26 -18 34 q-14 4 -24 -4 q-20 10 -34 -2 q-8 -8 -6 -16 Z"/><circle class="s3 fillb2" cx="382" cy="212" r="9"/><path class="s3" d="M416 202 L490 168"/><path class="s2" d="M420 198 L486 166 M424 208 L492 176"/><path class="s3 fillb" d="M486 160 L504 152 L510 166 L492 174 Z"/><path class="s2" d="M496 154 l-4 -8 M504 158 l4 -8"/><path class="s2 strings" d="M352 214 L412 200 M354 220 L414 206 M356 226 L416 212"/></g><g class="strum-arm" style="transform-origin:326px 184px"><path class="s3" d="M326 184 L364 200 L382 224"/><circle class="s3 skin" cx="382" cy="224" r="5.5"/></g><path class="s3" d="M290 190 L348 190 L416 194"/><circle class="s3 skin" cx="416" cy="194" r="5.5"/><g class="notes"><path class="s2 n1" d="M438 120 q0 -26 14 -30 l0 26"/><circle class="s2 n1 nfill" cx="434" cy="121" r="6"/><path class="s2 n2" d="M492 92 q0 -26 14 -30 l0 26"/><circle class="s2 n2 nfill" cx="488" cy="93" r="6"/><path class="s2 n3" d="M462 66 q0 -22 12 -26 l0 22 M474 40 l12 -4 l0 22"/><circle class="s2 n3 nfill" cx="458" cy="67" r="5.5"/></g></g></g>
+<g class="pan-front"><g><g transform="translate(0,0)"><path class="s2 fillb2 bush" d="M60 292 q-10 -30 20 -40 q10 -22 40 -14 q30 -10 42 20 q22 6 12 34 Z"/><path class="s2" d="M92 288 q6 -20 0 -34 M116 286 q-6 -18 6 -32"/><path class="s2 grass" d="M900 292 l5 -16 l5 16 M916 292 l4 -11 l4 11 M40 292 l4 -12 l4 12"/></g>
+<g transform="translate(1200,0)"><circle class="s2 fillb2" cx="110" cy="277" r="15"/><path class="s2" d="M100 266 q10 -14 20 0"/><path class="s2 fillb2" d="M170 292 q2 -6 14 -6 q12 0 14 6 Z M204 292 q2 -6 14 -6 q12 0 14 6 Z"/><path class="s2" d="M184 289 l0 -6 M218 289 l0 -6"/></g>
+<g transform="translate(2400,0)"><path class="s2 fillb2" d="M70 292 L78 246 L128 246 L136 292 Z"/><path class="s2" d="M103 246 q-30 -24 -16 -58 q22 18 16 58 M103 246 q30 -28 20 -62 q-24 20 -20 62 M103 246 q-2 -40 6 -66"/><path class="s2" d="M910 292 L910 100 M888 292 L932 292"/><path class="s2 fillb2" d="M886 100 L934 100 L926 68 L894 68 Z"/></g>
+<g transform="translate(3600,0)"><path class="s2" d="M176 292 L196 206 M244 292 L224 206 M196 206 L224 206"/><rect class="s2 fillb2" x="170" y="200" width="80" height="62" rx="3"/><text class="sign-front" x="210" y="226" text-anchor="middle" font-size="17" letter-spacing="2">TACOS</text><text class="sign-front" x="210" y="248" text-anchor="middle" font-size="17" letter-spacing="2">SALSA</text><path class="s2 fillb2" d="M892 292 L888 250 L936 250 L932 292 Z"/><path class="s2" d="M884 250 L940 250 M904 250 l0 -8 l16 0 l0 8"/></g>
+<g transform="translate(4800,0)"><path class="s2 fillb2" d="M40 292 q6 -22 30 -18 q18 -4 26 18 Z M104 292 q4 -14 20 -12 q14 -2 18 12 Z"/><rect class="s2 fillb2" x="870" y="252" width="70" height="40" rx="4"/><path class="s2" d="M870 264 L940 264 M896 258 l18 0"/></g></g><g transform="translate(6000,0)"><g transform="translate(0,0)"><path class="s2 fillb2 bush" d="M60 292 q-10 -30 20 -40 q10 -22 40 -14 q30 -10 42 20 q22 6 12 34 Z"/><path class="s2" d="M92 288 q6 -20 0 -34 M116 286 q-6 -18 6 -32"/><path class="s2 grass" d="M900 292 l5 -16 l5 16 M916 292 l4 -11 l4 11 M40 292 l4 -12 l4 12"/></g>
+<g transform="translate(1200,0)"><circle class="s2 fillb2" cx="110" cy="277" r="15"/><path class="s2" d="M100 266 q10 -14 20 0"/><path class="s2 fillb2" d="M170 292 q2 -6 14 -6 q12 0 14 6 Z M204 292 q2 -6 14 -6 q12 0 14 6 Z"/><path class="s2" d="M184 289 l0 -6 M218 289 l0 -6"/></g>
+<g transform="translate(2400,0)"><path class="s2 fillb2" d="M70 292 L78 246 L128 246 L136 292 Z"/><path class="s2" d="M103 246 q-30 -24 -16 -58 q22 18 16 58 M103 246 q30 -28 20 -62 q-24 20 -20 62 M103 246 q-2 -40 6 -66"/><path class="s2" d="M910 292 L910 100 M888 292 L932 292"/><path class="s2 fillb2" d="M886 100 L934 100 L926 68 L894 68 Z"/></g>
+<g transform="translate(3600,0)"><path class="s2" d="M176 292 L196 206 M244 292 L224 206 M196 206 L224 206"/><rect class="s2 fillb2" x="170" y="200" width="80" height="62" rx="3"/><text class="sign-front" x="210" y="226" text-anchor="middle" font-size="17" letter-spacing="2">TACOS</text><text class="sign-front" x="210" y="248" text-anchor="middle" font-size="17" letter-spacing="2">SALSA</text><path class="s2 fillb2" d="M892 292 L888 250 L936 250 L932 292 Z"/><path class="s2" d="M884 250 L940 250 M904 250 l0 -8 l16 0 l0 8"/></g>
+<g transform="translate(4800,0)"><path class="s2 fillb2" d="M40 292 q6 -22 30 -18 q18 -4 26 18 Z M104 292 q4 -14 20 -12 q14 -2 18 12 Z"/><rect class="s2 fillb2" x="870" y="252" width="70" height="40" rx="4"/><path class="s2" d="M870 264 L940 264 M896 258 l18 0"/></g></g></g>
+      </svg>
+      <div class="ditl-vignette"></div>
+    </div>
+    <div class="ditl-bar">
+      <div class="ditl-cap"><b class="ditl-cap-title">Throwing a ball for the dog</b><span class="ditl-cap-sub">Scene 1 of 5</span></div>
+      <div class="ditl-segs" role="group" aria-label="Scenes">
+        <button class="ditl-seg" type="button" data-i="0" aria-current="true"><i aria-hidden="true"></i>Dog</button>
+        <button class="ditl-seg" type="button" data-i="1"><i aria-hidden="true"></i>Jiu jitsu</button>
+        <button class="ditl-seg" type="button" data-i="2"><i aria-hidden="true"></i>Work</button>
+        <button class="ditl-seg" type="button" data-i="3"><i aria-hidden="true"></i>Burrito</button>
+        <button class="ditl-seg" type="button" data-i="4"><i aria-hidden="true"></i>Campfire</button>
+        <button class="ditl-pp" type="button" aria-label="Pause" aria-pressed="false">
+          <svg class="ditl-ico-pause" width="10" height="11" viewBox="0 0 10 11" aria-hidden="true"><rect x="0" y="0" width="3.2" height="11" rx="1"/><rect x="6.8" y="0" width="3.2" height="11" rx="1"/></svg>
+          <svg class="ditl-ico-play" width="10" height="11" viewBox="0 0 10 11" aria-hidden="true"><path d="M1 0.5 L9.5 5.5 L1 10.5 Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* ------------------------------------------------------------------------
+     A day in the life
+     One figure walks through five scenes on a 44 second loop. Everything is
+     SVG and CSS; the script only moves the timeline's clock and the caption.
+
+     Global on purpose: the SVG has a few hundred elements and Astro's scoped
+     styles would stamp an attribute on every one of them. Every selector
+     starts with .ditl, so nothing here reaches the rest of the page.
+     ------------------------------------------------------------------------ */
+
+  /* Panel colours. The bed is darker than the page in both themes, so the
+     strip reads as a lit screen on light and as an inset on dark. Ink and
+     yellow are literal and do not flip. */
+  .ditl {
+    --ditl-bed: #161513;
+    --ditl-bed-2: #1d1b19;
+    --ditl-bed-line: #33302c;
+    --ditl-ink: #f3f1ee;
+    --ditl-ink-2: #cfcac3;
+    --ditl-ink-soft: #a8a29a;
+    --ditl-ink-far: #5c5751;
+    --ditl-skin: #2a2725;
+    width: 100%;
+    min-width: 0;
+  }
+
+  [data-theme='dark'] .ditl {
+    --ditl-bed: #0f0e0d;
+    --ditl-bed-2: #151412;
+    --ditl-bed-line: #2c2926;
+  }
+
+  /* ---------------- the panel ---------------- */
+  .ditl-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--ditl-bed-line);
+    background: radial-gradient(120% 90% at 50% 20%, var(--ditl-bed-2) 0%, var(--ditl-bed) 70%);
+    box-shadow: var(--shadow-md);
+  }
+
+  .ditl-stage {
+    position: relative;
+  }
+
+  .ditl-stage svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* On a phone the full strip would be a thin ribbon, so the stage shows
+     the middle of each scene instead. Everything that matters is laid out
+     inside that window; the edges only carry scenery. */
+  @media (max-width: 700px) {
+    .ditl-stage svg {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  /* Fades the world in at both edges so scenes never cut off hard. */
+  .ditl-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, var(--ditl-bed) 0%, transparent 9%, transparent 91%, var(--ditl-bed) 100%);
+  }
+
+  /* ---------------- caption and scene buttons ---------------- */
+  .ditl-bar {
+    display: grid;
+    gap: 0.875rem;
+    padding: 1rem 1.25rem 1.125rem;
+    border-top: 1px solid var(--ditl-bed-line);
+  }
+
+  .ditl-cap {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .ditl-cap b {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
+    color: var(--ditl-ink);
+    transition: opacity 0.35s var(--ease);
+  }
+
+  .ditl-cap span {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    letter-spacing: 0.4px;
+    color: var(--ditl-ink-soft);
+  }
+
+  .ditl-cap.swap b {
+    opacity: 0;
+  }
+
+  .ditl-segs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  /* The site's global `button` rule styles every button as the big yellow
+     call to action. Each of those declarations is reset here on purpose. */
+  .ditl-seg,
+  .ditl-pp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.875rem;
+    margin: 0;
+    padding: 0 0.8rem;
+    border: 1px solid var(--ditl-bed-line);
+    border-radius: 99px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--ditl-ink-soft);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+  }
+
+  .ditl-seg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Fills with the scene's progress. --p is set by the script. */
+  .ditl-seg i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--p, 0%);
+    background: var(--yellow);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+
+  .ditl-seg:hover,
+  .ditl-pp:hover {
+    border-color: var(--ditl-ink-soft);
+    color: var(--ditl-ink);
+    transform: none;
+    scale: 1;
+    box-shadow: none;
+  }
+
+  .ditl-seg[aria-current='true'] {
+    border-color: var(--yellow);
+    color: var(--ditl-ink);
+  }
+
+  .ditl-pp {
+    width: 1.875rem;
+    padding: 0;
+    margin-left: 0.375rem;
+    color: var(--ditl-ink);
+  }
+
+  .ditl-pp svg {
+    display: block;
+    width: 10px;
+    height: 11px;
+    fill: currentColor;
+  }
+
+  .ditl-pp[aria-pressed='true'] .ditl-ico-pause,
+  .ditl-pp:not([aria-pressed='true']) .ditl-ico-play {
+    display: none;
+  }
+
+  /* The site's focus ring is a dark outline with a white halo, drawn for
+     light surfaces. On the bed, yellow alone carries: 14.6:1 against it. */
+  .ditl-seg:focus-visible,
+  .ditl-pp:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  @media (min-width: 720px) {
+    .ditl-bar {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+    }
+
+    .ditl-segs {
+      justify-content: flex-end;
+    }
+  }
+
+  /* ---------------- strokes ---------------- */
+  /* Three weights: s3 for the figure and what he touches, s2 for the near
+     scenery, s1 for the far layer. Bodies are filled with the bed colour so
+     lines behind him disappear where he stands. */
+  .ditl-stage svg {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ditl-stage svg path,
+  .ditl-stage svg circle,
+  .ditl-stage svg rect,
+  .ditl-stage svg ellipse {
+    fill: none;
+  }
+
+  .ditl-stage .s3 { stroke: var(--ditl-ink); stroke-width: 3; }
+  .ditl-stage .s2 { stroke: var(--ditl-ink-2); stroke-width: 1.9; }
+  .ditl-stage .s1 { stroke: var(--ditl-ink-far); stroke-width: 1.4; }
+  .ditl-stage svg .fillb { fill: var(--ditl-bed); }
+  .ditl-stage svg .fillb2 { fill: var(--ditl-bed-2); }
+  .ditl-stage svg .skin { fill: var(--ditl-skin); }
+  .ditl-stage svg .shadow { fill: rgba(0, 0, 0, 0.35); stroke: none; }
+  .ditl-stage .ground { stroke: var(--ditl-bed-line); stroke-width: 2.4; }
+  .ditl-stage .sky path { stroke: var(--ditl-bed-line); stroke-width: 1.2; }
+  .ditl-stage svg .mat { stroke: var(--ditl-ink-soft); stroke-width: 2.2; fill: var(--ditl-bed); }
+  .ditl-stage .arc { stroke: var(--ditl-ink-far); stroke-width: 1.5; stroke-dasharray: 5 8; }
+  .ditl-stage .grass { stroke: var(--ditl-ink-far); }
+  .ditl-stage svg .accent-fill { fill: var(--yellow); stroke: var(--yellow); }
+  .ditl-stage .on-accent { stroke: #7a6600; stroke-width: 1.6; }
+  .ditl-stage svg .accent-screen { fill: var(--yellow); fill-opacity: 0.14; stroke: var(--yellow); stroke-width: 1.2; }
+  .ditl-stage .code { stroke: var(--yellow); stroke-opacity: 0.85; }
+  .ditl-stage svg .tortilla { fill: var(--yellow); fill-opacity: 0.16; stroke: var(--yellow); stroke-width: 2.6; }
+  .ditl-stage .belt { stroke: var(--yellow); stroke-width: 3.6; }
+  .ditl-stage svg .flame-in { fill: #fff6bf; stroke: none; }
+  .ditl-stage svg .eye { fill: var(--ditl-ink); }
+  .ditl-stage svg .nfill { fill: var(--ditl-ink-2); }
+  .ditl-stage svg .star { fill: var(--ditl-ink-soft); stroke: none; }
+  .ditl-stage .leaf { stroke: var(--ditl-ink-2); }
+
+  .ditl-stage svg .wall { fill: var(--ditl-bed-2); stroke: none; }
+  .ditl-stage svg text { font-family: inherit; font-weight: 800; fill: var(--ditl-ink-far); stroke: none; }
+  .ditl-stage svg .sign-near { fill: var(--ditl-ink-2); }
+  .ditl-stage svg .sign-front { fill: var(--ditl-ink-soft); }
+  .ditl-stage svg .bulb { fill: var(--ditl-ink-2); stroke: none; }
+  .ditl-stage svg .glow { fill: var(--yellow); fill-opacity: 0.06; stroke: none; }
+  .ditl-stage .belt-white { stroke: var(--ditl-ink-2); stroke-width: 3.6; }
+  .ditl-stage svg .foil { fill: var(--ditl-bed-2); stroke: var(--ditl-ink-2); stroke-width: 1.9; }
+  .ditl-stage .foilline { stroke: var(--ditl-ink-soft); stroke-width: 1.3; }
+  .ditl-stage svg .fill-dot { fill: var(--ditl-ink-2); stroke: none; }
+  .ditl-stage .fill-line { stroke: var(--ditl-ink-2); stroke-width: 1.6; }
+  .ditl-stage svg .nose { fill: var(--ditl-ink); }
+  .ditl-stage .impact { stroke: var(--ditl-ink-2); }
+  .ditl-stage .bush { stroke: var(--ditl-ink-2); }
+
+  /* Parts that only show for a moment start hidden; their keyframes bring them in. */
+  .ditl-stage .ball-fly,
+  .ditl-stage .ball-mouth,
+  .ditl-stage .mouth-b,
+  .ditl-stage .impact { opacity: 0; }
+
+  /* Six poses stand on the same spot; the timeline shows one at a time. */
+  .ditl-stage .pose { visibility: hidden; }
+  .ditl-stage .pose-throw { visibility: visible; }
+
+  /* ============ one 44 s timeline drives everything ============ */
+  /* 5 stays of 6.4 s and 5 walks of 2.4 s. The world holds during a stay and glides during a walk; the same percentages switch which pose is visible. */
+  @keyframes ditl-pan { 0%, 14.545% { transform: translateX(0px); } 20%, 34.545% { transform: translateX(-960px); } 40%, 54.545% { transform: translateX(-1920px); } 60%, 74.545% { transform: translateX(-2880px); } 80%, 94.545% { transform: translateX(-3840px); } 100% { transform: translateX(-4800px); } }
+  /* the distant hills move at 40 percent and the foreground at 125 percent, which is what sells the depth */
+  @keyframes ditl-pan-sky { 0%, 14.545% { transform: translateX(0px); } 20%, 34.545% { transform: translateX(-384px); } 40%, 54.545% { transform: translateX(-768px); } 60%, 74.545% { transform: translateX(-1152px); } 80%, 94.545% { transform: translateX(-1536px); } 100% { transform: translateX(-1920px); } }
+  @keyframes ditl-pan-front { 0%, 14.545% { transform: translateX(0px); } 20%, 34.545% { transform: translateX(-1200px); } 40%, 54.545% { transform: translateX(-2400px); } 60%, 74.545% { transform: translateX(-3600px); } 80%, 94.545% { transform: translateX(-4800px); } 100% { transform: translateX(-6000px); } }
+  .ditl-stage .pan, .ditl-stage .pan-far, .ditl-stage .pan-sky, .ditl-stage .pan-front { animation: ditl-pan 44s cubic-bezier(0.45, 0, 0.2, 1) infinite; }
+  .ditl-stage .pan-sky { animation-name: ditl-pan-sky; }
+  .ditl-stage .pan-front { animation-name: ditl-pan-front; }
+  @keyframes ditl-show-walk { 0% { visibility: hidden; } 14.545% { visibility: visible; } 20% { visibility: hidden; } 34.545% { visibility: visible; } 40% { visibility: hidden; } 54.545% { visibility: visible; } 60% { visibility: hidden; } 74.545% { visibility: visible; } 80% { visibility: hidden; } 94.545% { visibility: visible; } 100% { visibility: visible; } }
+  @keyframes ditl-show-throw { 0% { visibility: visible; } 14.545% { visibility: hidden; } 100% { visibility: hidden; } }
+  @keyframes ditl-show-grapple { 0% { visibility: hidden; } 20% { visibility: visible; } 34.545% { visibility: hidden; } 100% { visibility: hidden; } }
+  @keyframes ditl-show-type { 0% { visibility: hidden; } 40% { visibility: visible; } 54.545% { visibility: hidden; } 100% { visibility: hidden; } }
+  @keyframes ditl-show-eat { 0% { visibility: hidden; } 60% { visibility: visible; } 74.545% { visibility: hidden; } 100% { visibility: hidden; } }
+  @keyframes ditl-show-play { 0% { visibility: hidden; } 80% { visibility: visible; } 94.545% { visibility: hidden; } 100% { visibility: hidden; } }
+  .ditl-stage .pose { animation-duration: 44s; animation-iteration-count: infinite; animation-timing-function: step-end; }
+  .ditl-stage .pose-walk { animation-name: ditl-show-walk; }
+  .ditl-stage .pose-throw { animation-name: ditl-show-throw; }
+  .ditl-stage .pose-grapple { animation-name: ditl-show-grapple; }
+  .ditl-stage .pose-type { animation-name: ditl-show-type; }
+  .ditl-stage .pose-eat { animation-name: ditl-show-eat; }
+  .ditl-stage .pose-play { animation-name: ditl-show-play; }
+  /* ============ the walk cycle ============ */
+  @keyframes ditl-stride-b { 0%, 100% { transform: rotate(22deg); } 50% { transform: rotate(-22deg); } }
+  @keyframes ditl-stride-f { 0%, 100% { transform: rotate(-22deg); } 50% { transform: rotate(22deg); } }
+  @keyframes ditl-shin-b { 0%, 50%, 100% { transform: rotate(0); } 25% { transform: rotate(56deg); } 75% { transform: rotate(10deg); } }
+  @keyframes ditl-shin-f { 0%, 50%, 100% { transform: rotate(0); } 25% { transform: rotate(10deg); } 75% { transform: rotate(56deg); } }
+  @keyframes ditl-swing-b { 0%, 100% { transform: rotate(-18deg); } 50% { transform: rotate(18deg); } }
+  @keyframes ditl-swing-f { 0%, 100% { transform: rotate(18deg); } 50% { transform: rotate(-18deg); } }
+  @keyframes ditl-bob { 0%, 50%, 100% { transform: translateY(0); } 25%, 75% { transform: translateY(-3px); } }
+  @keyframes ditl-shadow-bob { 0%, 50%, 100% { transform: scaleX(1); } 25%, 75% { transform: scaleX(0.9); } }
+  .ditl-stage .w-leg-b { animation: ditl-stride-b 0.72s ease-in-out infinite; }
+  .ditl-stage .w-leg-f { animation: ditl-stride-f 0.72s ease-in-out infinite; }
+  .ditl-stage .w-shin-b { animation: ditl-shin-b 0.72s ease-in-out infinite; }
+  .ditl-stage .w-shin-f { animation: ditl-shin-f 0.72s ease-in-out infinite; }
+  .ditl-stage .w-arm-b { animation: ditl-swing-b 0.72s ease-in-out infinite; }
+  .ditl-stage .w-arm-f { animation: ditl-swing-f 0.72s ease-in-out infinite; }
+  .ditl-stage .w-body { animation: ditl-bob 0.72s ease-in-out infinite; }
+  .ditl-stage .pose-walk .shadow { animation: ditl-shadow-bob 0.72s ease-in-out infinite; transform-origin: 300px 295px; }
+  /* ============ scene 1: fetch, on a 4.8s loop ============ */
+  @keyframes ditl-throw { 0%, 3.12% { transform: rotate(0); animation-timing-function: ease-out; } 11.46% { transform: rotate(-78deg); animation-timing-function: cubic-bezier(0.7, 0, 0.9, 0.4); } 17.5% { transform: rotate(58deg); animation-timing-function: ease-out; } 26.04% { transform: rotate(48deg); animation-timing-function: ease-in-out; } 40.62%, 100% { transform: rotate(0); } }
+  @keyframes ditl-ball-hand { 0% { opacity: 1; } 15.42% { opacity: 0; } 78.12% { opacity: 1; } 100% { opacity: 1; } }
+  @keyframes ditl-ball-fly { 0%, 15.42% { opacity: 0; offset-distance: 0%; } 15.44% { opacity: 1; offset-distance: 0%; animation-timing-function: linear; } 36.46% { opacity: 1; offset-distance: 100%; } 36.48%, 100% { opacity: 0; offset-distance: 100%; } }
+  @keyframes ditl-dog-away { 0%, 14.545% { transform: translateX(0); opacity: 1; animation-timing-function: cubic-bezier(0.5, 0, 0.6, 1); } 16.364% { opacity: 1; } 16.386% { opacity: 0; } 17.727% { transform: translateX(1500px); opacity: 0; } 96.364% { transform: translateX(1500px); opacity: 0; animation-timing-function: cubic-bezier(0.5, 0, 0.6, 1); } 96.386% { opacity: 1; } 100% { transform: translateX(0); opacity: 1; } }
+  .ditl-stage .dog-away { animation: ditl-dog-away 44s linear infinite; }
+  @keyframes ditl-dog-run { 0%, 14.58% { transform: translateX(0); animation-timing-function: cubic-bezier(0.5, 0, 0.6, 1); } 37.5% { transform: translateX(180px); } 45.83% { transform: translateX(180px); animation-timing-function: cubic-bezier(0.5, 0, 0.6, 1); } 70.83%, 100% { transform: translateX(0); } }
+  @keyframes ditl-dog-flip { 0% { transform: scaleX(1); } 44.79% { transform: scaleX(-1); } 75% { transform: scaleX(1); } 100% { transform: scaleX(1); } }
+  @keyframes ditl-ball-mouth { 0% { opacity: 0; } 38.54% { opacity: 1; } 77.08% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes ditl-gallop-f { 0% { transform: rotate(0); } 14.58% { transform: rotate(0); } 17.71% { transform: rotate(26deg); } 20.83% { transform: rotate(-26deg); } 23.96% { transform: rotate(26deg); } 27.08% { transform: rotate(-26deg); } 30.21% { transform: rotate(26deg); } 33.33% { transform: rotate(-26deg); } 36.46% { transform: rotate(26deg); } 37.5% { transform: rotate(0); } 45.83% { transform: rotate(0); } 48.96% { transform: rotate(26deg); } 52.08% { transform: rotate(-26deg); } 55.21% { transform: rotate(26deg); } 58.33% { transform: rotate(-26deg); } 61.46% { transform: rotate(26deg); } 64.58% { transform: rotate(-26deg); } 67.71% { transform: rotate(26deg); } 70.83% { transform: rotate(-26deg); } 70.83% { transform: rotate(0); } 100% { transform: rotate(0); } }
+  @keyframes ditl-gallop-b { 0% { transform: rotate(0); } 14.58% { transform: rotate(0); } 17.71% { transform: rotate(-26deg); } 20.83% { transform: rotate(26deg); } 23.96% { transform: rotate(-26deg); } 27.08% { transform: rotate(26deg); } 30.21% { transform: rotate(-26deg); } 33.33% { transform: rotate(26deg); } 36.46% { transform: rotate(-26deg); } 37.5% { transform: rotate(0); } 45.83% { transform: rotate(0); } 48.96% { transform: rotate(-26deg); } 52.08% { transform: rotate(26deg); } 55.21% { transform: rotate(-26deg); } 58.33% { transform: rotate(26deg); } 61.46% { transform: rotate(-26deg); } 64.58% { transform: rotate(26deg); } 67.71% { transform: rotate(-26deg); } 70.83% { transform: rotate(26deg); } 70.83% { transform: rotate(0); } 100% { transform: rotate(0); } }
+  @keyframes ditl-dog-bounce { 0% { transform: translateY(0); } 14.58% { transform: translateY(0); } 17.71% { transform: translateY(-7px); } 20.83% { transform: translateY(0px); } 23.96% { transform: translateY(-7px); } 27.08% { transform: translateY(0px); } 30.21% { transform: translateY(-7px); } 33.33% { transform: translateY(0px); } 36.46% { transform: translateY(-7px); } 37.5% { transform: translateY(0); } 45.83% { transform: translateY(0); } 48.96% { transform: translateY(-7px); } 52.08% { transform: translateY(0px); } 55.21% { transform: translateY(-7px); } 58.33% { transform: translateY(0px); } 61.46% { transform: translateY(-7px); } 64.58% { transform: translateY(0px); } 67.71% { transform: translateY(-7px); } 70.83% { transform: translateY(0px); } 70.83% { transform: translateY(0); } 77.08% { transform: translateY(0); } 80.21% { transform: translateY(-9px); } 83.33% { transform: translateY(0); } 100% { transform: translateY(0); } }
+  @keyframes ditl-wag { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(26deg); } }
+  .ditl-stage .throw-arm { animation: ditl-throw 4.8s linear infinite; }
+  .ditl-stage .ball-hand { animation: ditl-ball-hand 4.8s step-end infinite; }
+  .ditl-stage .dog-run { animation: ditl-dog-run 4.8s linear infinite; }
+  .ditl-stage .dog-flip { animation: ditl-dog-flip 4.8s step-end infinite; }
+  .ditl-stage .ball-mouth { animation: ditl-ball-mouth 4.8s step-end infinite; }
+  .ditl-stage .dlegs-f { animation: ditl-gallop-f 4.8s ease-in-out infinite; }
+  .ditl-stage .dlegs-b { animation: ditl-gallop-b 4.8s ease-in-out infinite; }
+  .ditl-stage .dog-bounce { animation: ditl-dog-bounce 4.8s ease-in-out infinite; }
+  .ditl-stage .tail { animation: ditl-wag 0.42s ease-in-out infinite; }
+  /* the ball follows a path; a browser without motion paths never shows it in flight */
+  @supports (offset-path: path("M0 0 L1 1")) { .ditl-stage .ball-fly { offset-rotate: auto; animation: ditl-ball-fly 4.8s linear infinite; } }
+  /* ============ scene 2: grip fight and a throw, on the master timeline ============ */
+  @keyframes ditl-fall { 0%, 23.636% { transform: rotate(0) translate(0, 0); animation-timing-function: ease-in; } 24.545% { transform: translate(0, -6px) rotate(40deg); animation-timing-function: ease-in; } 25.227% { transform: translate(0, -26px) rotate(96deg); animation-timing-function: ease-out; } 25.568% { transform: translate(0, -24px) rotate(90deg); } 27.727% { transform: translate(0, -24px) rotate(90deg); animation-timing-function: ease-in-out; } 29.773%, 100% { transform: rotate(0) translate(0, 0); } }
+  @keyframes ditl-pull { 0%, 23.636% { transform: rotate(0); animation-timing-function: ease-in; } 24.545% { transform: rotate(28deg); } 25.227% { transform: rotate(58deg); } 27.727% { transform: rotate(58deg); animation-timing-function: ease-in-out; } 29.773%, 100% { transform: rotate(0); } }
+  @keyframes ditl-reap { 0%, 23.295% { transform: rotate(0); animation-timing-function: ease-out; } 24.205% { transform: rotate(-58deg); } 24.886% { transform: rotate(-58deg); animation-timing-function: ease-in-out; } 26.136%, 100% { transform: rotate(0); } }
+  @keyframes ditl-impact { 0% { opacity: 0; } 25.114% { opacity: 1; } 25.909% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes ditl-tug { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-4px, 2px); } }
+  .ditl-stage .partner { animation: ditl-fall 44s linear infinite; }
+  .ditl-stage .grip-f, .ditl-stage .grip-b { animation: ditl-pull 44s linear infinite; }
+  .ditl-stage .reap { animation: ditl-reap 44s linear infinite; }
+  .ditl-stage .impact { opacity: 0; animation: ditl-impact 44s step-end infinite; }
+  .ditl-stage .partner-tug { animation: ditl-tug 2.2s ease-in-out infinite; }
+  /* ============ scene 3: typing ============ */
+  @keyframes ditl-type { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  @keyframes ditl-glow { 0%, 100% { fill-opacity: 0.12; } 50% { fill-opacity: 0.24; } }
+  @keyframes ditl-codeline { 0% { stroke-dashoffset: var(--len); opacity: 1; } 12% { stroke-dashoffset: 0; } 86% { stroke-dashoffset: 0; opacity: 1; } 90%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+  @keyframes ditl-rise { 0% { opacity: 0; transform: translateY(6px); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-18px); } }
+  @keyframes ditl-leaf { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(3deg); } }
+  .ditl-stage .type-arm { animation: ditl-type 0.46s ease-in-out infinite; }
+  .ditl-stage svg .accent-screen { animation: ditl-glow 3.4s ease-in-out infinite; }
+  .ditl-stage .code { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: ditl-codeline 5.6s linear infinite; }
+  .ditl-stage .steam path { animation: ditl-rise 2.8s ease-out infinite; }
+  .ditl-stage .steam path:nth-child(2) { animation-delay: 0.6s; }
+  .ditl-stage .steam path:nth-child(3) { animation-delay: 1.2s; }
+  .ditl-stage .leaf { animation: ditl-leaf 4s ease-in-out infinite; }
+  /* ============ scene 4: a bite every couple of seconds ============ */
+  @keyframes ditl-bite { 0%, 100% { transform: translate(0, 0); animation-timing-function: ease-in-out; } 34% { transform: translate(-5px, -9px); animation-timing-function: ease-in-out; } 46% { transform: translate(-5px, -9px); } 62% { transform: translate(0, 0); } }
+  @keyframes ditl-nod-bite { 0%, 100% { transform: rotate(0); } 36% { transform: rotate(7deg); } 46% { transform: rotate(7deg); } 62% { transform: rotate(0); } }
+  @keyframes ditl-twinkle { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
+  .ditl-stage .eat-arms { animation: ditl-bite 2.6s ease-in-out infinite; }
+  .ditl-stage .pose-eat .nod { animation: ditl-nod-bite 2.6s ease-in-out infinite; }
+  .ditl-stage .bulb { animation: ditl-twinkle 2.2s ease-in-out infinite; }
+  .ditl-stage .bulb:nth-child(2n) { animation-delay: 0.7s; }
+  .ditl-stage .bulb:nth-child(3n) { animation-delay: 1.3s; }
+  /* ============ scene 5: the fire, the song ============ */
+  @keyframes ditl-flick { 0%, 100% { transform: scale(1, 1); } 35% { transform: scale(0.94, 1.1); } 70% { transform: scale(1.05, 0.95); } }
+  @keyframes ditl-spark { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-34px); } }
+  @keyframes ditl-strum { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(14deg); } }
+  @keyframes ditl-note { 0% { opacity: 0; transform: translate(0, 6px); } 25% { opacity: 1; } 100% { opacity: 0; transform: translate(14px, -34px); } }
+  @keyframes ditl-glowpulse { 0%, 100% { fill-opacity: 0.05; } 50% { fill-opacity: 0.09; } }
+  @keyframes ditl-nod-song { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+  @keyframes ditl-sing-a { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  @keyframes ditl-sing-b { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+  @keyframes ditl-stick { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-3deg); } }
+  .ditl-stage .flame-g { animation: ditl-flick 0.7s ease-in-out infinite; }
+  .ditl-stage .sp { animation: ditl-spark 1.6s ease-out infinite; }
+  .ditl-stage .sp:nth-child(2) { animation-delay: 0.5s; }
+  .ditl-stage .sp:nth-child(3) { animation-delay: 1s; }
+  .ditl-stage .strum-arm { animation: ditl-strum 0.4s ease-in-out infinite; }
+  .ditl-stage .notes .n1 { animation: ditl-note 3.2s ease-out infinite; }
+  .ditl-stage .notes .n2 { animation: ditl-note 3.2s ease-out infinite 1.1s; }
+  .ditl-stage .notes .n3 { animation: ditl-note 3.2s ease-out infinite 2.2s; }
+  .ditl-stage .star { animation: ditl-twinkle 2.6s ease-in-out infinite; }
+  .ditl-stage .star:nth-child(2n) { animation-delay: 0.9s; }
+  .ditl-stage .star:nth-child(3n) { animation-delay: 1.7s; }
+  .ditl-stage svg .glow { animation: ditl-glowpulse 1.4s ease-in-out infinite; }
+  .ditl-stage .pose-play .nod { animation: ditl-nod-song 1.6s ease-in-out infinite; }
+  .ditl-stage .mouth-a { animation: ditl-sing-a 1.6s step-end infinite; }
+  .ditl-stage .mouth-b { animation: ditl-sing-b 1.6s step-end infinite; }
+  .ditl-stage .friend .mouth-a { animation-delay: 0.4s; }
+  .ditl-stage .friend .mouth-b { animation-delay: 0.4s; }
+  .ditl-stage .stick { animation: ditl-stick 3s ease-in-out infinite; transform-origin: 812px 248px; }
+  /* Paused by the visitor, or parked while the strip is scrolled out of view so it costs nothing until someone is looking at it. */
+  .ditl.paused *, .ditl.offscreen * { animation-play-state: paused !important; }
+  /* ============ reduced motion ============ */
+  /* Nothing moves. The scene buttons swap the scene and the pose directly, and the pause button has nothing to do. */
+  @media (prefers-reduced-motion: reduce) {
+    .ditl * { animation: none !important; }
+    .ditl[data-scene="1"] .pan, .ditl[data-scene="1"] .pan-far { transform: translateX(-960px); }
+    .ditl[data-scene="1"] .pan-sky { transform: translateX(-384px); }
+    .ditl[data-scene="1"] .pan-front { transform: translateX(-1200px); }
+    .ditl[data-scene="2"] .pan, .ditl[data-scene="2"] .pan-far { transform: translateX(-1920px); }
+    .ditl[data-scene="2"] .pan-sky { transform: translateX(-768px); }
+    .ditl[data-scene="2"] .pan-front { transform: translateX(-2400px); }
+    .ditl[data-scene="3"] .pan, .ditl[data-scene="3"] .pan-far { transform: translateX(-2880px); }
+    .ditl[data-scene="3"] .pan-sky { transform: translateX(-1152px); }
+    .ditl[data-scene="3"] .pan-front { transform: translateX(-3600px); }
+    .ditl[data-scene="4"] .pan, .ditl[data-scene="4"] .pan-far { transform: translateX(-3840px); }
+    .ditl[data-scene="4"] .pan-sky { transform: translateX(-1536px); }
+    .ditl[data-scene="4"] .pan-front { transform: translateX(-4800px); }
+    .ditl[data-scene] .pose-throw { visibility: hidden; }
+    .ditl[data-scene="0"] .pose-throw, .ditl[data-scene="1"] .pose-grapple, .ditl[data-scene="2"] .pose-type, .ditl[data-scene="3"] .pose-eat, .ditl[data-scene="4"] .pose-play { visibility: visible; }
+    .ditl .mouth-b, .ditl .impact, .ditl .ball-mouth { opacity: 0 !important; }
+    .ditl .code { stroke-dashoffset: 0; }
+    .ditl-pp { display: none; }
+  }
+</style>
+
+<script>
+  // One CSS timeline runs the whole strip. This script only moves that
+  // timeline's clock when a scene button is pressed, keeps the caption and
+  // the chip fill in step with it, parks it while it is off screen, and
+  // handles the pause button.
+  const root = document.getElementById('day-in-the-life');
+
+  if (root) {
+    const segs = Array.from(root.querySelectorAll<HTMLButtonElement>('.ditl-seg'));
+    const cap = root.querySelector<HTMLElement>('.ditl-cap');
+    const capTitle = root.querySelector<HTMLElement>('.ditl-cap-title');
+    const capSub = root.querySelector<HTMLElement>('.ditl-cap-sub');
+    const pauseButton = root.querySelector<HTMLButtonElement>('.ditl-pp');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const DUR = 44000; // the CSS timeline, in milliseconds
+    const STAY = 6400; // he stays and does the thing
+    const WALK = 2400; // he walks to the next scene
+    const SEG = STAY + WALK;
+    const NAMES = [
+      'Throwing a ball for the dog',
+      'Training jiu jitsu',
+      'Building a website',
+      'Eating a burrito the size of a forearm',
+      'Playing guitar at the campfire with friends',
+    ];
+    let current = 0;
+
+    const timeline = (): Animation[] =>
+      root.getAnimations({ subtree: true }).filter((a) => a.effect?.getTiming().duration === DUR);
+
+    const clock = (): number => {
+      const t = timeline()[0]?.currentTime;
+      return typeof t === 'number' ? t % DUR : 0;
+    };
+
+    const seek = (ms: number) => {
+      timeline().forEach((a) => {
+        a.currentTime = ms;
+      });
+    };
+
+    const setScene = (i: number) => {
+      if (i !== current) {
+        current = i;
+        cap?.classList.add('swap');
+        window.setTimeout(() => {
+          if (capTitle) capTitle.textContent = NAMES[i];
+          if (capSub) capSub.textContent = `Scene ${i + 1} of ${NAMES.length}`;
+          cap?.classList.remove('swap');
+        }, 180);
+      }
+      segs.forEach((b) => b.setAttribute('aria-current', Number(b.dataset.i) === i ? 'true' : 'false'));
+      root.setAttribute('data-scene', String(i));
+    };
+
+    segs.forEach((b) => {
+      b.addEventListener('click', () => {
+        const i = Number(b.dataset.i) || 0;
+        if (!reduced) seek(i * SEG);
+        setScene(i);
+      });
+    });
+
+    pauseButton?.addEventListener('click', () => {
+      const on = root.classList.toggle('paused');
+      pauseButton.setAttribute('aria-pressed', String(on));
+      pauseButton.setAttribute('aria-label', on ? 'Play' : 'Pause');
+    });
+
+    if (!reduced) {
+      // Park everything while the strip is scrolled out of view.
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(
+          (entries) => entries.forEach((e) => root.classList.toggle('offscreen', !e.isIntersecting)),
+          { rootMargin: '80px' },
+        ).observe(root);
+      }
+
+      // Keep the caption and the chip fill in step with the CSS clock. The
+      // active chip fills through its stay and holds full through the walk.
+      window.setInterval(() => {
+        if (root.classList.contains('paused') || root.classList.contains('offscreen')) return;
+        const t = clock();
+        const i = Math.floor(t / SEG) % NAMES.length;
+        const p = Math.min(1, (t - i * SEG) / STAY);
+        segs.forEach((b, k) => {
+          b.style.setProperty('--p', `${k < i ? 100 : k === i ? Math.round(p * 100) : 0}%`);
+        });
+        if (i !== current) setScene(i);
+      }, 120);
+    }
+  }
+</script>
