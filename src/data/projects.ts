@@ -28,11 +28,27 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: 'ues',
+    title: 'Universal Environmental Services',
+    role: 'Website rebuild, maps and SEO',
+    year: '2026 to present',
+    featured: true,
+    summary:
+      'I am rebuilding the website of a used oil collection company that operates in 28 states, one page at a time, and running its SEO program. So far: a new homepage, a locations page with all 52 facilities, 28 state pages built from one template and two data files, and my own SVG maps in place of a map plugin.',
+    tags: ['WordPress', 'PHP', 'SVG maps', 'CSS animation', 'Local SEO', 'GA4 & Search Console'],
+    video: {
+      mp4: '/videos/ues-thumbnail.mp4',
+      webm: '/videos/ues-thumbnail.webm',
+      poster: '/images/ues-thumbnail.webp',
+      fit: 'cover',
+    },
+    liveUrl: 'https://universalenvironmentalservices.com',
+  },
+  {
     slug: 'timeclick',
     title: 'TimeClick',
     role: 'Website redesign and marketing',
     year: '2024 to present',
-    featured: true,
     summary:
       'I redesigned the marketing website for TimeClick, a time clock software company used by thousands of small businesses, and built the CRM, checkout and email systems behind it. The goal is to get the right visitors to start a free trial.',
     tags: ['WordPress', 'JavaScript', 'Zoho CRM', 'Stripe & WooCommerce', 'SEO', 'Email marketing'],
@@ -43,22 +59,6 @@ export const projects: Project[] = [
       fit: 'cover',
     },
     liveUrl: 'https://timeclick.com',
-  },
-  {
-    slug: 'ues',
-    title: 'Universal Environmental Services',
-    role: 'Homepage rebuild and SEO',
-    year: '2026',
-    summary:
-      'I rebuilt the homepage for a used oil collection company that operates in 28 states, and I run their SEO program: local SEO, Google Business Profile listings and lead tracking.',
-    tags: ['WordPress', 'Local SEO', 'Google Business Profile', 'GA4', 'Search Console', 'Conversion design'],
-    video: {
-      mp4: '/videos/ues-thumbnail.mp4',
-      webm: '/videos/ues-thumbnail.webm',
-      poster: '/images/ues-thumbnail.webp',
-      fit: 'cover',
-    },
-    liveUrl: 'https://universalenvironmentalservices.com',
   },
   // Temporary: removed from the homepage when SHOW_CLOX is false (src/config.ts).
   ...(SHOW_CLOX

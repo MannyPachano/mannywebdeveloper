@@ -13,8 +13,15 @@ export type Screenshot = {
   alt: string;
 };
 
+/** A short recording that plays in place of the screenshot; the screenshot stays as its poster. */
+export type ShotVideo = {
+  mp4: string;
+  webm?: string;
+};
+
 export type Captioned = Screenshot & {
   caption: string;
+  video?: ShotVideo;
 };
 
 export type WalkthroughSection = {
@@ -27,6 +34,8 @@ export type WalkthroughSection = {
   src: string;
   /** Optional second variant (B), shown when the switch is set to B. */
   srcB?: string;
+  /** Optional recording shown instead of the image; src is then the poster. */
+  video?: ShotVideo;
   width: number;
   height: number;
 };

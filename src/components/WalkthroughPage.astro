@@ -151,16 +151,33 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
             <li class="walkthrough-item">
               <figure>
                 <div class="walkthrough-shot">
-                  <img
-                    src={section.src}
-                    data-src-a={section.src}
-                    data-src-b={section.srcB}
-                    width={section.width}
-                    height={section.height}
-                    alt={section.alt}
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {section.video ? (
+                    <video
+                      muted
+                      playsinline
+                      loop
+                      preload="none"
+                      poster={section.src}
+                      width={section.width}
+                      height={section.height}
+                      aria-label={section.alt}
+                      data-autoplay
+                    >
+                      {section.video.webm && <source src={section.video.webm} type="video/webm" />}
+                      <source src={section.video.mp4} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      src={section.src}
+                      data-src-a={section.src}
+                      data-src-b={section.srcB}
+                      width={section.width}
+                      height={section.height}
+                      alt={section.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
                 </div>
                 <figcaption>
                   <span class="walkthrough-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
@@ -182,7 +199,14 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
               <li>
                 <figure>
                   <div class="walkthrough-shot">
-                    <img src={item.src} width={item.width} height={item.height} alt={item.alt} loading="lazy" decoding="async" />
+                    {item.video ? (
+                      <video muted playsinline loop preload="none" poster={item.src} width={item.width} height={item.height} aria-label={item.alt} data-autoplay>
+                        {item.video.webm && <source src={item.video.webm} type="video/webm" />}
+                        <source src={item.video.mp4} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img src={item.src} width={item.width} height={item.height} alt={item.alt} loading="lazy" decoding="async" />
+                    )}
                   </div>
                   <figcaption>{item.caption}</figcaption>
                 </figure>
@@ -445,7 +469,8 @@ const hasVariants = Boolean(page.sectionVariants) && page.sections.some((section
     background: var(--shot-bed);
   }
 
-  .walkthrough-shot img {
+  .walkthrough-shot img,
+  .walkthrough-shot video {
     display: block;
     width: 100%;
     height: auto;
