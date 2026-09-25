@@ -8,7 +8,7 @@ const hiddenCount = Math.max(projects.length - INITIAL_MOBILE_CARDS, 0);
 ---
 
 <section class="projects-section" id="project-section" aria-labelledby="projects-title">
-  <div class="projects-container">
+  <div class="projects-container container section-pad">
     <div class="title-div">
       <h2 class="title-after" id="projects-title">Recent projects</h2>
       <p>
@@ -42,10 +42,7 @@ const hiddenCount = Math.max(projects.length - INITIAL_MOBILE_CARDS, 0);
   .projects-container {
     display: flex;
     flex-direction: column;
-    padding: 3rem 1rem 4rem;
     row-gap: 3rem;
-    max-width: 78rem;
-    width: 100%;
   }
 
   .projects-grid {
@@ -80,10 +77,6 @@ const hiddenCount = Math.max(projects.length - INITIAL_MOBILE_CARDS, 0);
   }
 
   @media only screen and (min-width: 901px) {
-    .projects-container {
-      padding-bottom: 6rem;
-    }
-
     .projects-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2.5rem;

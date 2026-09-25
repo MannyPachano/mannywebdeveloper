@@ -3,7 +3,7 @@ const year = new Date().getFullYear();
 ---
 
 <footer>
-  <div class="footer-container">
+  <div class="footer-container container">
     <div class="footer-grid">
       <div class="footer-social">
         <h3 class="h3-footer">Social</h3>
@@ -40,7 +40,6 @@ const year = new Date().getFullYear();
 
 <style>
   footer {
-    padding: 1rem 1rem 2rem;
     background-color: var(--overlay);
     display: flex;
     justify-content: center;
@@ -50,8 +49,8 @@ const year = new Date().getFullYear();
   .footer-container {
     display: flex;
     flex-direction: column;
-    max-width: 78rem;
-    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
   }
 
   .h3-footer {
@@ -59,7 +58,7 @@ const year = new Date().getFullYear();
     color: var(--white);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    font-size: 1.1rem;
+    font-size: var(--fs-body-lg);
   }
 
   .footer-copy {
@@ -84,7 +83,7 @@ const year = new Date().getFullYear();
 
   .footer-meta {
     margin-top: 1.25rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-small);
     color: rgba(255, 255, 255, 0.6);
   }
 
@@ -146,7 +145,7 @@ const year = new Date().getFullYear();
   }
 
   .p-footer {
-    font-size: 0.8rem;
+    font-size: var(--fs-small);
     text-align: center;
     margin-left: auto;
     margin-right: auto;

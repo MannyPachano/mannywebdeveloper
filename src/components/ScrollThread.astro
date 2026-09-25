@@ -1,0 +1,365 @@
+---
+// The thread: one continuous line drawn down the homepage as the visitor scrolls.
+//
+// It starts at the scroll hint in the hero, runs along the hero's bottom edge into
+// the right gutter, comes down the gutter, and at each section title turns across
+// the page as a rule that passes through the title's yellow bar (the station),
+// then continues down the other gutter. It alternates sides at every section and
+// ends by turning into the Send message button.
+//
+// The route is built from live element positions, so it survives copy changes,
+// resizes and the projects grid expanding. Ink in the light theme, cream in dark,
+// with a yellow tip that eases into place. Hidden under 700px, where there are no
+// gutters. Under reduced motion the whole line is drawn at once and nothing moves.
+//
+// The SVG itself is created by the script, so a browser without JavaScript sees
+// nothing extra. The component only carries the styles and the script.
+---
+
+<style is:global>
+  main {
+    position: relative;
+  }
+
+  .thread {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 3;
+    --thread-ink: var(--text-header);
+    --thread-glow: rgba(255, 232, 61, 0.55);
+  }
+
+  .thread-path,
+  .thread-ghost {
+    fill: none;
+    stroke: var(--thread-ink);
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .thread-path {
+    opacity: 0.85;
+  }
+
+  /* The faint full route under the drawn line, so the eye can see where it goes. */
+  .thread-ghost {
+    opacity: 0.08;
+  }
+
+  .thread-station {
+    fill: var(--yellow);
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.45s var(--ease);
+  }
+
+  .thread-station.lit {
+    transform: scaleX(1.5);
+  }
+
+  .thread-station-ring {
+    fill: none;
+    stroke: var(--yellow);
+    stroke-width: 2;
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0.6);
+    transition: opacity 0.35s var(--ease), transform 0.55s var(--ease);
+  }
+
+  .thread-station-ring.lit {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  .thread-tip {
+    fill: var(--yellow);
+    stroke: var(--thread-ink);
+    stroke-width: 2;
+    transition: opacity 0.3s var(--ease);
+  }
+
+  .thread-tip-glow {
+    fill: var(--thread-glow);
+    opacity: 0.55;
+    transition: opacity 0.3s var(--ease);
+  }
+
+  .thread-end {
+    fill: var(--thread-ink);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+  }
+
+  .thread-end.lit {
+    opacity: 1;
+  }
+
+  /* The section title bar glows when the thread reaches it. */
+  .title-after.lit::after {
+    box-shadow: 0 0 0 4px rgba(255, 232, 61, 0.25);
+  }
+
+  @media (max-width: 699px) {
+    .thread {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .thread-tip,
+    .thread-tip-glow {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  type Pt = { x: number; y: number };
+  type Sample = { len: number; x: number; y: number };
+  type Station = { el: HTMLElement; x: number; y: number };
+  type StationParts = { ring: SVGRectElement; bar: SVGRectElement; h2: HTMLElement };
+
+  const main = document.getElementById('main');
+  const hero = document.getElementById('hero');
+  const mouse = document.querySelector<HTMLElement>('.hero-section .mouse');
+  const titles = Array.from(document.querySelectorAll<HTMLElement>('main .title-after'));
+  const form = document.querySelector<HTMLElement>('.contact-section .form-container');
+  const sendButton = form?.querySelector<HTMLElement>('button[type="submit"]') ?? null;
+  const firstAboutBlock = document.querySelector<HTMLElement>('.about-section .about-photo, .about-section .title-div');
+  const container = document.querySelector<HTMLElement>('.about-container');
+  const threadMedia = window.matchMedia('(min-width: 700px)');
+
+  if (main && hero && mouse && titles.length >= 2 && form && sendButton && firstAboutBlock && container) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const NS = 'http://www.w3.org/2000/svg';
+    const make = <K extends keyof SVGElementTagNameMap>(tag: K, cls: string) => {
+      const el = document.createElementNS(NS, tag);
+      el.setAttribute('class', cls);
+      return el;
+    };
+
+    const svg = make('svg', 'thread');
+    svg.setAttribute('aria-hidden', 'true');
+    const ghost = make('path', 'thread-ghost');
+    const path = make('path', 'thread-path');
+    const stationsG = make('g', 'thread-stations');
+    const tipGlow = make('circle', 'thread-tip-glow');
+    tipGlow.setAttribute('r', '11');
+    const tip = make('circle', 'thread-tip');
+    tip.setAttribute('r', '5');
+    const endDot = make('circle', 'thread-end');
+    endDot.setAttribute('r', '5');
+    svg.append(ghost, path, stationsG, endDot, tipGlow, tip);
+    main.prepend(svg);
+
+    // Positions relative to <main>, in document space.
+    const mainTop = () => main.getBoundingClientRect().top + window.scrollY;
+    const box = (el: Element) => {
+      const r = el.getBoundingClientRect();
+      const top = r.top + window.scrollY - mainTop();
+      return { x: r.left, y: top, w: r.width, h: r.height, cx: r.left + r.width / 2, bottom: top + r.height };
+    };
+
+    let total = 0;
+    let samples: Sample[] = [];
+    let stationLens: number[] = [];
+    let stationParts: StationParts[] = [];
+    let drawn = 0;
+    let target = 0;
+    let raf = 0;
+
+    // A path through an orthogonal polyline with rounded corners.
+    function roundedPath(pts: Pt[], radius: number): string {
+      let d = `M ${pts[0].x} ${pts[0].y}`;
+      for (let i = 1; i < pts.length - 1; i++) {
+        const p = pts[i - 1];
+        const c = pts[i];
+        const n = pts[i + 1];
+        const inLen = Math.hypot(c.x - p.x, c.y - p.y);
+        const outLen = Math.hypot(n.x - c.x, n.y - c.y);
+        const r = Math.min(radius, inLen / 2, outLen / 2);
+        const ax = c.x + ((p.x - c.x) / inLen) * r;
+        const ay = c.y + ((p.y - c.y) / inLen) * r;
+        const bx = c.x + ((n.x - c.x) / outLen) * r;
+        const by = c.y + ((n.y - c.y) / outLen) * r;
+        d += ` L ${ax} ${ay} Q ${c.x} ${c.y} ${bx} ${by}`;
+      }
+      const last = pts[pts.length - 1];
+      d += ` L ${last.x} ${last.y}`;
+      return d;
+    }
+
+    function build() {
+      if (!threadMedia.matches) return;
+      const vw = document.documentElement.clientWidth;
+      const mainH = main!.getBoundingClientRect().height;
+      svg.setAttribute('width', String(vw));
+      svg.setAttribute('height', String(mainH));
+      svg.setAttribute('viewBox', `0 0 ${vw} ${mainH}`);
+
+      // The gutter line sits halfway between the viewport edge and the content column.
+      const contentLeft = box(container!).x + parseFloat(getComputedStyle(container!).paddingLeft);
+      const xL = Math.max(14, Math.round(contentLeft / 2));
+      const xR = vw - xL;
+
+      const m = box(mouse!);
+      const heroB = box(hero!);
+      const aboutFirst = box(firstAboutBlock!);
+      const yBridge = Math.round((heroB.bottom + aboutFirst.y) / 2);
+
+      const stations: Station[] = titles.map((h2) => {
+        const b = box(h2);
+        // The bar under a title is 1rem below it and 5px tall; aim for its centre.
+        return { el: h2, x: Math.round(b.cx), y: Math.round(b.bottom + 16 + 2.5) };
+      });
+
+      const pts: Pt[] = [];
+      pts.push({ x: Math.round(m.cx), y: Math.round(m.bottom + 8) });
+      pts.push({ x: Math.round(m.cx), y: yBridge });
+      pts.push({ x: xR, y: yBridge });
+      // The line alternates gutters: it arrives at the first station from the right.
+      let fromLeft = false;
+      for (const s of stations) {
+        pts.push({ x: fromLeft ? xL : xR, y: s.y });
+        pts.push({ x: fromLeft ? xR : xL, y: s.y });
+        fromLeft = !fromLeft;
+      }
+      const btn = box(sendButton!);
+      const yBtn = Math.round(btn.y + btn.h / 2);
+      const lastX = fromLeft ? xL : xR;
+      const endX = fromLeft ? Math.round(btn.x) - 3 : Math.round(btn.x + btn.w) + 3;
+      pts.push({ x: lastX, y: yBtn });
+      pts.push({ x: endX, y: yBtn });
+
+      const d = roundedPath(pts, 36);
+      ghost.setAttribute('d', d);
+      path.setAttribute('d', d);
+      total = path.getTotalLength();
+      path.style.strokeDasharray = `${total}`;
+
+      // Sample the path so a scroll position can be turned into a drawn length.
+      const step = 4;
+      samples = [];
+      for (let len = 0; len <= total; len += step) {
+        const p = path.getPointAtLength(len);
+        samples.push({ len, x: p.x, y: p.y });
+      }
+      const last = pts[pts.length - 1];
+      samples.push({ len: total, x: last.x, y: last.y });
+
+      // Stations: the yellow bar redrawn over the line, plus a ring that lights up.
+      stationsG.innerHTML = '';
+      stationParts = [];
+      stationLens = stations.map((s) => {
+        const ring = make('rect', 'thread-station-ring');
+        ring.setAttribute('x', String(s.x - 26));
+        ring.setAttribute('y', String(s.y - 10));
+        ring.setAttribute('width', '52');
+        ring.setAttribute('height', '20');
+        ring.setAttribute('rx', '10');
+        const bar = make('rect', 'thread-station');
+        bar.setAttribute('x', String(s.x - 16));
+        bar.setAttribute('y', String(s.y - 2.5));
+        bar.setAttribute('width', '32');
+        bar.setAttribute('height', '5');
+        bar.setAttribute('rx', '2.5');
+        stationsG.append(ring, bar);
+        stationParts.push({ ring, bar, h2: s.el });
+        const hit = samples.find((p) => Math.abs(p.y - s.y) < 3 && Math.abs(p.x - s.x) < step * 1.5);
+        return hit ? hit.len : total;
+      });
+      endDot.setAttribute('cx', String(last.x));
+      endDot.setAttribute('cy', String(last.y));
+
+      if (reduceMotion) {
+        drawn = total;
+        render();
+      } else {
+        update(true);
+      }
+    }
+
+    function lengthForScroll(): number {
+      if (!samples.length) return 0;
+      const yTarget = window.scrollY + window.innerHeight * 0.62 - mainTop();
+      let lo = 0;
+      let hi = samples.length - 1;
+      if (yTarget <= samples[0].y) return 0;
+      if (yTarget >= samples[hi].y) return total;
+      // Samples never go back up the page, so the first one below the target is the tip.
+      while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (samples[mid].y < yTarget) lo = mid + 1;
+        else hi = mid;
+      }
+      const a = samples[Math.max(0, lo - 1)];
+      const b = samples[lo];
+      const t = b.y === a.y ? 1 : (yTarget - a.y) / (b.y - a.y);
+      return a.len + (b.len - a.len) * Math.min(1, Math.max(0, t));
+    }
+
+    function render() {
+      path.style.strokeDashoffset = `${total - drawn}`;
+      const p = path.getPointAtLength(drawn);
+      tip.setAttribute('cx', String(p.x));
+      tip.setAttribute('cy', String(p.y));
+      tipGlow.setAttribute('cx', String(p.x));
+      tipGlow.setAttribute('cy', String(p.y));
+      stationParts.forEach((s, i) => {
+        const lit = drawn >= stationLens[i];
+        s.ring.classList.toggle('lit', lit);
+        s.bar.classList.toggle('lit', lit);
+        s.h2.classList.toggle('lit', lit);
+      });
+      const done = drawn >= total - 1;
+      endDot.classList.toggle('lit', done);
+      tip.style.opacity = done ? '0' : '1';
+      tipGlow.style.opacity = done ? '0' : '';
+    }
+
+    function tick() {
+      raf = 0;
+      const diff = target - drawn;
+      if (Math.abs(diff) < 0.5) {
+        drawn = target;
+        render();
+        return;
+      }
+      drawn += diff * 0.16;
+      render();
+      raf = requestAnimationFrame(tick);
+    }
+
+    function update(jump: boolean) {
+      target = lengthForScroll();
+      if (reduceMotion || jump) {
+        drawn = target;
+        render();
+        return;
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    let rebuildTimer = 0;
+    const rebuild = () => {
+      window.clearTimeout(rebuildTimer);
+      rebuildTimer = window.setTimeout(build, 120);
+    };
+
+    window.addEventListener('scroll', () => update(false), { passive: true });
+    window.addEventListener('resize', rebuild);
+    threadMedia.addEventListener('change', rebuild);
+    if ('ResizeObserver' in window) new ResizeObserver(rebuild).observe(document.body);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+    else build();
+    window.addEventListener('load', build);
+  }
+</script>

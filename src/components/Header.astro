@@ -1,5 +1,5 @@
 ---
-// Site header: fixed nav, mobile overlay menu, and the cursor trail (desktop only).
+// Site header: fixed nav and the mobile overlay menu.
 const links = [
   { href: '/', label: 'Home' },
   { href: '/#about-section', label: 'About' },
@@ -66,15 +66,8 @@ const isHome = Astro.url.pathname === '/';
   </div>
 </header>
 
-<div class="cursor-trail" id="cursor-trail" aria-hidden="true">
-  {Array.from({ length: 10 }).map(() => <div class="circle"></div>)}
-</div>
 
 <style>
-  /* Cursor trail stays invisible until the mouse actually moves. */
-  .cursor-trail:not(.is-active) .circle {
-    opacity: 0;
-  }
 
   /* Spacer so page content starts below the fixed bar. */
   .site-header {
@@ -95,11 +88,12 @@ const isHome = Astro.url.pathname === '/';
     transition: background-color 0.3s var(--ease);
   }
 
+  /* Same column as .container below it, so the logo sits on the content's left edge. */
   .navigation-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 78rem;
+    max-width: 76rem;
     margin: 0 auto;
     min-height: 3rem;
   }
@@ -113,7 +107,7 @@ const isHome = Astro.url.pathname === '/';
   }
 
   .logo:hover {
-    transform: translateY(-3px);
+    transform: translateY(var(--lift));
   }
 
   .logo img {
@@ -155,7 +149,7 @@ const isHome = Astro.url.pathname === '/';
   }
 
   .nav-links a:hover {
-    transform: translateY(-3px);
+    transform: translateY(var(--lift));
   }
 
   /* Burger button (mobile) */
@@ -185,7 +179,6 @@ const isHome = Astro.url.pathname === '/';
 
   .theme-toggle:hover {
     transform: none;
-    scale: 1;
     box-shadow: none;
     background-color: var(--surface-alt);
     color: var(--text-header);
@@ -241,7 +234,6 @@ const isHome = Astro.url.pathname === '/';
 
   .burger-menu:hover {
     transform: none;
-    scale: 1;
     box-shadow: none;
   }
 
@@ -335,7 +327,7 @@ const isHome = Astro.url.pathname === '/';
 
   @media only screen and (min-width: 601px) {
     .site-nav {
-      padding: 1rem 1.5rem;
+      padding: 1rem 2.5rem;
     }
   }
 
@@ -437,58 +429,4 @@ const isHome = Astro.url.pathname === '/';
   desktopQuery.addEventListener('change', (event) => {
     if (event.matches) setMenu(false);
   });
-
-  // ---------------------------------------------------------------------
-  // CURSOR TRAIL (desktop, fine pointer, no reduced-motion preference)
-  // The animation loop only runs while the cursor is moving, then stops.
-  // ---------------------------------------------------------------------
-  const trail = document.getElementById('cursor-trail');
-  const circles = Array.from(document.querySelectorAll<HTMLElement>('.cursor-trail .circle'));
-  const finePointer = window.matchMedia('(pointer: fine)').matches;
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (circles.length && finePointer && !prefersReducedMotion) {
-    const cursor = { x: -100, y: -100 };
-    const positions = circles.map(() => ({ x: -100, y: -100 }));
-    let frameId = 0;
-    let idleFrames = 0;
-
-    function frame() {
-      let x = cursor.x;
-      let y = cursor.y;
-      let moving = false;
-
-      circles.forEach((circle, index) => {
-        circle.style.left = `${x - 12}px`;
-        circle.style.top = `${y - 12}px`;
-        circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-        positions[index] = { x, y };
-
-        const next = positions[index + 1] || positions[0];
-        const dx = (next.x - x) * 0.3;
-        const dy = (next.y - y) * 0.3;
-        if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) moving = true;
-        x += dx;
-        y += dy;
-      });
-
-      if (moving || idleFrames++ < 30) {
-        frameId = requestAnimationFrame(frame);
-      } else {
-        frameId = 0;
-      }
-    }
-
-    window.addEventListener(
-      'mousemove',
-      (event) => {
-        cursor.x = event.clientX;
-        cursor.y = event.clientY;
-        idleFrames = 0;
-        trail?.classList.add('is-active');
-        if (!frameId) frameId = requestAnimationFrame(frame);
-      },
-      { passive: true }
-    );
-  }
 </script>

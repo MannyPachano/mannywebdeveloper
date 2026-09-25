@@ -4,7 +4,7 @@ import LandingPageCard from './LandingPageCard.astro';
 ---
 
 <section class="landing-section" id="landing-pages" aria-labelledby="landing-title">
-  <div class="landing-container">
+  <div class="landing-container container section-pad">
     <div class="title-div">
       <h2 class="title-after" id="landing-title">Landing pages</h2>
       <p>
@@ -25,16 +25,12 @@ import LandingPageCard from './LandingPageCard.astro';
     display: flex;
     justify-content: center;
     min-width: 320px;
-    background-color: var(--surface-alt);
   }
 
   .landing-container {
     display: flex;
     flex-direction: column;
-    padding: 3rem 1rem 4rem;
     row-gap: 3rem;
-    max-width: 78rem;
-    width: 100%;
   }
 
   .landing-list {
@@ -43,18 +39,7 @@ import LandingPageCard from './LandingPageCard.astro';
     gap: 2rem;
   }
 
-  @media only screen and (min-width: 601px) {
-    .landing-section {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-
   @media only screen and (min-width: 901px) {
-    .landing-container {
-      padding-bottom: 6rem;
-    }
-
     .landing-list {
       gap: 2.5rem;
     }

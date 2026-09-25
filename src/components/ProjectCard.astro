@@ -63,7 +63,7 @@ const href = `/web-developer-project-${project.slug}`;
 
   .project-card:hover,
   .project-card:focus-within {
-    transform: translateY(-4px);
+    transform: translateY(var(--lift));
     box-shadow: var(--shadow-md);
   }
 
@@ -101,15 +101,17 @@ const href = `/web-developer-project-${project.slug}`;
   }
 
   .project-card-meta {
-    font-size: 0.8rem;
+    font-size: var(--fs-label);
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--text-accent);
   }
 
+  /* One step under the section's own h3 headings, so a card never outranks them. */
   .project-card-title {
     margin: 0;
+    font-size: var(--fs-card);
     line-height: 1.3;
   }
 
@@ -142,10 +144,6 @@ const href = `/web-developer-project-${project.slug}`;
     padding-top: 0.75rem;
   }
 
-  .project-card-actions .button-small {
-    margin: 0;
-    padding: 0.85rem 2.25rem;
-  }
 
   /* Featured card: full width, media beside the text on desktop */
   @media only screen and (min-width: 901px) {

@@ -56,7 +56,7 @@ const skillGroups = [
 ---
 
 <section class="about-section" id="about-section" aria-labelledby="about-title">
-  <div class="about-container">
+  <div class="about-container container section-pad">
     <div class="title-div">
       <img
         class="about-photo"
@@ -139,7 +139,6 @@ const skillGroups = [
 
 <style>
   .about-section {
-    background-color: var(--surface-alt);
     display: flex;
     justify-content: center;
     min-width: 320px;
@@ -148,10 +147,7 @@ const skillGroups = [
   .about-container {
     display: flex;
     flex-direction: column;
-    padding: 3rem 1rem 4rem;
     row-gap: 4rem;
-    max-width: 78rem;
-    width: 100%;
   }
 
   /* Landscape rather than a circle: the photo has to hold the whole scene,
@@ -168,7 +164,7 @@ const skillGroups = [
     aspect-ratio: 16 / 10;
     border-radius: var(--radius);
     object-fit: cover;
-    border: 4px solid var(--surface);
+    border: 1px solid var(--line);
     box-shadow: var(--shadow-sm);
     margin-bottom: 0.5rem;
   }
@@ -182,7 +178,6 @@ const skillGroups = [
   }
 
   .skill-group-name {
-    font-size: 0.75rem;
     margin-bottom: 0.6rem;
   }
 
@@ -200,7 +195,7 @@ const skillGroups = [
     background: var(--surface);
     border: 1px solid var(--line);
     border-left: 5px solid var(--yellow);
-    border-radius: 8px;
+    border-radius: var(--radius);
     padding: 1rem 1.25rem;
   }
 
@@ -218,9 +213,9 @@ const skillGroups = [
   }
 
   .experience-when {
-    font-size: 0.85rem;
+    font-size: var(--fs-label);
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--text-accent);
   }
@@ -241,7 +236,6 @@ const skillGroups = [
       grid-template-columns: 1fr 1fr;
       column-gap: 5rem;
       row-gap: 4rem;
-      padding-bottom: 6rem;
     }
 
     .about-container .title-div {

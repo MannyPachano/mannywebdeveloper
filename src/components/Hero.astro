@@ -14,9 +14,6 @@
     </p>
   </div>
 
-  <!-- Easter egg: hover the headline to reveal the photo behind it. -->
-  <div class="manny-img" id="manny-img" aria-hidden="true"></div>
-
   <div class="mouse-section" aria-hidden="true">
     <div class="mouse"></div>
   </div>
@@ -55,12 +52,6 @@
     margin-top: 2.75rem;
   }
 
-  .hero-actions .button {
-    margin: 0;
-    padding: 1rem 3rem;
-    font-size: 18px;
-  }
-
   @media only screen and (max-width: 600px) {
     .hero-actions .button {
       width: 100%;
@@ -85,7 +76,10 @@
     transition: opacity 0.3s var(--ease);
   }
 
-  .hero-section.scrolled .mouse-section {
+  /* The thread starts from this hint, so it stays once the visitor scrolls;
+     only the moving dot inside it stops. */
+  .hero-section.scrolled .mouse::before {
+    animation-play-state: paused;
     opacity: 0;
   }
 
@@ -119,55 +113,14 @@
     }
   }
 
-  .manny-img {
-    background: linear-gradient(to right, var(--page-wash-soft), var(--page-wash-soft)), url(/images/manny-img.webp);
-    background-size: cover;
-    /* The drawing sits in the left 43% of a 1680x1080 file, so a centred cover
-       crop shows blank paper on any portrait viewport: at 375px wide it frames
-       33% to 66% of the image and the figure is gone. Anchoring left keeps it in
-       frame on phones and tablets. This is a no-op on wide screens, where the
-       image fits the width and there is no horizontal crop to position. */
-    background-position: left center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.45s var(--ease);
-  }
-
-  @media only screen and (min-width: 601px) {
-    .hero-actions .button {
-      padding: 1rem 3.5rem;
-      font-size: 20px;
-    }
-  }
 </style>
 
 <script>
-  // Hide the scroll hint once the visitor has scrolled.
+  // Stop the scroll hint moving once the visitor has scrolled; the thread starts from it.
   const hero = document.getElementById('hero');
   window.addEventListener(
     'scroll',
     () => hero?.classList.toggle('scrolled', window.scrollY > 40),
     { passive: true }
   );
-
-  // Quick "peek" of the photo on first load, so people discover the hover effect.
-  const mannyImg = document.getElementById('manny-img');
-  const heroH1 = document.getElementById('h1-hero');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (mannyImg && heroH1 && !reduceMotion) {
-    const steps: Array<[number, () => void]> = [
-      [1000, () => mannyImg.classList.add('animate-img')],
-      [1500, () => heroH1.classList.add('animate-h1')],
-      [1720, () => heroH1.classList.remove('animate-h1')],
-      [1900, () => heroH1.classList.add('animate-h1')],
-      [2120, () => heroH1.classList.remove('animate-h1')],
-      [2400, () => mannyImg.classList.remove('animate-img')],
-    ];
-    steps.forEach(([delay, fn]) => setTimeout(fn, delay));
-  }
 </script>
