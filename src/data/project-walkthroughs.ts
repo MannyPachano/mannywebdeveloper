@@ -288,16 +288,16 @@ const ues: Walkthrough = {
   year: '2026 to present',
   liveUrl: 'https://universalenvironmentalservices.com',
   summary:
-    'I am rebuilding the website of a used oil collection company that operates in 28 states, one page at a time, and running its SEO program: a new homepage, a locations page with all 52 facilities, 28 state pages from one template, and my own SVG maps.',
+    'I rebuilt the website of a used oil collection company that operates in 28 states, one page at a time, and I run its SEO program. The new site includes a homepage, a locations page with all 52 facilities, 28 state pages from one template, and my own SVG maps.',
   tags: ['WordPress', 'PHP', 'SVG maps', 'CSS animation', 'Local SEO', 'GA4 & Search Console'],
   description:
-    'UES collects and recycles used oil and other automotive waste across much of the United States. I audited the site, built the SEO roadmap, and am rebuilding it page by page, including the homepage, locations page, service pages, state pages and custom maps.',
+    'UES collects and recycles used oil and other automotive waste across much of the United States. I audited the site, built the SEO roadmap, and rebuilt it page by page, including the homepage, locations page, service pages, state pages and custom maps.',
   pageDescription:
     'Universal Environmental Services case study: the homepage rebuild, a locations page with all 52 facilities, 28 state pages generated from one template, hand-built SVG maps, and the SEO program behind them.',
   pageTitle: 'Universal Environmental Services case study | Manny Pachano',
   facts: [
-    { label: 'Live so far', value: 'Homepage, locations page, hazardous waste, universal waste, used oil pickup and Georgia' },
-    { label: 'Awaiting sign-off', value: 'The remaining 27 state pages' },
+    { label: 'Live', value: 'The homepage, the locations page, all 28 state pages and every service page' },
+    { label: 'Also rebuilt', value: 'The about, contact, re-refinery, environmental, FAQ and news pages' },
   ],
   hero: {
     src: `${uesImages}/after-first.webp`,
@@ -381,13 +381,23 @@ const ues: Walkthrough = {
       height: 1570,
     },
     {
+      title: 'The journey section',
+      caption:
+        'A drawing follows a gallon of used oil from the customer\'s shop to a UES truck, a UES facility, the re-refinery and back to base oil, with a short caption for each step. On desktop it plays once when the section comes into view. On a phone the steps become a vertical list that lights up as the visitor scrolls.',
+      alt: 'Recording of the journey drawing in the re-refinery section: a yellow line runs along a curved path from Your shop past Our truck, A UES facility and The re-refinery to Back to base oil, lighting each of the five numbered steps below it.',
+      src: `${uesImages}/02-journey.webp`,
+      video: { mp4: '/videos/ues-journey.mp4', webm: '/videos/ues-journey.webm' },
+      width: 1600,
+      height: 744,
+    },
+    {
       title: 'Re-refining',
       caption:
         'This section explains what happens to collected oil after it leaves the customer and how it becomes new base oil at the Peachtree City re-refinery.',
-      alt: 'A dark section titled "We re-refine what we collect" with a yellow card showing 50-85% less energy and 1 re-refinery.',
+      alt: 'The rest of the re-refinery section: a paragraph about the Peachtree City re-refinery, an Inside the re-refinery button and a yellow card showing 50-85% less energy and 1 re-refinery.',
       src: `${uesImages}/07-re-refinery.webp`,
       width: 1600,
-      height: 474,
+      height: 319,
     },
     {
       title: 'Service areas',
@@ -464,7 +474,7 @@ const ues: Walkthrough = {
     {
       title: 'State pages',
       intro:
-        'UES serves 28 states, and each now has a dedicated page built from the same underlying system. The pages include a local introduction, nearby facilities and addresses, a state map, available services, common questions and the pickup form. States without a UES facility explain which nearby facility handles their service area. Georgia is live on the new system. The remaining state pages are built and waiting for client approval.',
+        'UES serves 28 states, and each now has a dedicated page built from the same underlying system. The pages include a local introduction, nearby facilities and addresses, a state map, available services, common questions and the pickup form. States without a UES facility explain which nearby facility handles their service area. All 28 are live.',
       columns: 2,
       items: [
         {
@@ -561,7 +571,7 @@ const ues: Walkthrough = {
     },
   ],
   phonesIntro:
-    'The mobile layouts were designed separately rather than simply shrinking the desktop version. Animated sections stack, and map pins become larger targets for touch. The map keeps its legend and facility information without forcing visitors into a separate mobile experience.',
+    'The mobile layouts were designed separately rather than simply shrinking the desktop version. Animated sections stack, the journey becomes a vertical list of steps that light up as the visitor scrolls, and map pins become larger targets for touch. The map keeps its legend and facility information without forcing visitors into a separate mobile experience.',
   phones: [
     {
       src: `${uesImages}/mobile-hero.webp`,
@@ -578,11 +588,11 @@ const ues: Walkthrough = {
       caption: 'The numbers bar.',
     },
     {
-      src: `${uesImages}/mobile-services.webp`,
+      src: `${uesImages}/mobile-journey.webp`,
       width: 780,
       height: 1690,
-      alt: 'The start of the services section on a phone: the heading, a short introduction and the first service cards, one per row.',
-      caption: 'The services.',
+      alt: 'The journey section on a phone: the five steps run down the screen as a list, and the steps the visitor has scrolled past are lit.',
+      caption: 'The journey section.',
     },
     {
       src: `${uesImages}/mobile-map.webp`,
