@@ -303,7 +303,7 @@ const ues: Walkthrough = {
     src: `${uesImages}/after-first.webp`,
     width: 1920,
     height: 1200,
-    alt: 'The first screen of the new UES homepage: black header and hero with the headline "Used oil collection and recycling across 28 states", a Request a pickup button, a Call button and a photo of the re-refinery.',
+    alt: 'The first screen of the new UES homepage: the header, a dark hero with the headline "Used oil collection and recycling across 28 states", a Request a pickup button, a Call button and a photo of the re-refinery, and the yellow numbers bar below it.',
   },
   compare: {
     labelA: 'Before',
@@ -341,27 +341,17 @@ const ues: Walkthrough = {
       alt: 'UES header and hero with the headline "Used oil collection and recycling across 28 states", a Request a pickup button, a Call button and a photo of the re-refinery.',
       src: `${uesImages}/01-hero.webp`,
       width: 1600,
-      height: 690,
+      height: 688,
     },
     {
-      title: 'The journey section',
+      title: 'The numbers bar and the truck animation',
       caption:
-        'As the visitor scrolls, a drop of oil moves from the customer\'s shop to a UES facility, then to the re-refinery and finally into new base oil. The visitor controls the pace by scrolling.',
-      alt: 'Recording of the journey section: as the page scrolls, a yellow oil drop moves along a curved path from a shop icon past a truck and a facility to a re-refinery and a bottle of new base oil, and the caption below changes from step 1 of 5 to step 5 of 5.',
-      src: `${uesImages}/02-journey.webp`,
-      video: { mp4: '/videos/ues-journey.mp4', webm: '/videos/ues-journey.webm' },
-      width: 1600,
-      height: 848,
-    },
-    {
-      title: 'The counter and truck animation',
-      caption:
-        'The numbers establish the scale of the operation. Below them, a CSS animation shows the truck moving through pickup, unloading, transport and re-refining. The animation switches off automatically for visitors who prefer reduced motion.',
-      alt: 'Recording of the black counter bar: a yellow number of gallons ticking upward next to a line drawing of a tanker truck moving between shops, a UES facility and the re-refinery.',
+        'Four numbers establish the scale of the operation. Next to them, a counter estimates the gallons UES has collected since the page opened, and a CSS animation shows the truck moving through pickup, unloading, transport and re-refining. The animation switches off automatically for visitors who prefer reduced motion.',
+      alt: 'Recording of the yellow numbers bar: 35,000+ customers served, 400+ collection and transport trucks, 90M+ gallons collected a year and 28 states with active routes, then a count of gallons collected since the page opened above a line drawing of a tanker truck moving between shops, a UES facility and the re-refinery.',
       src: `${uesImages}/03-counter.webp`,
       video: { mp4: '/videos/ues-truck.mp4', webm: '/videos/ues-truck.webm' },
       width: 1600,
-      height: 172,
+      height: 154,
     },
     {
       title: 'Services',
@@ -370,7 +360,7 @@ const ues: Walkthrough = {
       alt: 'A grid of nine service cards (used oil pickup, used filter collection, oily wastewater, hazardous waste, vacuum services, spent absorbents, parts washer service, fluorescent bulbs, spent antifreeze) and a black bar that says "Not sure what category your waste falls into?".',
       src: `${uesImages}/04-services.webp`,
       width: 1600,
-      height: 1250,
+      height: 1337,
     },
     {
       title: 'What happens after you call',
@@ -379,7 +369,7 @@ const ues: Walkthrough = {
       alt: 'Four numbered steps in a row under the heading "Four steps, start to finish".',
       src: `${uesImages}/05-four-steps.webp`,
       width: 1600,
-      height: 460,
+      height: 517,
     },
     {
       title: 'Compliance',
@@ -388,7 +378,7 @@ const ues: Walkthrough = {
       alt: 'A checklist of compliance points next to an illustration of a UES service receipt.',
       src: `${uesImages}/06-compliance.webp`,
       width: 3200,
-      height: 1572,
+      height: 1570,
     },
     {
       title: 'Re-refining',
@@ -406,15 +396,15 @@ const ues: Walkthrough = {
       alt: 'A US map with the served states shaded, yellow pins for every facility, a legend, and a two-column list of the 28 states.',
       src: `${uesImages}/08-find-your-state.webp`,
       width: 1600,
-      height: 930,
+      height: 949,
     },
     {
       title: 'Customer quotes',
       caption: 'Comments from customers add local proof from businesses already using UES collection routes.',
-      alt: 'Three customer quotes in cards with a yellow left border, under the heading "Customers who know their drivers by name".',
+      alt: 'Three customer quotes in pale yellow cards with a dark left border, under the heading "Customers who know their drivers by name".',
       src: `${uesImages}/09-reviews.webp`,
       width: 1600,
-      height: 430,
+      height: 508,
     },
     {
       title: 'Environmental program',
@@ -422,7 +412,7 @@ const ues: Walkthrough = {
       alt: 'A section titled "Safety built into every operation" with a paragraph, a button and a photo of storage tanks.',
       src: `${uesImages}/10-program.webp`,
       width: 1600,
-      height: 450,
+      height: 505,
     },
     {
       title: 'Pickup request',
@@ -571,28 +561,28 @@ const ues: Walkthrough = {
     },
   ],
   phonesIntro:
-    'The mobile layouts were designed separately rather than simply shrinking the desktop version. Buttons become full width, the journey changes to a vertical path, animated sections stack, and map pins become larger targets for touch. The map keeps its legend and facility information without forcing visitors into a separate mobile experience.',
+    'The mobile layouts were designed separately rather than simply shrinking the desktop version. Animated sections stack, and map pins become larger targets for touch. The map keeps its legend and facility information without forcing visitors into a separate mobile experience.',
   phones: [
     {
       src: `${uesImages}/mobile-hero.webp`,
       width: 780,
       height: 1690,
-      alt: 'The new UES homepage on a phone: headline, two full-width buttons, the reply promise and the plant photo.',
+      alt: 'The new UES homepage on a phone: the header, the headline, the Request a pickup and Call buttons, the reply promise and the plant photo.',
       caption: 'The first screen.',
-    },
-    {
-      src: `${uesImages}/mobile-journey.webp`,
-      width: 780,
-      height: 1690,
-      alt: 'The journey section on a phone: the path runs top to bottom from the shop to new base oil.',
-      caption: 'The journey section.',
     },
     {
       src: `${uesImages}/mobile-counter.webp`,
       width: 780,
       height: 1690,
-      alt: 'The yellow numbers and the black counter bar with the truck on a phone.',
-      caption: 'The numbers and the counter bar.',
+      alt: 'The yellow numbers bar on a phone: four numbers in two rows, then the count of gallons collected since the page opened and the truck.',
+      caption: 'The numbers bar.',
+    },
+    {
+      src: `${uesImages}/mobile-services.webp`,
+      width: 780,
+      height: 1690,
+      alt: 'The start of the services section on a phone: the heading, a short introduction and the first service cards, one per row.',
+      caption: 'The services.',
     },
     {
       src: `${uesImages}/mobile-map.webp`,
