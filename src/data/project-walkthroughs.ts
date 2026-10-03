@@ -288,10 +288,10 @@ const ues: Walkthrough = {
   year: '2026 to present',
   liveUrl: 'https://universalenvironmentalservices.com',
   summary:
-    'I rebuilt the website of a used oil collection company that operates in 28 states, one page at a time, and I run its SEO program. The new site includes a homepage, a locations page with all 52 facilities, 28 state pages from one template, and my own SVG maps.',
+    'I rebuilt the website of a used oil collection company that operates in 28 states and I run its ongoing SEO program. The new site includes a homepage, a locations page with all 52 facilities, 28 state pages from one template, and clickable SVG maps.',
   tags: ['WordPress', 'PHP', 'SVG maps', 'CSS animation', 'Local SEO', 'GA4 & Search Console'],
   description:
-    'UES collects and recycles used oil and other automotive waste across much of the United States. I audited the site, built the SEO roadmap, and rebuilt it page by page, including the homepage, locations page, service pages, state pages and custom maps.',
+    'UES collects and recycles used oil and other automotive waste across the United States. I audited the site, built the SEO roadmap, and rebuilt the website page by page, including the homepage, locations page, service pages, state pages and custom maps.',
   pageDescription:
     'Universal Environmental Services case study: the homepage rebuild, a locations page with all 52 facilities, 28 state pages generated from one template, hand-built SVG maps, and the SEO program behind them.',
   pageTitle: 'Universal Environmental Services case study | Manny Pachano',
