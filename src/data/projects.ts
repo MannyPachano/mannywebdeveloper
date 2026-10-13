@@ -34,11 +34,10 @@ export const projects: Project[] = [
     year: '2026 to present',
     featured: true,
     summary:
-      'I rebuilt the website of a used oil collection company that operates in 28 states, one page at a time, and I run its SEO program. The new site includes a homepage, a locations page with all 52 facilities, 28 state pages built from one template and two data files, and my own SVG maps in place of a map plugin.',
+      'I rebuilt the website of a used oil collection company that operates in 28 states, one page at a time, and I run its SEO program. The new site includes a homepage, a locations page with all 53 facilities, 28 state pages built from one template and two data files, and my own SVG maps in place of a map plugin.',
     tags: ['WordPress', 'PHP', 'SVG maps', 'CSS animation', 'Local SEO', 'GA4 & Search Console'],
     video: {
       mp4: '/videos/ues-thumbnail.mp4',
-      webm: '/videos/ues-thumbnail.webm',
       poster: '/images/ues-thumbnail.webp',
       fit: 'cover',
     },
@@ -54,7 +53,6 @@ export const projects: Project[] = [
     tags: ['WordPress', 'JavaScript', 'Zoho CRM', 'Stripe & WooCommerce', 'SEO', 'Email marketing'],
     video: {
       mp4: '/videos/timeclick-thumbnail.mp4',
-      webm: '/videos/timeclick-thumbnail.webm',
       poster: '/images/timeclick-thumbnail.webp',
       fit: 'cover',
     },
