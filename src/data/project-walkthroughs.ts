@@ -69,11 +69,11 @@ const timeclick: Walkthrough = {
     figures: [
       {
         src: `${timeclickImages}/seo-traffic.webp`,
-        width: 1600,
-        height: 610,
-        alt: 'Ahrefs line chart of estimated organic traffic to timeclick.com from September 2025 to September 2026. The line is flat near 2,000 until January 2026, climbs to about 45,000 by April 2026 and stays between roughly 20,000 and 40,000 afterwards.',
+        width: 1048,
+        height: 705,
+        alt: 'Ahrefs line chart of estimated organic traffic to timeclick.com from November 2025 to the end of April 2026. The line is flat near 2,000 until January 2026 and climbs to about 45,000 by April 2026.',
         caption:
-          'Estimated organic traffic to timeclick.com, September 2025 to September 2026 (traffic in orange, impressions in dark red). The climb starts in January 2026, the second month of the program, and holds after the program ended. Source: Ahrefs Site Explorer.',
+          'Estimated organic traffic to timeclick.com from November 2025 to the end of April 2026, when I handed off the program (traffic in orange, impressions in dark red). The climb starts in January 2026, the second month of the program. Source: Ahrefs Site Explorer.',
       },
       {
         src: `${timeclickImages}/seo-top-pages.webp`,
@@ -213,7 +213,7 @@ const timeclick: Walkthrough = {
           src: `${timeclickImages}/page-pricing.webp`,
           width: 1600,
           height: 1000,
-          alt: 'The pricing page: "Simple, Straightforward Pricing" with a device license card showing a one-time price.',
+          alt: 'The pricing page: the headline "TimeClick Pricing: Pay Once per Device" with a 4.7 Capterra rating, and a card where visitors pick how many devices will run TimeClick and see the one-time price, what is included and the renewal cost.',
           caption: 'Pricing. One-time price per device, what is included, and what a renewal costs, with nothing hidden.',
         },
         {
