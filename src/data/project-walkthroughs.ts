@@ -26,7 +26,7 @@ const timeclick: Walkthrough = {
   eyebrow: 'Case study',
   client: 'TimeClick (Utah, US)',
   kind: 'Website redesign and marketing',
-  role: 'Front-end developer and marketing specialist',
+  role: 'Design, front-end development, SEO and email marketing',
   year: '2024 to present',
   liveUrl: 'https://timeclick.com',
   summary:
@@ -110,7 +110,7 @@ const timeclick: Walkthrough = {
     {
       title: 'Proof: 8,000+ businesses',
       caption:
-        'Customer logos right under the hero, before any feature talk. Best Western, Farmers Insurance, Holiday Inn, Nationwide, Ace Hardware, H&R Block and Hampton. Small businesses recognize them and relax.',
+        'Customer logos right under the hero, before any feature talk. Best Western, Farmers Insurance, Holiday Inn, Nationwide, Ace Hardware, H&R Block and Hampton. Small business owners recognize the names.',
       alt: 'The headline "Trusted by 8,000+ businesses, offices and stores" above a row of customer logos.',
       src: `${timeclickImages}/02-proof.webp`,
       width: 1600,
@@ -119,7 +119,7 @@ const timeclick: Walkthrough = {
     {
       title: 'Made for small businesses',
       caption:
-        'The first of three alternating rows. A short statement about who the product is for, a button to the reviews, and a custom illustration instead of a stock photo.',
+        'The first of three alternating rows. A short statement about who the product is for, a button to the reviews, and a custom illustration.',
       alt: 'Illustration of a barber shop and a cafe storefront next to the text "Time Tracking Made For Small Businesses" and a See Reviews button.',
       src: `${timeclickImages}/03-small-business.webp`,
       width: 1600,
@@ -153,7 +153,7 @@ const timeclick: Walkthrough = {
       height: 605,
     },
     {
-      title: 'Eight features, one grid',
+      title: 'The feature grid',
       caption:
         'Every feature in two rows of four: time clock, employee time tracking, department and job tracking, timesheet reports, PTO, the mobile app, payroll integrations and geofencing. Each one is two sentences and a link to its own page, which is also where the SEO traffic for those terms lands.',
       alt: 'A grid of eight features with short descriptions and links, under the heading "Time Clock Software With All The Features You Need".',
@@ -164,7 +164,7 @@ const timeclick: Walkthrough = {
     {
       title: 'Works the way you do',
       caption:
-        'Four objections handled in four short points: setup takes under ten minutes, employees are unlimited, built-in accountability stops time theft, and your data stays on your own computer or server instead of the cloud. A support card beside them says a real person answers the phone and gives the number.',
+        'Short answers to four objections: setup takes under ten minutes, employees are unlimited, built-in accountability stops time theft, and your data stays on your own computer or server. A support card beside them says a real person answers the phone and gives the number.',
       alt: 'A dark section headed "Time Clock Software That Works the Way You Do": a Real People, Real Support card with a phone number to call, and four numbered points: Quick & Easy Setup, Unlimited Employees, Stop Time Theft Cold and Your Data, Your Control.',
       src: `${timeclickImages}/07-works.webp`,
       width: 1600,
@@ -173,7 +173,7 @@ const timeclick: Walkthrough = {
     {
       title: 'Reviews',
       caption:
-        'Three real reviews with names, roles and companies, from a plastics company, a dental practice and an imaging business, with the Capterra rating beside the heading. They sit on a light blue band just before the last call to action.',
+        'Three reviews with names, roles and companies, from a plastics company, a dental practice and an imaging business, with the Capterra rating beside the heading. They sit on a light blue band just before the last call to action.',
       alt: 'The heading "What TimeClick Customers Say" with a Capterra rating of 4.7 from 427 reviews, three customer reviews with photos, names and companies, and a Read All Reviews button.',
       src: `${timeclickImages}/08-reviews.webp`,
       width: 1600,
@@ -192,7 +192,7 @@ const timeclick: Walkthrough = {
   galleries: [
     {
       title: 'Pages built for search and for the trial',
-      intro: 'A few of the other pages I designed and wrote: the pages that rank, and the pages that convert.',
+      intro: 'Five of the other pages I designed and wrote: two free tools built for search traffic, and the pricing, no-subscription and free trial pages.',
       columns: 2,
       items: [
         {
@@ -200,40 +200,40 @@ const timeclick: Walkthrough = {
           width: 1600,
           height: 1000,
           alt: 'The US Federal Holidays Calendar page for 2026: a card counting down to the next federal holiday, year tabs, a state holiday picker, a Save as PDF button and a table of the holidays with the day off when one falls on a weekend.',
-          caption: 'US Federal Holidays Calendar. The single biggest source of organic traffic on the site, about 12,700 estimated visits a month.',
+          caption: 'The US Federal Holidays Calendar is the biggest source of organic traffic on the site, about 12,700 estimated visits a month (Ahrefs, September 2026).',
         },
         {
           src: `${timeclickImages}/page-time-card-calculator.webp`,
           width: 1600,
           height: 1000,
           alt: 'The Free Time Card Calculator page: a weekly grid with clock in, clock out and unpaid break times for each day, and a panel with the total hours for the week, regular and overtime hours, and buttons to email or print a PDF.',
-          caption: 'Free Time Card Calculator. A working tool with breaks, lunch and overtime, built for the searches small business owners make every payday.',
+          caption: 'The Free Time Card Calculator handles breaks, lunch and overtime. I built it for the searches small business owners make every payday.',
         },
         {
           src: `${timeclickImages}/page-pricing.webp`,
           width: 1600,
           height: 1000,
           alt: 'The pricing page: the headline "TimeClick Pricing: Pay Once per Device" with a 4.7 Capterra rating, and a card where visitors pick how many devices will run TimeClick and see the one-time price, what is included and the renewal cost.',
-          caption: 'Pricing. One-time price per device, what is included, and what a renewal costs, with nothing hidden.',
+          caption: 'The pricing page shows the one-time price per device, what is included and what a renewal costs.',
         },
         {
           src: `${timeclickImages}/page-no-subscription.webp`,
           width: 1600,
           height: 1000,
           alt: 'The no-subscription page: the headline "Time Tracking Software You Own, Not Rent" with a 4.7 Capterra rating, Start Free Trial and See Pricing from $299 buttons, a key illustration and a row of customer logos below.',
-          caption: 'No subscription. A page built around the one argument competitors cannot make, with a cost comparison over time.',
+          caption: 'The no-subscription page makes the one argument competitors cannot make, with a cost comparison over time.',
         },
         {
           src: `${timeclickImages}/page-free-trial.webp`,
           width: 1600,
           height: 1000,
           alt: 'The free trial page: the headline "Try TimeClick Free for 14 Days", three reasons to sign up (no credit card, setup in 10 minutes or less, free setup help), a customer quote and a short signup form.',
-          caption: 'The free trial page. Everything on the site points here: one short form, no credit card, no distractions.',
+          caption: 'The free trial page, where every page on the site points: one short form and no credit card.',
         },
       ],
     },
   ],
-  phonesIntro: 'The homepage on a phone. One column, the trial button within reach of a thumb, and the feature list turned into cards.',
+  phonesIntro: 'The homepage on a phone: one column, the trial button within reach of a thumb, and the feature list as cards.',
   phones: [
     {
       src: `${timeclickImages}/mobile-hero.webp`,
@@ -268,8 +268,8 @@ const timeclick: Walkthrough = {
     design: [
       'One message at the top: no monthly fees, free trial, no credit card. Everything else on the page supports that.',
       'Proof before features: the rating, the review count and the customer logos come right after the hero.',
-      'Feature sections built around screenshots of the real software, not illustrations.',
-      'Large text and high contrast, because the buyers are small business owners on laptops and phones, not designers on big screens.',
+      'The hero shows a screenshot of the software, and the three rows under it use custom illustrations.',
+      'Large text and high contrast, because the buyers are small business owners reading on laptops and phones.',
     ],
     build: [
       'WordPress child theme with hand-coded page templates, styled with Tailwind CSS. No page builder on the pages I built.',
@@ -292,21 +292,20 @@ const ues: Walkthrough = {
   title: 'Universal Environmental Services',
   eyebrow: 'Case study',
   client: 'Universal Environmental Services (Georgia, US)',
-  kind: 'Website rebuild, maps and SEO',
-  role: 'Web developer and SEO consultant',
+  kind: 'Website redesign, maps and SEO',
+  role: 'Web designer, developer and SEO consultant',
   year: '2026 to present',
   liveUrl: 'https://universalenvironmentalservices.com',
   summary:
     'I rebuilt the website of a used oil collection company that operates in 28 states and I run its ongoing SEO program. The new site includes a homepage, a locations page with all 53 facilities, 28 state pages from one template, and clickable SVG maps.',
   tags: ['WordPress', 'PHP', 'SVG maps', 'CSS animation', 'Local SEO', 'GA4 & Search Console'],
   description:
-    'UES collects and recycles used oil and other automotive waste across the United States. I audited the site, built the SEO roadmap, and rebuilt the website page by page, including the homepage, locations page, service pages, state pages and custom maps.',
+    'UES collects and recycles used oil and other automotive waste across 28 states. I audited the site, built the SEO roadmap, designed every page as a mockup for the client to approve, and rebuilt the website page by page: the homepage, the locations page, the service pages, the state pages and custom maps.',
   pageDescription:
     'Universal Environmental Services case study: the homepage rebuild, a locations page with all 53 facilities, 28 state pages generated from one template, hand-built SVG maps, and the SEO program behind them.',
   pageTitle: 'Universal Environmental Services case study | Manny Pachano',
   facts: [
-    { label: 'Live', value: 'The homepage, the locations page, all 28 state pages and every service page' },
-    { label: 'Also rebuilt', value: 'The about, contact, re-refinery, environmental, FAQ and news pages' },
+    { label: 'Live', value: 'The whole site: the homepage, the locations page, all 28 state pages, every service page, and the about, contact, re-refinery, environmental, FAQ and news pages' },
   ],
   hero: {
     src: `${uesImages}/after-first.webp`,
@@ -329,14 +328,14 @@ const ues: Walkthrough = {
     { value: '28', label: 'State pages built from a shared PHP template' },
     { value: '53', label: 'Facilities plotted on custom maps' },
     { value: '46 s', label: 'CSS timeline behind the truck animation' },
-    { value: 'Byte-identical', label: 'HTML checks kept public pages unchanged before sign-off' },
+    { value: 'Checked before launch', label: 'Every page compared with the old HTML and tested with Playwright before it went public' },
   ],
   overviewTitle: 'About the project',
   overview: [
     'UES collects used oil, filters, antifreeze and oily water from more than 35,000 businesses. Its network includes 53 facilities across 28 states, more than 400 trucks and a re-refinery in Peachtree City, Georgia.',
     'The old site made two important things harder to find than they should have been: whether UES served a customer\'s area and what happened after the waste was picked up.',
-    'I started with a site audit and four-month SEO roadmap, then connected Google Analytics 4 and Search Console so the work could be measured. From there, I began rebuilding the site around clearer service information, local coverage and stronger paths to request a pickup.',
-    'The homepage and service pages use custom WordPress templates. The state pages are generated from shared facility and service data, so addresses, maps and coverage information can be maintained in one place.',
+    'I started with a site audit and four-month SEO roadmap, then connected Google Analytics 4 and Search Console so the work could be measured. From there, I began rebuilding the site around clearer service information, local coverage and clearer ways to request a pickup.',
+    'Each page started as a mockup, which the client reviewed and approved before I built it. The homepage and service pages use custom WordPress templates. The state pages are generated from shared facility and service data, so addresses, maps and coverage information can be maintained in one place.',
     'I also replaced the old map plugin with custom inline SVG maps built from US Census boundary files. A Python script generates the geography, while the site data supplies the facilities, labels and state coverage.',
     'All work is developed behind a preview gate on the live site. Before anything goes public, I compare the rendered HTML, verify file hashes and test the maps and mobile layouts with Playwright.',
   ],
@@ -409,7 +408,7 @@ const ues: Walkthrough = {
     },
     {
       title: 'Customer quotes',
-      caption: 'Comments from customers add local proof from businesses already using UES collection routes.',
+      caption: 'Three comments from businesses on UES collection routes.',
       alt: 'Three customer quotes in pale yellow cards with a dark left border, under the heading "Customers who know their drivers by name".',
       src: `${uesImages}/09-reviews.webp`,
       width: 1600,
@@ -437,7 +436,7 @@ const ues: Walkthrough = {
     {
       title: 'The locations page',
       intro:
-        'The old locations page relied on a plugin map and copy that still said UES operated in 25 states. I rebuilt it around the information someone looking for local service actually needs.',
+        'The old locations page relied on a plugin map and copy that still said UES operated in 25 states. I rebuilt it around the information someone looking for local service needs.',
       columns: 2,
       items: [
         {
@@ -570,7 +569,7 @@ const ues: Walkthrough = {
     },
   ],
   phonesIntro:
-    'The mobile layouts were designed separately rather than simply shrinking the desktop version. Animated sections stack, and map pins become larger targets for touch. The map keeps its legend and facility information without forcing visitors into a separate mobile experience.',
+    'The mobile layouts were designed on their own. Animated sections stack, map pins become larger targets for touch, and the map keeps its legend and facility information on a phone.',
   phones: [
     {
       src: `${uesImages}/mobile-hero.webp`,
@@ -623,9 +622,9 @@ const ues: Walkthrough = {
   details: {
     design: [
       'The main goal was to make the site easier to understand quickly, especially for someone checking it from a phone at a shop or facility.',
-      'Black, white and the existing UES yellow carry the visual system. Large type and strong contrast keep important information easy to scan.',
+      'The site uses black, white and the existing UES yellow. Large type and strong contrast keep important information easy to scan.',
       'Motion is used when it helps explain something, such as following the path of collected oil or showing the pickup process. Reduced-motion preferences are respected throughout.',
-      'The maps were designed for actual use, with readable labels, clear facility markers and special handling for areas where locations sit close together.',
+      'The maps have readable labels, clear facility markers and leader lines where locations sit close together.',
     ],
     build: [
       'The site runs on a WordPress child theme with custom templates for the homepage, locations, services and state pages.',
@@ -681,9 +680,9 @@ const clox: Walkthrough = {
   overview: [
     'Clox is a time tracking product for small trades crews. Workers clock in from their phones, managers review hours and approve the week, and approved time can be exported to payroll. I founded the company and built the product end to end.',
     'The main technical constraint is that workers are often using the app on a job site with a weak connection. At the same time, the hours being recorded feed into payroll. The interface therefore has to handle offline use without losing or duplicating punches.',
-    'When the phone is offline, punches are stored in an IndexedDB queue. Each one gets a UUID on the device, which is also used as the server-side idempotency key, so a punch that replays after a successful sync is ignored rather than written twice. When the connection returns, the queue uses the same server action as the normal online path. Clock in, clock out, breaks and project changes all use the same system.',
-    'Failed punches are handled according to the type of failure. Temporary errors are retried, invalid punches can be discarded, and anything that needs a human decision is held for review. Unknown responses are held as well rather than silently dropping the punch.',
-    'As with <a class="text-link" href="/web-developer-project-keyset">Keyset</a>, the business logic lives in plain modules rather than being tied to the framework. The 365 tests cover overtime, pay periods, timezone boundaries, geofences, CSV imports and payroll exports, with most of the logic tested without a browser.',
+    'When the phone is offline, punches are stored in an IndexedDB queue. Each one gets a UUID on the device, which is also used as the server-side idempotency key, so a punch that replays after a successful sync is recognized and ignored. When the connection returns, the queue uses the same server action as the normal online path. Clock in, clock out, breaks and project changes all use the same system.',
+    'Failed punches are handled according to the type of failure. Temporary errors are retried, invalid punches can be discarded, and anything that needs a human decision is held for review. Unknown responses are held for review as well, so no punch is dropped silently.',
+    'As with <a class="text-link" href="/web-developer-project-keyset">Keyset</a>, the business logic lives in plain modules, separate from the framework. The 365 tests cover overtime, pay periods, timezone boundaries, geofences, CSV imports and payroll exports, with most of the logic tested without a browser.',
   ],
   walkthroughIntro: 'The application, screen by screen. These are the live app, signed in to the demo organization.',
   sections: [
@@ -699,7 +698,7 @@ const clox: Walkthrough = {
     {
       title: 'The same screen, on shift',
       caption:
-        'After clocking in, the interface switches to a dark state and the primary action becomes Clock out. The timer uses the server-recorded punch rather than the time the page was opened.',
+        'After clocking in, the interface switches to a dark state and the primary action becomes Clock out. The timer counts from the server-recorded punch time, so reopening the page does not reset it.',
       alt: 'The Clox Today screen while clocked in: the same layout inverted to dark, a running timer and a coral Clock out button.',
       src: `${cloxImages}/app-01-today-onshift.webp`,
       width: 1600,
@@ -717,7 +716,7 @@ const clox: Walkthrough = {
     {
       title: 'Building the schedule',
       caption:
-        'People are listed down the side and days run across the top. Shifts can be dragged between people and days, clicked to edit, or added to an empty cell. Dragging is built on pointer events rather than HTML5 drag, so touch behaves the same as a mouse, and the same moves work from the keyboard. Moving a shift preserves its duration across overnight and daylight saving changes.',
+        'People are listed down the side and days run across the top. Shifts can be dragged between people and days, clicked to edit, or added to an empty cell. Dragging is built on pointer events, so touch behaves the same as a mouse, and the same moves work from the keyboard. Moving a shift preserves its duration across overnight and daylight saving changes.',
       alt: 'The Clox schedule board: eight employees down the side, seven days across the top, and shift chips showing times and project names.',
       src: `${cloxImages}/app-03-schedule-board.webp`,
       width: 1600,
@@ -735,7 +734,7 @@ const clox: Walkthrough = {
     {
       title: 'Where the punches happened',
       caption:
-        'The map shows where clock-ins happened during the week. Clox records location at the time of the punch rather than continuously tracking workers, and punches outside an assigned worksite are refused.',
+        'The map shows where clock-ins happened during the week. Clox records location at the moment of the punch and does not track workers between punches. Punches outside an assigned worksite are refused.',
       alt: 'The Clox map view: 44 located punches for one week, a day-grouped list on the left and a map of New York with clustered markers.',
       src: `${cloxImages}/app-05-team-map.webp`,
       width: 1600,
@@ -816,7 +815,7 @@ const clox: Walkthrough = {
     {
       title: 'The marketing site',
       intro:
-        'The marketing site has a different job: explain the product and get crew owners into a trial. It uses the same stack as the application, with the phones, dashboards and map built in HTML, CSS and SVG rather than image files.',
+        'The marketing site has a different job: explain the product and get crew owners into a trial. It uses the same stack as the application, and the phones, dashboards and map are built in HTML, CSS and SVG, with no image files.',
       columns: 3,
       items: [
         {
@@ -824,7 +823,7 @@ const clox: Walkthrough = {
           width: 1600,
           height: 950,
           alt: 'getclox.com hero: "Stop chasing paper timecards", a trial button, app store badges and two phones, one ready to clock in and one on the clock.',
-          caption: 'The homepage leads with the problem and a single primary action. The phone screens are built with CSS rather than screenshots.',
+          caption: 'The homepage leads with the problem and a single primary action. The phone screens are built with CSS.',
         },
         {
           src: `${cloxImages}/03-features.webp`,
@@ -838,7 +837,7 @@ const clox: Walkthrough = {
           width: 1600,
           height: 1818,
           alt: 'Four alternating rows of dashboard screens: reports, team, schedule and map.',
-          caption: 'The product tour uses dashboard screens built directly in the page rather than captured images.',
+          caption: 'The product tour uses dashboard screens built directly in the page.',
         },
         {
           src: `${cloxImages}/08-pricing.webp`,
@@ -859,7 +858,7 @@ const clox: Walkthrough = {
           width: 1600,
           height: 1000,
           alt: 'The Clox vs ClockShark comparison page with a feature and price table.',
-          caption: 'One of five comparison pages, using a straightforward price and feature table.',
+          caption: 'One of five comparison pages, each with a price and feature table.',
         },
       ],
     },
@@ -893,7 +892,7 @@ const clox: Walkthrough = {
       width: 1170,
       height: 2532,
       alt: 'The Clox app map of punches for a month, showing 124 located punches over New York.',
-      caption: 'Punch locations for the month. Clox records location for punches rather than tracking workers between them.',
+      caption: 'Punch locations for the month. Clox records location at each punch and does not track workers between punches.',
     },
     {
       src: `${cloxImages}/app-native-approvals.webp`,
@@ -905,7 +904,7 @@ const clox: Walkthrough = {
   ],
   details: {
     design: [
-      'Paper, ink and one clay accent. Color is reserved for primary actions and overtime.',
+      'The palette is paper, ink and one clay accent. Color is reserved for primary actions and overtime.',
       'The app switches to a dark state while a worker is on shift, making the current state easy to recognize at a glance.',
       'Navigation is based on eleven capabilities, with defaults by role and overrides for individual people.',
       'Kiosk mode supports shared tablets on site. Workers use a PIN to identify themselves and a manager PIN to exit.',
@@ -913,7 +912,7 @@ const clox: Walkthrough = {
     ],
     build: [
       'Next.js 16 App Router, React 19 and TypeScript in strict mode, with Tailwind and shadcn/ui. Server components handle reads and server actions handle writes across 35 action modules.',
-      'Supabase Auth uses the SSR client with cookies refreshed in middleware. Authentication resolves once per render with React cache, using getUser rather than getSession, because getSession reads the cookie locally and can come back empty in the moment after sign-in.',
+      'Supabase Auth uses the SSR client with cookies refreshed in middleware. Authentication resolves once per render with React cache, using getUser, because getSession reads the cookie locally and can come back empty in the moment after sign-in.',
       'Postgres runs on Supabase through Drizzle, with database migrations stored in the repository.',
       'The offline queue uses IndexedDB directly. Client timestamps are validated so they cannot be in the future or more than one day old.',
       '365 tests across 39 Vitest suites, with most business logic tested independently of the framework and browser.',
@@ -925,7 +924,7 @@ const clox: Walkthrough = {
     marketing: [
       'Twenty trade pages, five comparison pages, documentation and a blog, all built from the same components as the homepage and informed by search data.',
       'App Store listings, directory profiles and a Product Hunt launch.',
-      'I also handle positioning, pricing, onboarding, SEO and support. Building my own product gives me experience across the same parts of a project I handle for clients.',
+      'I also handle positioning, pricing, onboarding, SEO and support.',
     ],
   },
   tools: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Postgres', 'Drizzle', 'Tailwind', 'Stripe', 'Expo', 'Vitest'],
@@ -943,7 +942,7 @@ const landscaperTemplates: Walkthrough = {
   liveUrl: 'https://landscapertemplates.netlify.app',
   liveLabel: 'See the templates',
   summary:
-    'Three ready-to-customize website templates for landscaping companies. Intentionally generic, so a business owner can see the layout, the flow and the speed before I make it theirs.',
+    'Three ready-to-customize website templates for landscaping companies. They are intentionally generic, so a business owner can see the layout, the flow and the speed before I customize one for them.',
   tags: ['HTML & CSS', 'JavaScript', 'Netlify', 'Templates'],
   description:
     'Three complete landscaping websites built as a sales tool. A business owner picks the layout they like, and I customize it with their name, photos and service area.',
@@ -957,13 +956,13 @@ const landscaperTemplates: Walkthrough = {
   },
   heroCaption: 'The first screen of template 1 at 1680 pixels wide. A bar at the bottom of the live page switches between the three templates and stays visible while you scroll.',
   highlights: [
-    { value: 'Complete sites', label: 'Three finished websites to compare, not mockups or wireframes' },
+    { value: 'Complete sites', label: 'Three finished websites to compare, each one live' },
     { value: 'One switcher', label: 'Visitors move between templates without leaving the page' },
     { value: 'Free customization', label: 'Included when a business owner chooses a template' },
   ],
   overviewTitle: 'About the project',
   overview: [
-    'Most landscaping business owners want to see what their website would look like before they commit to anything. Instead of showing mockups, I built three complete landscaping websites and put them behind a switcher that stays visible while you scroll, so an owner can compare them in a minute.',
+    'Most landscaping business owners want to see what their website would look like before they commit to anything. I built three complete landscaping websites and put them behind a switcher that stays visible while you scroll, so an owner can compare them in a minute.',
     'All three cover the same ground: a headline that says what the company does and where, services, a gallery of past work, reasons to choose the company, customer reviews and a quote request. Each one orders and styles it differently, and each adds a section of its own (seasonal tips in one, a blog and a team page in another, service areas in the third), so an owner can pick the one that fits how they sell.',
     'The templates are generic on purpose. The text and photos are placeholders. Once a business owner picks a template, I replace the placeholder content with their business name, photos and service area. That customization is free.',
     'The templates are hand-coded HTML, CSS and JavaScript hosted on Netlify. Each finished site loads quickly, costs nothing to host and has no plugins or page builder to maintain.',
@@ -1000,7 +999,7 @@ const landscaperTemplates: Walkthrough = {
     {
       title: 'One team, start to finish',
       caption:
-        'Three photos, then six things the company handles, each with an icon and one sentence. This is where an owner lists what they actually do.',
+        'Three photos, then six things the company handles, each with an icon and one sentence. This is where an owner lists what they do.',
       alt: 'Three landscaping photos above a list of six services with icons under the heading "One team. Start to finish."',
       src: `${landscaperImages}/04-one-team.webp`,
       width: 1600,
@@ -1061,19 +1060,19 @@ const landscaperTemplates: Walkthrough = {
       ],
     },
   ],
-  phonesIntro: 'The templates at phone width. One column, photos first, and a quote button on every screen.',
+  phonesIntro: 'The templates at phone width: one column, photos first and a quote button on every screen.',
   phones: [
     { src: `${landscaperImages}/mobile-t1-hero.webp`, width: 1170, height: 2535, alt: 'Template 1 on a phone: the top bar, the logo, a garden photo and the headline with two buttons.', caption: 'Template 1. The photo fills the first screen, with the headline and the quote button over it.' },
     { src: `${landscaperImages}/mobile-t1-services.webp`, width: 1170, height: 2535, alt: 'The what we do section of template 1 on a phone: the heading, then the first service card, a landscape design photo with a learn more link.', caption: 'The service cards become one column, each photo full width.' },
     { src: `${landscaperImages}/mobile-t1-quote.webp`, width: 1170, height: 2535, alt: 'The get in touch section of template 1 on a phone: the heading, then phone, email, office address and opening hours listed above the quote form.', caption: 'Phone, email, address and hours come before the form, so calling is always the easier option.' },
-    { src: `${landscaperImages}/mobile-t2-hero.webp`, width: 1170, height: 2535, alt: 'Template 2 on a phone: a boxed uppercase headline over a lawn photo with two stacked buttons.', caption: 'Template 2 on the same screen size. Same job, different look.' },
+    { src: `${landscaperImages}/mobile-t2-hero.webp`, width: 1170, height: 2535, alt: 'Template 2 on a phone: a boxed uppercase headline over a lawn photo with two stacked buttons.', caption: 'Template 2 at the same screen size.' },
   ],
   details: {
     design: [
-      'Three designs over the same content, so the owner compares layouts instead of imagining them.',
+      'Three designs over the same content, so the owner can compare real layouts.',
       'On a desktop the phone number sits in the top bar and in the hero. On every screen size it comes back in the call strip above the footer.',
-      'Photos do the selling. The text is short and stays out of the way.',
-      'Generic on purpose: no fake company story, just the structure an owner can picture themselves in.',
+      'Photos do the selling, and the text is short.',
+      'Generic on purpose, so an owner can picture their own business in the structure.',
     ],
     build: [
       'Hand-coded HTML, CSS and JavaScript. No framework, no page builder, no plugins.',
@@ -1096,7 +1095,7 @@ const jonathanZalzman: Walkthrough = {
   year: '2026',
   liveUrl: 'https://jonathanzalzmanguitar.netlify.app',
   summary:
-    'Lesson booking site for a working musician in Suwanee, Georgia: nine teaching styles, transparent pricing, and a free trial lesson button that follows you down the page.',
+    'A lesson booking site for a working musician in Suwanee, Georgia, with his nine teaching styles, his prices and a free trial lesson button that stays on screen.',
   tags: ['HTML & CSS', 'JavaScript', 'Netlify Forms', 'Local business'],
   description:
     'A website for a guitar teacher and working musician in Suwanee, Georgia. The goal of the site is to get visitors to book a free trial lesson.',
@@ -1117,7 +1116,7 @@ const jonathanZalzman: Walkthrough = {
   overviewTitle: 'About the project',
   overview: [
     'Jonathan teaches guitar, bass and ukulele in Suwanee, Georgia and online, and he performs regularly. The site is built around that. The headline is "Learn guitar from a working musician", and the design and copy are meant to make that clear right away and then make booking a lesson easy.',
-    'The design uses performance photos on a dark background so the site looks like a musician\'s site rather than a directory listing. The nine styles he teaches (rock and blues, funk, jazz and fusion, prog and shred, metal, theory and ear training, bass and ukulele, songwriting, improvisation) each have a short description. Three five-star reviews from students of different ages are placed where a parent or an adult beginner would be deciding.',
+    'The design uses performance photos on a dark background so the site looks like a musician\'s site. The nine styles he teaches (rock and blues, funk, jazz and fusion, prog and shred, metal, theory and ear training, bass and ukulele, songwriting, improvisation) each have a short description. Three five-star reviews from students of different ages are placed where a parent or an adult beginner would be deciding.',
     'Pricing is shown on the page: the first lesson is free, then 30 or 60 minute lessons at a flat rate, with no registration fee, contract or subscription. The booking form asks for the instrument, experience level and whether the lessons are in person or online. Every call to action on the page links to the form, and his phone number and email are also shown.',
     'The site is hand-coded HTML, CSS and JavaScript hosted on Netlify. There is no page builder and there are no plugins to update.',
   ],
@@ -1153,7 +1152,7 @@ const jonathanZalzman: Walkthrough = {
     {
       title: 'Quote and three steps',
       caption:
-        'A full-width stage photo with one quote over it, then how lessons start: free trial lesson, build a plan, show up and play. Numbered 01, 02, 03.',
+        'A full-width stage photo with one quote over it, then the three numbered steps to start: a free trial lesson, a plan, then showing up and playing.',
       alt: 'A photo band with the quote "The stuff I teach is the stuff I do every weekend on stage" above a three-step "How to start lessons" section.',
       src: `${jonathanImages}/04-divider-how.webp`,
       width: 1600,
@@ -1171,7 +1170,7 @@ const jonathanZalzman: Walkthrough = {
     {
       title: 'Pricing',
       caption:
-        'Three cards: the free first lesson, 30 minutes and 60 minutes, each with what is included and a button. No registration fee, no contract, no subscription is stated above the cards.',
+        'Three cards: the free first lesson, 30 minutes and 60 minutes, each with what is included and a button. A line above the cards says there is no registration fee, contract or subscription.',
       alt: 'Three pricing cards: $0 trial lesson, $30 for 30 minutes, $50 for 60 minutes, each with a Book button.',
       src: `${jonathanImages}/06-pricing.webp`,
       width: 1600,
@@ -1222,9 +1221,9 @@ const jonathanZalzman: Walkthrough = {
   ],
   details: {
     design: [
-      'Dark background, orange accent and condensed display type, so the site looks like a musician\'s site, not a tutoring directory.',
-      'His own performance photos in every section. No stock photos.',
-      'Proof sits between the price and the form: student reviews, then the band section, then the questions people actually ask.',
+      'Dark background, orange accent and condensed display type, so the site looks like a musician\'s site.',
+      'His own performance photos in every section, with no stock photos.',
+      'Proof sits between the price and the form: student reviews, then the band section, then the questions people ask.',
       'The trial lesson button is in the header, the hero, after the styles, after pricing and at the end. On phones it sits in a bar at the bottom of the screen.',
     ],
     build: [
@@ -1243,14 +1242,14 @@ const keyset: Walkthrough = {
   slug: 'keyset',
   title: 'Keyset',
   eyebrow: 'Case study',
-  client: 'My own project. No client, and the data is generated.',
+  client: 'My own project. The data is generated.',
   kind: 'React application',
   role: 'Design and development',
   year: '2026',
   liveUrl: 'https://keyset-project.netlify.app',
   liveLabel: 'Open Keyset',
   summary:
-    'A maintenance desk for a property management company, built in React and TypeScript. Filtering, bulk edits, a schedule board that works by keyboard as well as by dragging, and optimistic saves that roll back when a save is refused.',
+    'A maintenance desk for a property management company, built in React and TypeScript, with filtering, bulk edits, a schedule board that works by keyboard as well as by dragging, and saves that roll back when the server refuses them.',
   tags: ['React', 'TypeScript', 'Vite', 'Vitest', 'Playwright', 'Accessibility'],
   description:
     'A maintenance desk for a property management company: 200 requests across five properties, filtered, edited in bulk and scheduled on a week board. I built it because I wanted a React and TypeScript application with enough state in it to be worth testing. The data is generated and there is no client.',
@@ -1277,14 +1276,14 @@ const keyset: Walkthrough = {
   overview: [
     'I had not shipped a React application, and reading about it was not going to fix that. So I picked a problem with enough state to be awkward: a maintenance desk where a property manager triages repair requests, assigns contractors and books visits.',
     'The rule I set was that all the logic lives in plain modules with no React in them. Filtering, sorting, pagination, dates and the reducer are ordinary functions, so they run under the bare Node test runner with nothing installed. Only rendering needs a toolchain. That is why most of the test suite kept working while the interface changed.',
-    'Saves are optimistic: the row changes immediately and rolls back if the request fails. There is a Force failures button in the header so you can see that happen rather than take my word for it. The data comes from a fixed seed, so everyone sees the same 200 requests.',
+    'Saves are optimistic: the row changes immediately and rolls back if the request fails. There is a Force failures button in the header so you can see that happen. The data comes from a fixed seed, so everyone sees the same 200 requests.',
   ],
   walkthroughIntro: 'The app, screen by screen.',
   sections: [
     {
       title: 'Filtering',
       caption:
-        'Search matches reference, unit, tenant and contractor, and every term has to match. The status chips carry live counts that ignore the status filter itself, so clicking Done shows you what Done contains rather than zero. Filters go into the URL, so a narrowed queue is a link you can send.',
+        'Search matches reference, unit, tenant and contractor, and every term has to match. The status chips carry live counts that ignore the status filter itself, so clicking Done shows what Done contains. Filters go into the URL, so a narrowed queue is a link you can send.',
       alt: 'The queue filtered to the word boiler, showing three matching requests and a Clear filters button.',
       src: `${keysetImages}/01-filters.webp`,
       width: 1600,
@@ -1311,7 +1310,7 @@ const keyset: Walkthrough = {
     {
       title: 'The week',
       caption:
-        'Scheduled visits laid out by day. Empty days stay on the board because they are drop targets. A day holding more visits than a crew can fit is flagged rather than quietly accepted.',
+        'Scheduled visits laid out by day. Empty days stay on the board because they are drop targets. A day holding more visits than a crew can fit is flagged.',
       alt: 'A week board with seven day columns and scheduled visits as cards.',
       src: `${keysetImages}/04-board.webp`,
       width: 1600,
@@ -1347,7 +1346,7 @@ const keyset: Walkthrough = {
     {
       title: 'Dark theme',
       caption:
-        'The theme follows the operating system until you pick one, and the choice is remembered. A small file loaded before the first paint sets it, so the page never flashes light before turning dark. Colours run through tokens, and both themes were measured against the 4.5 to 1 contrast minimum.',
+        'The theme follows the operating system until you pick one, and the choice is remembered. A small file loaded before the first paint sets it, so the page never flashes light before turning dark. Colors run through tokens, and both themes were measured against the 4.5 to 1 contrast minimum.',
       alt: 'The Keyset queue in the dark theme.',
       src: `${keysetImages}/08-dark.webp`,
       width: 1600,
@@ -1384,8 +1383,8 @@ const keyset: Walkthrough = {
   ],
   details: {
     design: [
-      'Status and priority are never colour alone. Priority carries a dot and a word, so it still reads if you cannot separate red from amber.',
-      'One accent colour. Red is kept for overdue and for failures, so it means one thing.',
+      'Status and priority are never color alone. Priority carries a dot and a word, so it still reads if you cannot separate red from amber.',
+      'One accent color. Red is kept for overdue and for failures, so it means one thing.',
       'Figures use tabular numerals, so columns of days and counts line up.',
       'The bar under each age shows how much of the response window has been used: four hours for an emergency, two days for urgent, seven for routine.',
       'Every control is at least 24 pixels, and the ones used repeatedly on a phone are larger.',
@@ -1396,7 +1395,7 @@ const keyset: Walkthrough = {
       '34 component tests in Vitest and Testing Library, and 10 browser tests in Playwright: four journeys and six accessibility checks.',
       'The accessibility suite runs axe against the queue in both themes, the board, the open panel and a 390 pixel viewport, then measures tap targets and checks that nothing overlaps.',
       'A mock API with adjustable latency and failure rate, backed by localStorage, so the optimistic updates and the rollback have something real to fail against.',
-      'Deployed on Netlify with a Content Security Policy that keeps script-src at self, which is why the theme script is a file rather than an inline tag.',
+      'Deployed on Netlify with a Content Security Policy that keeps script-src at self, which is why the theme script loads from a file.',
     ],
   },
   tools: ['React', 'TypeScript', 'Vite', 'Vitest', 'Testing Library', 'Playwright', 'axe', 'Netlify'],
@@ -1413,10 +1412,10 @@ const nuvector: Walkthrough = {
   year: '2024 to 2025',
   frameUrl: 'www.nu-vector.com',
   summary:
-    "The company website for nuVector, which sells software for tracking returnable containers, racks and tooling. Nine client pages, three service pages and a blog of 20 posts, all pointed at one thing: a demo request.",
+    "The company website for nuVector, which sells software for tracking returnable containers, racks and tooling. It has nine client pages, three service pages and a blog of 20 posts, and every page leads to a demo request.",
   tags: ['Astro', 'SCSS', 'TypeScript', 'Netlify', 'Figma', 'SEO'],
   description:
-    "The company website for nuVector, which sells software for tracking returnable containers, racks and tooling. Nine client pages, three service pages and a blog of 20 posts, all pointed at one thing: a demo request.",
+    "The company website for nuVector, which sells software for tracking returnable containers, racks and tooling. It has nine client pages, three service pages and a blog of 20 posts, and every page leads to a demo request.",
   pageDescription:
     'nuVector case study: an Astro company website with nine client pages, three service pages and a blog of 20 posts, rendered on demand on Netlify with structured data on every page.',
   facts: [
@@ -1441,14 +1440,14 @@ const nuvector: Walkthrough = {
     'nuVector sells software that tracks returnable assets: the containers, racks and tooling that leave a plant and are supposed to come back. I worked there as a front-end developer and later in SEO and marketing, so I knew the customers before I started on the site. The site this one replaced was bad, and that is what drove the rebuild.',
     'The company site had a different job from the <a class="text-link" href="/web-developer-project-loopmanager">LoopManager product site</a>. LoopManager is nuVector\'s product, and that site explains what the software does. This one had to show that the company behind it is real and established, and then get a demo booked. That is why the client work sits high on the page and why every route ends at the same form.',
     'Most of the build is about not typing anything twice. The nine client pages are one layout with the client name, the kind of result, a photograph and a quote passed into it. The blog posts are Markdown files, and the post pages, the index, the category pages and the author pages are all generated from those files. Publishing a post means adding a file.',
-    'I did the design, the front-end build and the 20 blog posts. The photography, the logos and the product claims are nuVector\'s. The four numbers in the case studies section are their claims about what their software does for their customers, not outcomes of my work on the website, and I have not presented them as mine.',
+    'I did the design, the front-end build and the 20 blog posts. The photography, the logos and the product claims are nuVector\'s.',
   ],
   walkthroughIntro: 'The homepage, section by section.',
   sections: [
     {
       title: 'Hero',
       caption:
-        'One headline, one sentence and one button. The button goes to the asset management service page rather than to the contact form, so the first click is to read more. The demo request is in the header and again at the bottom of the page for anyone who already knows what they want.',
+        'One headline, one sentence and one button. The button goes to the asset management service page, so the first click is to read more. The demo request is in the header and again at the bottom of the page for anyone who already knows what they want.',
       alt: 'The nuVector hero: the headline Next-Level Asset Management, a line of copy and a Discover Our Solutions button, next to the company monogram.',
       src: `${nuvectorImages}/01-hero.webp`,
       width: 1600,
@@ -1457,7 +1456,7 @@ const nuvector: Walkthrough = {
     {
       title: 'Services',
       caption:
-        'Three services, numbered, each one a card that turns over on hover to show a sentence about what it covers and a link to its own page. Returnable asset management, workflow tracking, and data and infrastructure. On a phone the cards turn on tap instead.',
+        'Three services, numbered, each one a card that turns over on hover to show a sentence about what it covers and a link to its own page. Returnable asset management, workflow tracking, and data and infrastructure. On a phone the cards turn on tap.',
       alt: 'Three numbered service cards over grayscale photographs: Returnable Asset Management, Workflow Tracking, and Data and Infrastructure.',
       src: `${nuvectorImages}/02-services.webp`,
       width: 1600,
@@ -1560,7 +1559,7 @@ const nuvector: Walkthrough = {
           height: 1000,
           alt: 'The Contact Us page with introductory copy beside a dark form panel.',
           caption:
-            'Contact. The form marks its required fields and says what happens to the address, and it posts to a serverless function rather than to a third party.',
+            'The contact page. The form marks its required fields and says what happens to the address, and it posts to a serverless function.',
         },
       ],
     },
@@ -1587,7 +1586,7 @@ const nuvector: Walkthrough = {
       width: 1170,
       height: 2532,
       alt: 'The Volvo client page on a phone, showing the client name, share buttons, a photograph and the body copy.',
-      caption: 'A client page. The photograph sits between the client name and the write-up rather than beside it.',
+      caption: 'A client page. The photograph moves between the client name and the write-up.',
     },
     {
       src: `${nuvectorImages}/mobile-contact.webp`,
@@ -1599,15 +1598,15 @@ const nuvector: Walkthrough = {
   ],
   details: {
     design: [
-      'Montserrat for headings and Nunito Sans for body text, both self-hosted and preloaded rather than fetched from Google.',
-      "The brand's orange and charcoal, kept from the existing identity rather than replaced.",
+      'Montserrat for headings and Nunito Sans for body text, both self-hosted and preloaded.',
+      "The brand's existing orange and charcoal.",
       'Every section opens with a small double slash label above its heading, so someone scanning the page can tell where they are.',
       'Client logos are drawn as single color masks, so a row of nine different brand treatments reads as one row.',
       'Every page below the homepage takes its banner and breadcrumb from one component, so the size of the site is visible from anywhere in it.',
     ],
     build: [
       'Astro 4 with MDX, the sitemap integration and astro-icon, using three icon sets.',
-      'Hosted on Netlify through the Netlify adapter. Pages are rendered on demand and cached at the edge. The paginated blog index, the category pages and the author pages are built ahead of time instead, since they come from a fixed set of files.',
+      'Hosted on Netlify through the Netlify adapter. Pages are rendered on demand and cached at the edge. The paginated blog index, the category pages and the author pages are built ahead of time, since they come from a fixed set of files.',
       'SCSS with one variables file and one mixins file. No CSS framework.',
       'The nine client pages are a single layout that takes the client name, the kind of result, a photograph, a pull quote and the body copy.',
       'Posts are Markdown. The frontmatter carries the title, date, author, category, description, image and a table of contents, and on 14 of them a list of questions and answers.',
@@ -1617,7 +1616,7 @@ const nuvector: Walkthrough = {
     marketing: [
       'Structured data is generated for each page: BlogPosting on posts, LocalBusiness on the homepage, and FAQPage merged into the 14 posts that carry questions and answers.',
       'Canonical URL, Open Graph and Twitter card tags on every page, with a per page switch to mark one noindex.',
-      'The 20 posts, across four categories, from February 2023 to March 2025. Each one is aimed at a particular search and ends at the demo form.',
+      '20 posts across four categories, published from February 2023 to March 2025, each aimed at one search and ending at the demo form.',
     ],
   },
   tools: ['Astro', 'SCSS', 'TypeScript', 'JavaScript', 'Figma', 'Netlify', 'SEO'],

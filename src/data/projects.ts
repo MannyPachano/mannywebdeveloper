@@ -30,11 +30,11 @@ export const projects: Project[] = [
   {
     slug: 'ues',
     title: 'Universal Environmental Services',
-    role: 'Website rebuild, maps and SEO',
+    role: 'Website redesign, maps and SEO',
     year: '2026 to present',
     featured: true,
     summary:
-      'I rebuilt the website of a used oil collection company that operates in 28 states, one page at a time, and I run its SEO program. The new site includes a homepage, a locations page with all 53 facilities, 28 state pages built from one template and two data files, and my own SVG maps in place of a map plugin.',
+      'I designed and rebuilt the website of a used oil collection company that operates in 28 states, one page at a time, and I run its SEO program. The new site has a homepage, a locations page with all 53 facilities, 28 state pages built from one template and two data files, and SVG maps I drew from Census boundary data.',
     tags: ['WordPress', 'PHP', 'SVG maps', 'CSS animation', 'Local SEO', 'GA4 & Search Console'],
     video: {
       mp4: '/videos/ues-thumbnail.mp4',
@@ -46,10 +46,10 @@ export const projects: Project[] = [
   {
     slug: 'timeclick',
     title: 'TimeClick',
-    role: 'Website redesign and marketing',
+    role: 'Website redesign, SEO and marketing',
     year: '2024 to present',
     summary:
-      'I redesigned the marketing website for TimeClick, a time clock software company used by thousands of small businesses, and built the CRM, checkout and email systems behind it. The goal is to get the right visitors to start a free trial.',
+      'I redesigned the marketing website for TimeClick, a time clock software company used by thousands of small businesses, built the CRM, checkout and email systems behind it, and ran the SEO program that took organic traffic from about 4,000 to over 30,000 visits a month. The goal is to get the right visitors to start a free trial.',
     tags: ['WordPress', 'JavaScript', 'Zoho CRM', 'Stripe & WooCommerce', 'SEO', 'Email marketing'],
     video: {
       mp4: '/videos/timeclick-thumbnail.mp4',
@@ -67,7 +67,7 @@ export const projects: Project[] = [
           role: 'Founder: product and front end',
           year: '2026 to present',
           summary:
-            'My own product: a time tracking application for small trades crews. The crew clocks in from a phone, the office approves the week and sends it to payroll, and a punch made with no signal still lands. I run the company and I designed and built it.',
+            'My own product: a time tracking application for small trades crews. The crew clocks in from a phone, the office approves the week and sends it to payroll, and a clock-in made with no signal is saved and synced later. I run the company and I designed and built it.',
           tags: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Stripe', 'SaaS'],
           video: {
             mp4: '/videos/clox-thumbnail.mp4',
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     role: 'Design and development',
     year: '2026',
     summary:
-      'My own project: a maintenance desk for a property management company, built so I had a React and TypeScript application with real state in it. Filtering and bulk edits, a schedule board that works by keyboard as well as by dragging, and optimistic saves that roll back when the server refuses. The data is generated and there is no client.',
+      'My own project: a maintenance desk for a property management company, built to have a React and TypeScript application with real state in it. It has filtering and bulk edits, a schedule board that works by keyboard as well as by dragging, and saves that show instantly and roll back if the server rejects them. There is no client, and the data is generated.',
     tags: ['React', 'TypeScript', 'Vite', 'Vitest', 'Playwright', 'Accessibility'],
     video: {
       mp4: '/videos/keyset-thumbnail.mp4',
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     role: 'Design and development',
     year: '2024',
     summary:
-      'I built a portfolio website for a video production studio where every video plays automatically. I used Astro and converted the videos to HLS playlists so the videos could load without serving the original files.',
+      'I built a portfolio website for a video production studio where every video plays automatically. I built it on Astro and converted the videos to HLS playlists, so each video streams in small pieces and the page stays fast.',
     tags: ['Astro', 'HLS video', 'Figma', 'Shell scripting'],
     video: {
       mp4: '/videos/explainer-visuals-thumbnail.mp4',
@@ -129,7 +129,7 @@ export const projects: Project[] = [
     role: 'Company website redesign',
     year: '2024 to 2025',
     summary:
-      "I redesigned and rebuilt nuVector's company website on Astro: nine client pages, three service pages and a blog of 20 posts, all pointed at one demo request.",
+      "I redesigned and rebuilt nuVector's company website on Astro: nine client pages, three service pages and a blog of 20 posts, and every page leads to the demo request.",
     tags: ['Astro', 'SCSS', 'TypeScript', 'Figma', 'SEO'],
     video: {
       mp4: '/videos/nuvector-thumbnail.mp4',
@@ -144,7 +144,7 @@ export const projects: Project[] = [
     role: 'Design and development',
     year: '2026',
     summary:
-      'I built a website for a guitar teacher in Suwanee, Georgia. It covers the nine styles he teaches, his pricing, student reviews and a form to book a free trial lesson.',
+      'I designed and built a website for a guitar teacher in Suwanee, Georgia. It covers the nine styles he teaches, his pricing, student reviews and a form to book a free trial lesson.',
     tags: ['HTML & CSS', 'JavaScript', 'Netlify Forms', 'Local business'],
     video: {
       mp4: '/videos/jonathan-zalzman-thumbnail.mp4',
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     role: 'Website templates',
     year: '2026',
     summary:
-      'I built three website templates for landscaping companies. They are intentionally generic so a business owner can compare the layouts and the speed first. I then customize the one they choose.',
+      'I designed and built three website templates for landscaping companies. They are intentionally generic so a business owner can compare the layouts and the speed first. I then customize the one they choose.',
     tags: ['HTML & CSS', 'JavaScript', 'Netlify', 'Templates'],
     video: {
       mp4: '/videos/landscaper-templates-thumbnail.mp4',

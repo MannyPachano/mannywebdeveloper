@@ -37,20 +37,20 @@ const experience = [
 // Grouped so a reader can scan what kind of work I do, not just count tools.
 const skillGroups = [
   {
-    name: 'Development',
-    items: ['HTML & CSS', 'JavaScript', 'TypeScript', 'Astro', 'Vue', 'WordPress', 'PHP', 'SQL', 'Git & GitHub', 'Netlify'],
+    name: 'Design',
+    items: ['Figma', 'Wireframes and mockups', 'Responsive design', 'Typography and layout', 'Accessibility (WCAG 2.1 AA)', 'SaaS product design'],
   },
   {
-    name: 'Marketing and SEO',
+    name: 'Development',
+    items: ['HTML & CSS', 'JavaScript', 'TypeScript', 'React & Next.js', 'Astro', 'Vue', 'WordPress', 'PHP', 'SQL', 'Git & GitHub', 'Netlify'],
+  },
+  {
+    name: 'SEO and marketing',
     items: ['Technical & local SEO', 'Google Analytics 4', 'Search Console', 'Google Business Profile', 'Email marketing', 'Conversion copywriting'],
   },
   {
-    name: 'Integrations',
-    items: ['REST APIs', 'Zoho CRM', 'Stripe & WooCommerce', 'Netlify Forms', 'Payroll and CRM exports'],
-  },
-  {
-    name: 'Design and tooling',
-    items: ['Performance optimization', 'Accessibility', 'Responsive design', 'Figma', 'SaaS product design', 'Video for web (ffmpeg, HLS)', 'AI-assisted development (Claude Code)'],
+    name: 'Integrations and tooling',
+    items: ['REST APIs', 'Zoho CRM', 'Stripe & WooCommerce', 'Netlify Forms', 'Payroll and CRM exports', 'Performance optimization', 'Video for web (ffmpeg, HLS)', 'AI-assisted development (Claude Code)'],
   },
 ];
 ---
@@ -69,9 +69,9 @@ const skillGroups = [
       />
       <h2 class="title-after" id="about-title">About me</h2>
       <p>
-        I work remotely as the front-end developer and marketing specialist at TimeClick, a software company in Utah.
-        I am also the web developer and SEO consultant for Universal Environmental Services, and I take on web
-        design and SEO projects for other US clients.{SHOW_CLOX ? ' I also run my own SaaS product, Clox.' : ''}
+        I'm the front-end developer and marketing specialist at TimeClick, a software company in Utah, where I work
+        remotely. I'm also the web designer, developer and SEO consultant for Universal Environmental Services, and I
+        take on web design and SEO projects for other US clients.{SHOW_CLOX ? ' I also run my own SaaS product, Clox.' : ''}
       </p>
     </div>
 
@@ -95,7 +95,7 @@ const skillGroups = [
       </p>
       <p>
         Since 2026 I have also been the web developer and SEO consultant for Universal Environmental Services, a used
-        oil collection and recycling company in Georgia. I rebuilt their website and I run their ongoing SEO program.
+        oil collection and recycling company in Georgia. I designed and rebuilt their website, and I run their SEO program.
       </p>
       {SHOW_CLOX && (
         <p>

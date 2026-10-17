@@ -3,9 +3,9 @@
 export const SITE = {
   url: 'https://websitesbymanny.netlify.app',
   name: 'Manny Pachano',
-  title: 'Manny Pachano | Front-End Developer & Marketing Specialist',
+  title: 'Manny Pachano | Web Designer, Front-End Developer & SEO Consultant',
   description:
-    'Front-end developer and marketing specialist. I build and maintain websites for software companies and small businesses in the US. Case studies for TimeClick, Universal Environmental Services, nuVector and others.',
+    'I design and build websites for software companies and small businesses in the US, and I run the SEO, email and CRM work behind them. Case studies for TimeClick, Universal Environmental Services, nuVector and others.',
   ogImage: '/images/og-image.jpg',
 } as const;
 

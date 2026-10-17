@@ -30,7 +30,7 @@ export const landingPages: LandingPage[] = [
     year: '2026',
     liveUrl: 'https://halstead-mechanical.netlify.app',
     summary:
-      'Two people arrive at a mechanical contractor\'s site wanting opposite things. One is a facility manager with a chiller down at 2 a.m. The other is a general contractor bidding a job six months out. The page gives each of them a route without hiding the other, through a clickable roof plan, a symptom triage that tells you how urgent your problem is, a labeled building section and a response-time chart, hand-written in a single HTML file. <strong>Halstead is invented and every figure is written to be plausible, with a concept notice at the top of the page.</strong>',
+      'Two people arrive at a mechanical contractor\'s site wanting opposite things. One is a facility manager with a chiller down at 2 a.m. The other is a general contractor bidding a job six months out. The page gives each of them a route without hiding the other: a clickable roof plan, a symptom triage that tells you how urgent your problem is, a labeled building section and a response-time chart, all hand-written in a single HTML file. <strong>Halstead is invented and every figure is written to be plausible, with a concept notice at the top of the page.</strong>',
     tags: ['HTML & CSS', 'JavaScript', 'Container queries', 'SVG drawings', 'Accessibility', 'Netlify'],
     description:
       'An emergency caller needs a number a person answers. A bidding contractor needs evidence before spending a call. Splitting those into two sites doubles the maintenance for a company with no marketing staff, so I built this one-page concept in 2026 to carry both. Halstead Mechanical is an invented company and no figure on the page belongs to a real business.',
@@ -47,17 +47,17 @@ export const landingPages: LandingPage[] = [
       alt: 'First screen of the Halstead Mechanical concept: a dark petrol hero over a photograph of rooftop air handlers at dusk, the headline "When the chiller goes down at 2 a.m., call us.", a call button and an estimate button, a roof plan panel with four rooftop units where one is selected, and an orange emergency strip underneath with a live Columbus clock and the phone number.',
     },
     heroCaption:
-      'The first screen. The photograph is a real rooftop and the roof plan on top of it is drawn, which is the pairing the whole page is built on. The four units are clickable and the panel below reads out capacity, age and status.',
+      'The first screen. The photograph is a real rooftop and the roof plan on top of it is drawn, and that pairing repeats down the page. The four units are clickable and the panel below reads out capacity, age and status.',
     highlights: [
-      { value: 'Two intents, one page', label: 'An emergency caller reaches the number in the first two screens, a bidding contractor reaches the evidence before the form' },
+      { value: 'Two routes', label: 'An emergency caller reaches the number in the first two screens, a bidding contractor reaches the evidence before the form' },
       { value: 'Nine container queries', label: 'The layout responds to the width of the page itself, so the same markup lays out correctly inside a scaled frame' },
       { value: 'One HTML file', label: 'About 115 KB, hand-written, no framework and no build step' },
     ],
     overviewTitle: 'About the project',
     overview: [
       'Two people arrive at a mechanical contractor\'s site and they want opposite things. One is a facility manager standing in a plant room with something broken, on a phone, who wants a number a person answers and a promise about how long. The other is a general contractor or owner\'s rep pricing a job, on a desktop, who wants to know whether this contractor handles the scope, the size and the delivery method before spending a call. Splitting into two sites doubles the maintenance for a company with no marketing staff, so both routes run down one page.',
-      'The split happens in the first screen and again in the strip underneath it. The urgent route never passes through a form: it gets a filled call button in the hero, a full-bleed emergency strip with a live Columbus clock, and a triage that turns a symptom into a verdict and a short list of what to have in front of you before you dial. The planned route earns the form by answering the size question first, with four projects carrying square footage, tonnage and delivery method, then a chart of measured response times, then the counties covered.',
-      'The art direction is a drawing sitting on top of every photograph. The hero is a rooftop air handler at dusk with the roof plan laid over it. The plant room photograph sits directly above the building section that labels what is in it. The photographs carry the weather, the scale and the wear that a drawing cannot; the drawings carry the unit tags, the dimensions and the callout numbers that a photograph cannot. Both use the same petrol and cream tokens, so it reads as one commissioned set.',
+      'The split happens in the first screen and again in the strip underneath it. The urgent route never passes through a form: it gets a filled call button in the hero, a full-bleed emergency strip with a live Columbus clock, and a triage that turns a symptom into a verdict and a short list of what to have in front of you before you dial. The planned route answers the size question before it reaches the form, with four projects carrying square footage, tonnage and delivery method, then a chart of measured response times, then the counties covered.',
+      'The art direction is a drawing sitting on top of every photograph. The hero is a rooftop air handler at dusk with the roof plan laid over it. The plant room photograph sits directly above the building section that labels what is in it. The photographs show the weather, the scale and the wear of real equipment, and the drawings add the unit tags, dimensions and callout numbers. Both use the same petrol and cream colors.',
       'Halstead Mechanical is not a real company. I invented it for the constraints: two intents on one page, a phone layout that has to work in a room with bad light, and enough technical specificity that a facility manager would believe it.',
     ],
     walkthroughIntro: 'The page, top to bottom.',
@@ -65,7 +65,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Hero and emergency strip',
         caption:
-          'The headline names the moment the visitor is in. Two primary actions sit in the first screen because the page serves two intents, with the call button filled in the alert color and the estimate button outlined beside it. The roof plan is drawn in SVG over the photograph, and its four units are clickable. The strip underneath is the only full-bleed alert color on the page, and its clock reads Eastern time through Intl rather than the visitor\'s clock.',
+          'The headline names the emergency the visitor is in. Two primary actions sit in the first screen because the page serves two intents, with the call button filled in the alert color and the estimate button outlined beside it. The roof plan is drawn in SVG over the photograph, and its four units are clickable. The strip underneath is the only full-bleed alert color on the page, and its clock shows Eastern time, where the company is, whatever time zone the visitor is in.',
         alt: 'Halstead hero: a petrol gradient over a photograph of rooftop air handlers under a dark sky, the headline "When the chiller goes down at 2 a.m., call us.", a description of the services, a red Call button and an outlined Request an estimate button, and a dark roof plan panel showing RTU-1 to RTU-4 with RTU-3 highlighted in yellow and a readout giving 45 tons, installed 2006, tagged for replacement.',
         src: `${halsteadImages}/00-hero.webp`,
         width: 1600,
@@ -92,7 +92,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Triage',
         caption:
-          'Six symptoms, each one producing a verdict, a short checklist and an action. The action swaps between a phone link and the estimate form depending on how urgent the verdict is, which is the point of it. One symptom is open at rest so the panel is never an empty half of the section.',
+          'Six symptoms, each one producing a verdict, a short checklist and an action. The action swaps between a phone link and the estimate form depending on how urgent the verdict is. One symptom is open at rest so the panel is never an empty half of the section.',
         alt: 'Halstead triage section: the heading "Check how fast this needs a technician", six buttons reading No cooling, No heat, Water or a leak, Alarm on the controls, Ice on the unit and Noise or vibration, and a panel below headed Call now with an explanation, three things to have ready and a red Call button.',
         src: `${halsteadImages}/03-triage.webp`,
         width: 1600,
@@ -139,7 +139,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The page ships with a second document at /process that shows how it was made: the brief, the user flow, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'A second document at /process shows how the page was made: the brief, the user flow, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document.',
         columns: 2,
         items: [
           {
@@ -154,14 +154,14 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 3157,
             alt: 'The wireframe of the page structure in gray, with the finished page beside it running in full color inside the document.',
-            caption: 'The wireframe on the left and the finished page beside it, running live inside the document. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
+            caption: 'The wireframe on the left and the finished page beside it, running live inside the document.',
           },
           {
             src: `${halsteadImages}/p3-decisions.webp`,
             width: 1400,
             height: 647,
             alt: 'Four note cards headed The hero carries two primary actions, The form sits at the end of the page, The three entry points are named the way a visitor would name them, and A drawing sits on top of every photograph.',
-            caption: 'Each of the four decisions comes out of the split in the flow, which is what makes them decisions and not preferences.',
+            caption: 'Each of the four decisions follows from the split in the flow.',
           },
           {
             src: `${halsteadImages}/p4-system.webp`,
@@ -181,7 +181,7 @@ export const landingPages: LandingPage[] = [
       },
     ],
     phonesIntro:
-      'The page on a phone. Visitor A is in a mechanical room holding a phone, so this is the layout that was designed first.',
+      'The page on a phone. The facility manager with something broken is in a plant room holding a phone, so this is the layout that was designed first.',
     phones: [
       {
         src: `${halsteadImages}/mobile-hero.webp`,
@@ -202,7 +202,7 @@ export const landingPages: LandingPage[] = [
         width: 1170,
         height: 2535,
         alt: 'Halstead on a phone: the heading "Check how fast this needs a technician", six symptom buttons wrapped over three rows, and the start of the Call now verdict panel.',
-        caption: 'The symptom buttons wrap rather than scroll sideways, and the verdict opens directly underneath them.',
+        caption: 'The symptom buttons wrap onto three rows, and the verdict opens directly underneath them.',
       },
       {
         src: `${halsteadImages}/mobile-work.webp`,
@@ -216,26 +216,26 @@ export const landingPages: LandingPage[] = [
         width: 1170,
         height: 2535,
         alt: 'Halstead on a phone: the heading "Tell us what you are working on", the three rows of what happens next, and the work type buttons at the start of the form.',
-        caption: 'What happens after you send it moves above the form rather than beside it, so the form is the last thing on the screen.',
+        caption: 'What happens after you send it moves above the form, so the form is the last thing on the screen.',
       },
     ],
     details: {
       design: [
         'Petrol blue, warm cream and safety yellow, with a hot orange used only on the emergency route. Yellow marks the next action anywhere on the page, so a visitor who learns the orange once can find the emergency route again without reading.',
         'One theme on purpose. A contractor\'s page is read in daylight on a phone in a plant room, so the page stays light whatever the visitor\'s system is set to.',
-        'Archivo set at a width of 112 for display, IBM Plex Sans for text and IBM Plex Mono for labels and every figure. Four sizes and that is the whole scale.',
+        'Archivo set at a width of 112 for display, IBM Plex Sans for text and IBM Plex Mono for labels and every figure. The type scale has four sizes.',
         'Every image slot pairs a photograph with a drawing: the roof plan over the hero, the building section under the plant room. The drawings sit on their own ink tokens.',
         'Dark appears twice, on the hero and on the footer. Everything between them alternates white and cream, and every band sits on one of three padding steps.',
-        'Contrast was computed from the tokens rather than estimated: 14.8 to 1 for headings on the page ground, 11.7 to 1 for text on the yellow button, 12.5 to 1 for the headline on the dark ground.',
+        'Contrast was computed from the color tokens: 14.8 to 1 for headings on the page ground, 11.7 to 1 for text on the yellow button, 12.5 to 1 for the headline on the dark ground.',
       ],
       build: [
         'One HTML file, about 115 KB, with hand-written CSS and JavaScript. No framework and no build step on the page itself, though a small Python script assembles it from the token, base and section stylesheets.',
-        'Container queries rather than viewport queries, nine of them, so the layout responds to the width of the page rather than the width of the window. That is what lets the same markup lay out correctly inside the scaled device frames in the process document.',
+        'Nine container queries, so the layout responds to the width of the page itself. That is what lets the same markup lay out correctly inside the scaled device frames in the process document.',
         'The roof plan, the building section and the county map are inline SVG with no raster and no text baked in. Every clickable part is a real button with aria-pressed, so they work by keyboard.',
         'The triage maps six symptoms to a verdict, a checklist and an action, and swaps the action between a phone link and the form depending on the verdict.',
         'The response chart fills on IntersectionObserver, and a bar past 72 percent of the track moves its value inside itself and waits for the fill to land before it appears.',
-        'The clock reads Eastern time through Intl rather than the visitor\'s clock, so the 24 hour claim is checked against the hours the company keeps.',
-        'Every image slot keeps its drawing underneath the photograph, so a missing file degrades to artwork rather than to a broken icon. The page still reads with images turned off.',
+        'The clock shows Eastern time through Intl, so the 24 hour claim is checked against the hours the company keeps.',
+        'Every image slot keeps its drawing underneath the photograph, so a missing file falls back to the drawing. The page still reads with images turned off.',
         'The build refuses to write the file if a class in the markup has no rule, or if an em dash, an en dash or an exclamation mark reaches visible copy.',
         'Deployed on Netlify.',
       ],
@@ -300,7 +300,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Trust strip and quotes',
         caption:
-          'A strip of certifications scrolls by on a loop (HIPAA, FDA, CLIA, CAP). Below it, six short quotes from athletes, founders and a surgeon, each with initials in a colored circle instead of a photo.',
+          'A strip of certifications scrolls by on a loop (HIPAA, FDA, CLIA, CAP). Below it, six short quotes from athletes, founders and a surgeon, each with initials in a colored circle.',
         alt: 'A scrolling strip of certification badges and a grid of six quote cards with names, titles and colored initials.',
         src: `${rythmImages}/02-social-dark.webp`,
         srcB: `${rythmImages}/02-social-light.webp`,
@@ -340,7 +340,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Less blood, and the dashboard',
         caption:
-          'Two bars drawn with CSS compare about 10 ml to about 1 ml. Below that, a mock dashboard with a health score ring, a trend line and an insight card, all built with HTML, CSS and inline SVG. No screenshots.',
+          'Two bars drawn with CSS compare about 10 ml to about 1 ml. Below that, a mock dashboard with a health score ring, a trend line and an insight card, all built with HTML, CSS and inline SVG, with no screenshots.',
         alt: 'Two vertical bars comparing blood volume, then a dashboard card with an 87% health score ring, a ferritin trend line and an insight box.',
         src: `${rythmImages}/06-blood-dash-dark.webp`,
         srcB: `${rythmImages}/06-blood-dash-light.webp`,
@@ -421,7 +421,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The page ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'A second document at /process shows how the page was made: the brief, the reading order, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document.',
         columns: 2,
         items: [
           {
@@ -429,7 +429,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 4002,
             alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished dark page in full color running at 1240 pixels.',
-            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels.',
           },
           {
             src: `${rythmImages}/p2-system.webp`,
@@ -443,7 +443,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 1223,
             alt: 'A tablet frame and a phone frame showing the live page at 768 and 390 pixels, beside a table listing the two breakpoints at 920 and 600 pixels and what changes at each one.',
-            caption: 'Both frames are the live page running in a real viewport of its own, so the media queries in the page decide these layouts. The table lists the two breakpoints the stylesheet actually has.',
+            caption: 'Both frames show the live page at its own width. The table lists the two breakpoints in the stylesheet.',
           },
         ],
       },
@@ -524,7 +524,7 @@ export const landingPages: LandingPage[] = [
       alt: 'First screen of the Apple SEO concept: the headline "We make sure customers find you everywhere they search." with "everywhere" in red, two buttons, and a drawn local search result showing a business moving from rank seven to the top.',
     },
     heroCaption:
-      'The first screen. The panel on the right is a local search result drawn in HTML rather than screenshotted, showing a business at rank seven moving into the top three.',
+      'The first screen. The panel on the right is a local search result drawn in HTML, showing a business at rank seven moving into the top three.',
     highlights: [
       { value: 'Answered before the call', label: 'A six-month timeline and an FAQ, so the questions that eat a discovery call are handled on the page' },
       { value: 'One proof format', label: 'All three case studies get the same four stat tiles, so the strongest one stops outshining the other two' },
@@ -533,7 +533,7 @@ export const landingPages: LandingPage[] = [
     overviewTitle: 'About the project',
     overview: [
       'Apple SEO already had the hard part: three real clients, three industries, and results they could name. What the homepage did not do was put them in the order a buyer thinks in. So the structure changed and almost none of the words did. The offer, then what you get, then what the first six months look like, then the proof, then the people, then the questions, then the form.',
-      'Two fixes rather than additions. The three case studies were each styled differently, which made the strongest one look like the only one. They now share a single format, so the three read as a repeatable process. The page also ended at a booking tool, which loses anyone not ready to pick a time, so it now ends at a form that accepts an email instead.',
+      'Two of the changes are fixes. The three case studies were each styled differently, which made the strongest one look like the only one. They now share a single format, so the three read as a repeatable process. The page also ended at a booking tool, which loses anyone not ready to pick a time, so it now ends at a form that accepts an email.',
       'This was not commissioned and I am not affiliated with Apple SEO. The copy, the services and the case study figures are theirs. The structure, the design, the code and the three new sections are mine. The live page keeps a Show notes button that explains each change in place, which is how it was sent to them.',
     ],
     walkthroughIntro: 'The page, top to bottom.',
@@ -550,7 +550,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'What we do',
         caption:
-          'Six services on one card style with one icon each, rather than six different treatments. The line above them says most clients start with the profile and the ads, which turns a menu into a recommendation.',
+          'Six services on one card style with one icon each. The line above them says most clients start with the profile and the ads, which turns a menu into a recommendation.',
         alt: 'Apple SEO services section: six cards headed Google LSA setup and management, Google Business Profile optimization, Website building, Local citation management, Website SEO on-page, and SEO analytics, each with a description and a checked detail line.',
         src: `${appleImages}/01-services.webp`,
         width: 1600,
@@ -568,7 +568,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Case study: junk removal',
         caption:
-          'The first of three, and the template for the other two. Their own client, their own figures. The layout gives it a paragraph of narrative, three checked specifics, the tactics as tags, four stat tiles and a photograph. The photo caption says it is a stock stand-in rather than pretending otherwise.',
+          'The first of three, and the template for the other two. Their own client, their own figures. The layout gives it a paragraph of narrative, three checked specifics, the tactics as tags, four stat tiles and a photograph. The photo caption says it is a stock stand-in.',
         alt: 'Apple SEO case study: "From invisible to ranking #1" for a junk removal client, with a paragraph of narrative, three checked points, tactic tags, four stat tiles reading #1 Google Local Services Ads, 100+ verified leads every month, #1 Google map pack ranking and #1 organic search ranking, and a photograph of a loaded pickup truck.',
         src: `${appleImages}/03-case-junk-removal.webp`,
         width: 1600,
@@ -577,7 +577,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Case study: dermatology',
         caption:
-          'The same format applied to a different problem: cleaning up forty locations rather than starting from nothing. Two of the tiles show a zero, for no ad spend and no duplicate listings remaining.',
+          'The same format applied to a different problem: cleaning up forty locations. Two of the tiles show a zero, for no ad spend and no duplicate listings remaining.',
         alt: 'Apple SEO case study: "From scattered listings to owning every market" for a dermatology client, with narrative, three checked points, tactic tags, four stat tiles reading 40+ locations fully optimized, $0 ad spend, traffic boosted across all locations and 0 inaccurate or duplicate listings left, and a photograph of a clinic.',
         src: `${appleImages}/04-case-dermatology.webp`,
         width: 1600,
@@ -586,7 +586,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Case study: roofing',
         caption:
-          'The third case study, at the largest scale: fifteen markets rather than one town. The three are ordered smallest to largest so the scale builds across the section.',
+          'The third case study, at the largest scale: fifteen markets. The three are ordered smallest to largest so the scale builds across the section.',
         alt: 'Apple SEO case study: "From invisible in half their markets to #1 across all of them" for a roofing client, with narrative, three checked points, tactic tags, four stat tiles reading 15+ Google profiles managed, 10+ LSA accounts, #1 ranking across multiple service areas and 15+ markets built from scratch, and a photograph of a roofing crew.',
         src: `${appleImages}/05-case-roofing.webp`,
         width: 1600,
@@ -604,7 +604,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Who we are',
         caption:
-          'Their positioning and their voice, set in two columns with enough contrast to actually read on a dark background. Three checked promises sit under it, and each one is about access rather than results: you talk to the person doing the work.',
+          'Their positioning and their voice, set in two columns with enough contrast to read on a dark background. Three checked promises sit under it, and each one is about access: you talk to the person doing the work.',
         alt: 'Apple SEO about section: a photograph of a team around a table next to the heading "The decisive factor behind your success", two paragraphs, and three checked promises about talking to the person doing the work, staying in your name, and one plain-language report a month.',
         src: `${appleImages}/07-about.webp`,
         width: 1600,
@@ -633,7 +633,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The redesign ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the changes and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'A second document at /process shows how the redesign was made: the brief, the reading order, the wireframe beside the finished build, the changes and the component system. The finished page runs live inside the document.',
         columns: 2,
         items: [
           {
@@ -641,7 +641,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 3290,
             alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished dark page in full color running at 1240 pixels.',
-            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels.',
           },
           {
             src: `${appleImages}/p2-system.webp`,
@@ -655,7 +655,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 1223,
             alt: 'A tablet frame and a phone frame showing the live page at 768 and 390 pixels, beside a table listing the three breakpoints at 1000, 820 and 600 pixels and what changes at each one.',
-            caption: 'Both frames are the live page running in a real viewport of its own, so the media queries in the page decide these layouts. The table lists the three breakpoints the stylesheet actually has.',
+            caption: 'Both frames show the live page at its own width. The table lists the three breakpoints in the stylesheet.',
           },
         ],
       },
@@ -681,7 +681,7 @@ export const landingPages: LandingPage[] = [
         width: 1170,
         height: 2535,
         alt: 'Apple SEO on a phone: a case study with its narrative, checked points, tactic tags and the stat tiles stacked one per row.',
-        caption: 'Case study tiles go one per row rather than shrinking, so the numbers stay legible.',
+        caption: 'Case study tiles go one per row, so the numbers stay legible.',
       },
       {
         src: `${appleImages}/mobile-contact.webp`,
@@ -693,10 +693,10 @@ export const landingPages: LandingPage[] = [
     ],
     details: {
       design: [
-        'Their dark charcoal and red were kept. What changed is that red now marks one thing at a time rather than competing with yellow and green boxes.',
+        'Their dark charcoal and red were kept. What changed is that red now marks one thing at a time.',
         'The three case studies use one shared format. Styling them differently made the best one look like the only one.',
         'Two typefaces: Poppins for headlines, Figtree for text. Figures get their own weight so a reader can scan the proof without reading the page.',
-        'The search result panel in the hero is drawn rather than screenshotted, so it stays sharp and cannot go out of date.',
+        'The search result panel in the hero is drawn in HTML, so it stays sharp and cannot go out of date.',
         'Every section that could lead to contact ends in the same red button, and the header carries one the whole way down.',
       ],
       build: [
@@ -736,11 +736,11 @@ export const landingPages: LandingPage[] = [
       alt: 'First screen of the Rise Talent Advisors concept: a dark navy hero with the headline "We\'re a hiring company.", three figures, and a Need to fill a role form on the right.',
     },
     heroCaption:
-      'The first screen. The form is in the hero rather than at the bottom, because a hiring manager who lands here already knows what they want. The three figures answer the only question they have before typing.',
+      'The first screen. The form is in the hero, because a hiring manager who lands here already knows what they want. The three figures answer the only question they have before typing.',
     highlights: [
       { value: 'What happens next', label: 'Four steps from intake call to signed offer, with the day or week each one lands in' },
-      { value: 'Both audiences', label: 'Companies and candidates each get a section, instead of the page speaking only to companies' },
-      { value: 'Specific roles', label: 'Twelve named job titles in place of five industry words, so a hiring manager can tell if they are the right call' },
+      { value: 'Both audiences', label: 'Companies and candidates each get their own section' },
+      { value: 'Specific roles', label: 'Twelve named job titles, so a hiring manager can tell if the firm has filled their role before' },
     ],
     overviewTitle: 'About the project',
     overview: [
@@ -753,7 +753,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Header and hero',
         caption:
-          'The headline is theirs and it is the right one, so it stayed. The form sits beside it rather than at the bottom of the page, and asks four things, not ten. Underneath, the client logos in grayscale so they read as proof rather than competing with the orange.',
+          'The headline is theirs and it is the right one, so it stayed. The form sits beside it and asks four things. Underneath, the client logos are in grayscale, so they read as proof and do not compete with the orange.',
         alt: 'Rise Talent hero: the headline "We\'re a hiring company." on dark navy, a paragraph about direct hire and contract models, the figures 126+ companies served since 2002, 24 years and 6 specialty practice areas, and a Need to fill a role form asking name and company, email, role to fill and hiring model. Below, a row of client logos in grayscale.',
         src: `${riseImages}/00-hero.webp`,
         width: 1600,
@@ -762,7 +762,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Precision-driven talent advisory',
         caption:
-          'Their positioning, their button, their copy. What changed is the image treatment: one photograph with a small floating card on it, instead of a collage. The four hiring models sit as checked items so a reader can find theirs in a second.',
+          'Their positioning, their button, their copy. What changed is the image treatment: one photograph with a small floating card on it. The four hiring models sit as checked items so a reader can find theirs in a second.',
         alt: 'Rise Talent advisory section: a photograph of two people in an interview with a floating card reading Owner-level attention, next to the heading "The candidates you actually want to hire.", a paragraph, four checked items reading Direct hire, Contract, Contract-to-hire and Fractional, and a Discover our story button.',
         src: `${riseImages}/01-advisory.webp`,
         width: 1600,
@@ -807,7 +807,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Industries',
         caption:
-          'The three links to their existing industry pages, kept. They are photo cards with the text set into the image rather than beside it, which holds the row together at every width.',
+          'The three links to their existing industry pages, kept. They are photo cards with the text set into the image, which holds the row together at every width.',
         alt: 'Rise Talent industries section: three photo cards reading Hire for tech and SaaS roles, Hire for construction and heavy civil, and Hire for office, finance and ops, each with an explore link.',
         src: `${riseImages}/06-industries.webp`,
         width: 1600,
@@ -836,7 +836,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The redesign ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the changes and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'A second document at /process shows how the redesign was made: the brief, the reading order, the wireframe beside the finished build, the changes and the component system. The finished page runs live inside the document.',
         columns: 2,
         items: [
           {
@@ -844,7 +844,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 2076,
             alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished page in navy and orange running at 1240 pixels.',
-            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels.',
           },
           {
             src: `${riseImages}/p2-system.webp`,
@@ -858,7 +858,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 1223,
             alt: 'A tablet frame and a phone frame showing the live page at 768 and 390 pixels, beside a table listing the three breakpoints at 1040, 860 and 640 pixels and what changes at each one.',
-            caption: 'Both frames are the live page running in a real viewport of its own, so the media queries in the page decide these layouts. The table lists the three breakpoints the stylesheet actually has.',
+            caption: 'Both frames show the live page at its own width. The table lists the three breakpoints in the stylesheet.',
           },
         ],
       },
@@ -884,7 +884,7 @@ export const landingPages: LandingPage[] = [
         width: 1170,
         height: 2535,
         alt: 'Rise Talent on a phone: the roles section with five practice area chips wrapped onto three lines and the job title tags below.',
-        caption: 'The practice area filters wrap rather than scroll, so every one is visible without swiping.',
+        caption: 'The practice area filters wrap onto three lines, so every one is visible without swiping.',
       },
       {
         src: `${riseImages}/mobile-candidates.webp`,
@@ -899,13 +899,13 @@ export const landingPages: LandingPage[] = [
         'Their navy, their orange, the navy to orange gradient and the orange footer bar all stayed. The brand was not the problem.',
         'Client logos are grayscale so they read as proof and stop competing with the accent color.',
         'One typeface, Figtree, at four weights. A staffing page is mostly lists and figures, and one family keeps them aligned.',
-        'The two new audiences are separated by depth, not by a tab: everything a company needs comes first, candidates get the section below it.',
-        'Specificity over category. Twelve named job titles do more than five industry words.',
+        'The two audiences are separated by depth: everything a company needs comes first, and candidates get the section below it.',
+        'Twelve named job titles say more than five industry words.',
       ],
       build: [
         'One HTML file, about 415 KB. Most of that is the client logos and photographs embedded directly in the file, so the page has no external image requests of its own to fail.',
         'Hand-written CSS and JavaScript, no framework and no build step. Their current site runs on a page builder, which is where a lot of the weight on it comes from.',
-        'The role filters swap the visible tags on a data attribute and update aria-pressed, so the state is announced rather than only shown.',
+        'The role filters swap the visible tags on a data attribute and update aria-pressed, so the state is announced to screen readers.',
         'Eight figures count up on IntersectionObserver and hold their final value for anyone who prefers reduced motion.',
         'Three breakpoints, 1040, 860 and 640 pixels.',
         'The annotation layer is part of the file: a Show notes button reveals a note on every section explaining what changed. It is off by default. Deployed on Netlify.',
@@ -925,7 +925,7 @@ export const landingPages: LandingPage[] = [
     year: '2026',
     liveUrl: 'https://sunny-skys-mockup.netlify.app',
     summary:
-      'Four kinds of visitor land on a rescue homepage at the same time and want four different things, and the old page made all of them scroll to find out what they could do. <strong>What changed is that adopting, volunteering and donating are all reachable from the first screen instead of partway down a long page.</strong> Everything factual on it is theirs: their story, their photographs, their links, their tax ID.',
+      'Four kinds of visitor land on a rescue homepage at the same time and want four different things, and the old page made all of them scroll to find out what they could do. <strong>What changed is that adopting, volunteering and donating are all reachable from the first screen.</strong> Everything factual on it is theirs: their story, their photographs, their links, their tax ID.',
     tags: ['HTML & CSS', 'JavaScript', 'Nonprofit design', 'Accessible accordions', 'Responsive layout', 'Netlify'],
     description:
       'Someone who wants to adopt, someone who wants to volunteer, someone who wants to donate and someone checking the hours all arrive at once, and the Sunny Sky\'s Animal Rescue homepage made every one of them scroll to find out what they could do. I redesigned and built it in 2026 without being asked. Their story, photographs, links and details are theirs; the structure, the design and the code are mine. Press Show notes on the live page to see what changed in each section and why.',
@@ -948,7 +948,7 @@ export const landingPages: LandingPage[] = [
     overviewTitle: 'About the project',
     overview: [
       'A rescue homepage has four different visitors arriving at once: someone who wants to adopt, someone who wants to volunteer, someone who wants to give money, and someone checking whether they can visit today. On the existing site all four have to scroll the whole page to find out what they can do. So this version puts a strip of four actions immediately under the hero, and gives each one a real section further down.',
-      'The rest is about removing wasted trips and wasted emails. Visits are by appointment only and applications have to be approved first, so that rule appears in the hero, again at the top of the adoption steps, and again in the footer. The questions that are currently spread across their site and their flyers are collected into one accordion. Adoption fees are printed rather than requested.',
+      'The rest is about removing wasted trips and wasted emails. Visits are by appointment only and applications have to be approved first, so that rule appears in the hero, again at the top of the adoption steps, and again in the footer. The questions that are currently spread across their site and their flyers are collected into one accordion. Adoption fees are printed on the page.',
       "This was not commissioned and I am not affiliated with Sunny Sky's. Everything factual on the page is theirs: the 2021 fire and the sanctuary they are building in Graham, their PayPal and wishlist links, their drop-off locations, their tax ID and the children's book one of their adopters wrote. The adoptable pets are sample cards showing the layout, labeled as samples on every card, because their real animals live on Petfinder.",
     ],
     walkthroughIntro: 'The page, top to bottom.',
@@ -974,7 +974,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Adopt',
         caption:
-          'Their adoption process as three numbered steps, with the approved-first and no-walk-ins rule in step one where it cannot be missed. Adoption fees are printed rather than left to an email. The pet cards are filterable and every one carries a sample listing label, with a line underneath pointing to Petfinder for the real animals.',
+          'Their adoption process as three numbered steps, with the approved-first and no-walk-ins rule in step one where it cannot be missed. Adoption fees are listed. The pet cards are filterable and every one carries a sample listing label, with a line underneath pointing to Petfinder for the real animals.',
         alt: "Sunny Sky's adopt section: the heading \"Meet your new best friend\", three numbered steps Apply first, Get approved and Meet and adopt, a line of adoption fees, filter chips reading All, Dogs, Cats and Seniors, six pet cards each with a photograph, a badge and a sample listing label, a note that the cards are samples and the real animals are on Petfinder, and four buttons.",
         src: `${sunnyImages}/02-adopt.webp`,
         width: 1600,
@@ -983,7 +983,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Volunteer',
         caption:
-          'A rescue this size runs on volunteers, so this is a real section rather than a line in the footer. The six areas are the specific ones they need help with, taken from their own volunteer material, and the age requirement and address are stated rather than hidden behind the application.',
+          'A rescue this size runs on volunteers, so it gets a full section. The six areas are the specific ones they need help with, taken from their own volunteer material, and the age requirement and the address are stated up front.',
         alt: "Sunny Sky's volunteer section: a dark navy block with the heading \"Love animals? We need you.\", a paragraph, a Volunteer application button, a note that volunteers must be 18 or over with the address, and six areas listed as Kennel care cats and dogs, Farm animal care, Event organization, Repairs and maintenance, Application processing and Fundraising.",
         src: `${sunnyImages}/03-volunteer.webp`,
         width: 1600,
@@ -1019,7 +1019,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Events and footer',
         caption:
-          'They run adoption events and pop-ups through the year, and those live on their events page and Facebook, so a short banner points at both rather than duplicating a calendar that would go stale. The footer repeats the appointment rule one last time.',
+          'They run adoption events and pop-ups through the year, and those live on their events page and Facebook, so a short banner points at both. The footer repeats the appointment rule one last time.',
         alt: "Sunny Sky's events banner: a teal block reading \"Come meet us at an adoption event\" with a See upcoming events button. Below it a navy footer with adopt, get involved and contact columns, the 501(c)(3) line and the appointment-only note.",
         src: `${sunnyImages}/07-events-footer.webp`,
         width: 1600,
@@ -1030,7 +1030,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The redesign ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the changes and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'A second document at /process shows how the redesign was made: the brief, the reading order, the wireframe beside the finished build, the changes and the component system. The finished page runs live inside the document.',
         columns: 2,
         items: [
           {
@@ -1038,7 +1038,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 2506,
             alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished page in full color running at 1240 pixels.',
-            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels.',
           },
           {
             src: `${sunnyImages}/p2-system.webp`,
@@ -1052,7 +1052,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 1223,
             alt: 'A tablet frame and a phone frame showing the live page at 768 and 390 pixels, beside a table listing the three breakpoints at 1000, 900 and 600 pixels and what changes at each one.',
-            caption: 'Both frames are the live page running in a real viewport of its own, so the media queries in the page decide these layouts. The table lists the three breakpoints the stylesheet actually has.',
+            caption: 'Both frames show the live page at its own width. The table lists the three breakpoints in the stylesheet.',
           },
         ],
       },
@@ -1091,7 +1091,7 @@ export const landingPages: LandingPage[] = [
     details: {
       design: [
         'Their yellow and their logo stayed. The yellow is used for actions only, so every button on the page means the same thing.',
-        'Their own photographs carry the page. A rescue has better pictures than any stock library and using anything else would be a mistake.',
+        'Their own photographs carry the page. A rescue has better pictures than any stock library.',
         'Four actions immediately under the hero, because a rescue homepage has four different visitors arriving at once and making all of them scroll costs the rescue money.',
         'The appointment-only rule appears three times: in the hero, in the first adoption step and in the footer. Repetition here saves somebody a drive.',
         'Every sample pet card is labeled as a sample, and the book cover says the artwork was not reproduced. Nothing on the page pretends to be something it is not.',
@@ -1122,7 +1122,7 @@ export const landingPages: LandingPage[] = [
       'A coffee bar gets two kinds of visitor: someone deciding whether to walk in, and a regular checking the hours. Both questions have to be answered without anyone searching, so the menu and the prices come first and the story comes later. <strong>The menu filters by category, the plus buttons build an order in a drawer, and the events book through a dialog.</strong> It is one hand-written HTML file, and Almanac is invented.',
     tags: ['HTML & CSS', 'JavaScript', 'Accessible tabs and dialogs', 'Responsive layout', 'SVG', 'Netlify'],
     description:
-      'A menu behind a PDF or a photograph of a chalkboard is the most common problem on a hospitality site, and it ends the visit. I invented this coffee bar in 2026 so I could design and build a small hospitality site around readable prices, and write every drink, price, roast note and event myself instead of filling it with placeholder text. Almanac is not a real business.',
+      'A menu behind a PDF or a photograph of a chalkboard is the most common problem on a hospitality site, and it ends the visit. I invented this coffee bar in 2026 so I could design and build a small hospitality site around readable prices, and write every drink, price, roast note and event myself. Almanac is not a real business.',
     pageDescription:
       'A one-page concept site for a neighborhood coffee bar, shown section by section: a filterable menu with an order-ahead drawer, a coffee of the month, bookable events, a photo wall, reviews and a visit section with hours and a map.',
     facts: [{ label: 'Format', value: 'One-page site' }],
@@ -1142,15 +1142,15 @@ export const landingPages: LandingPage[] = [
     overviewTitle: 'About the project',
     overview: [
       'A coffee bar gets two kinds of visitor: someone deciding whether to walk in, and a regular checking the hours or what is on today. Both questions have to be answered without hunting, so the menu with prices, the hours and the address are all on the one page, and an order-ahead button rides in the header the whole way down.',
-      'The order of the sections follows how someone decides. The menu first, because that is what people came for, then the coffee of the month and where the beans come from, then the things that make it a place rather than a counter: the events, the photo wall, the reviews and the three people behind it. The page ends with the practical part, hours and address and a map, next to an email club for people who want to hear when the roast changes.',
-      'Almanac is not a real business. I invented it so every detail would be mine to write: the drinks, the prices, the roast notes, the events and the staff are all written out, not filled in with placeholder text. The point was to build a small hospitality site the way one should be built, and have something to show for it.',
+      'The order of the sections follows how someone decides. The menu first, because that is what people came for, then the coffee of the month and where the beans come from, then the things that make it a place: the events, the photo wall, the reviews and the three people behind it. The page ends with the practical part, hours and address and a map, next to an email club for people who want to hear when the roast changes.',
+      'Almanac is not a real business. I invented it so every detail would be mine to write: the drinks, the prices, the roast notes, the events and the staff are all written out. I built it to have a complete hospitality site to show.',
     ],
     walkthroughIntro: 'The page, top to bottom.',
     sections: [
       {
         title: 'Header and hero',
         caption:
-          'A photograph of the bar being worked, one line saying what the place is, and two buttons. The card on the right is today\'s bake, which turns the page from a brochure into something worth checking again. The Google rating sits under the buttons rather than in a badge nobody reads.',
+          'A photograph of the bar being worked, one line saying what the place is, and two buttons. The card on the right is today\'s bake, which turns the page from a brochure into something worth checking again. The Google rating sits under the buttons.',
         alt: 'Almanac hero: a dark photograph of a barista pouring, the headline "Good coffee, slow mornings.", See the menu and Order ahead buttons, a 4.9 Google rating from 312 reviews, and a card reading "Cardamom buns, out of the oven at 7:30".',
         src: `${almanacImages}/00-hero.webp`,
         width: 1600,
@@ -1177,7 +1177,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Our coffee',
         caption:
-          'Where the beans come from and how they are roasted, in plain sentences. Three figures sit under it, and the three stages from green bean to cup are named, so the sourcing claim is specific rather than general.',
+          'Where the beans come from and how they are roasted, in plain sentences. Three figures sit under it, and the three stages from green bean to cup are named, so the sourcing claim is specific.',
         alt: 'Almanac our coffee section: a photograph of a coffee roaster, the heading "Roasted in small batches, poured with care.", three numbers reading 6 single-origin roasts, 12 pounds per batch and 2019 family-owned since, and three cards headed Sourced, Roasted and Poured.',
         src: `${almanacImages}/03-our-coffee.webp`,
         width: 1600,
@@ -1186,7 +1186,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'This week at Almanac',
         caption:
-          'Three events this week, each with the day, the time, the price and how many spots are left. Save a spot opens a dialog. The spots-left count gives a reason to book now rather than later.',
+          'Three events this week, each with the day, the time, the price and how many spots are left. Save a spot opens a dialog. The spots-left count gives a reason to book now.',
         alt: 'Almanac events section: three cards headed Saturday cupping, Latte art night and Open mic Thursday, each with a photograph, a day badge, a description, the number of spots left and a button.',
         src: `${almanacImages}/04-events.webp`,
         width: 1600,
@@ -1195,7 +1195,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The vibe',
         caption:
-          'A photo wall of the room, the food and the people in it, in a grid of mixed sizes so it does not read as a stock gallery. Any photo opens full size in a viewer with arrow keys and an Escape to close.',
+          'A photo wall of the room, the food and the people in it, in a grid of mixed sizes. Any photo opens full size in a viewer with arrow keys and an Escape to close.',
         alt: 'Almanac gallery: a grid of nine photographs of the cafe interior, customers, pastries and coffee, with an Instagram link underneath.',
         src: `${almanacImages}/05-gallery.webp`,
         width: 1600,
@@ -1213,7 +1213,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The people',
         caption:
-          'The three people behind the counter, each with what they do and one specific thing about them. A small independent place competes on exactly this, so it gets a section rather than a line in the footer.',
+          'The three people behind the counter, each with what they do and one specific thing about them. A small independent place competes on exactly this, so it gets its own section.',
         alt: 'Almanac people section: three round portraits with names and roles, Nora the owner, Sam the head roaster and Theo on late nights, each with a sentence about them.',
         src: `${almanacImages}/07-people.webp`,
         width: 1600,
@@ -1231,7 +1231,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Visit us and footer',
         caption:
-          'Hours with today picked out and an open or closed line above them, the address, a phone number, directions and a map drawn as inline SVG rather than loaded from a map service. The email club sits beside it, and the footer repeats the practical details for anyone who scrolled past.',
+          'Hours with today picked out and an open or closed line above them, the address, a phone number, directions and a map drawn as inline SVG. The email club sits beside it, and the footer repeats the practical details for anyone who scrolled past.',
         alt: 'Almanac visit section: opening hours with Saturday highlighted, the address and phone number, Get directions and Call us buttons, a hand-drawn map, and a dark Join the Almanac Club card with an email field. Below it the footer with hours, address and links.',
         src: `${almanacImages}/09-visit-footer.webp`,
         width: 1600,
@@ -1242,7 +1242,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The page ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'A second document at /process shows how the page was made: the brief, the reading order, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document.',
         columns: 2,
         items: [
           {
@@ -1250,7 +1250,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 3259,
             alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished page in full color running at 1240 pixels.',
-            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels.',
           },
           {
             src: `${almanacImages}/p2-system.webp`,
@@ -1264,7 +1264,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 1223,
             alt: 'A tablet frame and a phone frame showing the live page at 768 and 390 pixels, beside a table listing the three breakpoints at 1000, 900 and 600 pixels and what changes at each one.',
-            caption: 'Both frames are the live page running in a real viewport of its own, so the media queries in the page decide these layouts. The table lists the three breakpoints the stylesheet actually has.',
+            caption: 'Both frames show the live page at its own width. The table lists the three breakpoints in the stylesheet.',
           },
         ],
       },
@@ -1290,7 +1290,7 @@ export const landingPages: LandingPage[] = [
         width: 1170,
         height: 2535,
         alt: 'Almanac on a phone: the events heading and two event cards side by side in a strip that scrolls sideways.',
-        caption: 'The three event cards become a strip you swipe, rather than three tall cards to scroll past.',
+        caption: 'The three event cards become a strip you swipe.',
       },
       {
         src: `${almanacImages}/mobile-visit.webp`,
@@ -1302,18 +1302,18 @@ export const landingPages: LandingPage[] = [
     ],
     details: {
       design: [
-        'Two typefaces: Lora for headlines, Figtree for everything else. The palette is cream, dark roast brown and amber, taken from the product rather than from a template.',
+        'Two typefaces: Lora for headlines, Figtree for everything else. The palette is cream, dark roast brown and amber, taken from the coffee itself.',
         'Prices are on the page. Nothing is hidden behind a PDF, a photo of a chalkboard or a delivery app.',
         'Photographs carry the food and the room. Everything else is type, space and one accent color.',
         'Every section that could end in an order ends in the same amber button, and the header carries it the whole way down.',
-        'The details are written, not filled in: real drink names, real roast notes, named staff and specific events.',
+        'The details are written out: drink names, roast notes, named staff and specific events.',
       ],
       build: [
         'One HTML file, about 94 KB, with hand-written CSS and JavaScript. No framework and no build step.',
         'The menu is a real ARIA tab list with arrow-key navigation, and each of the 25 add buttons carries its own label for screen readers.',
         'Order ahead opens a modal drawer, the photo wall and the event booking use the native dialog element, so all three close on Escape and trap focus without a library.',
         'Reveal on scroll and the counting numbers run on IntersectionObserver, and both switch off for anyone who prefers reduced motion.',
-        'Three breakpoints, 1000, 900 and 600 pixels. The events row turns into a horizontal strip on a phone instead of three stacked cards.',
+        'Three breakpoints, 1000, 900 and 600 pixels. The events row turns into a horizontal strip on a phone.',
         'Every icon and the map are inline SVG. The photographs are the only image files. Deployed on Netlify.',
       ],
     },
@@ -1331,7 +1331,7 @@ export const landingPages: LandingPage[] = [
     year: '2026',
     liveUrl: 'https://wasatch-ridge.netlify.app',
     summary:
-      'This page carries seven kinds of number, from unit counts to target returns to hold periods, and all of them still have to be readable on a phone. Every figure is also invented, and saying so beside each block of numbers is what shaped the layout. <strong>Wasatch Ridge is an invented firm, the figures are marked illustrative, and a concept notice appears in six places.</strong> It includes a filterable portfolio, a distributions chart, three offerings and an accredited-investor form, hand-written in a single HTML file.',
+      'This page carries seven kinds of number, from unit counts to target returns to hold periods, and all of them still have to be readable on a phone. Every figure is also invented, and saying so beside each block of numbers is what shaped the layout. <strong>Wasatch Ridge is an invented firm, the figures are marked illustrative, and a concept notice appears in four places.</strong> It includes a filterable portfolio, a distributions chart, three offerings and an accredited-investor form, hand-written in a single HTML file.',
     tags: ['HTML & CSS', 'JavaScript', 'Data presentation', 'Long-form layout', 'SVG', 'Netlify'],
     description:
       'A page about money that invents its numbers has to say so beside each block of numbers, and the footer alone is not enough. It still has to make seven kinds of figure readable on a phone. I designed and built this concept in 2026 to work on both at once. Wasatch Ridge is an invented firm and none of the figures are real.',
@@ -1345,7 +1345,7 @@ export const landingPages: LandingPage[] = [
       alt: 'First screen of the Wasatch Ridge Capital concept: the headline "Invest in the real estate powering the Mountain West.", a drawn illustration of mountains and buildings, two buttons, an accredited investor notice, and four numbers.',
     },
     heroCaption:
-      'The first screen. The illustration is SVG rather than a photograph, the accredited-investor notice sits above the fold, and four key figures close the section.',
+      'The first screen. The illustration is drawn in SVG, the accredited-investor notice sits above the fold, and four key figures close the section.',
     highlights: [
       { value: 'Labeled throughout', label: 'Every figure, property and offering is marked illustrative, with a concept notice in four places' },
       { value: 'Filterable portfolio', label: 'Six properties by type, each with units, year acquired and occupancy' },
@@ -1362,7 +1362,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Header and hero',
         caption:
-          'The headline states what the firm does and where it operates. The illustration is drawn in SVG, so it loads instantly and avoids the stock skyline photograph. The accredited-investor notice sits above the fold rather than in the footer, and four figures close the section.',
+          'The headline states what the firm does and where it operates. The illustration is drawn in SVG, so it loads instantly and avoids the stock skyline photograph. The accredited-investor notice sits above the fold, and four figures close the section.',
         alt: 'Wasatch Ridge hero: the headline "Invest in the real estate powering the Mountain West.", a flat illustration of mountains and buildings labeled Wasatch Front, Utah, Request investor access and View current offerings buttons, an accredited investor notice, and the numbers $480M+ assets under management, 14 yrs operating across cycles, 2,600+ units owned and managed and 9 states across the West.',
         src: `${wasatchImages}/00-hero.webp`,
         width: 1600,
@@ -1371,7 +1371,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Strategy',
         caption:
-          'Three strategies, each with a one-line rationale and a bar showing its share of the portfolio: 58 percent multifamily, 27 percent commercial and industrial, 15 percent value-add. The bars let a reader check the allocation instead of taking it on trust.',
+          'Three strategies, each with a one-line rationale and a bar showing its share of the portfolio: 58 percent multifamily, 27 percent commercial and industrial, 15 percent value-add. The bars let a reader check the allocation.',
         alt: 'Wasatch Ridge strategy section: three columns headed Income Multifamily, Stability Commercial and industrial, and Growth Value-add, each with a short description and a bar showing its share of the portfolio.',
         src: `${wasatchImages}/01-strategy.webp`,
         width: 1600,
@@ -1389,7 +1389,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Track record',
         caption:
-          'The only section in the firm\'s dark green, which marks it as the center of the page. Three headline figures, then distributions by year as a bar chart built in CSS rather than an image, so it stays sharp at any size. The caption marks the figures illustrative and the returns figure carries an asterisk.',
+          'The only section in the firm\'s dark green, which marks it as the center of the page. Three headline figures, then distributions by year as a bar chart built in CSS, so it stays sharp at any size. The caption marks the figures illustrative and the returns figure carries an asterisk.',
         alt: 'Wasatch Ridge track record: a dark green band reading "Since 2011, we\'ve acquired more than $480M in real estate and returned over $120M to our investors.", the numbers $120M+ distributed, 14.2% average annualized return and 96% average occupancy, and a bar chart of distributions from 2019 to 2026.',
         src: `${wasatchImages}/03-track-record.webp`,
         width: 1600,
@@ -1416,7 +1416,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Insights',
         caption:
-          'Four articles written for investors rather than for search, each tagged by the part of the business it covers.',
+          'Four articles written for investors, each tagged by the part of the business it covers.',
         alt: 'Wasatch Ridge insights section: four rows, each with a date, a category label, a headline and a one-line summary, with a Read update link.',
         src: `${wasatchImages}/06-insights.webp`,
         width: 1600,
@@ -1434,7 +1434,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Investor access and footer',
         caption:
-          'The request form: name, email, phone, investment amount as a range rather than a figure, a free-text field and an accredited-investor confirmation. Three reassurances sit beside it, and the footer carries the full disclaimer.',
+          'The request form: name, email, phone, investment amount as a range, a free-text field and an accredited-investor confirmation. Three reassurances sit beside it, and the footer carries the full disclaimer.',
         alt: 'Wasatch Ridge access section: the heading "Invest alongside us." with three reassurances about review time, no obligation and privacy, next to a Request investor access form with first and last name, email, phone, an amount range select, a message box and an accredited investor checkbox. Below it a dark green footer with company and investor links and a disclaimer.',
         src: `${wasatchImages}/08-access-footer.webp`,
         width: 1600,
@@ -1445,7 +1445,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'The process document',
         intro:
-          'The page ships with a second document at /process that shows how it was made: the brief, the reading order, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document instead of sitting in it as a screenshot.',
+          'A second document at /process shows how the page was made: the brief, the reading order, the wireframe beside the finished build, the decisions and the component system. The finished page runs live inside the document.',
         columns: 2,
         items: [
           {
@@ -1453,7 +1453,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 3129,
             alt: 'Two columns side by side: a gray wireframe of the page structure, and the finished page in cream, dark green and gold running at 1240 pixels.',
-            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels. There is nothing in between, because the design went from the wireframe straight into HTML and CSS.',
+            caption: 'The wireframe on the left and the finished page on the right, running live in the document at 1240 pixels.',
           },
           {
             src: `${wasatchImages}/p2-system.webp`,
@@ -1467,7 +1467,7 @@ export const landingPages: LandingPage[] = [
             width: 1400,
             height: 1223,
             alt: 'A tablet frame and a phone frame showing the live page at 768 and 390 pixels, beside a table listing the two breakpoints at 980 and 680 pixels and what changes at each one.',
-            caption: 'Both frames are the live page running in a real viewport of its own, so the media queries in the page decide these layouts. The table lists the two breakpoints the stylesheet actually has.',
+            caption: 'Both frames show the live page at its own width. The table lists the two breakpoints in the stylesheet.',
           },
         ],
       },
@@ -1486,7 +1486,7 @@ export const landingPages: LandingPage[] = [
         width: 1170,
         height: 2535,
         alt: 'Wasatch Ridge on a phone: property cards stacked one per screen, each with a photograph and three figures in a row.',
-        caption: 'Property cards stack one per screen, and the three figures stay in a row rather than wrapping.',
+        caption: 'Property cards stack one per screen, and the three figures stay in a row.',
       },
       {
         src: `${wasatchImages}/mobile-offerings.webp`,
@@ -1500,20 +1500,20 @@ export const landingPages: LandingPage[] = [
         width: 1170,
         height: 2535,
         alt: 'Wasatch Ridge on a phone: the heading "Invest alongside us.", three reassurances, and the start of the access form.',
-        caption: 'The three reassurances move above the form rather than beside it.',
+        caption: 'The three reassurances move above the form.',
       },
     ],
     details: {
       design: [
         'Two typefaces: Lora for headlines, Instrument Sans for text and every figure. Numbers get the sans so columns of them line up.',
         'Dark green, cream and muted gold. The green appears once, on the track record, which marks it as the center of the page.',
-        'The hero illustration is drawn rather than photographed, which avoids the stock skyline photograph most firms in this sector use.',
+        'The hero illustration is drawn, which avoids the stock skyline photograph most firms in this sector use.',
         'Figures are grouped in rows of three or four and never mixed with body copy, so a reader can scan the numbers without reading the page.',
         'Disclosure is built into the layout: the concept notice appears in four places, and the chart, the offerings and the returns figure each carry their own label.',
       ],
       build: [
         'One HTML file, about 52 KB, with hand-written CSS and JavaScript. No framework and no build step.',
-        'The portfolio filters on a data attribute and updates aria-pressed on the buttons, so the filter state is exposed to screen readers, not just shown visually.',
+        'The portfolio filters on a data attribute and updates aria-pressed on the buttons, so the filter state is exposed to screen readers.',
         'The distributions chart is CSS, with each bar height set by a custom property. It stays sharp at any size and is hidden from screen readers, which get the same figures as text above it.',
         'Ten numbers count up when their block comes into view, on IntersectionObserver, and hold their final value for anyone who prefers reduced motion.',
         'The FAQ uses native details elements, so it works before the JavaScript runs.',
