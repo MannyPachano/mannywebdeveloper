@@ -10,6 +10,12 @@ const experience = [
     where: 'Remote for a Utah, US software company',
     when: '2024 to present',
   },
+  {
+    org: 'Universal Environmental Services',
+    role: 'Web Designer, Developer & SEO Consultant',
+    where: 'Used oil collection company in 28 US states',
+    when: '2026 to present',
+  },
   ...(SHOW_CLOX
     ? [
         {
@@ -250,9 +256,11 @@ const skillGroups = [
        middle, the dates on the right. */
     .experience-item {
       grid-template-columns: 14rem 1fr auto;
+      /* The employer spans both lines, so a long name can wrap without
+         pushing the company line down. */
       grid-template-areas:
         'org role when'
-        '. where .';
+        'org where .';
       column-gap: 2.5rem;
       align-items: baseline;
       padding: 1.5rem 0;
