@@ -30,7 +30,8 @@ src/
   data/projects.ts       Homepage project cards (order = display order)
   layouts/Layout.astro   <head>, header, footer, global scripts
   layouts/CaseStudyLayout.astro   Shared layout for every case study page
-  components/            Hero, About, Projects, ProjectCard, Contact, Header, Footer
+  components/            Hero, Projects, LandingPages, Services, Experience, About, Contact, Header, Footer
+  styles/home.css        Homepage section styles (every class starts with h-)
   pages/                 index + one page per case study + thanks
   styles/global.css      Tokens, typography, buttons, shared pieces
 public/

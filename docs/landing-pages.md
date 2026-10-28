@@ -8,8 +8,7 @@ adding images and one entry there. No new components, no new page files.
 
 - `src/data/walkthrough-types.ts`: the `Walkthrough` type. Landing pages and project case studies share it (see `docs/project-walkthroughs.md`).
 - `src/data/landing-pages.ts`: one entry per landing page (card text, walkthrough sections, phone screens, details, tools).
-- `src/components/LandingPages.astro`: the homepage section. Renders one `LandingPageCard` per entry.
-- `src/components/LandingPageCard.astro`: browser frame with the compare slider (or a single first screen when there is no `compare`), a phone frame, summary, tags, buttons.
+- `src/components/LandingPages.astro`: the homepage section. The first three entries get a large tile (screenshot, kind, title, short description, walkthrough link) and the rest get a small tile. The short descriptions live in this component, keyed by slug. The screenshot is `compare.a` when the entry has one, otherwise `hero.src`.
 - `src/components/WalkthroughPage.astro`: the walkthrough page template, shared with the project case studies.
 - `src/pages/landing-page-[slug].astro`: builds one page per entry (`getStaticPaths` reads the data file).
 - `src/components/CompareSlider.astro`, `BrowserFrame.astro`, `PhoneFrame.astro`: reusable pieces.

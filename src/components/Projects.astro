@@ -54,10 +54,10 @@ const cases = [
 ];
 
 const more = [
-  { slug: 'nuvector', year: '2024 to 2025', title: 'nuVector', text: 'Company website rebuilt on Astro with nine client pages, three service pages and a 20-post blog.', link: 'nuVector case study' },
-  { slug: 'keyset', year: '2026', title: 'Keyset', text: 'A maintenance desk application in React and TypeScript with bulk edits and a keyboard-friendly schedule board.', link: 'Keyset case study' },
-  { slug: 'jonathan-zalzman', year: '2026', title: 'Jonathan Zalzman Guitar', text: 'A website for a guitar teacher in Suwanee, Georgia, with pricing, reviews and a trial lesson form.', link: 'Guitar teacher case study' },
-  { slug: 'landscaper-templates', year: '2026', title: 'Landscaper Templates', text: 'Three website templates for landscaping companies that I customize for the owner who picks one.', link: 'Templates case study' },
+  { slug: 'nuvector', h: 806, year: '2024 to 2025', title: 'nuVector', text: 'Company website rebuilt on Astro with nine client pages, three service pages and a 20-post blog.', link: 'nuVector case study' },
+  { slug: 'keyset', h: 800, year: '2026', title: 'Keyset', text: 'A maintenance desk application in React and TypeScript with bulk edits and a keyboard-friendly schedule board.', link: 'Keyset case study' },
+  { slug: 'jonathan-zalzman', h: 806, year: '2026', title: 'Jonathan Zalzman Guitar', text: 'A website for a guitar teacher in Suwanee, Georgia, with pricing, reviews and a trial lesson form.', link: 'Guitar teacher case study' },
+  { slug: 'landscaper-templates', h: 806, year: '2026', title: 'Landscaper Templates', text: 'Three website templates for landscaping companies that I customize for the owner who picks one.', link: 'Templates case study' },
 ];
 
 const earlier = [
@@ -118,7 +118,7 @@ const earlier = [
     <div class="h-more">
       {more.map((item) => (
         <article class="h-mini">
-          <img class="h-shot h-shot-sm" src={poster(item.slug)} width="1280" height="800" alt="" loading="lazy" decoding="async" />
+          <img class="h-shot h-shot-sm" src={poster(item.slug)} width="1280" height={item.h} alt="" loading="lazy" decoding="async" />
           <p class="h-label">{item.year}</p>
           <h3 class="h-h4">{item.title}</h3>
           <p class="h-p h-p-sm">{item.text}</p>
