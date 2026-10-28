@@ -7,14 +7,6 @@ const now = [
   { org: 'Universal Environmental Services', role: 'Web Developer, Designer and Marketing/SEO Consultant', since: 'Since 2026' },
   ...(SHOW_CLOX ? [{ org: 'Clox', role: 'Founder of a time-tracking app for field crews', since: 'Since 2026' }] : []),
 ];
-
-// Four figures, each with a label that reads on its own.
-const stats = [
-  { value: '30,000+', label: 'Monthly organic visits to TimeClick at the end of my SEO program, up from about 4,000' },
-  { value: '53', label: 'UES facilities on the locations page I designed and built' },
-  { value: '28', label: 'UES state pages built from one template and two data files' },
-  { value: '2019', label: 'The year I started designing and building websites for US clients' },
-];
 ---
 
 <section class="h-hero" aria-labelledby="hero-title">
@@ -52,18 +44,5 @@ const stats = [
         </a>
       </div>
     </aside>
-  </div>
-</section>
-
-<section aria-label="Results from my client work">
-  <div class="container">
-    <ul class="h-stats">
-      {stats.map((stat) => (
-        <li class="h-stat">
-          <span class="h-stat-value">{stat.value}</span>
-          <span class="h-stat-label">{stat.label}</span>
-        </li>
-      ))}
-    </ul>
   </div>
 </section>

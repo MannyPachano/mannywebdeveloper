@@ -269,38 +269,6 @@
     margin-top: 1.375rem;
 }
 
-/* Results row: a 2px rule over each figure, no cards. */
-.h-stats {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0 0 6.5rem;
-}
-
-.h-stat {
-    border-top: 2px solid var(--text-header);
-    padding-top: 1.125rem;
-}
-
-.h-stat-value {
-    display: block;
-    font-size: var(--fs-h2);
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -0.5px;
-    color: var(--text-header);
-}
-
-.h-stat-label {
-    display: block;
-    margin-top: 0.625rem;
-    font-size: var(--fs-small);
-    line-height: 1.45;
-    color: var(--text-paragraph);
-}
-
 /* Case studies */
 .h-cases {
     display: grid;
@@ -611,12 +579,6 @@
         letter-spacing: -0.8px;
     }
 
-    .h-stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 2rem 1.5rem;
-        padding-bottom: 4.5rem;
-    }
-
     .h-case-flip .h-case-media {
         order: 0;
     }
@@ -704,10 +666,6 @@
 
     .h-hero-actions .h-btn {
         width: 100%;
-    }
-
-    .h-stat-value {
-        font-size: var(--fs-section);
     }
 
     .h-more,
