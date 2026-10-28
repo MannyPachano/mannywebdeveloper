@@ -2,21 +2,25 @@
 // Contact form handled by Netlify Forms.
 // Requirements: static build output (astro.config output: 'static') and
 // "Enable form detection" switched on in Netlify > Site configuration > Forms.
-const services = [
-  { id: 'redesign', label: 'Redesign my current website' },
-  { id: 'new-site', label: 'Build a new website' },
-  { id: 'seo', label: 'SEO and lead generation' },
-  { id: 'other', label: 'Something else' },
-];
 ---
 
-<section class="contact-section" id="contact-section" aria-labelledby="contact-title">
-  <div class="contact-container container section-pad">
-    <div class="title-div">
-      <h2 class="title-after" id="contact-title">Get in touch</h2>
-      <p>
-        Have a website project? Tell me what you need and I'll reply within one business day.
-      </p>
+<section class="h-sec h-sec-alt" id="contact-section" aria-labelledby="contact-title">
+  <div class="container h-contact">
+    <div>
+      <h2 class="h-h2" id="contact-title">Contact me about a project or a role</h2>
+      <p class="h-p h-contact-intro">Tell me what you need built or fixed, and I will reply by email.</p>
+      <ul class="h-contact-links">
+        <li>
+          <span>LinkedIn</span>
+          <a class="h-link" href="https://www.linkedin.com/in/manny-pachano" target="_blank" rel="noopener noreferrer">
+            manny-pachano<span class="visually-hidden"> (opens in a new tab)</span>
+          </a>
+        </li>
+        <li>
+          <span>Resume</span>
+          <a class="h-link" href="/files/Manny_Pachano_Resume.pdf">Download PDF</a>
+        </li>
+      </ul>
     </div>
 
     <form
@@ -26,7 +30,7 @@ const services = [
       data-netlify="true"
       netlify-honeypot="bot-field"
       id="contact-form"
-      class="form-container"
+      class="h-form"
     >
       <!-- Required by Netlify for forms rendered by frameworks -->
       <input type="hidden" name="form-name" value="contact" />
@@ -39,194 +43,30 @@ const services = [
         </label>
       </p>
 
-      <div class="form-item">
-        <label for="name">First name</label>
-        <input type="text" id="name" name="name" autocomplete="given-name" required />
+      <div class="h-form-row">
+        <div class="h-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required />
+        </div>
+        <div class="h-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required />
+        </div>
       </div>
 
-      <div class="form-item form-email">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required />
+      <div class="h-field">
+        <label for="company">Company or website (optional)</label>
+        <input type="text" id="company" name="company" autocomplete="organization" />
       </div>
 
-      <fieldset class="form-item form-services">
-        <legend>
-          What do you need? <span class="legend-hint">(select all that apply)</span>
-        </legend>
-        {services.map((service) => (
-          <label class="checkbox-container" for={service.id}>
-            {service.label}
-            <input type="checkbox" id={service.id} name="services[]" value={service.label} />
-            <span class="checkmark" aria-hidden="true"></span>
-          </label>
-        ))}
-      </fieldset>
-
-      <div class="form-item form-message">
-        <label for="message">Tell me more</label>
-        <textarea id="message" name="message" rows="6" required placeholder="Tell me about the project and what you want it to do."></textarea>
+      <div class="h-field">
+        <label for="message">What do you need?</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
       </div>
 
-      <button type="submit">Send message</button>
+      <div>
+        <button class="h-btn h-btn-primary" type="submit">Send message</button>
+      </div>
     </form>
   </div>
 </section>
-
-<style>
-  .contact-section {
-    display: flex;
-    justify-content: center;
-    min-width: 320px;
-  }
-
-  .contact-container {
-    display: flex;
-    flex-direction: column;
-    row-gap: 4rem;
-  }
-
-  /* The same card as everywhere else on the page. */
-  .form-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    background-color: var(--surface);
-    padding: 1.5rem 1.5rem 2rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    width: 100%;
-    max-width: 46rem;
-    margin: 0 auto;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .form-item {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    color: var(--text-paragraph);
-    letter-spacing: 0.8px;
-    line-height: 1.8;
-    font-weight: 700;
-    font-size: var(--fs-body);
-    border: 0;
-    min-width: 0;
-  }
-
-  .form-services legend {
-    padding: 0;
-    margin-bottom: 1rem;
-  }
-
-  .legend-hint {
-    font-weight: 400;
-    font-size: var(--fs-small);
-    color: var(--text-paragraph);
-  }
-
-  .form-item input[type='text'],
-  .form-item input[type='email'],
-  .form-item textarea {
-    width: 100%;
-    border-radius: var(--radius-sm);
-    border: 2px solid transparent;
-    padding: 0.75rem 1.4rem;
-    font-size: 1rem;
-    letter-spacing: 0.8px;
-    line-height: 1.8;
-    color: var(--text-subheader);
-    background-color: var(--contact-input-background);
-    transition: border-color 0.2s var(--ease);
-  }
-
-  .form-item input[type='text'],
-  .form-item input[type='email'] {
-    height: 56px;
-  }
-
-  .form-item textarea {
-    min-height: 10rem;
-    resize: vertical;
-    font-family: inherit;
-  }
-
-  .form-item input:focus-visible,
-  .form-item textarea:focus-visible {
-    border-color: var(--yellow);
-  }
-
-  .form-item ::placeholder {
-    color: var(--text-accent);
-    font-weight: 400;
-  }
-
-  .form-message {
-    margin-top: 1rem;
-  }
-
-  .form-container button {
-    margin-top: 0;
-  }
-
-  /* Custom checkboxes */
-  .checkbox-container {
-    display: block;
-    position: relative;
-    padding-left: 36px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .checkbox-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 25px;
-    width: 25px;
-    top: 0;
-    left: 0;
-    margin: 0;
-  }
-
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: var(--surface-sunken);
-    border-radius: 6px;
-    transition: background-color 0.15s var(--ease);
-  }
-
-  .checkbox-container:hover input ~ .checkmark {
-    background-color: var(--line);
-  }
-
-  .checkbox-container input:checked ~ .checkmark {
-    background-color: var(--yellow);
-  }
-
-  .checkbox-container input:focus-visible ~ .checkmark {
-    outline: 3px solid var(--yellow-dark);
-    outline-offset: 2px;
-  }
-
-  .checkmark::after {
-    content: '';
-    position: absolute;
-    display: none;
-    left: 10px;
-    top: 6px;
-    width: 5px;
-    height: 10px;
-    border: solid var(--on-accent);
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
-  }
-
-  .checkbox-container input:checked ~ .checkmark::after {
-    display: block;
-  }
-</style>

@@ -1,0 +1,41 @@
+---
+// The three parts of the client work, each with a short description and the tools used.
+const services = [
+  {
+    title: 'Website design',
+    text: 'I make wireframes and mockups for each page so the client approves the layout before I write code.',
+    items: ['Wireframes and mockups in Figma', 'Responsive layouts for phone and desktop', 'Typography, color and page structure', 'Accessibility to WCAG 2.1 AA'],
+  },
+  {
+    title: 'Front-end development',
+    text: 'I build the sites I design and connect them to the tools the business already uses.',
+    items: ['HTML, CSS, JavaScript and TypeScript', 'React, Next.js, Astro and Vue', 'WordPress and PHP', 'Zoho CRM, Stripe and WooCommerce'],
+  },
+  {
+    title: 'SEO and marketing',
+    text: 'After launch I run the search program, including content, technical fixes, listings and reporting.',
+    items: ['Technical and local SEO', 'Google Analytics 4 and Search Console', 'Google Business Profile and directory listings', 'Email marketing and conversion copywriting'],
+  },
+];
+---
+
+<section class="h-sec" id="services" aria-labelledby="services-title">
+  <div class="container">
+    <div class="h-sec-head">
+      <h2 class="h-h2" id="services-title">What I do for clients</h2>
+      <p class="h-p">The three parts of my client work and the tools I use for each one.</p>
+    </div>
+
+    <div class="h-svc">
+      {services.map((service) => (
+        <div class="h-svc-col">
+          <h3 class="h-h4">{service.title}</h3>
+          <p class="h-p h-p-md">{service.text}</p>
+          <ul class="h-svc-list" aria-label={`${service.title} tools`}>
+            {service.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,723 @@
+/* ==========================================================================
+   HOMEPAGE
+   Styles for the homepage sections only. Imported by src/pages/index.astro.
+   Every class starts with h- so nothing here collides with global.css, which
+   still styles the case study and walkthrough pages.
+   Breakpoints: 600/601 and 900/901, same as the rest of the site.
+   ========================================================================== */
+
+#project-section,
+#landing-pages,
+#services,
+#experience,
+#about-section,
+#contact-section {
+    scroll-margin-top: calc(var(--nav-height) + 1rem);
+}
+
+/* Type. Resets the uppercase and tracking global.css puts on h1, h2 and p. */
+.h-label {
+    margin: 0;
+    font-size: var(--fs-label);
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--text-accent);
+}
+
+.h-h1,
+.h-h2,
+.h-h3,
+.h-h4 {
+    margin: 0;
+    text-transform: none;
+    word-spacing: normal;
+    color: var(--text-header);
+}
+
+.h-h1 {
+    margin-top: 1.25rem;
+    font-size: var(--fs-h1);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -1.2px;
+}
+
+.h-h2 {
+    font-size: var(--fs-h2);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.h-h3 {
+    font-size: var(--fs-section);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+}
+
+.h-h4 {
+    font-size: var(--fs-h4);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0;
+}
+
+.h-h4-sm {
+    font-size: var(--fs-body-lg);
+}
+
+.h-p {
+    margin: 0;
+    font-size: var(--fs-body-lg);
+    line-height: 1.6;
+    letter-spacing: 0;
+    color: var(--text-paragraph);
+}
+
+.h-p + .h-p {
+    margin-top: 0;
+}
+
+.h-p-sm {
+    font-size: var(--fs-small);
+    line-height: 1.5;
+}
+
+.h-p-md {
+    font-size: var(--fs-body);
+}
+
+.h-heading-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.h-heading-link:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--yellow);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+}
+
+/* Buttons. Resets the global button and .button rules (uppercase, 900 weight, shadow). */
+.h-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 1.375rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    font-family: inherit;
+    font-size: var(--fs-body);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.2;
+    text-transform: none;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.h-btn:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.h-btn-primary {
+    background-color: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--on-accent);
+}
+
+.h-btn-primary:hover {
+    background-color: var(--yellow-dark);
+    border-color: var(--yellow-dark);
+}
+
+.h-btn-line {
+    background-color: transparent;
+    border-color: var(--text-header);
+    color: var(--text-header);
+}
+
+.h-btn-line:hover {
+    background-color: var(--surface-alt);
+}
+
+.h-btn-sm {
+    min-height: 44px;
+}
+
+/* Text link with the brand underline. */
+.h-link {
+    font-weight: 700;
+    color: var(--text-header);
+    text-decoration: underline;
+    text-decoration-color: var(--yellow);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+}
+
+.h-link:hover {
+    text-decoration-color: var(--text-header);
+}
+
+.h-link-sm {
+    font-size: var(--fs-small);
+}
+
+/* Screenshots sit on a light bed in both themes (see --shot-bed in global.css). */
+.h-shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+    background: var(--shot-bed);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.h-shot-sm {
+    border-radius: var(--radius-sm);
+}
+
+/* Sections */
+.h-sec {
+    padding: 7rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.h-sec-alt {
+    background-color: var(--surface-alt);
+}
+
+.h-sec-head {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 2rem 4rem;
+    align-items: end;
+    margin-bottom: 3.5rem;
+}
+
+.h-sec-head .h-p {
+    max-width: 35rem;
+}
+
+/* Hero */
+.h-hero {
+    padding: 6.5rem 0 6rem;
+}
+
+.h-hero-grid {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    gap: 3rem 6rem;
+    align-items: start;
+}
+
+.h-hero-lede {
+    margin-top: 1.75rem;
+    max-width: 39rem;
+    font-size: var(--fs-h4);
+}
+
+.h-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    margin-top: 2.5rem;
+}
+
+.h-now {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    border-top: 2px solid var(--text-header);
+}
+
+.h-now li {
+    display: grid;
+    gap: 0.125rem;
+    padding: 1.125rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.h-now-org {
+    font-size: var(--fs-body-lg);
+    font-weight: 800;
+    color: var(--text-header);
+}
+
+.h-now-role {
+    font-size: var(--fs-small);
+    line-height: 1.45;
+    color: var(--text-paragraph);
+}
+
+.h-now-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.375rem;
+}
+
+/* Results row: a 2px rule over each figure, no cards. */
+.h-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 6.5rem;
+}
+
+.h-stat {
+    border-top: 2px solid var(--text-header);
+    padding-top: 1.125rem;
+}
+
+.h-stat-value {
+    display: block;
+    font-size: var(--fs-h2);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    color: var(--text-header);
+}
+
+.h-stat-label {
+    display: block;
+    margin-top: 0.625rem;
+    font-size: var(--fs-small);
+    line-height: 1.45;
+    color: var(--text-paragraph);
+}
+
+/* Case studies */
+.h-cases {
+    display: grid;
+    gap: 6.5rem;
+}
+
+.h-case {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 2.5rem 4rem;
+    align-items: center;
+}
+
+.h-case-flip .h-case-media {
+    order: 2;
+}
+
+.h-case-media {
+    display: block;
+}
+
+.h-case-body {
+    display: grid;
+    gap: 1rem;
+}
+
+.h-spec {
+    margin: 0.5rem 0 0;
+    border-top: 1px solid var(--line);
+}
+
+.h-spec-row {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: var(--fs-small);
+    line-height: 1.5;
+}
+
+.h-spec-row dt {
+    font-weight: 700;
+    color: var(--text-header);
+}
+
+.h-spec-row dd {
+    margin: 0;
+    color: var(--text-paragraph);
+}
+
+.h-case-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    margin-top: 0.5rem;
+}
+
+/* More projects */
+.h-more {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem 1.75rem;
+}
+
+.h-mini {
+    display: grid;
+    gap: 0.625rem;
+    align-content: start;
+}
+
+.h-mini .h-h4 {
+    margin-top: 0.375rem;
+}
+
+.h-earlier {
+    margin-top: 4.5rem;
+}
+
+.h-earlier-list {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    border-top: 2px solid var(--text-header);
+}
+
+.h-earlier-row {
+    display: grid;
+    grid-template-columns: 6rem 14rem 1fr auto;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 1.125rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+/* Landing pages: three large, then four small. */
+.h-lp-top {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+}
+
+.h-lp-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.75rem;
+    margin-top: 3rem;
+}
+
+.h-lp {
+    display: grid;
+    gap: 0.625rem;
+    align-content: start;
+}
+
+/* Services */
+.h-svc {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3.5rem;
+}
+
+.h-svc-col {
+    display: grid;
+    gap: 0.875rem;
+    align-content: start;
+    border-top: 2px solid var(--text-header);
+    padding-top: 1.375rem;
+}
+
+.h-svc-list {
+    list-style: none;
+    margin: 0.375rem 0 0;
+    padding: 0;
+}
+
+.h-svc-list li {
+    padding: 0.5625rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: var(--fs-small);
+    color: var(--text-subheader);
+}
+
+/* Experience: the ruled list approved on Oct 22. */
+.h-xp {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 2px solid var(--text-header);
+}
+
+.h-xp-item {
+    display: grid;
+    grid-template-columns: 14rem 1fr auto;
+    grid-template-areas:
+        'org role when'
+        'org where .';
+    column-gap: 2.5rem;
+    row-gap: 0.125rem;
+    align-items: baseline;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.h-xp-org {
+    grid-area: org;
+    font-size: var(--fs-h4);
+    font-weight: 800;
+    color: var(--text-header);
+}
+
+.h-xp-role {
+    grid-area: role;
+    font-size: var(--fs-body-lg);
+    font-weight: 600;
+    color: var(--text-subheader);
+}
+
+.h-xp-where {
+    grid-area: where;
+    font-size: var(--fs-body);
+    color: var(--text-paragraph);
+}
+
+.h-xp-when {
+    grid-area: when;
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+/* About */
+.h-about {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 2.5rem 5rem;
+    align-items: start;
+}
+
+.h-about-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.h-about-text {
+    display: grid;
+    gap: 1.125rem;
+}
+
+/* Contact */
+.h-contact {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 3rem 6rem;
+    align-items: start;
+}
+
+.h-contact-intro {
+    margin-top: 1.25rem;
+}
+
+.h-contact-links {
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+}
+
+.h-contact-links li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: var(--fs-body);
+}
+
+.h-contact-links span {
+    color: var(--text-accent);
+}
+
+.h-form {
+    display: grid;
+    gap: 1.125rem;
+}
+
+.h-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.125rem;
+}
+
+.h-field {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.h-field label {
+    font-size: var(--fs-small);
+    font-weight: 700;
+    color: var(--text-header);
+}
+
+.h-field input,
+.h-field textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.75rem 0.875rem;
+    font: inherit;
+    font-size: var(--fs-body);
+    color: var(--text-header);
+    background-color: var(--page);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+}
+
+.h-field textarea {
+    min-height: 9.5rem;
+    resize: vertical;
+}
+
+.h-field input:focus-visible,
+.h-field textarea:focus-visible {
+    border-color: var(--text-header);
+}
+
+@media only screen and (max-width: 900px) {
+    .h-hero {
+        padding: 4rem 0;
+    }
+
+    .h-hero-grid,
+    .h-case,
+    .h-about,
+    .h-contact,
+    .h-sec-head {
+        grid-template-columns: 1fr;
+    }
+
+    .h-h1 {
+        font-size: var(--fs-h2);
+        letter-spacing: -0.8px;
+    }
+
+    .h-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem 1.5rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .h-case-flip .h-case-media {
+        order: 0;
+    }
+
+    .h-cases {
+        gap: 4.5rem;
+    }
+
+    .h-more,
+    .h-lp-bottom {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .h-lp-top {
+        grid-template-columns: 1fr;
+    }
+
+    .h-svc {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .h-sec {
+        padding: 5rem 0;
+    }
+
+    .h-sec-head {
+        margin-bottom: 2.5rem;
+    }
+
+    .h-earlier-row {
+        grid-template-columns: 4.5rem 1fr;
+        grid-template-areas:
+            'year title'
+            'year desc'
+            'year link';
+        row-gap: 0.25rem;
+    }
+
+    .h-earlier-row .h-label {
+        grid-area: year;
+    }
+
+    .h-earlier-row .h-h4 {
+        grid-area: title;
+    }
+
+    .h-earlier-row .h-p {
+        grid-area: desc;
+    }
+
+    .h-earlier-row .h-link {
+        grid-area: link;
+        justify-self: start;
+        margin-top: 0.375rem;
+    }
+
+    .h-xp-item {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            'org when'
+            'role role'
+            'where where';
+        row-gap: 0.25rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* One-off phone size for the hero heading, from the approved mockup (34px). */
+    .h-h1 {
+        font-size: 2.125rem;
+    }
+
+    .h-h2 {
+        font-size: var(--fs-section);
+    }
+
+    .h-h3 {
+        font-size: var(--fs-h3);
+    }
+
+    .h-hero-lede {
+        font-size: var(--fs-body-lg);
+    }
+
+    .h-hero-actions .h-btn {
+        width: 100%;
+    }
+
+    .h-stat-value {
+        font-size: var(--fs-section);
+    }
+
+    .h-more,
+    .h-lp-bottom,
+    .h-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .h-spec-row {
+        grid-template-columns: 1fr;
+        gap: 0.125rem;
+    }
+}

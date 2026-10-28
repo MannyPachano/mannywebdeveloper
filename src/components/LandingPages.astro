@@ -1,47 +1,62 @@
 ---
 import { landingPages } from '../data/landing-pages';
-import LandingPageCard from './LandingPageCard.astro';
+
+// The first three entries in landing-pages.ts get a large tile with a short
+// description; the rest get a small tile. Rythm shows its light version.
+const thumb = (page: (typeof landingPages)[number]) => page.compare?.a ?? page.hero.src;
+const href = (slug: string) => `/landing-page-${slug}`;
+
+const blurbs: Record<string, { text: string; link: string }> = {
+  'halstead-mechanical': {
+    text: 'A contractor page with two routes: an emergency caller reaches the phone number fast, and a bidding contractor reaches the evidence.',
+    link: 'Halstead walkthrough',
+  },
+  rythm: {
+    text: 'A page that explains an at-home blood test, answers two objections and has light and dark versions.',
+    link: 'Rythm walkthrough',
+  },
+  'apple-seo': {
+    text: 'An agency homepage reordered so three case studies share one proof format and an FAQ handles discovery-call questions.',
+    link: 'Apple SEO walkthrough',
+  },
+};
+
+const top = landingPages.slice(0, 3);
+const rest = landingPages.slice(3);
 ---
 
-<section class="landing-section" id="landing-pages" aria-labelledby="landing-title">
-  <div class="landing-container container section-pad">
-    <div class="title-div">
-      <h2 class="title-after" id="landing-title">Landing pages</h2>
-      <p>
-        A landing page is built around one action. These are complete pages I designed and built myself, including
-        the animations and mobile versions. Each one has a section-by-section walkthrough explaining what each
-        part does.
+<section class="h-sec h-sec-alt" id="landing-pages" aria-labelledby="landing-title">
+  <div class="container">
+    <div class="h-sec-head">
+      <h2 class="h-h2" id="landing-title">Landing page designs</h2>
+      <p class="h-p">
+        Complete one-page sites I designed and coded by hand, each with a walkthrough of what every section does. These
+        are concept designs that no client commissioned, and three of the companies are invented.
       </p>
     </div>
 
-    <div class="landing-list">
-      {landingPages.map((page) => <LandingPageCard page={page} />)}
+    <div class="h-lp-top">
+      {top.map((page) => (
+        <article class="h-lp">
+          <img class="h-shot" src={thumb(page)} width={page.hero.width} height={page.hero.height} alt="" loading="lazy" decoding="async" />
+          <p class="h-label">{page.kind}</p>
+          <h3 class="h-h4">{page.title}</h3>
+          <p class="h-p h-p-sm">{blurbs[page.slug]?.text}</p>
+          <a class="h-link h-link-sm" href={href(page.slug)}>{blurbs[page.slug]?.link ?? `${page.title} walkthrough`}</a>
+        </article>
+      ))}
+    </div>
+
+    <div class="h-lp-bottom">
+      {rest.map((page) => (
+        <article class="h-lp">
+          <img class="h-shot h-shot-sm" src={thumb(page)} width={page.hero.width} height={page.hero.height} alt="" loading="lazy" decoding="async" />
+          <h3 class="h-h4 h-h4-sm">{page.title}</h3>
+          <a class="h-link h-link-sm" href={href(page.slug)}>
+            Walkthrough<span class="visually-hidden">: {page.title}</span>
+          </a>
+        </article>
+      ))}
     </div>
   </div>
 </section>
-
-<style>
-  .landing-section {
-    display: flex;
-    justify-content: center;
-    min-width: 320px;
-  }
-
-  .landing-container {
-    display: flex;
-    flex-direction: column;
-    row-gap: 3rem;
-  }
-
-  .landing-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  @media only screen and (min-width: 901px) {
-    .landing-list {
-      gap: 2.5rem;
-    }
-  }
-</style>

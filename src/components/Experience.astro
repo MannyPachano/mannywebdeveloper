@@ -1,0 +1,32 @@
+---
+import { SHOW_CLOX } from '../config';
+
+// Work history. Keep it factual: employer, role, where, when.
+const experience = [
+  { org: 'TimeClick', role: 'Front-End Developer, Designer and Marketing/SEO Consultant', where: 'Remote for a Utah, US software company', when: '2024 to present' },
+  { org: 'Universal Environmental Services', role: 'Web Developer, Designer and Marketing/SEO Consultant', where: 'Used oil collection company in 28 US states', when: '2026 to present' },
+  ...(SHOW_CLOX ? [{ org: 'Clox', role: 'Founder', where: 'B2B time-tracking SaaS for small field crews', when: '2026 to present' }] : []),
+  { org: 'nuVector LLC', role: 'Front-End Developer, SEO and Marketing', where: 'US-based B2B software company', when: '2023 to 2025' },
+  { org: 'Freelance', role: 'Web Design, Development and SEO', where: 'Clients across the US', when: '2019 to present' },
+];
+---
+
+<section class="h-sec" id="experience" aria-labelledby="experience-title">
+  <div class="container">
+    <div class="h-sec-head">
+      <h2 class="h-h2" id="experience-title">Work experience</h2>
+      <p class="h-p">The companies I have worked for since 2019, plus my freelance clients.</p>
+    </div>
+
+    <ol class="h-xp">
+      {experience.map((job) => (
+        <li class="h-xp-item">
+          <span class="h-xp-org">{job.org}</span>
+          <span class="h-xp-role">{job.role}</span>
+          <span class="h-xp-where">{job.where}</span>
+          <span class="h-label h-xp-when">{job.when}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

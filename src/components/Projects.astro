@@ -1,101 +1,146 @@
 ---
+import { SHOW_CLOX } from '../config';
 import { projects } from '../data/projects';
-import ProjectCard from './ProjectCard.astro';
 
-// On phones, show this many cards first and a "show the rest" button.
-const INITIAL_MOBILE_CARDS = 5;
-const hiddenCount = Math.max(projects.length - INITIAL_MOBILE_CARDS, 0);
+// Screenshots come from the poster frames already listed in projects.ts.
+const poster = (slug: string) => projects.find((p) => p.slug === slug)?.video.poster ?? '';
+const href = (slug: string) => `/web-developer-project-${slug}`;
+
+// Three case studies shown as large rows. Clox stays behind SHOW_CLOX.
+const cases = [
+  {
+    slug: 'ues',
+    meta: '2026 to present · Redesign, maps and SEO',
+    title: 'Universal Environmental Services',
+    lede: 'A used oil collection company that operates in 28 states. I redesigned and rebuilt the website one page at a time, and I run its SEO program.',
+    spec: [
+      ['Design', 'Homepage, locations page and the state page template'],
+      ['Build', 'WordPress and PHP, 28 state pages from one template, SVG maps drawn from Census boundary data'],
+      ['SEO', 'Local SEO, directory listings, GA4 and Search Console'],
+    ],
+    cta: 'Read the UES case study',
+    liveUrl: 'https://universalenvironmentalservices.com',
+  },
+  {
+    slug: 'timeclick',
+    meta: '2024 to present · Redesign, SEO and marketing',
+    title: 'TimeClick',
+    lede: 'A time clock software company in Utah. I redesigned the marketing website and built the CRM, checkout and email systems behind it.',
+    spec: [
+      ['Design', 'The marketing website, page by page'],
+      ['Build', 'WordPress and JavaScript, Zoho CRM, Stripe and WooCommerce'],
+      ['Result', 'Organic traffic grew from about 4,000 to over 30,000 visits a month'],
+    ],
+    cta: 'Read the TimeClick case study',
+    liveUrl: 'https://timeclick.com',
+  },
+  ...(SHOW_CLOX
+    ? [
+        {
+          slug: 'clox',
+          meta: '2026 to present · My own product',
+          title: 'Clox',
+          lede: 'A time-tracking app for small crews in the trades. The crew clocks in from a phone and the office approves the week and sends it to payroll. I designed, built and market it.',
+          spec: [
+            ['Design', 'Mobile apps, web dashboard and marketing site'],
+            ['Build', 'Next.js, React, TypeScript, Supabase and Stripe, with native iOS and Android apps'],
+            ['Offline', 'A clock-in made with no signal is saved on the phone and synced later'],
+          ],
+          cta: 'Read the Clox case study',
+          liveUrl: 'https://getclox.com',
+        },
+      ]
+    : []),
+];
+
+const more = [
+  { slug: 'nuvector', year: '2024 to 2025', title: 'nuVector', text: 'Company website rebuilt on Astro with nine client pages, three service pages and a 20-post blog.', link: 'nuVector case study' },
+  { slug: 'keyset', year: '2026', title: 'Keyset', text: 'A maintenance desk application in React and TypeScript with bulk edits and a keyboard-friendly schedule board.', link: 'Keyset case study' },
+  { slug: 'jonathan-zalzman', year: '2026', title: 'Jonathan Zalzman Guitar', text: 'A website for a guitar teacher in Suwanee, Georgia, with pricing, reviews and a trial lesson form.', link: 'Guitar teacher case study' },
+  { slug: 'landscaper-templates', year: '2026', title: 'Landscaper Templates', text: 'Three website templates for landscaping companies that I customize for the owner who picks one.', link: 'Templates case study' },
+];
+
+const earlier = [
+  { slug: 'explainer-visuals', year: '2024', title: 'Explainer Visuals', text: 'Portfolio site for a video studio on Astro, with every video streamed as HLS' },
+  { slug: 'loopmanager', year: '2024', title: 'LoopManager', text: 'Redesign moved from WordPress to Astro, plus a custom blog CMS for the marketing team' },
+  { slug: 'panda', year: '2023', title: "Panda's Playhouse", text: 'Membership site in Wix Studio for a gaming community of more than 5,000 members' },
+];
 ---
 
-<section class="projects-section" id="project-section" aria-labelledby="projects-title">
-  <div class="projects-container container section-pad">
-    <div class="title-div">
-      <h2 class="title-after" id="projects-title">Recent projects</h2>
-      <p>
-        Each case study shows what the project needed, what I designed and built, and why I made the decisions
-        I did. If you want to work together, the contact form is at the bottom of the page.
+<section class="h-sec" id="project-section" aria-labelledby="work-title">
+  <div class="container">
+    <div class="h-sec-head">
+      <h2 class="h-h2" id="work-title">Case studies</h2>
+      <p class="h-p">
+        Each case study covers what the client needed, the pages I designed, how I built them and what changed after
+        launch.
       </p>
     </div>
 
-    <div class="projects-grid" id="projects-grid">
-      {projects.map((project) => <ProjectCard project={project} />)}
+    <div class="h-cases">
+      {cases.map((item, i) => (
+        <article class:list={['h-case', { 'h-case-flip': i % 2 === 1 }]}>
+          <a class="h-case-media" href={href(item.slug)} tabindex="-1" aria-hidden="true">
+            <img class="h-shot" src={poster(item.slug)} width="1280" height="800" alt="" loading="lazy" decoding="async" />
+          </a>
+          <div class="h-case-body">
+            <p class="h-label">{item.meta}</p>
+            <h3 class="h-h3"><a class="h-heading-link" href={href(item.slug)}>{item.title}</a></h3>
+            <p class="h-p h-p-md">{item.lede}</p>
+            <dl class="h-spec">
+              {item.spec.map(([term, detail]) => (
+                <div class="h-spec-row">
+                  <dt>{term}</dt>
+                  <dd>{detail}</dd>
+                </div>
+              ))}
+            </dl>
+            <div class="h-case-links">
+              <a class="h-btn h-btn-primary h-btn-sm" href={href(item.slug)}>{item.cta}</a>
+              <a class="h-link" href={item.liveUrl} target="_blank" rel="noopener noreferrer">
+                Live site <span aria-hidden="true">&#8599;</span><span class="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
     </div>
-
-    {hiddenCount > 0 && (
-      <div class="show-all-wrap" id="show-all-wrap">
-        <button class="button button-small button-secondary" id="show-all-projects" type="button" aria-controls="projects-grid" aria-expanded="false">
-          Show {hiddenCount} more {hiddenCount === 1 ? 'project' : 'projects'}
-        </button>
-      </div>
-    )}
   </div>
 </section>
 
-<style>
-  .projects-section {
-    display: flex;
-    justify-content: center;
-    min-width: 320px;
-  }
+<section class="h-sec" aria-labelledby="more-title">
+  <div class="container">
+    <div class="h-sec-head">
+      <h2 class="h-h2" id="more-title">More projects</h2>
+      <p class="h-p">Client sites, templates and an application I built to practice React state management.</p>
+    </div>
 
-  .projects-container {
-    display: flex;
-    flex-direction: column;
-    row-gap: 3rem;
-  }
+    <div class="h-more">
+      {more.map((item) => (
+        <article class="h-mini">
+          <img class="h-shot h-shot-sm" src={poster(item.slug)} width="1280" height="800" alt="" loading="lazy" decoding="async" />
+          <p class="h-label">{item.year}</p>
+          <h3 class="h-h4">{item.title}</h3>
+          <p class="h-p h-p-sm">{item.text}</p>
+          <a class="h-link h-link-sm" href={href(item.slug)}>{item.link}</a>
+        </article>
+      ))}
+    </div>
 
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  /* Desktop shows every card; the button only exists for phones. */
-  .show-all-wrap {
-    display: none;
-    justify-content: center;
-    margin-top: -1rem;
-  }
-
-  .show-all-wrap .button {
-    margin: 0;
-  }
-
-  @media only screen and (max-width: 900px) {
-    .projects-grid:not(.expanded) .project-card:nth-child(n + 6) {
-      display: none;
-    }
-
-    .show-all-wrap {
-      display: flex;
-    }
-
-    .show-all-wrap[hidden] {
-      display: none;
-    }
-  }
-
-  @media only screen and (min-width: 901px) {
-    .projects-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2.5rem;
-    }
-  }
-</style>
-
-<script>
-  const grid = document.getElementById('projects-grid');
-  const wrap = document.getElementById('show-all-wrap');
-  const button = document.getElementById('show-all-projects');
-
-  button?.addEventListener('click', () => {
-    if (!grid) return;
-    grid.classList.add('expanded');
-    button.setAttribute('aria-expanded', 'true');
-    if (wrap) wrap.hidden = true;
-    // Move focus to the first newly revealed card so keyboard users land on it.
-    const revealed = grid.querySelectorAll<HTMLElement>('.project-card')[5];
-    const link = revealed?.querySelector<HTMLElement>('.project-card-title a');
-    link?.focus({ preventScroll: false });
-  });
-</script>
+    <div class="h-earlier">
+      <h3 class="h-h4">Earlier projects</h3>
+      <ul class="h-earlier-list">
+        {earlier.map((item) => (
+          <li class="h-earlier-row">
+            <span class="h-label">{item.year}</span>
+            <span class="h-h4 h-h4-sm">{item.title}</span>
+            <p class="h-p h-p-sm">{item.text}</p>
+            <a class="h-link h-link-sm" href={href(item.slug)}>
+              Case study<span class="visually-hidden">: {item.title}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

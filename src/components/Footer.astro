@@ -2,153 +2,33 @@
 const year = new Date().getFullYear();
 ---
 
-<footer>
-  <div class="footer-container container">
-    <div class="footer-grid">
-      <div class="footer-social">
-        <h3 class="h3-footer">Social</h3>
-        <ul class="social-icons social-grid">
-          <li class="linkedin">
-            <a href="https://www.linkedin.com/in/manny-pachano" target="_blank" rel="noopener noreferrer" aria-label="Manny Pachano on LinkedIn (opens in a new tab)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24px" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="footer-about">
-        <h3 class="h3-footer">Manny Pachano</h3>
-        <p class="footer-copy">
-          I'm a web designer, front-end developer and SEO consultant. I design and build websites for software companies and small businesses, and I run the SEO, email and CRM work behind them.
-        </p>
-        <p class="footer-copy footer-cta">
-          Have a project in mind? <a href="/#contact-section">Send me a message</a>.
-        </p>
-        <p class="footer-copy footer-meta">
-          I built this site with Astro 7 and hand-written CSS. It has no trackers.
-        </p>
-      </div>
-    </div>
-
-    <hr />
-
-    <p class="p-footer">
-      Copyright &copy; {year} Manny Pachano. All rights reserved.
-    </p>
+<footer class="site-footer">
+  <div class="container footer-in">
+    <p>&copy; {year} Manny Pachano. Web designer, front-end developer and SEO consultant.</p>
+    <p>Built with Astro and hand-written CSS. No trackers.</p>
   </div>
 </footer>
 
 <style>
-  footer {
-    background-color: var(--overlay);
-    display: flex;
-    justify-content: center;
+  .site-footer {
     min-width: 320px;
+    border-top: 1px solid var(--line);
+    padding: 2.5rem 0 3rem;
+    background-color: var(--page);
   }
 
-  .footer-container {
+  .footer-in {
     display: flex;
-    flex-direction: column;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem 2rem;
   }
 
-  .h3-footer {
-    margin: 2rem 0 0.75rem;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: var(--fs-body-lg);
-  }
-
-  .footer-copy {
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 36rem;
-  }
-
-  .footer-cta {
-    margin-top: 1rem;
-  }
-
-  .footer-cta a {
-    color: var(--yellow);
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  .footer-cta a:hover {
-    color: var(--white);
-  }
-
-  .footer-meta {
-    margin-top: 1.25rem;
+  .footer-in p {
+    margin: 0;
     font-size: var(--fs-small);
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .social-icons {
-    list-style: none;
-  }
-
-  .social-icons li {
-    display: inline-block;
-    margin: 0.15em;
-    position: relative;
-    font-size: 1.4em;
-  }
-
-  .linkedin svg {
-    position: absolute;
-    margin: 8px;
-    border-radius: 4px;
-    transition: transform 0.265s ease-out;
-    pointer-events: none;
-  }
-
-  .linkedin svg {
-    top: 2px;
-    left: 4px;
-  }
-
-  .social-icons a {
-    display: inline-block;
-    border-radius: 50%;
-  }
-
-  .social-icons a::before {
-    transform: scale(1);
-    content: ' ';
-    width: 48px;
-    height: 48px;
-    border-radius: 100%;
-    display: block;
-    background: var(--yellow);
-    transition: transform 0.265s ease-out;
-  }
-
-  .social-icons a:hover::before,
-  .social-icons a:focus-visible::before {
-    transform: scale(0);
-  }
-
-  .social-icons a:hover svg,
-  .social-icons a:focus-visible svg {
-    transform: scale(1.5);
-    fill: var(--yellow);
-  }
-
-  hr {
-    margin: 3rem 0 2rem;
-    border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .p-footer {
-    font-size: var(--fs-small);
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--white);
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: var(--text-accent);
   }
 </style>

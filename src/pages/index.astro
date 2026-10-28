@@ -1,18 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
 import Projects from '../components/Projects.astro';
 import LandingPages from '../components/LandingPages.astro';
+import Services from '../components/Services.astro';
+import Experience from '../components/Experience.astro';
+import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
-import ScrollThread from '../components/ScrollThread.astro';
+import '../styles/home.css';
 ---
 
-<Layout isHome={true} >
+<Layout isHome={true}>
 	<Hero />
-	<About />
 	<Projects />
 	<LandingPages />
+	<Services />
+	<Experience />
+	<About />
 	<Contact />
-	<ScrollThread />
 </Layout>

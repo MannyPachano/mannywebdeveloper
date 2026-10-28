@@ -1,12 +1,15 @@
 ---
 // Site header: fixed nav and the mobile overlay menu.
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/#about-section', label: 'About' },
-  { href: '/#project-section', label: 'Projects' },
+  { href: '/#project-section', label: 'Case studies' },
   { href: '/#landing-pages', label: 'Landing pages' },
-  { href: '/#contact-section', label: 'Contact' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#about-section', label: 'About' },
 ];
+
+// The phone menu also lists Contact, because the Contact me button is desktop only.
+const mobileLinks = [...links, { href: '/#contact-section', label: 'Contact' }];
 
 const isHome = Astro.url.pathname === '/';
 ---
@@ -15,8 +18,7 @@ const isHome = Astro.url.pathname === '/';
   <nav class="site-nav" id="site-nav" aria-label="Main">
     <div class="navigation-content">
       <a href="/" class="logo" aria-label="Manny Pachano, back to home">
-        <img src="/images/man-face.webp" width="24" alt="" decoding="async" />
-        <span class="logo-text">MANNY PACHANO</span>
+        <span class="logo-text">Manny Pachano <span class="logo-role">Web designer and developer</span></span>
       </a>
 
       <ul class="nav-links">
@@ -40,6 +42,8 @@ const isHome = Astro.url.pathname === '/';
           </svg>
         </button>
 
+        <a class="nav-cta" href="/#contact-section">Contact me</a>
+
         <button
           class="burger-menu"
           id="burger"
@@ -57,7 +61,7 @@ const isHome = Astro.url.pathname === '/';
 
   <div class="mobile-menu" id="mobile-menu" hidden>
     <ul>
-      {links.map((link) => (
+      {mobileLinks.map((link) => (
         <li class="mobile-menu-item">
           <a href={link.href}>{link.label}</a>
         </li>
@@ -116,11 +120,41 @@ const isHome = Astro.url.pathname === '/';
   }
 
   .logo-text {
-    font-weight: 700;
-    color: var(--text-paragraph);
-    letter-spacing: 1.5px;
-    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-header);
+    letter-spacing: -0.2px;
+    font-size: var(--fs-h4);
     transition: color 0.3s var(--ease);
+  }
+
+  .logo-role {
+    font-weight: 600;
+    color: var(--text-accent);
+  }
+
+  /* Desktop only; the phone menu lists Contact instead. */
+  .nav-cta {
+    display: none;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 1.125rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--yellow);
+    color: var(--on-accent);
+    font-size: var(--fs-small);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s var(--ease);
+  }
+
+  .nav-cta:hover {
+    background-color: var(--yellow-dark);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .logo-role {
+      display: none;
+    }
   }
 
   .nav-links {
@@ -132,11 +166,10 @@ const isHome = Astro.url.pathname === '/';
   .nav-links a {
     display: inline-block;
     padding: 0.4rem 0.15rem;
-    color: var(--text-paragraph);
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.8px;
+    color: var(--text-subheader);
+    font-weight: 600;
+    font-size: var(--fs-small);
+    letter-spacing: 0;
     text-decoration: none;
     border-bottom: 2px solid transparent;
     transition: transform 0.15s var(--ease), border-color 0.15s var(--ease);
@@ -166,7 +199,7 @@ const isHome = Astro.url.pathname === '/';
     min-width: 2.5rem;
     padding: 0;
     margin: 0;
-    border-radius: 50%;
+    border-radius: var(--radius-sm);
     border: 1px solid var(--line);
     background-color: var(--surface);
     color: var(--text-subheader);
@@ -335,6 +368,10 @@ const isHome = Astro.url.pathname === '/';
   @media only screen and (min-width: 901px) {
     .nav-links {
       display: flex;
+    }
+
+    .nav-cta {
+      display: inline-flex;
     }
 
     .burger-menu,
