@@ -682,7 +682,7 @@ const clox: Walkthrough = {
     'The main technical constraint is that workers are often using the app on a job site with a weak connection. At the same time, the hours being recorded feed into payroll. The interface therefore has to handle offline use without losing or duplicating punches.',
     'When the phone is offline, punches are stored in an IndexedDB queue. Each one gets a UUID on the device, which is also used as the server-side idempotency key, so a punch that replays after a successful sync is recognized and ignored. When the connection returns, the queue uses the same server action as the normal online path. Clock in, clock out, breaks and project changes all use the same system.',
     'Failed punches are handled according to the type of failure. Temporary errors are retried, invalid punches can be discarded, and anything that needs a human decision is held for review. Unknown responses are held for review as well, so no punch is dropped silently.',
-    'As with <a class="text-link" href="/web-developer-project-keyset">Keyset</a>, the business logic lives in plain modules, separate from the framework. The 365 tests cover overtime, pay periods, timezone boundaries, geofences, CSV imports and payroll exports, with most of the logic tested without a browser.',
+    'As with <a class="text-link" href="/web-developer-project-keyset/">Keyset</a>, the business logic lives in plain modules, separate from the framework. The 365 tests cover overtime, pay periods, timezone boundaries, geofences, CSV imports and payroll exports, with most of the logic tested without a browser.',
   ],
   walkthroughIntro: 'The application, screen by screen. These are the live app, signed in to the demo organization.',
   sections: [
@@ -1438,7 +1438,7 @@ const nuvector: Walkthrough = {
   overviewTitle: 'About the project',
   overview: [
     'nuVector sells software that tracks returnable assets: the containers, racks and tooling that leave a plant and are supposed to come back. I worked there as a front-end developer and later in SEO and marketing, so I knew the customers before I started on the site. The site this one replaced was bad, and that is what drove the rebuild.',
-    'The company site had a different job from the <a class="text-link" href="/web-developer-project-loopmanager">LoopManager product site</a>. LoopManager is nuVector\'s product, and that site explains what the software does. This one had to show that the company behind it is real and established, and then get a demo booked. That is why the client work sits high on the page and why every route ends at the same form.',
+    'The company site had a different job from the <a class="text-link" href="/web-developer-project-loopmanager/">LoopManager product site</a>. LoopManager is nuVector\'s product, and that site explains what the software does. This one had to show that the company behind it is real and established, and then get a demo booked. That is why the client work sits high on the page and why every route ends at the same form.',
     'Most of the build is about not typing anything twice. The nine client pages are one layout with the client name, the kind of result, a photograph and a quote passed into it. The blog posts are Markdown files, and the post pages, the index, the category pages and the author pages are all generated from those files. Publishing a post means adding a file.',
     'I did the design, the front-end build and the 20 blog posts. The photography, the logos and the product claims are nuVector\'s.',
   ],

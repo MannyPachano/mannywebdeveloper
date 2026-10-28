@@ -4,7 +4,7 @@ import { projects } from '../data/projects';
 
 // Screenshots come from the poster frames already listed in projects.ts.
 const poster = (slug: string) => projects.find((p) => p.slug === slug)?.video.poster ?? '';
-const href = (slug: string) => `/web-developer-project-${slug}`;
+const href = (slug: string) => `/web-developer-project-${slug}/`;
 
 // Three case studies shown as large rows. Clox stays behind SHOW_CLOX.
 const cases = [

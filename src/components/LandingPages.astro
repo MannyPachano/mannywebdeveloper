@@ -4,7 +4,7 @@ import { landingPages } from '../data/landing-pages';
 // The first three entries in landing-pages.ts get a large tile with a short
 // description; the rest get a small tile. Rythm shows its light version.
 const thumb = (page: (typeof landingPages)[number]) => page.compare?.a ?? page.hero.src;
-const href = (slug: string) => `/landing-page-${slug}`;
+const href = (slug: string) => `/landing-page-${slug}/`;
 
 const blurbs: Record<string, { text: string; link: string }> = {
   'halstead-mechanical': {

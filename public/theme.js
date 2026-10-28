@@ -42,7 +42,6 @@
       if (meta) meta.setAttribute('content', next === 'dark' ? '#1a1917' : '#ffe83d');
       root.dispatchEvent(new CustomEvent('themechange', { detail: next }));
     };
-    if (mq.addEventListener) mq.addEventListener('change', onChange);
-    else if (mq.addListener) mq.addListener(onChange);
+    mq.addEventListener('change', onChange);
   }
 })();

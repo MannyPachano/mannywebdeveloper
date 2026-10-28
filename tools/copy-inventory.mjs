@@ -162,7 +162,7 @@ function flatten(src) {
   src = src.replace(/<!--[\s\S]*?-->/g, '');
   /* Flatten simple expressions so conditional copy stays visible and a bare
      interpolation like {year} is not silently swallowed. */
-  src = src.replace(/\{([^{}]*)\}/g, (m, inner) => {
+  src = src.replace(/\{([^{}]*)\}/g, (_m, inner) => {
     const strs = [...inner.matchAll(/'((?:[^'\\]|\\.)*)'|"((?:[^"\\]|\\.)*)"/g)]
       .map((x) => (x[1] ?? x[2] ?? '').trim())
       .filter((t) => /[a-z]/i.test(t));
